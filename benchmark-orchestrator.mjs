@@ -17,12 +17,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // All available models - ordered CHEAPEST FIRST for sequential mode safety
 // Gemini 3 Pro removed (too slow: 60s+ avg latency)
+// Grok 4.1 Fast excluded 2026-01-18
+// GPT-5 Nano excluded 2026-01-18
 const ALL_MODELS = [
   // Fast/cheap tier first (most likely to complete before credits run out)
   { id: 'anthropic/claude-haiku-4.5', name: 'Claude 4.5 Haiku', tier: 'fast' },
   { id: 'google/gemini-3-flash-preview', name: 'Gemini 3 Flash', tier: 'fast' },
-  { id: 'x-ai/grok-4.1-fast', name: 'Grok 4.1 Fast', tier: 'fast' },
-  { id: 'openai/gpt-5-nano', name: 'GPT-5 Nano', tier: 'fast' },
+  // { id: 'x-ai/grok-4.1-fast', name: 'Grok 4.1 Fast', tier: 'fast' },
+  // { id: 'openai/gpt-5-nano', name: 'GPT-5 Mini', tier: 'fast' },
   // Premium tier last (run these after cheap models have data)
   { id: 'anthropic/claude-sonnet-4.5', name: 'Claude Sonnet 4.5', tier: 'premium' },
   { id: 'openai/gpt-5.2', name: 'GPT-5.2', tier: 'premium' },

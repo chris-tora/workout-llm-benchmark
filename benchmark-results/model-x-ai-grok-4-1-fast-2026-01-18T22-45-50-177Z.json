@@ -1,0 +1,49 @@
+{
+  "modelId": "x-ai/grok-4.1-fast",
+  "modelName": "Grok 4.1 Fast",
+  "tier": "fast",
+  "timestamp": "2026-01-18T22:45:50.177Z",
+  "totalScenarios": 1,
+  "scenarios": [
+    {
+      "name": "Bro Split (Chest) (60min)",
+      "split": "bro_split",
+      "dayFocus": "Chest",
+      "duration": 60,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Dumbbells",
+        "Barbell",
+        "Cable Machine",
+        "Chest Press",
+        "Pec Deck"
+      ],
+      "success": false,
+      "latency": 11375,
+      "exerciseCount": 0,
+      "equipmentMatchRate": 0,
+      "avgSets": 0,
+      "avgReps": "-",
+      "avgRest": 0,
+      "error": "HTTP 400: {\"error\":\"Not enough exercises found for the selected criteria\",\"availableCount\":0,\"suggestion\":\"Try selecting different body parts or adding more equipment\"}",
+      "workout": null,
+      "meta": null
+    }
+  ],
+  "summary": {
+    "successCount": 0,
+    "parseErrorCount": 0,
+    "apiErrorCount": 1,
+    "totalLatency": 0,
+    "avgLatency": 0,
+    "avgExerciseCount": 0,
+    "avgEquipmentMatchRate": 0,
+    "avgSets": 0,
+    "avgRest": 0,
+    "repsCounts": {},
+    "avgReps": "-",
+    "successRate": 0
+  }
+}
