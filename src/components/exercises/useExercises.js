@@ -24,19 +24,13 @@ export function useExercises() {
     try {
       let query = supabase
         .from('exercises')
-        .select('id, name, equipment, body_part, target, weirdness_score, tier', { count: 'exact' })
+        .select('id, name, equipment, bodypart, target, tier, video_url, gif_url', { count: 'exact' })
 
-      if (filters.minScore !== undefined) {
-        query = query.gte('weirdness_score', filters.minScore)
-      }
-      if (filters.maxScore !== undefined) {
-        query = query.lte('weirdness_score', filters.maxScore)
-      }
       if (filters.equipment) {
         query = query.eq('equipment', filters.equipment)
       }
       if (filters.bodyPart) {
-        query = query.eq('body_part', filters.bodyPart)
+        query = query.eq('bodypart', filters.bodyPart)
       }
       if (filters.search) {
         query = query.ilike('name', `%${filters.search}%`)
@@ -46,7 +40,7 @@ export function useExercises() {
       }
 
       query = query
-        .order('weirdness_score', { ascending: false, nullsFirst: false })
+        .order('name', { ascending: true })
         .range(page * PAGE_SIZE, (page + 1) * PAGE_SIZE - 1)
 
       const { data, error: fetchError, count } = await query
@@ -129,14 +123,14 @@ export function useExercises() {
   const fetchFilterOptions = useCallback(async () => {
     const [equipmentResult, bodyPartResult] = await Promise.all([
       supabase.from('exercises').select('equipment').order('equipment'),
-      supabase.from('exercises').select('body_part').order('body_part'),
+      supabase.from('exercises').select('bodypart').order('bodypart'),
     ])
 
     if (equipmentResult.error) throw equipmentResult.error
     if (bodyPartResult.error) throw bodyPartResult.error
 
     const equipment = [...new Set(equipmentResult.data.map((e) => e.equipment))].filter(Boolean)
-    const bodyParts = [...new Set(bodyPartResult.data.map((e) => e.body_part))].filter(Boolean)
+    const bodyParts = [...new Set(bodyPartResult.data.map((e) => e.bodypart))].filter(Boolean)
 
     const result = { equipment, bodyParts }
     setFilterOptions(result)
