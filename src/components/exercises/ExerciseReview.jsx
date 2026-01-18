@@ -28,17 +28,19 @@ const BULK_TIER_OPTIONS = [
   { value: 'excluded', label: 'Excluded' },
 ]
 
-// GIF URLs from Supabase Storage (same as Gallery component)
+// Media URLs from Supabase Storage
 const SUPABASE_URL = 'https://ivfllbccljoyaayftecd.supabase.co'
-const getGifUrl = (exerciseId) =>
-  `${SUPABASE_URL}/storage/v1/object/public/exercise-gifs/${exerciseId}.gif`
 
-function getScoreClass(score) {
-  if (score > 80) return 'bg-red-100 text-red-700 border-red-200'
-  if (score > 50) return 'bg-orange-100 text-orange-700 border-orange-200'
-  if (score > 20) return 'bg-yellow-100 text-yellow-700 border-yellow-200'
-  return 'bg-green-100 text-green-700 border-green-200'
+const isValidUrl = (url) => url && (url.startsWith('http://') || url.startsWith('https://'))
+
+const getMediaUrl = (exercise) => {
+  if (isValidUrl(exercise.video_url)) return exercise.video_url
+  if (isValidUrl(exercise.gif_url)) return exercise.gif_url
+  return `${SUPABASE_URL}/storage/v1/object/public/exercise-gifs/${exercise.id}.gif`
 }
+
+const isVideo = (exercise) =>
+  isValidUrl(exercise.video_url) && exercise.video_url.endsWith('.mp4')
 
 function getTierSelectClass(tier) {
   switch (tier) {
@@ -55,9 +57,11 @@ function getTierSelectClass(tier) {
   }
 }
 
-function GifThumbnail({ src, alt, onClick }) {
+function MediaThumbnail({ exercise, onClick }) {
   const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState(false)
+  const src = getMediaUrl(exercise)
+  const videoMode = isVideo(exercise)
 
   if (!src || error) {
     return (
@@ -72,21 +76,38 @@ function GifThumbnail({ src, alt, onClick }) {
       className="w-12 h-12 rounded bg-zinc-200 overflow-hidden cursor-pointer"
       onClick={onClick}
     >
-      <img
-        src={src}
-        alt={alt}
-        className={`w-full h-full object-cover transition-opacity ${loaded ? 'opacity-100' : 'opacity-0'}`}
-        onLoad={() => setLoaded(true)}
-        onError={() => setError(true)}
-      />
+      {videoMode ? (
+        <video
+          src={src}
+          muted
+          loop
+          playsInline
+          onMouseEnter={e => e.target.play()}
+          onMouseLeave={e => { e.target.pause(); e.target.currentTime = 0 }}
+          className={`w-full h-full object-cover transition-opacity ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          onLoadedData={() => setLoaded(true)}
+          onError={() => setError(true)}
+        />
+      ) : (
+        <img
+          src={src}
+          alt={exercise.name}
+          className={`w-full h-full object-cover transition-opacity ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          onLoad={() => setLoaded(true)}
+          onError={() => setError(true)}
+        />
+      )}
     </div>
   )
 }
 
-function HoverPreview({ src, position }) {
+function HoverPreview({ exercise, position }) {
   const [loaded, setLoaded] = useState(false)
 
-  if (!src || !position) return null
+  if (!exercise || !position) return null
+
+  const src = getMediaUrl(exercise)
+  const videoMode = isVideo(exercise)
 
   // Position the preview to the right of the thumbnail
   // Adjust if it would go off-screen
@@ -126,12 +147,24 @@ function HoverPreview({ src, position }) {
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <img
-          src={src}
-          alt="Exercise preview"
-          className="w-full h-full object-contain bg-zinc-100"
-          onLoad={() => setLoaded(true)}
-        />
+        {videoMode ? (
+          <video
+            src={src}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-contain bg-zinc-100"
+            onLoadedData={() => setLoaded(true)}
+          />
+        ) : (
+          <img
+            src={src}
+            alt="Exercise preview"
+            className="w-full h-full object-contain bg-zinc-100"
+            onLoad={() => setLoaded(true)}
+          />
+        )}
       </div>
     </div>
   )
@@ -159,13 +192,13 @@ export function ExerciseReview() {
   const [bulkTier, setBulkTier] = useState('always')
   const [applyingBulk, setApplyingBulk] = useState(false)
   const [savingId, setSavingId] = useState(null)
-  const [previewGif, setPreviewGif] = useState(null)
-  const [hoverGif, setHoverGif] = useState({ src: null, position: null })
+  const [previewExercise, setPreviewExercise] = useState(null)
+  const [hoverExercise, setHoverExercise] = useState({ exercise: null, position: null })
   const searchTimeoutRef = useRef(null)
 
-  const handleGifHover = useCallback((src, rect) => {
-    setHoverGif({
-      src,
+  const handleExerciseHover = useCallback((exercise, rect) => {
+    setHoverExercise({
+      exercise,
       position: {
         top: rect.top,
         left: rect.left,
@@ -175,8 +208,8 @@ export function ExerciseReview() {
     })
   }, [])
 
-  const handleGifHoverEnd = useCallback(() => {
-    setHoverGif({ src: null, position: null })
+  const handleExerciseHoverEnd = useCallback(() => {
+    setHoverExercise({ exercise: null, position: null })
   }, [])
 
   // Initial data fetch
@@ -300,8 +333,6 @@ export function ExerciseReview() {
       }
 
   const hasActiveFilters =
-    filters.minScore !== undefined ||
-    filters.maxScore !== undefined ||
     filters.equipment ||
     filters.bodyPart ||
     filters.search ||
@@ -337,63 +368,30 @@ export function ExerciseReview() {
         </p>
       </div>
 
-      {/* Score & Tier Legend */}
+      {/* Tier Legend */}
       <Card className="bg-zinc-50 border-zinc-200">
         <CardContent className="py-4">
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Weirdness Score Explanation */}
-            <div>
-              <h3 className="text-sm font-semibold text-zinc-800 mb-2">Weirdness Score (0-100)</h3>
-              <p className="text-xs text-zinc-600 mb-3">
-                Algorithmic score identifying exercises that may confuse users or produce poor workouts.
-                Higher scores = more likely to be problematic.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-700 border border-green-200">
-                  <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                  0-20: Safe
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium bg-yellow-100 text-yellow-700 border border-yellow-200">
-                  <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
-                  21-50: Review
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium bg-orange-100 text-orange-700 border border-orange-200">
-                  <span className="w-2 h-2 rounded-full bg-orange-500"></span>
-                  51-80: Risky
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium bg-red-100 text-red-700 border border-red-200">
-                  <span className="w-2 h-2 rounded-full bg-red-500"></span>
-                  81-100: Exclude
-                </span>
+          <div>
+            <h3 className="text-sm font-semibold text-zinc-800 mb-2">Review Tiers</h3>
+            <p className="text-xs text-zinc-600 mb-3">
+              Your decision on whether to include this exercise in generated workouts.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <div className="flex items-center gap-2">
+                <span className="w-20 px-2 py-0.5 rounded text-xs font-medium bg-indigo-50 text-indigo-700 border border-indigo-300 text-center">Core</span>
+                <span className="text-xs text-zinc-600">Fundamental exercises, prioritize in all workouts</span>
               </div>
-              <p className="text-[10px] text-zinc-500 mt-2">
-                Factors: obscure equipment, unusual body positions, niche sports movements, complex coordination requirements
-              </p>
-            </div>
-
-            {/* Tier Explanation */}
-            <div>
-              <h3 className="text-sm font-semibold text-zinc-800 mb-2">Review Tiers</h3>
-              <p className="text-xs text-zinc-600 mb-3">
-                Your decision on whether to include this exercise in generated workouts.
-              </p>
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-2">
-                  <span className="w-20 px-2 py-0.5 rounded text-xs font-medium bg-indigo-50 text-indigo-700 border border-indigo-300 text-center">Core</span>
-                  <span className="text-xs text-zinc-600">Fundamental exercises, prioritize in all workouts</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-20 px-2 py-0.5 rounded text-xs font-medium bg-green-50 text-green-700 border border-green-300 text-center">Always</span>
-                  <span className="text-xs text-zinc-600">High-quality, universally applicable exercises</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-20 px-2 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 border border-amber-300 text-center">Catalog</span>
-                  <span className="text-xs text-zinc-600">Good exercises, include when equipment matches</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-20 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-300 text-center">Excluded</span>
-                  <span className="text-xs text-zinc-600">Never use in generated workouts</span>
-                </div>
+              <div className="flex items-center gap-2">
+                <span className="w-20 px-2 py-0.5 rounded text-xs font-medium bg-green-50 text-green-700 border border-green-300 text-center">Always</span>
+                <span className="text-xs text-zinc-600">High-quality, universally applicable exercises</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-20 px-2 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 border border-amber-300 text-center">Catalog</span>
+                <span className="text-xs text-zinc-600">Good exercises, include when equipment matches</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-20 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-300 text-center">Excluded</span>
+                <span className="text-xs text-zinc-600">Never use in generated workouts</span>
               </div>
             </div>
           </div>
@@ -444,44 +442,6 @@ export function ExerciseReview() {
                 placeholder="Exercise name..."
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
-              />
-            </div>
-
-            <div className="w-24">
-              <label className="block text-sm font-medium text-zinc-700 mb-1">
-                Min Score
-              </label>
-              <Input
-                type="number"
-                min={0}
-                max={100}
-                placeholder="0"
-                value={filters.minScore ?? ''}
-                onChange={(e) =>
-                  handleFiltersChange({
-                    ...filters,
-                    minScore: e.target.value ? Number(e.target.value) : undefined,
-                  })
-                }
-              />
-            </div>
-
-            <div className="w-24">
-              <label className="block text-sm font-medium text-zinc-700 mb-1">
-                Max Score
-              </label>
-              <Input
-                type="number"
-                min={0}
-                max={100}
-                placeholder="100"
-                value={filters.maxScore ?? ''}
-                onChange={(e) =>
-                  handleFiltersChange({
-                    ...filters,
-                    maxScore: e.target.value ? Number(e.target.value) : undefined,
-                  })
-                }
               />
             </div>
 
@@ -637,9 +597,6 @@ export function ExerciseReview() {
                         aria-label="Select all exercises on this page"
                       />
                     </th>
-                    <th className="w-20 py-3 px-4 text-left font-medium text-zinc-600">
-                      Score
-                    </th>
                     <th className="w-16 py-3 px-4 text-left font-medium text-zinc-600">
                       GIF
                     </th>
@@ -651,6 +608,9 @@ export function ExerciseReview() {
                     </th>
                     <th className="w-32 py-3 px-4 text-left font-medium text-zinc-600">
                       Body Part
+                    </th>
+                    <th className="py-3 px-4 text-left font-medium text-zinc-600">
+                      Media URL
                     </th>
                     <th className="w-36 py-3 px-4 text-left font-medium text-zinc-600">
                       Tier
@@ -673,9 +633,9 @@ export function ExerciseReview() {
                         }`}
                         onMouseEnter={(e) => {
                           const rect = e.currentTarget.getBoundingClientRect()
-                          handleGifHover(getGifUrl(exercise.id), rect)
+                          handleExerciseHover(exercise, rect)
                         }}
-                        onMouseLeave={handleGifHoverEnd}
+                        onMouseLeave={handleExerciseHoverEnd}
                       >
                         <td className="py-3 px-4">
                           <input
@@ -689,19 +649,9 @@ export function ExerciseReview() {
                           />
                         </td>
                         <td className="py-3 px-4">
-                          <span
-                            className={`inline-flex items-center justify-center w-10 h-6 text-xs font-medium rounded border ${getScoreClass(
-                              exercise.weirdness_score ?? 0
-                            )}`}
-                          >
-                            {exercise.weirdness_score ?? 0}
-                          </span>
-                        </td>
-                        <td className="py-3 px-4">
-                          <GifThumbnail
-                            src={getGifUrl(exercise.id)}
-                            alt={exercise.name}
-                            onClick={() => setPreviewGif(getGifUrl(exercise.id))}
+                          <MediaThumbnail
+                            exercise={exercise}
+                            onClick={() => setPreviewExercise(exercise)}
                           />
                         </td>
                         <td className="py-3 px-4 font-medium text-zinc-900">
@@ -711,7 +661,12 @@ export function ExerciseReview() {
                           {exercise.equipment}
                         </td>
                         <td className="py-3 px-4 text-zinc-600">
-                          {exercise.body_part}
+                          {exercise.bodypart}
+                        </td>
+                        <td className="py-3 px-4">
+                          <code className="text-xs text-zinc-500 block truncate max-w-xs" title={getMediaUrl(exercise)}>
+                            {getMediaUrl(exercise)}
+                          </code>
                         </td>
                         <td className="py-3 px-4">
                           <div className="relative">
@@ -772,6 +727,76 @@ export function ExerciseReview() {
               <ChevronLeft className="w-4 h-4 mr-1" />
               Previous
             </Button>
+
+            {/* Page Numbers */}
+            <div className="flex items-center gap-1">
+              {(() => {
+                const pages = []
+                const showPages = 5
+                let start = Math.max(1, page - Math.floor(showPages / 2))
+                let end = Math.min(totalPages, start + showPages - 1)
+
+                if (end - start < showPages - 1) {
+                  start = Math.max(1, end - showPages + 1)
+                }
+
+                if (start > 1) {
+                  pages.push(
+                    <button
+                      key={1}
+                      onClick={() => setPage(1)}
+                      disabled={loading}
+                      className="w-8 h-8 text-sm rounded-md border border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-100 disabled:opacity-50"
+                    >
+                      1
+                    </button>
+                  )
+                  if (start > 2) {
+                    pages.push(
+                      <span key="start-ellipsis" className="px-1 text-zinc-400">...</span>
+                    )
+                  }
+                }
+
+                for (let i = start; i <= end; i++) {
+                  pages.push(
+                    <button
+                      key={i}
+                      onClick={() => setPage(i)}
+                      disabled={loading}
+                      className={`w-8 h-8 text-sm rounded-md border ${
+                        i === page
+                          ? 'bg-zinc-900 text-white border-zinc-900'
+                          : 'bg-white text-zinc-700 border-zinc-300 hover:bg-zinc-100'
+                      } disabled:opacity-50`}
+                    >
+                      {i}
+                    </button>
+                  )
+                }
+
+                if (end < totalPages) {
+                  if (end < totalPages - 1) {
+                    pages.push(
+                      <span key="end-ellipsis" className="px-1 text-zinc-400">...</span>
+                    )
+                  }
+                  pages.push(
+                    <button
+                      key={totalPages}
+                      onClick={() => setPage(totalPages)}
+                      disabled={loading}
+                      className="w-8 h-8 text-sm rounded-md border border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-100 disabled:opacity-50"
+                    >
+                      {totalPages}
+                    </button>
+                  )
+                }
+
+                return pages
+              })()}
+            </div>
+
             <Button
               variant="outline"
               size="sm"
@@ -786,26 +811,38 @@ export function ExerciseReview() {
       </div>
 
       {/* Hover Preview */}
-      <HoverPreview src={hoverGif.src} position={hoverGif.position} />
+      <HoverPreview exercise={hoverExercise.exercise} position={hoverExercise.position} />
 
-      {/* GIF Preview Modal */}
-      {previewGif && (
+      {/* Media Preview Modal */}
+      {previewExercise && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
-          onClick={() => setPreviewGif(null)}
+          onClick={() => setPreviewExercise(null)}
         >
           <div className="relative max-w-lg max-h-[80vh]">
             <button
               className="absolute -top-10 right-0 text-white hover:text-zinc-300"
-              onClick={() => setPreviewGif(null)}
+              onClick={() => setPreviewExercise(null)}
             >
               <X className="w-6 h-6" />
             </button>
-            <img
-              src={previewGif}
-              alt="Exercise preview"
-              className="max-w-full max-h-[80vh] rounded-lg"
-            />
+            {isVideo(previewExercise) ? (
+              <video
+                src={getMediaUrl(previewExercise)}
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                className="max-w-full max-h-[80vh] rounded-lg"
+              />
+            ) : (
+              <img
+                src={getMediaUrl(previewExercise)}
+                alt={previewExercise.name}
+                className="max-w-full max-h-[80vh] rounded-lg"
+              />
+            )}
           </div>
         </div>
       )}
