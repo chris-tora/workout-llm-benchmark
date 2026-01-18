@@ -32,6 +32,9 @@ export function useExercises() {
       if (filters.bodyPart) {
         query = query.eq('bodypart', filters.bodyPart)
       }
+      if (filters.target) {
+        query = query.eq('target', filters.target)
+      }
       if (filters.search) {
         query = query.ilike('name', `%${filters.search}%`)
       }
@@ -121,18 +124,44 @@ export function useExercises() {
   }, [])
 
   const fetchFilterOptions = useCallback(async () => {
-    const [equipmentResult, bodyPartResult] = await Promise.all([
-      supabase.from('exercises').select('equipment').order('equipment'),
-      supabase.from('exercises').select('bodypart').order('bodypart'),
+    // Use raw SQL with RPC to get truly distinct values across all rows
+    // This avoids the 1000-row pagination limit of standard select queries
+    const [equipmentResult, bodyPartResult, targetResult] = await Promise.all([
+      supabase.rpc('get_distinct_equipment'),
+      supabase.rpc('get_distinct_bodyparts'),
+      supabase.rpc('get_distinct_targets'),
     ])
 
-    if (equipmentResult.error) throw equipmentResult.error
-    if (bodyPartResult.error) throw bodyPartResult.error
+    if (equipmentResult.error) {
+      console.error('Equipment fetch error:', equipmentResult.error)
+      throw equipmentResult.error
+    }
+    if (bodyPartResult.error) {
+      console.error('BodyPart fetch error:', bodyPartResult.error)
+      throw bodyPartResult.error
+    }
+    if (targetResult.error) {
+      console.error('Target fetch error:', targetResult.error)
+      throw targetResult.error
+    }
 
-    const equipment = [...new Set(equipmentResult.data.map((e) => e.equipment))].filter(Boolean)
-    const bodyParts = [...new Set(bodyPartResult.data.map((e) => e.bodypart))].filter(Boolean)
+    // RPC functions return arrays of objects with a single column
+    const equipment = (equipmentResult.data || [])
+      .map((row) => row.equipment)
+      .filter(Boolean)
+      .sort()
 
-    const result = { equipment, bodyParts }
+    const bodyParts = (bodyPartResult.data || [])
+      .map((row) => row.bodypart)
+      .filter(Boolean)
+      .sort()
+
+    const targets = (targetResult.data || [])
+      .map((row) => row.target)
+      .filter(Boolean)
+      .sort()
+
+    const result = { equipment, bodyParts, targets }
     setFilterOptions(result)
     return result
   }, [])
