@@ -5,8 +5,7 @@ import { LLMBenchmark } from './components/benchmark'
 import { ExerciseReview } from './components/exercises'
 import { MuscleMap } from './components/muscle-map'
 import { BeforeAfterComparison } from './components/before-after'
-import { ColorSchemeComparison } from './components/color-scheme-comparison'
-import { Beaker, Image, Video, Brain, Dumbbell, User, ArrowLeftRight, Palette } from 'lucide-react'
+import { Beaker, Image, Video, Brain, Dumbbell, User, ArrowLeftRight } from 'lucide-react'
 
 function NavTab({ to, children }) {
   return (
@@ -62,10 +61,6 @@ function App() {
                 <ArrowLeftRight className="w-4 h-4 mr-1.5" />
                 Before/After
               </NavTab>
-              <NavTab to="/color-schemes">
-                <Palette className="w-4 h-4 mr-1.5" />
-                Color Schemes
-              </NavTab>
             </nav>
           </div>
         </div>
@@ -81,7 +76,6 @@ function App() {
           <Route path="/exercises" element={<ExerciseReview />} />
           <Route path="/muscle-map" element={<MuscleMap />} />
           <Route path="/before-after" element={<BeforeAfterComparison />} />
-          <Route path="/color-schemes" element={<ColorSchemeComparison />} />
         </Routes>
       </main>
 

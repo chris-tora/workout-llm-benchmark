@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import { User, RotateCcw } from 'lucide-react'
+import { User, RotateCcw, ChevronDown } from 'lucide-react'
 import { Legend } from './Legend'
 import { LevelPickerModal } from './LevelPickerModal'
 import { useMuscleStrength } from './useMuscleStrength'
-import { getAllSchemes } from '../../theme/color-schemes/index.js'
+import { getAllSchemes, getColorScheme, DEFAULT_SCHEME } from '../../theme/color-schemes/index.js'
 
 // Muscle names mapping - supports both basic and advanced muscle IDs
 const MUSCLE_NAMES = {
@@ -61,27 +61,15 @@ const MUSCLE_NAMES = {
   'lower-trapezius': 'Lower Traps'
 }
 
-// Level definitions with colors (cool→warm spectrum for intuitive progression)
-const LEVELS = [
-  { id: 'beginner', label: 'Beginner', color: '#94A3B8' },      // Slate grey - starting point
-  { id: 'novice', label: 'Novice', color: '#38BDF8' },          // Sky blue - early progress
-  { id: 'intermediate', label: 'Intermediate', color: '#4ADE80' }, // Green - solid foundation
-  { id: 'advanced', label: 'Advanced', color: '#FACC15' },      // Yellow - heating up
-  { id: 'elite', label: 'Elite', color: '#FB923C' },            // Orange - high performance
-  { id: 'worldClass', label: 'World Class', color: '#F43F5E' }  // Rose/Red - peak mastery
-]
-
-const COLORS = {
-  default: '#FFFFFF',
-  hover: '#FE9CB2',
-  background: '#F5F5F5'
-}
-
 export function MuscleMap() {
   const [frontSvg, setFrontSvg] = useState('')
   const [backSvg, setBackSvg] = useState('')
   const { muscleLevels, loading, setMuscleLevel, clearAll } = useMuscleStrength()
   const [selectedMuscleId, setSelectedMuscleId] = useState(null) // For modal
+  const [selectedSchemeId, setSelectedSchemeId] = useState(DEFAULT_SCHEME)
+  const [schemeDropdownOpen, setSchemeDropdownOpen] = useState(false)
+  const allSchemes = getAllSchemes()
+  const currentScheme = getColorScheme(selectedSchemeId)
 
   useEffect(() => {
     // Load SVGs
@@ -101,10 +89,10 @@ export function MuscleMap() {
     }
   }
 
-  // Generate dynamic CSS for muscle colors based on levels
+  // Generate dynamic CSS for muscle colors based on levels (using current scheme)
   const dynamicStyles = Object.entries(muscleLevels)
     .map(([muscleId, levelId]) => {
-      const levelData = LEVELS.find(l => l.id === levelId)
+      const levelData = currentScheme.levels.find(l => l.id === levelId)
       if (levelData) {
         return `#${muscleId} { color: ${levelData.color} !important; }`
       }
@@ -125,8 +113,8 @@ export function MuscleMap() {
     setSelectedMuscleId(muscleId)
   }
 
-  // Get muscles grouped by level for display
-  const musclesByLevel = LEVELS.reduce((acc, level) => {
+  // Get muscles grouped by level for display (using current scheme)
+  const musclesByLevel = currentScheme.levels.reduce((acc, level) => {
     const muscles = Object.entries(muscleLevels)
       .filter(([, lvl]) => lvl === level.id)
       .map(([id]) => id)
@@ -143,11 +131,11 @@ export function MuscleMap() {
       {/* CSS for muscle colors - default + hover + dynamic level colors */}
       <style>{`
         .bodymap {
-          color: ${COLORS.default};
+          color: ${currentScheme.colors.default};
           cursor: pointer;
         }
         .bodymap:hover {
-          color: ${COLORS.hover} !important;
+          color: ${currentScheme.colors.hover} !important;
         }
         ${dynamicStyles}
       `}</style>
@@ -162,12 +150,68 @@ export function MuscleMap() {
         <div className="text-center text-zinc-400 text-sm">Loading saved data...</div>
       )}
 
-      {/* Gender toggle - MVP: Male only */}
-      <div className="flex justify-center">
+      {/* Controls row: Gender + Scheme selector */}
+      <div className="flex justify-center gap-3">
         <button className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg text-sm font-medium">
           <User className="w-4 h-4" />
           Male
         </button>
+
+        {/* Color scheme selector with preview */}
+        <div className="relative">
+          <button
+            onClick={() => setSchemeDropdownOpen(!schemeDropdownOpen)}
+            className="flex items-center gap-3 px-4 py-2 bg-white border border-zinc-200 rounded-lg text-sm font-medium text-zinc-700 cursor-pointer hover:border-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-500"
+          >
+            <span>{currentScheme.name}</span>
+            <div className="flex gap-px">
+              {currentScheme.levels.map((level) => (
+                <div
+                  key={level.id}
+                  className="w-3 h-3 first:rounded-l last:rounded-r"
+                  style={{ backgroundColor: level.color }}
+                />
+              ))}
+            </div>
+            <ChevronDown className={`w-4 h-4 text-zinc-400 transition-transform ${schemeDropdownOpen ? 'rotate-180' : ''}`} />
+          </button>
+
+          {schemeDropdownOpen && (
+            <>
+              {/* Backdrop to close dropdown */}
+              <div
+                className="fixed inset-0 z-10"
+                onClick={() => setSchemeDropdownOpen(false)}
+              />
+              {/* Dropdown panel */}
+              <div className="absolute top-full left-0 mt-1 z-20 bg-white border border-zinc-200 rounded-lg shadow-lg py-1 min-w-[200px]">
+                {allSchemes.map((scheme) => (
+                  <button
+                    key={scheme.id}
+                    onClick={() => {
+                      setSelectedSchemeId(scheme.id)
+                      setSchemeDropdownOpen(false)
+                    }}
+                    className={`w-full flex items-center justify-between gap-3 px-3 py-2 text-sm text-left hover:bg-zinc-50 transition-colors ${
+                      scheme.id === selectedSchemeId ? 'bg-zinc-100 font-medium' : ''
+                    }`}
+                  >
+                    <span className="text-zinc-700">{scheme.name}</span>
+                    <div className="flex gap-px">
+                      {scheme.levels.map((level) => (
+                        <div
+                          key={level.id}
+                          className="w-3 h-3 first:rounded-l last:rounded-r"
+                          style={{ backgroundColor: level.color }}
+                        />
+                      ))}
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
       </div>
 
       {/* Body maps */}
@@ -177,7 +221,6 @@ export function MuscleMap() {
           <div
             className="bg-gray-100 rounded-xl p-6"
             dangerouslySetInnerHTML={{ __html: frontSvg }}
-            style={{ '--muscle-default': COLORS.default }}
             onClick={handleBodyMapClick}
           />
         </div>
@@ -192,7 +235,7 @@ export function MuscleMap() {
       </div>
 
       {/* Level Legend - below body maps, above panel */}
-      <Legend />
+      <Legend levels={currentScheme.levels} />
 
       {/* Muscle Levels panel */}
       <div className="bg-white rounded-xl border p-4">
@@ -212,7 +255,7 @@ export function MuscleMap() {
           <span className="text-zinc-400 text-sm">Click on muscle groups to assign strength levels</span>
         ) : (
           <div className="space-y-3">
-            {LEVELS.map(level => {
+            {currentScheme.levels.map(level => {
               const muscles = musclesByLevel[level.id]
               if (!muscles) return null
 
@@ -253,6 +296,7 @@ export function MuscleMap() {
         currentLevel={muscleLevels[selectedMuscleId] || null}
         onSelect={handleLevelSelect}
         onClose={() => setSelectedMuscleId(null)}
+        levels={currentScheme.levels}
       />
 
       {/* Color Scheme Comparison - All schemes at once */}

@@ -1,16 +1,6 @@
 import { X } from 'lucide-react'
 
-// Cool→warm spectrum for intuitive progression
-const LEVELS = [
-  { id: 'beginner', label: 'Beginner', color: '#94A3B8' },      // Slate grey
-  { id: 'novice', label: 'Novice', color: '#38BDF8' },          // Sky blue
-  { id: 'intermediate', label: 'Intermediate', color: '#4ADE80' }, // Green
-  { id: 'advanced', label: 'Advanced', color: '#FACC15' },      // Yellow
-  { id: 'elite', label: 'Elite', color: '#FB923C' },            // Orange
-  { id: 'worldClass', label: 'World Class', color: '#F43F5E' }  // Rose/Red
-]
-
-export function LevelPickerModal({ muscleName, muscleId, currentLevel, onSelect, onClose }) {
+export function LevelPickerModal({ muscleName, muscleId, currentLevel, onSelect, onClose, levels }) {
   if (!muscleId) return null
 
   const handleBackdropClick = (e) => {
@@ -50,7 +40,7 @@ export function LevelPickerModal({ muscleName, muscleId, currentLevel, onSelect,
 
         {/* Level options */}
         <div className="p-2">
-          {LEVELS.map((level) => (
+          {levels.map((level) => (
             <button
               key={level.id}
               onClick={() => handleLevelSelect(level.id)}
