@@ -90,9 +90,10 @@ export function MuscleMap() {
   }
 
   // Generate dynamic CSS for muscle colors based on levels (using current scheme)
+  // Note: muscleLevels stores numeric indices (0-5), not string IDs
   const dynamicStyles = Object.entries(muscleLevels)
-    .map(([muscleId, levelId]) => {
-      const levelData = currentScheme.levels.find(l => l.id === levelId)
+    .map(([muscleId, levelIdx]) => {
+      const levelData = currentScheme.levels[levelIdx]
       if (levelData) {
         return `#${muscleId} { color: ${levelData.color} !important; }`
       }
@@ -114,12 +115,13 @@ export function MuscleMap() {
   }
 
   // Get muscles grouped by level for display (using current scheme)
-  const musclesByLevel = currentScheme.levels.reduce((acc, level) => {
+  // Note: muscleLevels stores numeric indices (0-5)
+  const musclesByLevel = currentScheme.levels.reduce((acc, level, idx) => {
     const muscles = Object.entries(muscleLevels)
-      .filter(([, lvl]) => lvl === level.id)
+      .filter(([, levelIdx]) => levelIdx === idx)
       .map(([id]) => id)
     if (muscles.length > 0) {
-      acc[level.id] = muscles
+      acc[idx] = muscles
     }
     return acc
   }, {})
@@ -255,12 +257,12 @@ export function MuscleMap() {
           <span className="text-zinc-400 text-sm">Click on muscle groups to assign strength levels</span>
         ) : (
           <div className="space-y-3">
-            {currentScheme.levels.map(level => {
-              const muscles = musclesByLevel[level.id]
+            {currentScheme.levels.map((level, idx) => {
+              const muscles = musclesByLevel[idx]
               if (!muscles) return null
 
               return (
-                <div key={level.id}>
+                <div key={idx}>
                   <div className="flex items-center gap-2 mb-1.5">
                     <span
                       className="w-2.5 h-2.5 rounded-full"

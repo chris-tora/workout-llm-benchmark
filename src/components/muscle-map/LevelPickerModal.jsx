@@ -9,8 +9,9 @@ export function LevelPickerModal({ muscleName, muscleId, currentLevel, onSelect,
     }
   }
 
-  const handleLevelSelect = (levelId) => {
-    onSelect(muscleId, levelId)
+  // Pass numeric index (0-5) to onSelect
+  const handleLevelSelect = (levelIdx) => {
+    onSelect(muscleId, levelIdx)
     onClose()
   }
 
@@ -38,14 +39,14 @@ export function LevelPickerModal({ muscleName, muscleId, currentLevel, onSelect,
           </button>
         </div>
 
-        {/* Level options */}
+        {/* Level options - currentLevel is numeric index (0-5) */}
         <div className="p-2">
-          {levels.map((level) => (
+          {levels.map((level, idx) => (
             <button
-              key={level.id}
-              onClick={() => handleLevelSelect(level.id)}
+              key={idx}
+              onClick={() => handleLevelSelect(idx)}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-colors ${
-                currentLevel === level.id
+                currentLevel === idx
                   ? 'bg-zinc-100'
                   : 'hover:bg-zinc-50'
               }`}
@@ -55,14 +56,14 @@ export function LevelPickerModal({ muscleName, muscleId, currentLevel, onSelect,
                 style={{ backgroundColor: level.color }}
               />
               <span className="text-zinc-900">{level.label}</span>
-              {currentLevel === level.id && (
+              {currentLevel === idx && (
                 <span className="ml-auto text-xs text-zinc-500">Current</span>
               )}
             </button>
           ))}
 
-          {/* Remove option */}
-          {currentLevel && (
+          {/* Remove option - check for not null/undefined since 0 is valid */}
+          {currentLevel != null && (
             <>
               <div className="border-t my-2" />
               <button
