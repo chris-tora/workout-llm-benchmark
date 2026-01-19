@@ -17,15 +17,16 @@ export function useUncategorizedExercises() {
   const [totalCount, setTotalCount] = useState(0)
 
   // Fetch exercises that need attention:
-  // 1. tier IS NULL (359 uncategorized)
-  // 2. tier = 'excluded' AND instructions IS NULL (160 excluded without instructions)
+  // 1. tier IS NULL (uncategorized)
+  // 2. tier = 'excluded' AND instructions IS NULL (excluded without instructions)
+  // 3. tier IS NOT NULL AND instructions IS NULL (categorized but no instructions)
   const fetchExercises = useCallback(async (filters, page = 0) => {
     setLoading(true)
     setError(null)
 
     try {
       // Determine which filter mode we're in
-      const mode = filters.mode || 'all' // 'all', 'uncategorized', 'excluded_no_instructions'
+      const mode = filters.mode || 'all' // 'all', 'uncategorized', 'excluded_no_instructions', 'categorized_no_instructions'
 
       let query = supabase
         .from('exercises')
@@ -35,9 +36,11 @@ export function useUncategorizedExercises() {
         query = query.is('tier', null)
       } else if (mode === 'excluded_no_instructions') {
         query = query.eq('tier', 'excluded').is('instructions', null)
+      } else if (mode === 'categorized_no_instructions') {
+        query = query.not('tier', 'is', null).is('instructions', null)
       } else {
-        // 'all' mode: use OR filter for both conditions
-        query = query.or('tier.is.null,and(tier.eq.excluded,instructions.is.null)')
+        // 'all' mode: ALL exercises needing attention (tier IS NULL OR instructions IS NULL)
+        query = query.or('tier.is.null,instructions.is.null')
       }
 
       // Additional filters
@@ -105,18 +108,21 @@ export function useUncategorizedExercises() {
   }, [])
 
   const fetchStats = useCallback(async () => {
-    const [uncategorizedResult, excludedNoInstructionsResult] = await Promise.all([
+    const [uncategorizedResult, excludedNoInstructionsResult, categorizedNoInstructionsResult] = await Promise.all([
       supabase.from('exercises').select('*', { count: 'exact', head: true }).is('tier', null),
       supabase.from('exercises').select('*', { count: 'exact', head: true }).eq('tier', 'excluded').is('instructions', null),
+      supabase.from('exercises').select('*', { count: 'exact', head: true }).not('tier', 'is', null).is('instructions', null),
     ])
 
     if (uncategorizedResult.error) throw uncategorizedResult.error
     if (excludedNoInstructionsResult.error) throw excludedNoInstructionsResult.error
+    if (categorizedNoInstructionsResult.error) throw categorizedNoInstructionsResult.error
 
     const result = {
       uncategorized: uncategorizedResult.count || 0,
       excludedNoInstructions: excludedNoInstructionsResult.count || 0,
-      total: (uncategorizedResult.count || 0) + (excludedNoInstructionsResult.count || 0),
+      categorizedNoInstructions: categorizedNoInstructionsResult.count || 0,
+      total: (uncategorizedResult.count || 0) + (excludedNoInstructionsResult.count || 0) + (categorizedNoInstructionsResult.count || 0),
     }
 
     setStats(result)

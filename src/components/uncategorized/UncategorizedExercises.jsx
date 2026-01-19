@@ -13,6 +13,7 @@ import {
   ImageOff,
   AlertTriangle,
   FileQuestion,
+  FileText,
 } from 'lucide-react'
 
 const TIER_OPTIONS = [
@@ -26,6 +27,7 @@ const MODE_OPTIONS = [
   { value: 'all', label: 'All Needs Attention', count: 'total' },
   { value: 'uncategorized', label: 'Uncategorized (null tier)', count: 'uncategorized' },
   { value: 'excluded_no_instructions', label: 'Excluded (no instructions)', count: 'excludedNoInstructions' },
+  { value: 'categorized_no_instructions', label: 'Categorized (no instructions)', count: 'categorizedNoInstructions' },
 ]
 
 const SUPABASE_URL = 'https://ivfllbccljoyaayftecd.supabase.co'
@@ -287,7 +289,7 @@ export function UncategorizedExercises() {
 
       {/* Stats Cards */}
       {stats && (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-4 gap-4">
           <Card
             className={`cursor-pointer transition-all ${mode === 'all' ? 'ring-2 ring-zinc-900' : 'hover:border-zinc-400'}`}
             onClick={() => setMode('all')}
@@ -334,6 +336,23 @@ export function UncategorizedExercises() {
                 <div>
                   <p className="text-2xl font-bold text-red-600">{stats.excludedNoInstructions}</p>
                   <p className="text-sm text-zinc-500">Excluded (no instructions)</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card
+            className={`cursor-pointer transition-all ${mode === 'categorized_no_instructions' ? 'ring-2 ring-violet-500' : 'hover:border-zinc-400'}`}
+            onClick={() => setMode('categorized_no_instructions')}
+          >
+            <CardContent className="p-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-violet-50 flex items-center justify-center">
+                  <FileText className="w-5 h-5 text-violet-600" />
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-violet-600">{stats.categorizedNoInstructions}</p>
+                  <p className="text-sm text-zinc-500">Categorized (no instructions)</p>
                 </div>
               </div>
             </CardContent>
