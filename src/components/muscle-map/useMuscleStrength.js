@@ -6,6 +6,32 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 
 const supabase = createClient(supabaseUrl, supabaseKey)
 
+// Default muscle levels for demo - ensures all 6 tiers are represented
+const DEFAULT_MUSCLE_LEVELS = {
+  // Level 0 (Iron/Novice)
+  'hands': 0,
+  // Level 1 (Bronze/Beginner)
+  'forearms': 1,
+  'calves': 1,
+  // Level 2 (Steel/Intermediate)
+  'biceps': 2,
+  'triceps': 2,
+  'obliques': 2,
+  // Level 3 (Silver/Advanced)
+  'front-shoulders': 3,
+  'rear-shoulders': 3,
+  'quads': 3,
+  'hamstrings': 3,
+  // Level 4 (Gold/Elite)
+  'chest': 4,
+  'lats': 4,
+  'traps': 4,
+  // Level 5 (Platinum/World Class)
+  'glutes': 5,
+  'abdominals': 5,
+  'lowerback': 5,
+}
+
 function getBrowserId() {
   const KEY = 'muscle-map-browser-id'
   let id = localStorage.getItem(KEY)
@@ -83,11 +109,18 @@ export function useMuscleStrength() {
           .eq('browser_id', browserId)
           .single()
 
-        if (!cancelled && data) {
-          setMuscleLevels(data.muscle_levels || {})
+        if (!cancelled) {
+          // Use saved data if exists, otherwise use defaults for demo
+          const levels = data?.muscle_levels && Object.keys(data.muscle_levels).length > 0
+            ? data.muscle_levels
+            : DEFAULT_MUSCLE_LEVELS
+          setMuscleLevels(levels)
         }
       } catch (e) {
-        console.error('Failed to load muscle levels:', e)
+        // No saved data - use defaults for demo
+        if (!cancelled) {
+          setMuscleLevels(DEFAULT_MUSCLE_LEVELS)
+        }
       }
       if (!cancelled) {
         setLoading(false)
