@@ -3,8 +3,11 @@ import { User, RotateCcw } from 'lucide-react'
 import { Legend } from './Legend'
 import { LevelPickerModal } from './LevelPickerModal'
 import { useMuscleStrength } from './useMuscleStrength'
+import { getAllSchemes } from '../../theme/color-schemes/index.js'
 
+// Muscle names mapping - supports both basic and advanced muscle IDs
 const MUSCLE_NAMES = {
+  // Basic muscle groups
   'calves': 'Calves',
   'quads': 'Quadriceps',
   'abdominals': 'Abdominals',
@@ -21,7 +24,41 @@ const MUSCLE_NAMES = {
   'lats': 'Lats',
   'lowerback': 'Lower Back',
   'traps-middle': 'Mid Traps',
-  'rear-shoulders': 'Rear Delts'
+  'rear-shoulders': 'Rear Delts',
+  'shoulders': 'Shoulders',
+
+  // Advanced muscle subdivisions - Front
+  'groin': 'Groin',
+  'upper-abdominals': 'Upper Abs',
+  'lower-abdominals': 'Lower Abs',
+  'gastrocnemius': 'Gastrocnemius',
+  'tibialis': 'Tibialis',
+  'soleus': 'Soleus',
+  'outer-quadricep': 'Outer Quad',
+  'rectus-femoris': 'Rectus Femoris',
+  'inner-quadricep': 'Inner Quad',
+  'inner-thigh': 'Inner Thigh',
+  'wrist-flexors': 'Wrist Flexors',
+  'wrist-extensors': 'Wrist Extensors',
+  'short-head-bicep': 'Bicep Short Head',
+  'long-head-bicep': 'Bicep Long Head',
+  'mid-lower-pectoralis': 'Mid/Lower Chest',
+  'upper-pectoralis': 'Upper Chest',
+  'anterior-deltoid': 'Front Delt',
+  'lateral-deltoid': 'Side Delt',
+  'upper-trapzeius': 'Upper Traps',
+
+  // Advanced muscle subdivisions - Back
+  'upper-trapezius': 'Upper Traps',
+  'medial-hamstrings': 'Medial Hamstrings',
+  'lateral-hamstrings': 'Lateral Hamstrings',
+  'gluteus-maximus': 'Glute Max',
+  'gluteus-medius': 'Glute Med',
+  'medial-head-triceps': 'Tricep Medial',
+  'long-head-triceps': 'Tricep Long Head',
+  'later-head-triceps': 'Tricep Lateral',
+  'posterior-deltoid': 'Rear Delt',
+  'lower-trapezius': 'Lower Traps'
 }
 
 // Level definitions with colors (cool→warm spectrum for intuitive progression)
@@ -217,6 +254,145 @@ export function MuscleMap() {
         onSelect={handleLevelSelect}
         onClose={() => setSelectedMuscleId(null)}
       />
+
+      {/* Color Scheme Comparison - All schemes at once */}
+      <ColorSchemeGallery />
+    </div>
+  )
+}
+
+/**
+ * Color Scheme Gallery - displays all schemes applied to body SVGs
+ */
+function ColorSchemeGallery() {
+  const schemes = getAllSchemes()
+  const [frontSvg, setFrontSvg] = useState('')
+  const [backSvg, setBackSvg] = useState('')
+
+  useEffect(() => {
+    fetch('/assets/front-body.svg')
+      .then(r => r.text())
+      .then(setFrontSvg)
+    fetch('/assets/back-body.svg')
+      .then(r => r.text())
+      .then(setBackSvg)
+  }, [])
+
+  // Sample muscle levels to demonstrate each scheme
+  const sampleLevels = {
+    'chest': 4,           // elite
+    'front-shoulders': 3, // advanced
+    'biceps': 2,          // intermediate
+    'quads': 1,           // beginner
+    'abdominals': 0,      // novice
+    'lats': 4,
+    'traps': 3,
+    'triceps': 2,
+    'glutes': 3,
+    'hamstrings': 2,
+    'calves': 1,
+    'forearms': 1,
+    'rear-shoulders': 2,
+    'lowerback': 1,
+  }
+
+  return (
+    <div className="mt-12 pt-8 border-t border-zinc-200">
+      <div className="text-center mb-6">
+        <h2 className="text-xl font-bold text-zinc-900">Color Scheme Options</h2>
+        <p className="text-zinc-500 text-sm mt-1">
+          {schemes.length} schemes - applied to body for comparison
+        </p>
+      </div>
+
+      {/* Grid of body previews with each scheme */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {schemes.map((scheme) => (
+          <SchemeBodyPreview
+            key={scheme.id}
+            scheme={scheme}
+            frontSvg={frontSvg}
+            backSvg={backSvg}
+            sampleLevels={sampleLevels}
+          />
+        ))}
+      </div>
+
+      {/* Color swatches below */}
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        {schemes.map((scheme) => (
+          <div key={scheme.id} className="bg-white rounded-lg p-3 border border-zinc-100">
+            <p className="text-xs font-medium text-zinc-700 mb-2">{scheme.name}</p>
+            <div className="flex gap-0.5">
+              {scheme.levels.map((level) => (
+                <div
+                  key={level.id}
+                  className="flex-1 h-6 first:rounded-l last:rounded-r relative group"
+                  style={{ backgroundColor: level.color }}
+                >
+                  <span className="absolute inset-0 flex items-center justify-center text-[8px] text-white opacity-0 group-hover:opacity-100 bg-black/30 transition-opacity">
+                    {level.color}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/**
+ * Body preview with a specific color scheme applied
+ */
+function SchemeBodyPreview({ scheme, frontSvg, backSvg, sampleLevels }) {
+  // Generate CSS for this scheme's colors
+  const schemeStyles = Object.entries(sampleLevels)
+    .map(([muscleId, levelIdx]) => {
+      const level = scheme.levels[levelIdx]
+      if (level) {
+        return `#${muscleId} { color: ${level.color} !important; }`
+      }
+      return ''
+    })
+    .filter(Boolean)
+    .join('\n')
+
+  const styleId = `scheme-${scheme.id}`
+
+  return (
+    <div className="bg-white rounded-xl p-3 border border-zinc-100 shadow-sm">
+      <style>{`
+        .${styleId} .bodymap { color: #FFFFFF; }
+        .${styleId} ${schemeStyles}
+      `}</style>
+
+      <p className="text-xs font-semibold text-zinc-800 text-center mb-2">{scheme.name}</p>
+
+      <div className={`${styleId} flex gap-1 justify-center`}>
+        <div
+          className="w-16 h-28 bg-zinc-50 rounded overflow-hidden flex items-center justify-center"
+          dangerouslySetInnerHTML={{ __html: frontSvg }}
+          style={{ transform: 'scale(0.35)', transformOrigin: 'center' }}
+        />
+        <div
+          className="w-16 h-28 bg-zinc-50 rounded overflow-hidden flex items-center justify-center"
+          dangerouslySetInnerHTML={{ __html: backSvg }}
+          style={{ transform: 'scale(0.35)', transformOrigin: 'center' }}
+        />
+      </div>
+
+      {/* Mini color bar */}
+      <div className="flex gap-px mt-2">
+        {scheme.levels.map((level) => (
+          <div
+            key={level.id}
+            className="flex-1 h-2 first:rounded-l last:rounded-r"
+            style={{ backgroundColor: level.color }}
+          />
+        ))}
+      </div>
     </div>
   )
 }
