@@ -11,9 +11,9 @@ export const MONOCHROME_GOLD = {
     { id: 'novice', label: 'Slate', color: '#3D3D3D' },
     { id: 'beginner', label: 'Graphite', color: '#525252' },
     { id: 'intermediate', label: 'Pewter', color: '#6B6B6B' },
-    { id: 'advanced', label: 'Silver', color: '#8C8C8C' },
-    { id: 'elite', label: 'Champagne', color: '#B8A07A' },
-    { id: 'worldClass', label: 'Royal Gold', color: '#D4AF37' },
+    { id: 'pro', label: 'Silver', color: '#8C8C8C' },
+    { id: 'advanced', label: 'Champagne', color: '#B8A07A' },
+    { id: 'elite', label: 'Royal Gold', color: '#D4AF37' },
   ],
 
   colors: {

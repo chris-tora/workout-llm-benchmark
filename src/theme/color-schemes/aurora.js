@@ -11,9 +11,9 @@ export const AURORA = {
     { id: 'novice', label: 'Arctic', color: '#0d1b2a' },
     { id: 'beginner', label: 'Frost', color: '#1e3a4c' },
     { id: 'intermediate', label: 'Glacial', color: '#2d5a6d' },
-    { id: 'advanced', label: 'Shimmer', color: '#00d9ff' },
-    { id: 'elite', label: 'Violet', color: '#7c3aed' },
-    { id: 'worldClass', label: 'Aurora', color: '#c084fc' },
+    { id: 'pro', label: 'Shimmer', color: '#00d9ff' },
+    { id: 'advanced', label: 'Violet', color: '#7c3aed' },
+    { id: 'elite', label: 'Aurora', color: '#c084fc' },
   ],
 
   colors: {

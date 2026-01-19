@@ -11,9 +11,9 @@ export const OCEAN_DEPTH = {
     { id: 'novice', label: 'Abyss', color: '#0f172a' },
     { id: 'beginner', label: 'Deep', color: '#1e3a5f' },
     { id: 'intermediate', label: 'Ocean', color: '#2563eb' },
-    { id: 'advanced', label: 'Current', color: '#06b6d4' },
-    { id: 'elite', label: 'Shallow', color: '#22d3ee' },
-    { id: 'worldClass', label: 'Surface', color: '#67e8f9' },
+    { id: 'pro', label: 'Current', color: '#06b6d4' },
+    { id: 'advanced', label: 'Shallow', color: '#22d3ee' },
+    { id: 'elite', label: 'Surface', color: '#67e8f9' },
   ],
 
   colors: {

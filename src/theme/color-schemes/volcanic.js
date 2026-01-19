@@ -11,9 +11,9 @@ export const VOLCANIC = {
     { id: 'novice', label: 'Ash', color: '#1a1a1a' },
     { id: 'beginner', label: 'Charcoal', color: '#3d2817' },
     { id: 'intermediate', label: 'Cinder', color: '#92400e' },
-    { id: 'advanced', label: 'Magma', color: '#dc2626' },
-    { id: 'elite', label: 'Lava', color: '#ef4444' },
-    { id: 'worldClass', label: 'Molten', color: '#fca5a5' },
+    { id: 'pro', label: 'Magma', color: '#dc2626' },
+    { id: 'advanced', label: 'Lava', color: '#ef4444' },
+    { id: 'elite', label: 'Molten', color: '#fca5a5' },
   ],
 
   colors: {

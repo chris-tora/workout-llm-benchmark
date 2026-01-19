@@ -11,9 +11,9 @@ export const METALLIC = {
     { id: 'novice', label: 'Iron', color: '#48494B' },
     { id: 'beginner', label: 'Bronze', color: '#6A4E2A' },
     { id: 'intermediate', label: 'Steel', color: '#71797E' },
-    { id: 'advanced', label: 'Silver', color: '#A8A9AD' },
-    { id: 'elite', label: 'Gold', color: '#C9A227' },
-    { id: 'worldClass', label: 'Platinum', color: '#E5E4E2' },
+    { id: 'pro', label: 'Silver', color: '#A8A9AD' },
+    { id: 'advanced', label: 'Gold', color: '#C9A227' },
+    { id: 'elite', label: 'Platinum', color: '#E5E4E2' },
   ],
 
   colors: {

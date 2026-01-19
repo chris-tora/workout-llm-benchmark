@@ -11,9 +11,9 @@ export const SUNSET = {
     { id: 'novice', label: 'Twilight', color: '#1a1a2e' },
     { id: 'beginner', label: 'Dusk', color: '#3d2817' },
     { id: 'intermediate', label: 'Ember', color: '#8b4513' },
-    { id: 'advanced', label: 'Amber', color: '#d97706' },
-    { id: 'elite', label: 'Blaze', color: '#f97316' },
-    { id: 'worldClass', label: 'Sunrise', color: '#fbbf24' },
+    { id: 'pro', label: 'Amber', color: '#d97706' },
+    { id: 'advanced', label: 'Blaze', color: '#f97316' },
+    { id: 'elite', label: 'Sunrise', color: '#fbbf24' },
   ],
 
   colors: {

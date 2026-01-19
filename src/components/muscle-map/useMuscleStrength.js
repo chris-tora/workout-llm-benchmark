@@ -7,7 +7,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 // Default muscle levels for demo - ensures all 6 tiers are represented
-// Tier progression: Novice → Beginner → Intermediate → Advanced → Elite → World Class
+// Tier progression: Novice → Beginner → Intermediate → Pro → Advanced → Elite
 const DEFAULT_MUSCLE_LEVELS = {
   // Novice (0)
   'hands': 0,
@@ -18,16 +18,16 @@ const DEFAULT_MUSCLE_LEVELS = {
   'biceps': 2,
   'triceps': 2,
   'obliques': 2,
-  // Advanced (3)
+  // Pro (3)
   'front-shoulders': 3,
   'rear-shoulders': 3,
   'quads': 3,
   'hamstrings': 3,
-  // Elite (4)
+  // Advanced (4)
   'chest': 4,
   'lats': 4,
   'traps': 4,
-  // World Class (5)
+  // Elite (5)
   'glutes': 5,
   'abdominals': 5,
   'lowerback': 5,

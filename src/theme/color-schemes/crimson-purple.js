@@ -11,9 +11,9 @@ export const CRIMSON_PURPLE = {
     { id: 'novice', label: 'Maroon', color: '#4A1C1C' },
     { id: 'beginner', label: 'Crimson', color: '#722F37' },
     { id: 'intermediate', label: 'Ruby', color: '#9B2335' },
-    { id: 'advanced', label: 'Magenta', color: '#8B3A62' },
-    { id: 'elite', label: 'Violet', color: '#7B4397' },
-    { id: 'worldClass', label: 'Royal Purple', color: '#9B59B6' },
+    { id: 'pro', label: 'Magenta', color: '#8B3A62' },
+    { id: 'advanced', label: 'Violet', color: '#7B4397' },
+    { id: 'elite', label: 'Royal Purple', color: '#9B59B6' },
   ],
 
   colors: {
