@@ -352,7 +352,7 @@ function ColorSchemeGallery() {
       </div>
 
       {/* Grid of body previews with each scheme */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {schemes.map((scheme) => (
           <SchemeBodyPreview
             key={scheme.id}
@@ -408,33 +408,33 @@ function SchemeBodyPreview({ scheme, frontSvg, backSvg, sampleLevels }) {
     .join('\n')
 
   return (
-    <div className="bg-white rounded-xl p-3 border border-zinc-100 shadow-sm">
+    <div className="bg-white rounded-xl p-6 border border-zinc-100 shadow-sm">
       <style>{`
         .${styleId} .bodymap { color: #FFFFFF; }
         ${schemeStyles}
       `}</style>
 
-      <p className="text-xs font-semibold text-zinc-800 text-center mb-2">{scheme.name}</p>
+      <p className="text-sm font-semibold text-zinc-800 text-center mb-3">{scheme.name}</p>
 
-      <div className={`${styleId} flex gap-1 justify-center`}>
+      <div className={`${styleId} flex gap-2 justify-center`}>
         <div
-          className="w-16 h-28 bg-zinc-50 rounded overflow-hidden flex items-center justify-center"
+          className="w-32 h-48 bg-zinc-50 rounded overflow-hidden flex items-center justify-center"
           dangerouslySetInnerHTML={{ __html: frontSvg }}
-          style={{ transform: 'scale(0.35)', transformOrigin: 'center' }}
+          style={{ transform: 'scale(0.55)', transformOrigin: 'center' }}
         />
         <div
-          className="w-16 h-28 bg-zinc-50 rounded overflow-hidden flex items-center justify-center"
+          className="w-32 h-48 bg-zinc-50 rounded overflow-hidden flex items-center justify-center"
           dangerouslySetInnerHTML={{ __html: backSvg }}
-          style={{ transform: 'scale(0.35)', transformOrigin: 'center' }}
+          style={{ transform: 'scale(0.55)', transformOrigin: 'center' }}
         />
       </div>
 
       {/* Mini color bar */}
-      <div className="flex gap-px mt-2">
+      <div className="flex gap-px mt-3">
         {scheme.levels.map((level) => (
           <div
             key={level.id}
-            className="flex-1 h-2 first:rounded-l last:rounded-r"
+            className="flex-1 h-4 first:rounded-l last:rounded-r"
             style={{ backgroundColor: level.color }}
           />
         ))}
