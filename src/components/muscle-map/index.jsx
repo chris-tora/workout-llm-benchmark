@@ -393,25 +393,25 @@ function ColorSchemeGallery() {
  * Body preview with a specific color scheme applied
  */
 function SchemeBodyPreview({ scheme, frontSvg, backSvg, sampleLevels }) {
-  // Generate CSS for this scheme's colors
+  const styleId = `scheme-${scheme.id}`
+
+  // Generate CSS for this scheme's colors - SCOPED to .styleId to prevent leaking
   const schemeStyles = Object.entries(sampleLevels)
     .map(([muscleId, levelIdx]) => {
       const level = scheme.levels[levelIdx]
       if (level) {
-        return `#${muscleId} { color: ${level.color} !important; }`
+        return `.${styleId} #${muscleId} { color: ${level.color} !important; }`
       }
       return ''
     })
     .filter(Boolean)
     .join('\n')
 
-  const styleId = `scheme-${scheme.id}`
-
   return (
     <div className="bg-white rounded-xl p-3 border border-zinc-100 shadow-sm">
       <style>{`
         .${styleId} .bodymap { color: #FFFFFF; }
-        .${styleId} ${schemeStyles}
+        ${schemeStyles}
       `}</style>
 
       <p className="text-xs font-semibold text-zinc-800 text-center mb-2">{scheme.name}</p>
