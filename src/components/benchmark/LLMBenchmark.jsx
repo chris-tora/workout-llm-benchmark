@@ -514,12 +514,14 @@ export function LLMBenchmark() {
                               <ul className="text-xs space-y-3">
                                 {result.exercises.map((ex, i) => (
                                   <li key={i} className="flex gap-3">
-                                    {ex.gifUrl && (
-                                      <img
-                                        src={ex.gifUrl}
-                                        alt={ex.name}
+                                    {ex.videoUrl && (
+                                      <video
+                                        src={ex.videoUrl}
                                         className="w-16 h-16 rounded-md object-cover bg-gray-100 flex-shrink-0"
-                                        loading="lazy"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
                                         onError={(e) => e.target.style.display = 'none'}
                                       />
                                     )}

@@ -19,13 +19,54 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createClient } from '@supabase/supabase-js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const RESULTS_DIR = path.join(__dirname, 'benchmark-results');
 
 // Supabase configuration
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ivfllbccljoyaayftecd.supabase.co';
-// GIF_BASE_URL removed - GIF files don't exist in Supabase storage
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml2ZmxsYmNjbGpveWFheWZ0ZWNkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYxMTkwMTQsImV4cCI6MjA4MTY5NTAxNH0.714kFWsFFKwVAywLY5NOyZz2_eMoi7-Js8JGCwtpycs';
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// Cache for exercise video URLs (fetched from database)
+let exerciseVideoUrls = null;
+
+async function fetchExerciseVideoUrls() {
+  if (exerciseVideoUrls) return exerciseVideoUrls;
+
+  console.log('Fetching exercise video URLs from database...');
+  exerciseVideoUrls = {};
+
+  // Paginate to get all exercises (Supabase default limit is 1000)
+  let offset = 0;
+  const pageSize = 1000;
+
+  while (true) {
+    const { data, error } = await supabase
+      .from('exercises')
+      .select('id, video_url')
+      .not('video_url', 'is', null)
+      .range(offset, offset + pageSize - 1);
+
+    if (error) {
+      console.error('Error fetching video URLs:', error);
+      break;
+    }
+
+    if (!data || data.length === 0) break;
+
+    for (const ex of data) {
+      exerciseVideoUrls[ex.id] = ex.video_url;
+    }
+
+    if (data.length < pageSize) break;
+    offset += pageSize;
+  }
+
+  console.log(`Loaded ${Object.keys(exerciseVideoUrls).length} video URLs`);
+  return exerciseVideoUrls;
+}
 
 // Training style params for markdown report reference
 const TRAINING_STYLE_PARAMS = {
@@ -98,7 +139,7 @@ function discoverModelFiles() {
 // FILE PARSING
 // ============================================================================
 
-function parseModelFile(filePath) {
+async function parseModelFile(filePath) {
   const fileName = path.basename(filePath);
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
@@ -207,7 +248,7 @@ function getExerciseName(exerciseId, exerciseNames) {
   return exerciseNames[exerciseId] || `Exercise ${exerciseId}`;
 }
 
-function combineResults(modelFiles, exerciseNames) {
+async function combineResults(modelFiles, exerciseNames) {
   const parsedFiles = [];
   const allModels = [];
   const modelSummaries = {};
@@ -216,7 +257,7 @@ function combineResults(modelFiles, exerciseNames) {
   console.log('\nParsing model files...');
 
   for (const filePath of modelFiles) {
-    const parsed = parseModelFile(filePath);
+    const parsed = await parseModelFile(filePath);
     if (parsed) {
       parsedFiles.push(parsed);
       console.log(`  [OK] ${parsed.fileName}`);
@@ -290,7 +331,8 @@ function combineResults(modelFiles, exerciseNames) {
       // The component expects flat fields, not nested structures
       const workout = scenarioResult.parsedWorkout || scenarioResult.workout;
       // Flatten exercises from ALL sections, not just the first one
-      // Enrich with exercise names and GIF URLs
+      // Enrich with exercise names and video URLs from database
+      const videoUrls = await fetchExerciseVideoUrls();
       const exercises = (workout?.sections?.flatMap(s => s?.exercises || []) || []).map(e => ({
         id: e.id,
         name: e.name || getExerciseName(e.id, exerciseNames),
@@ -298,7 +340,7 @@ function combineResults(modelFiles, exerciseNames) {
         reps: e.reps,
         restSeconds: e.restSeconds || e.rest || 60,
         notes: e.notes || null,
-        // gifUrl removed - GIF files don't exist in Supabase storage
+        videoUrl: videoUrls[e.id] || null,
       }));
 
       scenario.results.push({
@@ -696,7 +738,7 @@ async function main() {
   console.log(`Loaded ${Object.keys(exerciseNames).length} exercise names.`);
 
   // Combine results
-  const combined = combineResults(modelFiles, exerciseNames);
+  const combined = await combineResults(modelFiles, exerciseNames);
 
   // Create output directory if needed
   if (!fs.existsSync(RESULTS_DIR)) {
