@@ -55,6 +55,21 @@ const TRAINING_STYLE_PARAMS = {
   },
 };
 
+// Model metadata (sync with benchmark-orchestrator.mjs)
+const MODEL_METADATA = {
+  'anthropic/claude-haiku-4.5': { name: 'Claude 4.5 Haiku', tier: 'fast' },
+  'anthropic/claude-sonnet-4.5': { name: 'Claude Sonnet 4.5', tier: 'premium' },
+  'google/gemini-3-flash-preview': { name: 'Gemini 3 Flash', tier: 'fast' },
+  'openai/gpt-4o-mini': { name: 'GPT-4o Mini', tier: 'fast' },
+  'openai/gpt-4.1-mini': { name: 'GPT-4.1 Mini', tier: 'fast' },
+  'openai/gpt-4o': { name: 'GPT-4o', tier: 'premium' },
+};
+
+// Legacy lookup for tier only
+const MODEL_TIERS = Object.fromEntries(
+  Object.entries(MODEL_METADATA).map(([id, meta]) => [id, meta.tier])
+);
+
 // ============================================================================
 // FILE DISCOVERY
 // ============================================================================
@@ -107,6 +122,16 @@ function parseModelFile(filePath) {
     if (!data.model) {
       console.warn(`  Warning: ${fileName} missing model information`);
       return null;
+    }
+
+    // Enrich model metadata from MODEL_METADATA
+    const metadata = MODEL_METADATA[data.model.id];
+    if (metadata) {
+      if (!data.model.tier || data.model.tier === 'unknown') {
+        data.model.tier = metadata.tier;
+      }
+      // Use canonical display name
+      data.model.name = metadata.name;
     }
 
     return {
