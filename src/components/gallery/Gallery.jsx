@@ -15,7 +15,7 @@ export function Gallery() {
   const [selected, setSelected] = useState(null)
 
   useEffect(() => {
-    fetch(`${SUPABASE_URL}/rest/v1/exercises?select=id,name,body_part,equipment,target&order=name`, {
+    fetch(`${SUPABASE_URL}/rest/v1/exercises?select=id,name,bodypart,equipment,target,video_url,gif_url&order=name`, {
       headers: { 'apikey': SUPABASE_KEY }
     })
       .then(res => res.json())
@@ -41,14 +41,22 @@ export function Gallery() {
     return () => window.removeEventListener('keydown', handleKey)
   }, [selected, exercises, filter, bodyPart])
 
-  const getGifUrl = (id) =>
-    `${SUPABASE_URL}/storage/v1/object/public/exercise-gifs/${id}.gif`
+  const isValidUrl = (url) => url && (url.startsWith('http://') || url.startsWith('https://'))
 
-  const bodyParts = [...new Set(exercises.map(e => e.body_part))].sort()
+  const getMediaUrl = (exercise) => {
+    if (isValidUrl(exercise.video_url)) return exercise.video_url
+    if (isValidUrl(exercise.gif_url)) return exercise.gif_url
+    return `${SUPABASE_URL}/storage/v1/object/public/exercise-gifs/${exercise.id}.gif`
+  }
+
+  const isVideo = (exercise) =>
+    isValidUrl(exercise.video_url) && exercise.video_url.endsWith('.mp4')
+
+  const bodyParts = [...new Set(exercises.map(e => e.bodypart))].sort()
 
   const filtered = exercises.filter(e => {
     const matchesSearch = e.name.toLowerCase().includes(filter.toLowerCase())
-    const matchesBodyPart = !bodyPart || e.body_part === bodyPart
+    const matchesBodyPart = !bodyPart || e.bodypart === bodyPart
     return matchesSearch && matchesBodyPart
   })
 
@@ -91,16 +99,28 @@ export function Gallery() {
             className="cursor-pointer hover:shadow-md transition-shadow overflow-hidden"
             onClick={() => setSelected(exercise)}
           >
-            <img
-              src={getGifUrl(exercise.id)}
-              alt={exercise.name}
-              loading="lazy"
-              className="w-full aspect-square object-cover bg-zinc-100"
-            />
+            {isVideo(exercise) ? (
+              <video
+                src={getMediaUrl(exercise)}
+                muted
+                loop
+                playsInline
+                onMouseEnter={e => e.target.play()}
+                onMouseLeave={e => { e.target.pause(); e.target.currentTime = 0 }}
+                className="w-full aspect-square object-cover bg-zinc-100"
+              />
+            ) : (
+              <img
+                src={getMediaUrl(exercise)}
+                alt={exercise.name}
+                loading="lazy"
+                className="w-full aspect-square object-cover bg-zinc-100"
+              />
+            )}
             <div className="p-3">
               <h3 className="font-medium text-sm truncate">{exercise.name}</h3>
               <p className="text-xs text-zinc-500 truncate">
-                {exercise.body_part} • {exercise.equipment}
+                {exercise.bodypart} • {exercise.equipment}
               </p>
               <span className="inline-block mt-1 text-xs bg-zinc-100 px-2 py-0.5 rounded">
                 {exercise.target}
@@ -127,16 +147,28 @@ export function Gallery() {
               >
                 <X className="w-5 h-5" />
               </button>
-              <img
-                src={getGifUrl(selected.id)}
-                alt={selected.name}
-                className="w-full"
-              />
+              {isVideo(selected) ? (
+                <video
+                  src={getMediaUrl(selected)}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  className="w-full"
+                />
+              ) : (
+                <img
+                  src={getMediaUrl(selected)}
+                  alt={selected.name}
+                  className="w-full"
+                />
+              )}
             </div>
             <div className="p-6">
               <h2 className="text-xl font-semibold">{selected.name}</h2>
               <p className="text-zinc-500 mt-1">
-                {selected.body_part} • {selected.equipment} • {selected.target}
+                {selected.bodypart} • {selected.equipment} • {selected.target}
               </p>
               <p className="text-xs text-zinc-400 mt-4">
                 ← → to navigate • ESC to close

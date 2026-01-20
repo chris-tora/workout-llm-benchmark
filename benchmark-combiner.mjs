@@ -25,7 +25,7 @@ const RESULTS_DIR = path.join(__dirname, 'benchmark-results');
 
 // Supabase configuration
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ivfllbccljoyaayftecd.supabase.co';
-const GIF_BASE_URL = `${SUPABASE_URL}/storage/v1/object/public/exercise-gifs`;
+// GIF_BASE_URL removed - GIF files don't exist in Supabase storage
 
 // Training style params for markdown report reference
 const TRAINING_STYLE_PARAMS = {
@@ -298,7 +298,7 @@ function combineResults(modelFiles, exerciseNames) {
         reps: e.reps,
         restSeconds: e.restSeconds || e.rest || 60,
         notes: e.notes || null,
-        gifUrl: `${GIF_BASE_URL}/${e.id}.gif`,
+        // gifUrl removed - GIF files don't exist in Supabase storage
       }));
 
       scenario.results.push({

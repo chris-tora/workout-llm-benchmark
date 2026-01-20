@@ -1,0 +1,1 @@
+{"errors":[{"type":"field","value":"168a78a0-5fd2-4e35-9420-511e4ba2971c","msg":"exerciseId must be 4 characters","path":"exerciseId","location":"query"}]}
