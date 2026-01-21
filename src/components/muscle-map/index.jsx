@@ -417,16 +417,21 @@ function SchemeBodyPreview({ scheme, frontSvg, backSvg, sampleLevels }) {
       <p className="text-sm font-semibold text-zinc-800 text-center mb-3">{scheme.name}</p>
 
       <div className={`${styleId} flex gap-2 justify-center`}>
-        <div
-          className="w-32 h-48 bg-zinc-50 rounded overflow-hidden flex items-center justify-center"
-          dangerouslySetInnerHTML={{ __html: frontSvg }}
-          style={{ transform: 'scale(0.55)', transformOrigin: 'center' }}
-        />
-        <div
-          className="w-32 h-48 bg-zinc-50 rounded overflow-hidden flex items-center justify-center"
-          dangerouslySetInnerHTML={{ __html: backSvg }}
-          style={{ transform: 'scale(0.55)', transformOrigin: 'center' }}
-        />
+        {/* Outer container clips, inner container scales */}
+        <div className="w-32 h-48 bg-zinc-50 rounded overflow-hidden relative">
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ transform: 'scale(0.15)', transformOrigin: 'center' }}
+            dangerouslySetInnerHTML={{ __html: frontSvg }}
+          />
+        </div>
+        <div className="w-32 h-48 bg-zinc-50 rounded overflow-hidden relative">
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ transform: 'scale(0.15)', transformOrigin: 'center' }}
+            dangerouslySetInnerHTML={{ __html: backSvg }}
+          />
+        </div>
       </div>
 
       {/* Mini color bar */}
