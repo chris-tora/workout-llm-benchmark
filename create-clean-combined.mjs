@@ -32,7 +32,7 @@ models.forEach(model => {
       });
     }
 
-    // Extract exercises from workout sections
+    // Extract exercises from workout sections, preserving videoUrl from original data
     let exercises = [];
     if (scenario.workout?.sections) {
       exercises = scenario.workout.sections.flatMap(s =>
@@ -44,7 +44,7 @@ models.forEach(model => {
           reps: e.reps,
           restSeconds: e.restSeconds || e.rest || 60,
           notes: e.notes || null,
-          videoUrl: null
+          videoUrl: e.videoUrl || null // Preserve video URL from original workout data
         }))
       );
     }

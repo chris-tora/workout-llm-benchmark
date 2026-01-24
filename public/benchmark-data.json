@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-24T21:31:31.654Z",
+  "timestamp": "2026-01-24T21:35:56.121Z",
   "version": "2.1-clean",
   "sourceFiles": [
     "model-anthropic-claude-haiku-4-5-2026-01-24T18-12-27-519Z.json",
@@ -1268,7 +1268,7 @@
               "reps": 12,
               "restSeconds": 58,
               "notes": "Step 1: Sit at the end of a flat bench and bring two dumbbells together so their heads touch; lie back so you are supine with feet flat on the floor and knees bent.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Dumbbell-Squeeze-Bench-Press_Chest-FIX_.mp4"
             }
           ],
           "error": null,
@@ -1478,7 +1478,7 @@
               "reps": 12,
               "restSeconds": 85,
               "notes": "Set both cable pulleys to about chest/shoulder height and attach single hand grips; select an appropriate weight.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0225-cable-standing-chest-press"
             },
             {
               "name": "Dumbbell Fly",
@@ -1807,7 +1807,7 @@
               "reps": 12,
               "restSeconds": 85,
               "notes": "Adjust the seat so the handles are roughly at mid-chest level when seated and your back rests flat against the pad.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Pec-Deck-Fly_Chest_.mp4"
             },
             {
               "name": "Cable Standing Fly",
@@ -2123,7 +2123,7 @@
               "reps": 12,
               "restSeconds": 85,
               "notes": "Adjust the seat so the handles are roughly at mid-chest level when seated and your back rests flat against the pad.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Pec-Deck-Fly_Chest_.mp4"
             }
           ],
           "error": null,
@@ -2399,7 +2399,7 @@
               "reps": 12,
               "restSeconds": 85,
               "notes": "Set the lever machine handles so they are roughly at mid-chest/shoulder height and select an appropriate weight.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Standing-Pec-Fly-(male)_Chest_.mp4"
             },
             {
               "name": "Cable Standing Neutral grip Fly",
@@ -2429,7 +2429,7 @@
               "reps": 12,
               "restSeconds": 85,
               "notes": "Set a single handle on a cable pulley at about shoulder to mid-chest height and select a moderate weight.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Cable-Standing-Single-Arm-Fly_Chest_.mp4"
             }
           ],
           "error": null,
@@ -2734,7 +2734,7 @@
               "reps": 12,
               "restSeconds": 68,
               "notes": "Start standing with feet hip- to shoulder-width apart, knees soft and a slight hinge at the hips (standing, slight forward lean).",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Dumbbell-Low-Fly_Chest_.mp4"
             }
           ],
           "error": null,
@@ -2992,7 +2992,7 @@
               "reps": 8,
               "restSeconds": 170,
               "notes": "Set the bench to an incline (about 30–45 degrees) and select an appropriate weight on the lever machine.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Incline-Hammer-Chest-Press_Chest.mp4"
             },
             {
               "name": "Barbell Feet Flat Bench Press",
@@ -3347,7 +3347,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Set both cable pulleys to about chest/shoulder height and attach single hand grips; select an appropriate weight.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0225-cable-standing-chest-press"
             },
             {
               "name": "Dumbbell Fly",
@@ -3367,7 +3367,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Set both cable pulleys to a high position (around or slightly above shoulder height) and attach single-hand handles.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0232-cable-standing-up-straight-crossovers"
             },
             {
               "name": "Cable Standing Fly",
@@ -3729,7 +3729,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Adjust the seat height so the handles/pads are level with the mid-chest; sit upright with your back flat against the pad and feet flat on the floor.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Pec-Deck-Fly_Chest_.mp4"
             },
             {
               "name": "Cable Upper Chest Crossovers",
@@ -4132,7 +4132,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Set both cable pulleys to a high position (around or slightly above shoulder height) and attach single-hand handles.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0232-cable-standing-up-straight-crossovers"
             },
             {
               "name": "Cable Middle Fly",
@@ -4517,7 +4517,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Adjust the seat height so the handles/pads are level with the mid-chest; sit upright with your back flat against the pad and feet flat on the floor.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Pec-Deck-Fly_Chest_.mp4"
             },
             {
               "name": "Cable Bent Over Single Arm Crossover",
@@ -5253,7 +5253,7 @@
               "reps": 10,
               "restSeconds": 180,
               "notes": "Adjust the machine so the back pad is set to an incline (approximately 30–45°) and select an appropriate weight.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Incline-Fly-(male)_Chest_.mp4"
             },
             {
               "name": "Barbell Wide Bench Press",
@@ -5273,7 +5273,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Set both cable pulleys to about chest/shoulder height and attach single hand grips; select an appropriate weight.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0225-cable-standing-chest-press"
             },
             {
               "name": "Barbell Incline Bench Press",
@@ -5652,7 +5652,7 @@
               "reps": 10,
               "restSeconds": 96,
               "notes": "Attach a straight bar and grasp it with a reverse (underhand, palms facing you) grip about shoulder-width or slightly narrower.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-Reverse-Grip-Pulldown_Back_.mp4"
             },
             {
               "name": "Cable Seated Wide grip Row",
@@ -5662,7 +5662,7 @@
               "reps": 12,
               "restSeconds": 96,
               "notes": "Attach a wide, straight or slightly curved bar to the low pulley and grasp it with a pronated (palms down) wide grip, arms extended and torso upright.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0220-cable-seated-wide-grip-row"
             }
           ],
           "error": null,
@@ -6234,7 +6234,7 @@
               "reps": 12,
               "restSeconds": 96,
               "notes": "Load the plate-loaded lever machine to the desired weight and stand facing forward with feet hip-width apart, toes pointing straight ahead.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Shrug-(plate-loaded)_Back.mp4"
             }
           ],
           "error": null,
@@ -6422,7 +6422,7 @@
               "reps": 10,
               "restSeconds": 96,
               "notes": "Load the plate-loaded lever machine to the desired weight and stand facing forward with feet hip-width apart, toes pointing straight ahead.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Shrug-(plate-loaded)_Back.mp4"
             }
           ],
           "error": null,
@@ -7448,7 +7448,7 @@
               "reps": 10,
               "restSeconds": 136,
               "notes": "Lie supine on a flat bench with your head, shoulders and upper back supported, feet flat on the floor and hips pressed down (supine position).",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Dumbbell-Single-Arms-Pullover-(male)_Back_.mp4"
             },
             {
               "name": "Cable Seated Wide grip Row",
@@ -7458,7 +7458,7 @@
               "reps": 10,
               "restSeconds": 136,
               "notes": "Attach a wide, straight or slightly curved bar to the low pulley and grasp it with a pronated (palms down) wide grip, arms extended and torso upright.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0220-cable-seated-wide-grip-row"
             },
             {
               "name": "Lever Pronated Grip Seated Scapula Retraction Shrug (plate loaded)",
@@ -7771,7 +7771,7 @@
               "reps": 12,
               "restSeconds": 85,
               "notes": "Load the plate-loaded lever machine to the desired weight and stand facing forward with feet hip-width apart, toes pointing straight ahead.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Shrug-(plate-loaded)_Back.mp4"
             },
             {
               "name": "Dumbbell Shrug",
@@ -7791,7 +7791,7 @@
               "reps": 12,
               "restSeconds": 85,
               "notes": "Stand upright (feet about shoulder-width), hold a dumbbell in one hand with the arm fully extended at your side and palm facing the body; keep a neutral head and spine.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Dumbbell-Single-Arm-Shrug_Back_.mp4"
             }
           ],
           "error": null,
@@ -8085,7 +8085,7 @@
               "reps": 10,
               "restSeconds": 123,
               "notes": "Set the lever machine or plate-loaded bar to the desired weight and stand with feet hip-width under the bar/platform.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Bent-over-Row-(plate-loaded)_Back.mp4"
             },
             {
               "name": "Barbell Back Wide Shrug",
@@ -8105,7 +8105,7 @@
               "reps": 12,
               "restSeconds": 62,
               "notes": "Attach a straight bar, rope, or single handle to a high pulley.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-Pushdown-(straight-arm)-(VERSION-2)_Back_.mp4"
             }
           ],
           "error": null,
@@ -8420,7 +8420,7 @@
               "reps": 12,
               "restSeconds": 85,
               "notes": "Adjust the seat and knee pads so your feet are flat on the floor and your thighs are secured under the rollers while seated upright.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Cross-Lat-Pulldown-(male)_Back_.mp4"
             }
           ],
           "error": null,
@@ -8735,7 +8735,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Select an appropriate weight, then reach up and grasp the bar with a shoulder-width underhand (supinated) grip, palms facing you.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-Reverse-Grip-Pulldown_Back_.mp4"
             },
             {
               "name": "Cable Neutral Grip Wide Pulldown",
@@ -9537,7 +9537,7 @@
               "reps": 10,
               "restSeconds": 90,
               "notes": "Adjust the seat height and thigh pads so your feet are flat on the floor and your thighs are secured under the pads; sit upright with your chest against the chest pad if present.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Lateral-Pulldown-(plate-loaded)_Back.mp4"
             },
             {
               "name": "Cable Incline Single Arm Lat Pulldown",
@@ -9931,7 +9931,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Stand upright (feet about shoulder-width), hold a dumbbell in one hand with the arm fully extended at your side and palm facing the body; keep a neutral head and spine.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Dumbbell-Single-Arm-Shrug_Back_.mp4"
             },
             {
               "name": "Dumbbell Shrug",
@@ -9951,7 +9951,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Stand upright in front of the plate-loaded lever machine with feet about hip-width apart and knees slightly soft.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Shrug-(plate-loaded)_Back.mp4"
             }
           ],
           "error": null,
@@ -10299,7 +10299,7 @@
               "reps": 8,
               "restSeconds": 175,
               "notes": "Set two cable pulleys to a high position and attach single-hand or D handles; choose a moderate weight.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-High-Row-with-Chest-Support_Back_.mp4"
             },
             {
               "name": "Dumbbell Shrug",
@@ -10671,7 +10671,7 @@
               "reps": 10,
               "restSeconds": 180,
               "notes": "Reach forward and grasp the handles with a pronated (overhand) grip so your palms face down and arms are fully extended.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Pronated-Grip-Seated-Row-(plate-loaded)_Back.mp4"
             },
             {
               "name": "Cable Straight Arm Pulldown",
@@ -10691,7 +10691,7 @@
               "reps": 10,
               "restSeconds": 180,
               "notes": "Sit upright on the machine with feet flat on the floor and chest/torso stabilized against the pad (or chest pad if present).",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-High-Row-(plate-loaded)_Back.mp4"
             },
             {
               "name": "Lever Pronated Grip Seated Scapula Retraction Shrug (plate loaded)",
@@ -11650,7 +11650,7 @@
               "reps": 8,
               "restSeconds": 96,
               "notes": "Load desired plates and set any safety stops on the lever machine.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Squat-(plate-loaded)_Thighs.mp4"
             },
             {
               "name": "Dumbbell Romanian Deadlift",
@@ -12071,7 +12071,7 @@
               "reps": 12,
               "restSeconds": 96,
               "notes": "Place the balls of your feet on the edge of the foot platform so your heels can hang freely; grip the machine handles for stability.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Lever-Seated-Calf-Raise-(plate-loaded).mp4"
             }
           ],
           "error": null,
@@ -12292,7 +12292,7 @@
               "reps": 10,
               "restSeconds": 136,
               "notes": "Setup: Secure one end of the barbell in a landmine attachment.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Landmine-Rear-Lunge_Thighs_.mp4"
             },
             {
               "name": "Lever Standing Calf Raise",
@@ -12627,7 +12627,7 @@
               "reps": 10,
               "restSeconds": 75,
               "notes": "Set up: Sit and then lie supine on the sled bench which is angled at 45 degrees; place your feet shoulder-width on the middle of the footplate with toes pointing slightly outward.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Sled-45-degrees-Leg-Press_Hips-FIX_.mp4"
             },
             {
               "name": "Lever Seated Leg Curl",
@@ -12949,7 +12949,7 @@
               "reps": 12,
               "restSeconds": 85,
               "notes": "Adjust the seat and backpad so your knees align with the machine's pivot point and your back is supported (knees should start around 90° flexion).",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Seated-Leg-Extension-(VERSION-2)_Thighs.mp4"
             },
             {
               "name": "Lever Standing Calf Raise",
@@ -13575,7 +13575,7 @@
               "reps": 12,
               "restSeconds": 75,
               "notes": "Place the balls of your feet on the edge of the foot platform with heels hanging freely off the platform.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Lever-Seated-Calf-Raise-(plate-loaded).mp4"
             },
             {
               "name": "Lever Rotary Calf",
@@ -13902,7 +13902,7 @@
               "reps": 15,
               "restSeconds": 75,
               "notes": "Place the balls of your feet on the edge of the foot platform with heels hanging freely off the platform.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Lever-Seated-Calf-Raise-(plate-loaded).mp4"
             }
           ],
           "error": null,
@@ -14208,7 +14208,7 @@
               "reps": 10,
               "restSeconds": 180,
               "notes": "Set the lever machine to the desired weight and adjust the chest pad height so your torso is upright and supported when gripping the handles.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Lever-Glute-Press-(male)_Hips_.mp4"
             },
             {
               "name": "Barbell Seated Calf Raise",
@@ -14258,7 +14258,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Adjust the machine seat and back so your knee lines up with the machine's pivot point and the lower leg pad rests just above the ankle of the working leg.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-One-Leg-Extension_Thighs_.mp4"
             }
           ],
           "error": null,
@@ -14595,7 +14595,7 @@
               "reps": 10,
               "restSeconds": 180,
               "notes": "Stand upright with feet about hip-width apart and a dumbbell in each hand, arms straight and palms facing the body.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Dumbbell-Straight-Legs-Deadlift_Hips.mp4"
             },
             {
               "name": "Dumbbell Deadlift",
@@ -14615,7 +14615,7 @@
               "reps": 10,
               "restSeconds": 90,
               "notes": "Load appropriate plates on the machine's weight pegs and ensure the safety latch/lock is engaged before sitting.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Leg-Press-(plate-loaded)_Thighs_.mp4"
             },
             {
               "name": "Dumbbell Split Squat",
@@ -14625,7 +14625,7 @@
               "reps": 10,
               "restSeconds": 90,
               "notes": "Stand upright in a split stance with one foot forward and the other foot stepped back (rear foot on the toes).",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Dumbbell-Split-Squat_Thighs_.mp4"
             },
             {
               "name": "Sled Calf Press On Leg Press",
@@ -14655,7 +14655,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Place the balls of your feet on the edge of the foot platform with heels hanging freely off the platform.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Lever-Seated-Calf-Raise-(plate-loaded).mp4"
             }
           ],
           "error": null,
@@ -15041,7 +15041,7 @@
               "reps": 12,
               "restSeconds": 87,
               "notes": "Sit upright on the leg extension machine with your back firmly against the back pad and adjust the seat so the machine's knee pivot lines up with your knee joint.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Leg-Extension-(Inward-Toes)-(male)_Thighs_.mp4"
             },
             {
               "name": "Lever Seated Leg Curl",
@@ -15395,7 +15395,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Set up the landmine by anchoring one end of the bar in the pivot; stand with feet hip-width apart facing the free end of the bar.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Landmine-Romanian-Deadlift-(male)_Hips_.mp4"
             },
             {
               "name": "Cable Straight Leg Diagonal Kickback",
@@ -15415,7 +15415,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Start standing in a wide stance (feet wider than shoulder-width) with toes pointed slightly outward while holding a dumbbell at chest level in a goblet grip.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Dumbbell-Side-Squat_Thighs_.mp4"
             },
             {
               "name": "Barbell Wide Squat",
@@ -15445,7 +15445,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Place the balls of your feet on the edge of the foot platform with heels hanging freely off the platform.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Lever-Seated-Calf-Raise-(plate-loaded).mp4"
             },
             {
               "name": "Cable Standing Wood Chopper",
@@ -15777,7 +15777,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Start standing with feet about hip-to-shoulder width, toes pointing slightly out; hold a dumbbell in each hand at shoulder height (rack position) with elbows under the weights and palms facing each other or forward.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Dumbbell-Squat-to-Overhead-Press_Thighs_.mp4"
             },
             {
               "name": "Dumbbell Romanian Deadlift to Bent Over Row",
@@ -15787,7 +15787,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Stand tall holding a dumbbell in each hand with feet hip-width apart and palms facing the body (neutral grip).",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Dumbbell-Romanian-Deadlift-to-Bent-Over-Row_Hips_.mp4"
             },
             {
               "name": "Cable Donkey Diagonal Kickback",
@@ -15807,7 +15807,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Set the Smith machine bar to a comfortable shoulder height and place two sturdy blocks or a raised platform under the bar so your heels can hang freely off the edge when standing on the platform.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Smith-Calf-Raise-(version-2)_Calves-FIX_.mp4"
             },
             {
               "name": "Lever Leg Extension (Inward Toes)",
@@ -15817,7 +15817,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Sit upright on the leg extension machine with your back firmly against the back pad and adjust the seat so the machine's knee pivot lines up with your knee joint.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Leg-Extension-(Inward-Toes)-(male)_Thighs_.mp4"
             },
             {
               "name": "Lever One Leg Extension",
@@ -15827,7 +15827,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Adjust the machine seat so your back is flat against the backrest and your knee aligns with the machine's pivot point; place the lower shin pad just above the ankle of the working leg.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-One-Leg-Extension_Thighs_.mp4"
             },
             {
               "name": "Lever Leg Extension",
@@ -15847,7 +15847,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Adjust the seat and backpad so your knees align with the machine's pivot point and your back is supported (knees should start around 90° flexion).",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Seated-Leg-Extension-(VERSION-2)_Thighs.mp4"
             }
           ],
           "error": null,
@@ -16245,7 +16245,7 @@
               "reps": 12,
               "restSeconds": 81,
               "notes": "Adjust the machine seat so your back is flat against the backrest and your knee aligns with the machine's pivot point; place the lower shin pad just above the ankle of the working leg.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-One-Leg-Extension_Thighs_.mp4"
             }
           ],
           "error": null,
@@ -17014,7 +17014,7 @@
               "reps": 12,
               "restSeconds": 96,
               "notes": "Start standing upright (single-leg stance) on the working foot with toes facing forward; hold a dumbbell in each hand at your sides (or one dumbbell in each hand if preferred) and let the non-working leg hang or be slightly bent behind you -- torso neutral and shoulders relaxed.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Dumbbell-Standing-Single-Leg-Calf-Raise_Calves_.mp4"
             }
           ],
           "error": null,
@@ -17216,7 +17216,7 @@
               "reps": 12,
               "restSeconds": 96,
               "notes": "Stand upright holding a dumbbell in each hand at your sides (or one dumbbell in each hand if preferred), feet hip-width apart.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Dumbbell-Standing-Single-Leg-Calf-Raise_Calves_.mp4"
             }
           ],
           "error": null,
@@ -17608,7 +17608,7 @@
               "reps": 10,
               "restSeconds": 96,
               "notes": "Stand upright in a split stance with one foot forward and the other foot stepped back (rear foot on the toes).",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Dumbbell-Split-Squat_Thighs_.mp4"
             },
             {
               "name": "Dumbbell Standing Calf Raise",
@@ -17870,7 +17870,7 @@
               "reps": 12,
               "restSeconds": 75,
               "notes": "Adjust the machine so the lever pad sits just above the back of your ankle and the pivot aligns with your knee joint.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Lying-Single-Leg-Curl_Thighs_.mp4"
             }
           ],
           "error": null,
@@ -18157,7 +18157,7 @@
               "reps": 10,
               "restSeconds": 151,
               "notes": "Start standing upright (single-leg stance) on the working foot with toes facing forward; hold a dumbbell in each hand at your sides (or one dumbbell in each hand if preferred) and let the non-working leg hang or be slightly bent behind you -- torso neutral and shoulders relaxed.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Dumbbell-Standing-Single-Leg-Calf-Raise_Calves_.mp4"
             },
             {
               "name": "Sled 45 degrees Leg Press",
@@ -18167,7 +18167,7 @@
               "reps": 10,
               "restSeconds": 75,
               "notes": "Set up: Sit and then lie supine on the sled bench which is angled at 45 degrees; place your feet shoulder-width on the middle of the footplate with toes pointing slightly outward.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Sled-45-degrees-Leg-Press_Hips-FIX_.mp4"
             },
             {
               "name": "Lever Hip Thrust (plate loaded)",
@@ -18177,7 +18177,7 @@
               "reps": 12,
               "restSeconds": 75,
               "notes": "Set the machine to an appropriate weight and sit with your upper back firmly against the backrest (semi-reclined).",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Lever-Hip-Thrust-(plate-loaded)-(male)_Hips_.mp4"
             },
             {
               "name": "Lever Seated Leg Curl",
@@ -18471,7 +18471,7 @@
               "reps": 10,
               "restSeconds": 136,
               "notes": "Disengage the safety/locks while keeping control of the sled with your hands on the handles.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Angled-Leg-Press-(male)_Thighs_.mp4"
             },
             {
               "name": "Landmine Sumo Squat",
@@ -18481,7 +18481,7 @@
               "reps": 10,
               "restSeconds": 136,
               "notes": "Set up the landmine by anchoring one end of the bar in the pivot and loading the other end with the desired weight; grasp the bar with both hands close to the plates or use a V-handle attachment.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Landmine-Sumo-Squat-(male)_Hips_.mp4"
             },
             {
               "name": "Barbell Standing Leg Calf Raise",
@@ -18501,7 +18501,7 @@
               "reps": 12,
               "restSeconds": 68,
               "notes": "Adjust the machine seat so your back is flat against the backrest and your knee aligns with the machine's pivot point; place the lower shin pad just above the ankle of the working leg.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-One-Leg-Extension_Thighs_.mp4"
             },
             {
               "name": "Lever Seated One Leg Curl",
@@ -18511,7 +18511,7 @@
               "reps": 12,
               "restSeconds": 68,
               "notes": "Adjust the seat and back pad so your thigh is supported and the rotating lever pad rests just above your ankle when the leg is extended; select an appropriate weight.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Seated-One-Leg-Curl_Thighs_.mp4"
             }
           ],
           "error": null,
@@ -18810,7 +18810,7 @@
               "reps": 9,
               "restSeconds": 136,
               "notes": "Stand on the platform facing the machine with the lever belt secured low on your hips; grab the front handles for light support if available.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Lever-Belt-Sumo-Squat_Hips_.mp4"
             },
             {
               "name": "Barbell Lunge",
@@ -19136,7 +19136,7 @@
               "reps": 12,
               "restSeconds": 75,
               "notes": "Adjust the machine so the lever pad sits just above the back of your ankle and the pivot aligns with your knee joint.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Lying-Single-Leg-Curl_Thighs_.mp4"
             },
             {
               "name": "Lever Lying Leg Curl",
@@ -19435,7 +19435,7 @@
               "reps": 10,
               "restSeconds": 151,
               "notes": "Load the machine appropriately and lock the sled/lever into the start position; grasp the side handles for stability.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Alternate-Leg-Press-(plate-loaded)_Thighs_.mp4"
             },
             {
               "name": "Lever Seated Squat Calf Raise on Leg Press Machine",
@@ -19799,7 +19799,7 @@
               "reps": 11,
               "restSeconds": 90,
               "notes": "Stand upright with feet about hip-width apart and a dumbbell in each hand, arms straight and palms facing the body.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Dumbbell-Straight-Legs-Deadlift_Hips.mp4"
             },
             {
               "name": "Dumbbell Romanian Deadlift",
@@ -19829,7 +19829,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Set up the machine by loading plates and adjusting the lower leg/roller pad so it sits just above the back of your ankle when standing.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Standing-Single-Leg-Curl-(plate-loaded)_Thig.mp4"
             }
           ],
           "error": null,
@@ -20200,7 +20200,7 @@
               "reps": 10,
               "restSeconds": 90,
               "notes": "Set the seat so your back and head are fully supported against the pad and your hips and knees start at about 90° with feet placed hip-width on the platform.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Seated-Leg-Press_Thighs.mp4"
             },
             {
               "name": "Lever Seated Calf Press",
@@ -20564,7 +20564,7 @@
               "reps": 10,
               "restSeconds": 180,
               "notes": "Set up: Sit and then lie supine on the sled bench which is angled at 45 degrees; place your feet shoulder-width on the middle of the footplate with toes pointing slightly outward.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Sled-45-degrees-Leg-Press_Hips-FIX_.mp4"
             },
             {
               "name": "Barbell Narrow Stance Squat",
@@ -20584,7 +20584,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Set the desired weight on the lever machine and position the lower-leg pad so it rests just above the ankle of the working leg.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Lever-Standing-Hip-Extension_Hips.mp4"
             },
             {
               "name": "Lever Leg Extension",
@@ -20604,7 +20604,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Sit upright on the leg extension machine with your back firmly against the back pad and adjust the seat so the machine's knee pivot lines up with your knee joint.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Leg-Extension-(Inward-Toes)-(male)_Thighs_.mp4"
             },
             {
               "name": "Lever Seated Leg Curl",
@@ -20624,7 +20624,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Place the balls of your feet on the edge of the foot platform with heels hanging freely off the platform.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Lever-Seated-Calf-Raise-(plate-loaded).mp4"
             }
           ],
           "error": null,
@@ -20954,7 +20954,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Set the lever or ankle attachment to the appropriate height and select a manageable resistance; stand facing the machine and grip the front handles for stability.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Lever-Standing-Rear-Kick_Hips.mp4"
             },
             {
               "name": "Lever Seated Calf Press",
@@ -20974,7 +20974,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Adjust the seat and back pad so your lower back is supported and the roller pad sits just above your ankles when knees are bent.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Waist/Lever-Seated-Leg-Raise-Crunch-(plate-loaded)_Waist.mp4"
             },
             {
               "name": "Lever Seated Calf Raise (plate loaded)",
@@ -20984,7 +20984,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Place the balls of your feet on the edge of the foot platform with heels hanging freely off the platform.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Lever-Seated-Calf-Raise-(plate-loaded).mp4"
             },
             {
               "name": "Dumbbell Side Bend",
@@ -21379,7 +21379,7 @@
               "reps": 12,
               "restSeconds": 81,
               "notes": "Load plates on the machine and release any safety latch so the lever can move through its full range.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Deadlift-(plate-loaded)_Thighs.mp4"
             },
             {
               "name": "Barbell Good Morning",
@@ -21761,7 +21761,7 @@
               "reps": 10,
               "restSeconds": 175,
               "notes": "Stand in a split stance with the front foot placed on a low step or platform and the rear foot on the floor with toes touching; hold a dumbbell in each hand at your sides (standing, upright position).",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Dumbbell-Split-Squat-Front-Foot-Elevanted_Thighs_.mp4"
             },
             {
               "name": "Barbell Staggered Stance Deadlift",
@@ -21781,7 +21781,7 @@
               "reps": 12,
               "restSeconds": 87,
               "notes": "Setup the Smith machine: place a flat bench in the rack so you can sit with feet on a raised block or plate with heels hanging off the edge; set the bar height so it rests across your upper thighs/knees when seated.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Smith-Seated-Calf-Raise_Calves_.mp4"
             },
             {
               "name": "Lever Standing Calf Raise",
@@ -21801,7 +21801,7 @@
               "reps": 12,
               "restSeconds": 87,
               "notes": "Place the balls of your feet on the edge of the foot platform with heels hanging freely off the platform.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Lever-Seated-Calf-Raise-(plate-loaded).mp4"
             }
           ],
           "error": null,
@@ -24981,7 +24981,7 @@
               "reps": 10,
               "restSeconds": 90,
               "notes": "Adjust the seat so the handles are at mid-chest level when you sit upright.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Crossovers.mp4"
             },
             {
               "name": "Dumbbell Rear Lateral Raise (support head)",
@@ -27308,7 +27308,7 @@
               "reps": 7,
               "restSeconds": 180,
               "notes": "Set both cable pulleys to about chest/shoulder height and attach single hand grips; select an appropriate weight. Train to muscular failure.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0225-cable-standing-chest-press"
             },
             {
               "name": "Dumbbell Seated Close Grip Press",
@@ -27749,7 +27749,7 @@
               "reps": 10,
               "restSeconds": 90,
               "notes": "Select an appropriate weight, then reach up and grasp the bar with a shoulder-width underhand (supinated) grip, palms facing you. Train to muscular failure.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-Reverse-Grip-Pulldown_Back_.mp4"
             }
           ],
           "error": null,
@@ -28009,7 +28009,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Start standing with feet hip- to shoulder-width apart, knees soft and a slight hinge at the hips (standing, slight forward lean). Train to muscular failure.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Dumbbell-Low-Fly_Chest_.mp4"
             },
             {
               "name": "Dumbbell Seated Close Grip Press",
@@ -28834,7 +28834,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Adjust the seat so the handles are at mid-chest level when you sit upright. Train to muscular failure.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Crossovers.mp4"
             },
             {
               "name": "Lever Assisted Standing Chin-up",
@@ -29147,7 +29147,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Stand tall (neutral spine) with feet hip-width apart, knees soft and core braced; hold a dumbbell in each hand at your sides with palms facing your body (standing position). Train to muscular failure.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Shoulders/Dumbbell-Standing-Front-to-Lateral-Raise_Shoulders.mp4"
             }
           ],
           "error": null,
@@ -29402,7 +29402,7 @@
               "reps": 6,
               "restSeconds": 180,
               "notes": "Set the lever machine and add plates on the lever arm. Train to muscular failure.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-One-Arm-Incline-Chest-Press-(plate-loaded)_Chest_.mp4"
             },
             {
               "name": "Lever Assisted Standing Chin-up",
@@ -29432,7 +29432,7 @@
               "reps": 10,
               "restSeconds": 90,
               "notes": "Stand tall with feet about hip- to shoulder-width apart, knees soft and core braced; hold a dumbbell in each hand at your sides in a neutral grip (palms facing inward). Train to muscular failure.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0293-dumbbell-curl-to-press"
             },
             {
               "name": "Dumbbell Rear Lateral Raise",
@@ -29752,7 +29752,7 @@
               "reps": 10,
               "restSeconds": 90,
               "notes": "Attach a parallel (double) handle to the cable, reach forward and grasp the handles with a neutral grip, arms extended and torso upright. Train to muscular failure.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Shoulders/Cable-Rear-Delt-Row-(parallel-bar)_Shoulders_.mp4"
             },
             {
               "name": "Dumbbell Rear Delt Raise",
@@ -30371,7 +30371,7 @@
               "reps": 6,
               "restSeconds": 180,
               "notes": "Set the cable pulley to about chest height and attach a close-grip or double-handle. Train to muscular failure.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-Standing-Row_Back_.mp4"
             },
             {
               "name": "Dumbbell Seated Close Grip Press",
@@ -30680,7 +30680,7 @@
               "reps": 6,
               "restSeconds": 180,
               "notes": "Set the machine seat/back so your torso is on a slight decline (head lower than hips) and select an appropriate weight on the lever. Train to muscular failure.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Decline-Single-Arm-Chest-Press_Chest_.mp4"
             },
             {
               "name": "Lever Chest Press",
@@ -30710,7 +30710,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Set the pulleys to chest height and attach single-handle grips to each side. Train to muscular failure.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0225-cable-standing-chest-press"
             },
             {
               "name": "Lever T-bar Row (plate loaded)",
@@ -31012,7 +31012,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Adjust the seat height so the handle starts at about shoulder level when seated and select an appropriate weight on the lever stack. Train to muscular failure.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Shoulders/Lever-Seated-Single-Arm-Shoulder-Press_Shoulders_.mp4"
             },
             {
               "name": "Dumbbell Seated Close Grip Press",
@@ -34912,7 +34912,7 @@
               "reps": 6,
               "restSeconds": 90,
               "notes": "Stand tall with feet hip-width apart, knees soft, core braced and a dumbbell in each hand with a neutral (palms facing each other) grip at your sides.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Shoulders/Dumbbell-Standing-Hammer-Curl-to-Press_Shoulders_.mp4"
             },
             {
               "name": "Wide Hand Push-up",
@@ -36057,7 +36057,7 @@
               "reps": 12,
               "restSeconds": 96,
               "notes": "Attach a straight bar, rope, or single handle to a high pulley.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-Pushdown-(straight-arm)-(VERSION-2)_Back_.mp4"
             }
           ],
           "error": null,
@@ -36644,7 +36644,7 @@
               "reps": 10,
               "restSeconds": 96,
               "notes": "Adjust the machine seat so your back is fully supported on the incline pad and the handles start roughly at upper-chest / clavicle level when grasped.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Incline-Hammer-Chest-Press_Chest.mp4"
             },
             {
               "name": "Barbell Pendlay Row",
@@ -36831,7 +36831,7 @@
               "reps": 8,
               "restSeconds": 96,
               "notes": "Set the pulleys to chest height and attach single-handle grips to each side.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0225-cable-standing-chest-press"
             },
             {
               "name": "Dumbbell 2 Point Bench Press",
@@ -37396,7 +37396,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Attach a straight bar and grasp it with a reverse (underhand, palms facing you) grip about shoulder-width or slightly narrower.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-Reverse-Grip-Pulldown_Back_.mp4"
             },
             {
               "name": "Dumbbell Fly",
@@ -37716,7 +37716,7 @@
               "reps": 10,
               "restSeconds": 152,
               "notes": "Hinge forward at the hips until your torso is roughly parallel to the floor while keeping a slight bend in both knees; maintain a neutral spine and long neck throughout.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Dumbbell-One-Arm-Row-(rack-support)_Back.mp4"
             },
             {
               "name": "Wide Hand Push-up",
@@ -38038,7 +38038,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Load the desired plates and set the chest pad/seat so your chest rests against the pad with arms fully extended when you reach the handles; sit upright with feet braced on the platform or footrests.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Supinated-Grip-Seated-Row-(plate-loaded)_Bac.mp4"
             },
             {
               "name": "Lever Pec Deck Fly",
@@ -38048,7 +38048,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Adjust the seat height so the handles/pads are level with the mid-chest; sit upright with your back flat against the pad and feet flat on the floor.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Pec-Deck-Fly_Chest_.mp4"
             },
             {
               "name": "Cable Pushdown (straight arm)",
@@ -38058,7 +38058,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Attach a straight bar, rope, or single handle to a high pulley.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-Pushdown-(straight-arm)-(VERSION-2)_Back_.mp4"
             }
           ],
           "error": null,
@@ -39795,7 +39795,7 @@
               "reps": 10,
               "restSeconds": 180,
               "notes": "Load the desired plates on the machine and grasp the handles with a neutral or overhand grip, arms extended forward at the start position.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Low-Row-(plate-loaded)_Back_.mp4"
             },
             {
               "name": "Dumbbell Decline Hammer Press",
@@ -40180,7 +40180,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Attach a wide, straight or slightly curved bar to the low pulley and grasp it with a pronated (palms down) wide grip, arms extended and torso upright.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0220-cable-seated-wide-grip-row"
             },
             {
               "name": "Cable Half Kneeling Single Arm Row",
@@ -40230,7 +40230,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Select an appropriate weight, then reach up and grasp the bar with a shoulder-width underhand (supinated) grip, palms facing you.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-Reverse-Grip-Pulldown_Back_.mp4"
             },
             {
               "name": "Cable Close Grip Front Lat Pulldown",
@@ -40582,7 +40582,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Set two cable pulleys to a high position and attach single-hand or D handles; choose a moderate weight.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-High-Row-with-Chest-Support_Back_.mp4"
             },
             {
               "name": "Chest Dip (on dip pull-up cage)",
@@ -40612,7 +40612,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Sit upright on the bench/seat with feet braced against the footplate and knees slightly bent; grasp the wide rowing bar with a wide, overhand grip.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0220-cable-seated-wide-grip-row"
             },
             {
               "name": "Lever Bent over Row (plate loaded)",
@@ -40622,7 +40622,7 @@
               "reps": 10,
               "restSeconds": 90,
               "notes": "Hinge at the hips with a slight bend in the knees until your torso is inclined forward (approximately 30–45°), keeping the spine neutral and chest slightly up.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Bent-over-Row-(plate-loaded)_Back.mp4"
             },
             {
               "name": "Wide Hand Push-up",
@@ -40981,7 +40981,7 @@
               "reps": 10,
               "restSeconds": 180,
               "notes": "Sit upright on the machine seat with your back firmly against the back pad and feet flat on the ground.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Outdoor-Seated-Chest-Press_Chest_.mp4"
             },
             {
               "name": "Lever Bent over Row (plate loaded)",
@@ -40991,7 +40991,7 @@
               "reps": 10,
               "restSeconds": 180,
               "notes": "Set the lever machine or plate-loaded bar to the desired weight and stand with feet hip-width under the bar/platform.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Bent-over-Row-(plate-loaded)_Back.mp4"
             },
             {
               "name": "Dumbbell Reverse Bench Press",
@@ -41812,7 +41812,7 @@
               "reps": 12,
               "restSeconds": 96,
               "notes": "Attach a wide, straight or slightly curved bar to the low pulley and grasp it with a pronated (palms down) wide grip, arms extended and torso upright.",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0220-cable-seated-wide-grip-row"
             }
           ],
           "error": null,
@@ -42214,7 +42214,7 @@
               "reps": 12,
               "restSeconds": 74,
               "notes": "Reach forward and grasp the handles with a pronated (overhand) grip so your palms face down and arms are fully extended.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Pronated-Grip-Seated-Row-(plate-loaded)_Back.mp4"
             }
           ],
           "error": null,
@@ -43263,7 +43263,7 @@
               "reps": 10,
               "restSeconds": 180,
               "notes": "Sit upright on the machine with feet flat on the floor and chest/torso stabilized against the pad (or chest pad if present).",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-High-Row-(plate-loaded)_Back.mp4"
             },
             {
               "name": "Dumbbell Fly",
@@ -43283,7 +43283,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Adjust the seat height so the handles/pads are level with the mid-chest; sit upright with your back flat against the pad and feet flat on the floor.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Pec-Deck-Fly_Chest_.mp4"
             },
             {
               "name": "Cable Low Fly",
@@ -43601,7 +43601,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Load the desired plates and set the chest pad/seat so your chest rests against the pad with arms fully extended when you reach the handles; sit upright with feet braced on the platform or footrests.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-Supinated-Grip-Seated-Row-(plate-loaded)_Bac.mp4"
             },
             {
               "name": "Cable Bent Over Single Arm Crossover",
@@ -43925,7 +43925,7 @@
               "reps": 10,
               "restSeconds": 137,
               "notes": "Sit upright on the machine with feet flat on the floor and chest/torso stabilized against the pad (or chest pad if present).",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Lever-High-Row-(plate-loaded)_Back.mp4"
             },
             {
               "name": "Cable Bent Over Single Arm Crossover",
@@ -44229,7 +44229,7 @@
               "reps": 10,
               "restSeconds": 180,
               "notes": "Set two cable pulleys to a high position and attach single-hand or D handles; choose a moderate weight.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-High-Row-with-Chest-Support_Back_.mp4"
             },
             {
               "name": "Cable Split Stance Single Arm Row",
@@ -44259,7 +44259,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Attach a straight bar, rope, or single handle to a high pulley.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-Pushdown-(straight-arm)-(VERSION-2)_Back_.mp4"
             }
           ],
           "error": null,
@@ -44595,7 +44595,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Step 1: Sit at the end of a flat bench and bring two dumbbells together so their heads touch; lie back so you are supine with feet flat on the floor and knees bent.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Dumbbell-Squeeze-Bench-Press_Chest-FIX_.mp4"
             },
             {
               "name": "Cable Close Grip Front Lat Pulldown",
@@ -44615,7 +44615,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Attach a straight bar, rope, or single handle to a high pulley.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Cable-Pushdown-(straight-arm)-(VERSION-2)_Back_.mp4"
             },
             {
               "name": "Cable Straight Arm Pulldown",
@@ -44985,7 +44985,7 @@
               "reps": 11,
               "restSeconds": 90,
               "notes": "Adjust the machine seat so your back is fully supported on the incline pad and the handles start roughly at upper-chest / clavicle level when grasped.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Chest/Lever-Incline-Hammer-Chest-Press_Chest.mp4"
             },
             {
               "name": "Lever T-bar Row (plate loaded)",
@@ -48133,7 +48133,7 @@
               "reps": 12,
               "restSeconds": 90,
               "notes": "Stand upright with feet hip-width apart, knees slightly soft and core braced; hold a dumbbell in each hand at your sides.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Shoulders/Dumbbell-Standing-Bent-Arm-Lateral-raise-(male)_Sh.mp4"
             },
             {
               "name": "Dumbbell Rear Delt Raise",
@@ -51473,7 +51473,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Stand tall with feet about hip- to shoulder-width apart, knees soft and core braced; hold a dumbbell in each hand at your sides in a neutral grip (palms facing inward).",
-              "videoUrl": null
+              "videoUrl": "pending://female-gym-0293-dumbbell-curl-to-press"
             },
             {
               "name": "Dumbbell Seated Close Grip Press",
@@ -51827,7 +51827,7 @@
               "reps": 8,
               "restSeconds": 180,
               "notes": "Stand upright (standing) with feet about hip-to-shoulder width, knees soft and core braced; hold a dumbbell in each hand at your sides with a neutral grip.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Shoulders/Dumbbell-Standing-Front-and-Lateral-Raise_Shoulder.mp4"
             },
             {
               "name": "EZ Bar Standing Front Raise",
@@ -51857,7 +51857,7 @@
               "reps": 10,
               "restSeconds": 180,
               "notes": "Stand tall with feet about hip-width apart and knees soft; hold a dumbbell in one hand at shoulder height with the elbow bent and the palm facing forward or slightly inward.",
-              "videoUrl": null
+              "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Shoulders/Dumbbell-One-Arm-Shoulder-Press-(VERSION-2)_Should.mp4"
             },
             {
               "name": "Dumbbell Seated Shoulder Press",
