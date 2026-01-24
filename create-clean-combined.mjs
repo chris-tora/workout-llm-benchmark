@@ -42,7 +42,7 @@ models.forEach(model => {
           equipment: e.equipment,
           sets: e.sets,
           reps: e.reps,
-          restSeconds: e.restSeconds || e.rest || 60,
+          rest: e.restSeconds || e.rest || 60,
           notes: e.notes || null,
           videoUrl: e.videoUrl || null // Preserve video URL from original workout data
         }))
