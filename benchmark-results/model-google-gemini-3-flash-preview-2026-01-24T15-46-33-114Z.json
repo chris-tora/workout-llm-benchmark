@@ -1,0 +1,194 @@
+{
+  "modelId": "google/gemini-3-flash-preview",
+  "modelName": "Gemini 3 Flash",
+  "tier": "fast",
+  "timestamp": "2026-01-24T15:46:33.114Z",
+  "totalScenarios": 1,
+  "scenarios": [
+    {
+      "name": "Bro Split (Shoulders) (30min)",
+      "split": "bro_split",
+      "dayFocus": "Shoulders",
+      "duration": 30,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "dumbbell",
+        "barbell",
+        "cable",
+        "leverage machine"
+      ],
+      "success": true,
+      "latency": 8709,
+      "exerciseCount": 3,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "8",
+      "avgRest": 96,
+      "error": null,
+      "workout": {
+        "title": "Shoulder Day - BODYBUILD",
+        "description": "Shoulder Day workout focusing on bodybuild training.",
+        "estimatedDuration": 30,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "e15169f6-92f9-45c9-a227-f1a296fbca69",
+                "exerciseId": "e15169f6-92f9-45c9-a227-f1a296fbca69",
+                "name": "Barbell Standing Shoulders Press",
+                "target": "delts",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 115,
+                "tempo": "2-0-1",
+                "notes": "Stand tall with feet about hip- to shoulder-width apart and knees slightly soft.",
+                "instructions": [
+                  "Stand tall with feet about hip- to shoulder-width apart and knees slightly soft.",
+                  "Place the barbell in a front-rack position resting on the upper chest/clavicle area with hands slightly wider than shoulder-width and full grip around the bar.",
+                  "Retract the shoulder blades slightly, keep the chest up and core braced (neutral spine); avoid excessive lumbar arching.",
+                  "Take a full breath and begin the press by driving the bar upward in a straight line, slightly moving the head back as the bar passes and then returning the head forward under the bar.",
+                  "Fully extend the elbows at the top with the bar directly over or slightly behind the head, shoulders stacked over hips and feet for balance.",
+                  "Lower the bar under control back to the front-rack position to complete one rep while inhaling, keeping the elbows tracking slightly forward.",
+                  "Repeat for desired repetitions, maintaining tight core engagement and controlled tempo; stop or reduce weight if you must excessively lean back to finish reps."
+                ],
+                "description": "A standing barbell overhead press performed from the front-rack position that primarily develops the delts while requiring the triceps and upper back to assist and stabilize. The lifter presses the barbell from shoulder level to full arm extension overhead while maintaining a braced core.",
+                "secondaryMuscles": [
+                  "triceps",
+                  "upper back",
+                  "traps",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "9caef142-33ba-4356-b558-281646a34e52",
+                "exerciseId": "9caef142-33ba-4356-b558-281646a34e52",
+                "name": "Dumbbell Standing Lateral Raise",
+                "target": "delts",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 115,
+                "tempo": "2-0-1",
+                "notes": "Stand tall with feet about hip- to shoulder-width apart, knees slightly bent and core braced (standing position).",
+                "instructions": [
+                  "Stand tall with feet about hip- to shoulder-width apart, knees slightly bent and core braced (standing position).",
+                  "Hold a dumbbell in each hand at your sides with a neutral grip (palms facing your body) and wrists straight.",
+                  "Keep a small bend in the elbows throughout the movement and maintain a neutral spine and chest up.",
+                  "Exhale and raise both arms out to the sides by lifting at the shoulders, leading with the elbows so the hands finish roughly at shoulder height (arms nearly parallel to the floor).",
+                  "Avoid shrugging the shoulders up toward the ears; keep the neck long and scapulae stable to minimize excessive trap involvement.",
+                  "Pause briefly (0–1 second) at the top while maintaining tension in the delts.",
+                  "Inhale and lower the dumbbells slowly and controlled back to the starting position at your sides.",
+                  "Repeat for desired reps, keeping movement smooth and avoiding momentum or swinging; use lighter weight if form breaks down."
+                ],
+                "description": "Standing dumbbell lateral raise works the lateral delts by lifting the arms out to the sides to about shoulder height, with a slight elbow bend and controlled motion. It improves shoulder width and isolates the middle shoulder fibers while the traps and forearms assist.",
+                "secondaryMuscles": [
+                  "traps",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "d8684d26-30e9-4dad-b48d-9d5983a06eaa",
+                "exerciseId": "d8684d26-30e9-4dad-b48d-9d5983a06eaa",
+                "name": "Cable Lateral Raise",
+                "target": "delts",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 58,
+                "tempo": "2-0-1",
+                "notes": "Set both cable pulleys to the lowest position and attach single handles.",
+                "instructions": [
+                  "Set both cable pulleys to the lowest position and attach single handles. Stand centered between the two towers and grasp each handle with the opposite hand so the cables cross in front of you (or hold same-side handles if preferred).",
+                  "Stand upright with feet about hip-width apart, knees soft, and core braced (neutral spine). Keep a slight bend in the elbows and wrists neutral.",
+                  "Start with the handles low by your thighs; palms can face inward or slightly forward. Maintain a small forward lean from the hips if comfortable to allow a natural arc.",
+                  "Keeping the elbows slightly bent, exhale and raise both arms out to the sides in a smooth arc until your hands reach approximately shoulder height. Lead the movement with the elbow, not the wrist.",
+                  "Pause briefly at the top while maintaining tension in the delts; avoid shrugging the shoulders upward toward your ears.",
+                  "Inhale and lower the handles slowly and under control back to the starting position, keeping tension on the cables throughout the descent.",
+                  "Repeat for the desired number of reps. Use a lighter weight if you cannot maintain strict form or if you begin using torso momentum."
+                ],
+                "description": "A standing cable lateral raise performed from low pulleys to isolate the lateral head of the delts; cables provide constant tension while you lift the arms out to the sides to shoulder height. The movement is done with a slight elbow bend and controlled tempo to minimize momentum.",
+                "secondaryMuscles": [
+                  "traps",
+                  "forearms",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "e15169f6-92f9-45c9-a227-f1a296fbca69",
+              "name": "Barbell Standing Shoulders Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 2,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": false,
+        "fallbackReason": null,
+        "exercisesAvailable": 162,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 30,
+        "targetExerciseCount": 3,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 162,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "successCount": 1,
+    "parseErrorCount": 0,
+    "apiErrorCount": 0,
+    "totalLatency": 8709,
+    "avgLatency": 8709,
+    "avgExerciseCount": 3,
+    "avgEquipmentMatchRate": 100,
+    "avgSets": 4,
+    "avgRest": 96,
+    "repsCounts": {
+      "8": 1
+    },
+    "avgReps": "8",
+    "successRate": 100
+  }
+}

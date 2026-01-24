@@ -1,0 +1,48 @@
+{
+  "modelId": "anthropic/claude-haiku-4.5",
+  "modelName": "Claude 4.5 Haiku",
+  "tier": "fast",
+  "timestamp": "2026-01-24T16:08:12.052Z",
+  "totalScenarios": 1,
+  "scenarios": [
+    {
+      "name": "PPL - Bodybuilding (Push) (30min)",
+      "split": "push_pull_legs",
+      "dayFocus": "Push",
+      "duration": 30,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "barbell",
+        "dumbbell",
+        "cable",
+        "leverage machine"
+      ],
+      "success": false,
+      "latency": 336,
+      "exerciseCount": 0,
+      "equipmentMatchRate": 0,
+      "avgSets": 0,
+      "avgReps": "-",
+      "avgRest": 0,
+      "error": "fetch failed",
+      "workout": null,
+      "meta": null
+    }
+  ],
+  "summary": {
+    "successCount": 0,
+    "parseErrorCount": 0,
+    "apiErrorCount": 1,
+    "totalLatency": 0,
+    "avgLatency": 0,
+    "avgExerciseCount": 0,
+    "avgEquipmentMatchRate": 0,
+    "avgSets": 0,
+    "avgRest": 0,
+    "repsCounts": {},
+    "avgReps": "-",
+    "successRate": 0
+  }
+}

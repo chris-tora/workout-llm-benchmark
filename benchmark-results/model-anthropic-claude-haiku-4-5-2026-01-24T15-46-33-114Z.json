@@ -1,0 +1,194 @@
+{
+  "modelId": "anthropic/claude-haiku-4.5",
+  "modelName": "Claude 4.5 Haiku",
+  "tier": "fast",
+  "timestamp": "2026-01-24T15:46:33.114Z",
+  "totalScenarios": 1,
+  "scenarios": [
+    {
+      "name": "Bro Split (Shoulders) (30min)",
+      "split": "bro_split",
+      "dayFocus": "Shoulders",
+      "duration": 30,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "dumbbell",
+        "barbell",
+        "cable",
+        "leverage machine"
+      ],
+      "success": true,
+      "latency": 11835,
+      "exerciseCount": 3,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "8",
+      "avgRest": 96,
+      "error": null,
+      "workout": {
+        "title": "Shoulder Day - BODYBUILD",
+        "description": "Shoulder Day workout focusing on bodybuild training.",
+        "estimatedDuration": 30,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "e15169f6-92f9-45c9-a227-f1a296fbca69",
+                "exerciseId": "e15169f6-92f9-45c9-a227-f1a296fbca69",
+                "name": "Barbell Standing Shoulders Press",
+                "target": "delts",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 115,
+                "tempo": "2-0-1",
+                "notes": "Stand tall with feet about hip- to shoulder-width apart and knees slightly soft.",
+                "instructions": [
+                  "Stand tall with feet about hip- to shoulder-width apart and knees slightly soft.",
+                  "Place the barbell in a front-rack position resting on the upper chest/clavicle area with hands slightly wider than shoulder-width and full grip around the bar.",
+                  "Retract the shoulder blades slightly, keep the chest up and core braced (neutral spine); avoid excessive lumbar arching.",
+                  "Take a full breath and begin the press by driving the bar upward in a straight line, slightly moving the head back as the bar passes and then returning the head forward under the bar.",
+                  "Fully extend the elbows at the top with the bar directly over or slightly behind the head, shoulders stacked over hips and feet for balance.",
+                  "Lower the bar under control back to the front-rack position to complete one rep while inhaling, keeping the elbows tracking slightly forward.",
+                  "Repeat for desired repetitions, maintaining tight core engagement and controlled tempo; stop or reduce weight if you must excessively lean back to finish reps."
+                ],
+                "description": "A standing barbell overhead press performed from the front-rack position that primarily develops the delts while requiring the triceps and upper back to assist and stabilize. The lifter presses the barbell from shoulder level to full arm extension overhead while maintaining a braced core.",
+                "secondaryMuscles": [
+                  "triceps",
+                  "upper back",
+                  "traps",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "ab152327-24e6-4976-98ce-4e8c0cba9c2d",
+                "exerciseId": "ab152327-24e6-4976-98ce-4e8c0cba9c2d",
+                "name": "Dumbbell Rear Delt Raise",
+                "target": "delts",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 115,
+                "tempo": "2-0-1",
+                "notes": "Stand feet hip-width apart holding a dumbbell in each hand with a neutral (palms facing) grip.",
+                "instructions": [
+                  "Stand feet hip-width apart holding a dumbbell in each hand with a neutral (palms facing) grip.",
+                  "Hinge forward at the hips until your torso is roughly parallel to the floor, keep a neutral spine and knees slightly bent (bent-over position).",
+                  "Let your arms hang straight down from the shoulders with a slight bend in the elbows; maintain a braced core and avoid rounding the back.",
+                  "Keeping the elbows slightly bent, raise the dumbbells out to the sides in a wide arc until your upper arms are roughly parallel to the ground (level with the shoulders).",
+                  "Squeeze the rear delts and shoulder blades together at the top for a brief pause, avoid shrugging the shoulders up toward the ears.",
+                  "Slowly lower the dumbbells back to the start under control, resisting any momentum; repeat for desired reps.",
+                  "Keep the movement strict: use lighter weight if you must swing the torso or bend the elbows excessively, and breathe out on the lift and in on the lower."
+                ],
+                "description": "A bent-over dumbbell raise that isolates the rear (posterior) deltoids by lifting the arms out to the sides while the torso is hinged forward. It emphasizes shoulder horizontal abduction and scapular retraction with a controlled tempo.",
+                "secondaryMuscles": [
+                  "upper back",
+                  "traps",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "75f61055-c60b-42ab-a340-f4fb5a22817f",
+                "exerciseId": "75f61055-c60b-42ab-a340-f4fb5a22817f",
+                "name": "Cable Standing Face Pull",
+                "target": "delts",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 58,
+                "tempo": "2-0-1",
+                "notes": "Set a cable pulley to about eye- to upper-chest height and attach a rope handle.",
+                "instructions": [
+                  "Set a cable pulley to about eye- to upper-chest height and attach a rope handle.",
+                  "Stand facing the machine with feet shoulder-width apart or in a slight staggered stance, knees soft and spine neutral.",
+                  "Grasp the rope with both hands using a neutral/overhand grip (palms facing inward) and take a step back so there is tension on the cable.",
+                  "Initiate the movement by retracting the shoulder blades and pulling the rope toward your face, driving the elbows out to the sides so your upper arms are roughly parallel to the floor.",
+                  "As you reach the end range, externally rotate the shoulders so the hands split apart and the rope ends are near your temples or ears; pause and squeeze the rear delts and upper back.",
+                  "Slowly reverse the motion under control, extending the arms forward while maintaining scapular control until the hands return to the start position.",
+                  "Repeat for the desired reps, keeping torso stable (no excessive leaning or momentum) and focusing on quality of movement and external rotation."
+                ],
+                "description": "A standing cable face pull with a rope attachment that emphasizes the posterior delts and upper back by pulling the rope toward the face while externally rotating the shoulders. It develops rear shoulder strength, scapular retraction, and shoulder external rotators.",
+                "secondaryMuscles": [
+                  "upper back",
+                  "traps",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "e15169f6-92f9-45c9-a227-f1a296fbca69",
+              "name": "Barbell Standing Shoulders Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 2,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": false,
+        "fallbackReason": null,
+        "exercisesAvailable": 162,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 30,
+        "targetExerciseCount": 3,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 162,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "successCount": 1,
+    "parseErrorCount": 0,
+    "apiErrorCount": 0,
+    "totalLatency": 11835,
+    "avgLatency": 11835,
+    "avgExerciseCount": 3,
+    "avgEquipmentMatchRate": 100,
+    "avgSets": 4,
+    "avgRest": 96,
+    "repsCounts": {
+      "8": 1
+    },
+    "avgReps": "8",
+    "successRate": 100
+  }
+}

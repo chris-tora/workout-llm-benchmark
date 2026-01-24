@@ -1,0 +1,207 @@
+{
+  "modelId": "google/gemini-3-flash-preview",
+  "modelName": "Gemini 3 Flash",
+  "tier": "fast",
+  "timestamp": "2026-01-24T16:10:04.917Z",
+  "totalScenarios": 1,
+  "scenarios": [
+    {
+      "name": "Bro Split (Legs) (30min)",
+      "split": "bro_split",
+      "dayFocus": "Legs",
+      "duration": 30,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Barbell",
+        "Dumbbells",
+        "Leg Press",
+        "Leg Curl Machine",
+        "Leg Extension Machine"
+      ],
+      "success": true,
+      "latency": 11545,
+      "exerciseCount": 3,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "8",
+      "avgRest": 96,
+      "error": null,
+      "workout": {
+        "title": "Leg Day - BODYBUILD",
+        "description": "Leg Day workout focusing on bodybuild training.",
+        "estimatedDuration": 30,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "3c12db3c-5644-4136-b290-be26c5de1d99",
+                "exerciseId": "3c12db3c-5644-4136-b290-be26c5de1d99",
+                "name": "Barbell High Bar Squat",
+                "target": "quads",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Set the bar in a squat rack at about upper-chest height.",
+                "instructions": [
+                  "Set the bar in a squat rack at about upper-chest height. Step under the bar so it rests across your upper traps (high-bar position), not on the neck.",
+                  "Grip the bar just outside shoulder width and retract your shoulder blades to create a stable shelf; lift the bar off the rack and take 1–2 small steps back to clear the rack.",
+                  "Stand with feet approximately shoulder-width apart and toes pointed slightly outward. Brace your abs and keep a tall, upright torso.",
+                  "Initiate the squat by pushing your hips back slightly and bending at the knees, keeping weight distributed through the midfoot to heels.",
+                  "Descend under control until your thighs are approximately parallel to the floor (or slightly below if mobility allows), ensuring knees track over the toes and do not collapse inward.",
+                  "Maintain chest up and a neutral spine throughout the descent; keep the upper back tight to support the bar.",
+                  "Drive through the heels and midfoot, extend the knees and hips simultaneously to return to a standing position, exhaling as you rise.",
+                  "Reset your brace at the top, then repeat for the desired number of repetitions. When finished, step forward into the rack and safely re-rack the bar."
+                ],
+                "description": "A barbell high bar squat places the bar on the upper traps and emphasizes knee flexion to target the quads while also engaging the glutes and hamstrings. The lifter descends to at least parallel with an upright torso, then drives back up to standing.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "hamstrings",
+                  "calves",
+                  "abs",
+                  "upper back"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "4a32ef38-211f-40aa-8f62-57a00003b87d",
+                "exerciseId": "4a32ef38-211f-40aa-8f62-57a00003b87d",
+                "name": "Lever Seated Leg Press",
+                "target": "quads",
+                "equipment": "Leverage Machine",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Set the seat so your back and head are fully supported against the pad and your hips and knees start at about 90° with feet placed hip-width on the platform.",
+                "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Lever-Seated-Leg-Press_Thighs.mp4",
+                "instructions": [
+                  "Set the seat so your back and head are fully supported against the pad and your hips and knees start at about 90° with feet placed hip-width on the platform.",
+                  "Sit upright with your back pressed into the pad, grip the side handles for stability, and ensure the machine safety latch or pin is engaged before beginning.",
+                  "Unlock or release the safety according to the machine (or have a spotter remove the lock) so the platform can move freely.",
+                  "Exhale and press through your heels and mid-foot to extend your legs, driving the footplate away until legs are nearly straight — do not hyperextend or lock the knees.",
+                  "Pause briefly at the top with tension in the quads, then inhale and slowly bend the knees to return the platform toward your chest under control until your knees are about 90° (or a comfortable range).",
+                  "Keep your lower back and hips pressed against the pad throughout; avoid letting the hips come off the seat or the knees collapse inward.",
+                  "Repeat for the desired reps, then re-engage the safety/lock before exiting the machine."
+                ],
+                "description": "Seated leg press performed on a lever machine that drives a footplate away from the body to extend the knees and hips; primarily trains the quadriceps with secondary work by the glutes, hamstrings and calves. The exerciser pushes the platform while seated with the back supported.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "hamstrings",
+                  "calves"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "f32aad64-9ddc-4b0a-aaf1-868dbdea8ef2",
+                "exerciseId": "f32aad64-9ddc-4b0a-aaf1-868dbdea8ef2",
+                "name": "Lever Seated Single Leg Squat Calf Raise on Leg Press Machine",
+                "target": "calves",
+                "equipment": "Leverage Machine",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Sit upright on the leg press machine with your back flat against the pad and both hands holding the side handles for stability.",
+                "instructions": [
+                  "Sit upright on the leg press machine with your back flat against the pad and both hands holding the side handles for stability.",
+                  "Place one foot high on the footplate so the ball of the foot and toes contact the plate and the heel can drop below the plate; tuck the non-working leg so it does not touch the plate (knee bent and off the platform).",
+                  "Select appropriate weight, ensure the sled is locked, then unlock the lever to free the sled for the set.",
+                  "Begin with a slight bend in the working knee (not fully locked) and allow the heel to lower until you feel a comfortable stretch in the calf—this is the starting position.",
+                  "Drive through the ball of the foot and toes to plantarflex the ankle, raising the heel as high as possible while keeping the ankle, knee and hip aligned; squeeze the calf at the top for a brief pause.",
+                  "Slowly lower the heel back to the starting stretched position with control; do not let the sled slam down.",
+                  "Complete the prescribed reps, then carefully lock the sled before changing legs; maintain steady breathing (exhale on the raise, inhale on the lowering) and keep your torso pressed to the pad throughout."
+                ],
+                "description": "Seated single‑leg calf raise performed on a leg‑press sled: the exerciser pushes the sled with one foot and performs plantarflexion to raise the heel, emphasizing the calf while the working leg also stabilizes through the knee and hip.",
+                "secondaryMuscles": [
+                  "quads",
+                  "glutes"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "3c12db3c-5644-4136-b290-be26c5de1d99",
+              "name": "Barbell High Bar Squat",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "4a32ef38-211f-40aa-8f62-57a00003b87d",
+              "name": "Lever Seated Leg Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "f32aad64-9ddc-4b0a-aaf1-868dbdea8ef2",
+              "name": "Lever Seated Single Leg Squat Calf Raise on Leg Press Machine",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 6,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 307,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 30,
+        "targetExerciseCount": 3,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 307,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "successCount": 1,
+    "parseErrorCount": 0,
+    "apiErrorCount": 0,
+    "totalLatency": 11545,
+    "avgLatency": 11545,
+    "avgExerciseCount": 3,
+    "avgEquipmentMatchRate": 100,
+    "avgSets": 4,
+    "avgRest": 96,
+    "repsCounts": {
+      "8": 1
+    },
+    "avgReps": "8",
+    "successRate": 100
+  }
+}

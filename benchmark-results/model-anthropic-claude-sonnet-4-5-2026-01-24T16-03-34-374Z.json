@@ -1,0 +1,2810 @@
+{
+  "modelId": "anthropic/claude-sonnet-4.5",
+  "modelName": "Claude Sonnet 4.5",
+  "tier": "premium",
+  "timestamp": "2026-01-24T16:03:34.374Z",
+  "totalScenarios": 12,
+  "scenarios": [
+    {
+      "name": "Bro Split (Arms) (30min)",
+      "split": "bro_split",
+      "dayFocus": "Arms",
+      "duration": 30,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Dumbbells",
+        "Barbell",
+        "Cable Machine",
+        "EZ Bar"
+      ],
+      "success": true,
+      "latency": 16529,
+      "exerciseCount": 3,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "10",
+      "avgRest": 96,
+      "error": null,
+      "workout": {
+        "title": "Arm Day - BODYBUILD",
+        "description": "Arm Day workout focusing on bodybuild training.",
+        "estimatedDuration": 30,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "1e2e739d-7090-4afb-be9e-e61ad263792d",
+                "exerciseId": "1e2e739d-7090-4afb-be9e-e61ad263792d",
+                "name": "Barbell Close Grip Bench Press",
+                "target": "triceps",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Set up a flat bench in a rack or on a bench press station and load the barbell safely; position the bar at arm level for easy unracking.",
+                "instructions": [
+                  "Set up a flat bench in a rack or on a bench press station and load the barbell safely; position the bar at arm level for easy unracking.",
+                  "Lie supine (on your back) on the bench with feet flat on the floor, knees bent, shoulders retracted and pressed into the bench for stability.",
+                  "Grip the barbell with a close grip: hands about shoulder-width apart (index fingers roughly in line with the shoulders) or slightly narrower; keep wrists neutral and stacked over elbows.",
+                  "Unrack the bar by straightening your arms and moving the bar directly above your sternum; keep a tight core and stable foot drive.",
+                  "Inhale and lower the bar under control to the lower chest / sternum area, keeping elbows tucked closer to your body (about 45 degrees or less from the torso) to emphasize the triceps.",
+                  "Pause briefly with the bar lightly touching the chest (do not bounce), then exhale and press the bar upward by extending the elbows until arms are nearly straight but not hyperextended.",
+                  "Maintain wrist alignment and shoulder position throughout; avoid flaring the elbows wide and keep the movement vertical over the chest.",
+                  "Rerack the bar with control after the set; use a spotter when lifting heavy or if you are near failure.",
+                  "Progress by increasing load gradually, or modify grip width slightly to change emphasis; stop or reduce range if you feel joint pain (especially in wrists or elbows)."
+                ],
+                "description": "A compound supine pressing exercise performed with a narrow (close) grip to place primary emphasis on the triceps while still recruiting the pectorals and anterior delts. Performed on a flat bench, the bar is lowered to the chest and pressed back to full elbow extension.",
+                "secondaryMuscles": [
+                  "pectorals",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "db687142-fd15-442f-b95c-6fa14f78c32f",
+                "exerciseId": "db687142-fd15-442f-b95c-6fa14f78c32f",
+                "name": "Dumbbell Close grip Press",
+                "target": "triceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Lie supine on a flat bench with feet planted on the floor and a slight natural arch in the lower back.",
+                "instructions": [
+                  "Lie supine on a flat bench with feet planted on the floor and a slight natural arch in the lower back.",
+                  "Hold a dumbbell in each hand with a neutral (palms facing each other) close grip so the dumbbells are touching or nearly touching over your sternum.",
+                  "Tuck your elbows close to your sides (keep them pointing rearward, not flared wide) to bias the triceps.",
+                  "Brace your core and inhale, then press the dumbbells straight up by extending the elbows until arms are nearly straight and triceps are contracted; keep the dumbbells close together throughout the movement.",
+                  "Pause briefly at the top without locking the elbows aggressively, maintaining wrist neutrality.",
+                  "Exhale and slowly lower the dumbbells under control back to the starting position at the chest while maintaining elbow tuck and shoulder stability.",
+                  "Repeat for the desired reps, keeping movement tempo controlled and avoiding excessive shoulder flaring or back drive."
+                ],
+                "description": "Lying supine on a flat bench, press two dumbbells together with a narrow/neutral grip and extend the arms to emphasize the triceps while still recruiting the chest and front delts. Keeping the dumbbells close limits shoulder flare and shifts load onto the triceps.",
+                "secondaryMuscles": [
+                  "pectorals",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "00559c4d-90db-477f-8f53-6719c310192a",
+                "exerciseId": "00559c4d-90db-477f-8f53-6719c310192a",
+                "name": "Cable Overhead Curl",
+                "target": "biceps",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Set both cable pulleys to the highest position and attach single D‑handles.",
+                "instructions": [
+                  "Set both cable pulleys to the highest position and attach single D‑handles. Stand centered between the two stacks.",
+                  "Grasp a handle in each hand with a supinated (palm‑up) grip and step slightly forward so there is light tension on the cables. Feet hip‑width apart, torso upright.",
+                  "Raise your arms out to the sides/overhead so the upper arms are elevated (~30–60° from horizontal) and the elbows are pointing slightly forward or out; this is the start position.",
+                  "Keep your upper arms and shoulders stable (minimal movement) and curl the handles by flexing only at the elbows, bringing the hands toward the temples/forehead while keeping wrists neutral.",
+                  "Pause and squeeze the biceps at the top of the movement when forearms approach vertical, avoiding shoulder shrugging or trunk lean.",
+                  "Slowly lower the handles back to the start position under control until the biceps are lengthened and the cables have constant tension.",
+                  "Repeat for the desired reps, maintaining a steady tempo and avoiding using body momentum or excessive torso extension.",
+                  "If you feel shoulder pain, lower the arm elevation angle or reduce weight; keep core engaged to prevent excessive arching of the spine."
+                ],
+                "description": "A cable variation of the biceps curl performed with the arms raised overhead, which places extra emphasis on the long head of the biceps while requiring shoulder stabilization by the delts and grip work from the forearms.",
+                "secondaryMuscles": [
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "1e2e739d-7090-4afb-be9e-e61ad263792d",
+              "name": "Barbell Close Grip Bench Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 2,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 255,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 30,
+        "targetExerciseCount": 3,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 255,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Bro Split (Arms) (60min)",
+      "split": "bro_split",
+      "dayFocus": "Arms",
+      "duration": 60,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Dumbbells",
+        "Barbell",
+        "Cable Machine",
+        "EZ Bar"
+      ],
+      "success": true,
+      "latency": 17815,
+      "exerciseCount": 6,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "12",
+      "avgRest": 113,
+      "error": null,
+      "workout": {
+        "title": "Arm Day - BODYBUILD",
+        "description": "Arm Day workout focusing on bodybuild training.",
+        "estimatedDuration": 60,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "06ff4c33-9715-454c-948d-d359411ced49",
+                "exerciseId": "06ff4c33-9715-454c-948d-d359411ced49",
+                "name": "Barbell Close Grip Bench Press",
+                "target": "triceps",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 170,
+                "tempo": "2-0-1",
+                "notes": "Setup: Load the bar and set safety pins or use a spotter.",
+                "instructions": [
+                  "Setup: Load the bar and set safety pins or use a spotter. Lie supine on a flat bench with eyes under the bar, feet flat on the floor and a slight lumbar arch.",
+                  "Grip: Use a close grip (hands about shoulder-width or slightly narrower — roughly 6–12 inches apart) with a pronated grip, wrists stacked over wrists and the bar.",
+                  "Scapula and position: Retract and depress your shoulder blades slightly to create a stable chest platform; keep shoulders down away from ears.",
+                  "Unrack: Drive your feet, take a deep breath, brace your core, lock your elbows to lift the bar out of the rack and position it over your sternum with arms vertical.",
+                  "Descent: Lower the bar in a controlled manner to the lower chest/sternum while keeping your elbows tucked close to your torso (avoid wide flaring), inhaling as you descend.",
+                  "Touch and pause: Lightly touch or stop just above the chest (avoid bouncing) and maintain tension in the triceps.",
+                  "Press: Exhale and press the bar upward by extending the elbows, keeping the bar path slightly diagonal toward the head until near full extension (do not hyperextend or lock aggressively).",
+                  "Re-rack: After the set, control the bar back to the rack hooks or have a spotter assist. Maintain form on every rep.",
+                  "Coaching cues & safety: Use a spotter or safety pins for heavy sets, keep wrists neutral, avoid flaring elbows to protect shoulders, and reduce weight if you cannot maintain elbow tuck and controlled descent."
+                ],
+                "description": "A supine barbell press using a narrow grip that shifts emphasis from the chest to the triceps. Performed on a flat bench, the bar is lowered to the lower chest/sternum with elbows kept close to the torso and then pressed back to lockout.",
+                "secondaryMuscles": [
+                  "pectorals",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "b158caae-2835-435f-8aae-65543ff59fcb",
+                "exerciseId": "b158caae-2835-435f-8aae-65543ff59fcb",
+                "name": "Barbell Lying Close grip Press",
+                "target": "triceps",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 170,
+                "tempo": "2-0-1",
+                "notes": "Set up: Lie supine on a flat bench with feet flat on the floor and shoulder blades retracted; position the bar on the rack directly above your eyes.",
+                "instructions": [
+                  "Set up: Lie supine on a flat bench with feet flat on the floor and shoulder blades retracted; position the bar on the rack directly above your eyes.",
+                  "Grip the bar with a close grip (hands about shoulder-width or slightly narrower — roughly 6–12 inches between hands) with palms facing up and wrists stacked over elbows.",
+                  "Unrack the bar by straightening the arms and moving it over your chest; keep your shoulder blades pinched and a slight arch in the upper back.",
+                  "Descend: Inhale and lower the bar in a controlled manner to the mid-to-lower chest/sternum while keeping your elbows tucked toward your torso (about a 30–45° angle) to target the triceps.",
+                  "Press: Exhale and press the bar upward by extending the elbows until arms are nearly straight, maintaining control and avoiding aggressive hyperextension of the elbows.",
+                  "Repeat for the desired reps with a steady tempo (e.g., 2 seconds down, brief pause, 1 second up).",
+                  "Safety: Use a spotter or set safety pins in the rack at chest height; keep wrists neutral and avoid flaring the elbows out wide to reduce shoulder strain."
+                ],
+                "description": "A flat bench press variation performed with a narrow grip to emphasize the triceps while still recruiting the pectorals and front delts. Performed lying supine on a bench, the bar is lowered to the mid/lower chest and pressed back up with elbows kept close to the body.",
+                "secondaryMuscles": [
+                  "pectorals",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "99a4a1ab-ed44-42b5-bef3-62a3aae6bce2",
+                "exerciseId": "99a4a1ab-ed44-42b5-bef3-62a3aae6bce2",
+                "name": "Cable Reverse Grip Triceps Pushdown (SZ bar)",
+                "target": "triceps",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Attach an SZ bar to the high pulley of a cable machine and select an appropriate weight.",
+                "instructions": [
+                  "Attach an SZ bar to the high pulley of a cable machine and select an appropriate weight.",
+                  "Stand facing the machine with feet shoulder-width apart, knees slightly bent and core braced; grip the SZ bar with an underhand (palms up) reverse grip roughly shoulder-width apart.",
+                  "Tuck your elbows close to your sides and keep your upper arms stationary throughout the movement.",
+                  "Exhale and extend your elbows to push the bar down until your arms are nearly straight and triceps are fully contracted; keep wrists neutral and avoid flaring the elbows.",
+                  "Pause briefly at the bottom to feel the triceps contraction without locking the elbows or using torso momentum.",
+                  "Inhale and slowly allow the bar to rise back to the start position under control, returning to about a 90-degree elbow angle or slightly less while maintaining elbow position.",
+                  "Repeat for the desired number of repetitions, keeping movement tempo controlled and avoiding shoulder or torso involvement."
+                ],
+                "description": "Standing cable pushdown using an SZ (curl) bar with a reverse (underhand/supinated) grip to emphasize elbow extension and load the triceps. Perform controlled extensions and returns while keeping the upper arms stationary to isolate the triceps.",
+                "secondaryMuscles": [
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "d48e6811-5b81-48b7-a3c8-6512a5db67b9",
+                "exerciseId": "d48e6811-5b81-48b7-a3c8-6512a5db67b9",
+                "name": "EZ Barbell Close grip Curl",
+                "target": "biceps",
+                "equipment": "EZ Barbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Stand tall with feet hip-width apart and knees soft, holding the EZ bar with a narrow, underhand (supinated) grip on the inner angled section so hands are close together.",
+                "instructions": [
+                  "Stand tall with feet hip-width apart and knees soft, holding the EZ bar with a narrow, underhand (supinated) grip on the inner angled section so hands are close together.",
+                  "Keep your chest up, shoulders down and back, core braced, and elbows fixed at your sides throughout the movement.",
+                  "Exhale and curl the bar by flexing the elbows, driving the forearms up toward the biceps while keeping the wrists neutral; pause and squeeze at the top.",
+                  "Inhale and lower the bar slowly and under control back to the starting position until arms are fully extended but not locked out.",
+                  "Avoid swinging the torso or using shoulder momentum; if elbows move forward, reduce weight and reset position."
+                ],
+                "description": "Standing close-grip curl using an EZ bar to emphasize the biceps with a narrow, underhand grip; the exercise involves elbow flexion to lift the bar toward the shoulders while keeping the torso stable. The close grip increases forearm involvement and reduces shoulder contribution.",
+                "secondaryMuscles": [
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "b94f9dee-8b49-4575-8d61-ebc084b27caf",
+                "exerciseId": "b94f9dee-8b49-4575-8d61-ebc084b27caf",
+                "name": "Dumbbell Lying Triceps Extension",
+                "target": "triceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Lie supine on a flat bench with feet flat on the floor and knees bent for stability.",
+                "instructions": [
+                  "Lie supine on a flat bench with feet flat on the floor and knees bent for stability.",
+                  "Hold a dumbbell in each hand (or one dumbbell held with both hands) and extend your arms so the weights are directly above your chest with palms facing each other or each other’s sides.",
+                  "Keep your upper arms vertical and stationary (elbows pointing up) and brace your core to prevent arching of the lower back.",
+                  "Inhale and slowly bend only at the elbows to lower the dumbbells toward your forehead or just behind it, moving the forearms while keeping the upper arms fixed.",
+                  "Stop when your forearms are roughly parallel to the floor or the dumbbells are close to your forehead/temples, keeping the wrists neutral and elbows tucked (do not flare).",
+                  "Exhale and press the dumbbells back up by extending the elbows until arms are nearly straight but not locked out, squeezing the triceps at the top.",
+                  "Repeat for the desired number of repetitions with a controlled tempo; avoid using shoulder movement or back arching to lift the weight."
+                ],
+                "description": "A supine dumbbell exercise that isolates the triceps by extending the elbow from a flexed position while the upper arms remain stationary. Performed lying on a flat bench, it emphasizes the long and lateral heads of the triceps with controlled lowering and pressing.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "860483f7-b792-4719-85aa-c558b758a99c",
+                "exerciseId": "860483f7-b792-4719-85aa-c558b758a99c",
+                "name": "Dumbbell Biceps Curl",
+                "target": "biceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Stand tall with feet about shoulder-width apart, knees soft and core engaged; hold a dumbbell in each hand at your sides in a supinated (palms facing forward) grip.",
+                "instructions": [
+                  "Stand tall with feet about shoulder-width apart, knees soft and core engaged; hold a dumbbell in each hand at your sides in a supinated (palms facing forward) grip.",
+                  "Keep your torso upright and shoulders back; allow the elbows to rest close to your ribs and remain stationary throughout the movement.",
+                  "Exhale and curl the dumbbells by flexing at the elbow, moving only the forearms so the dumbbells travel toward the front of the shoulders.",
+                  "Pause and squeeze the biceps at the top of the movement when the dumbbells reach shoulder level; do not lean back or use momentum.",
+                  "Inhale and slowly lower the dumbbells back to the starting position with controlled extension of the elbows until the arms are straight.",
+                  "Repeat for the prescribed reps, maintaining a neutral wrist and avoiding swinging the body; if you must swing, reduce the weight."
+                ],
+                "description": "A standing dumbbell biceps curl isolates the elbow flexors by lifting weights from the thighs to shoulder level using a supinated grip. It builds biceps strength and size while the forearms assist in gripping and stabilizing the load.",
+                "secondaryMuscles": [
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "06ff4c33-9715-454c-948d-d359411ced49",
+              "name": "Barbell Close Grip Bench Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 2,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 255,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 60,
+        "targetExerciseCount": 6,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 255,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Bro Split (Arms) (90min)",
+      "split": "bro_split",
+      "dayFocus": "Arms",
+      "duration": 90,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Dumbbells",
+        "Barbell",
+        "Cable Machine",
+        "EZ Bar"
+      ],
+      "success": true,
+      "latency": 19792,
+      "exerciseCount": 8,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "12",
+      "avgRest": 113,
+      "error": null,
+      "workout": {
+        "title": "Arm Day - BODYBUILD",
+        "description": "Arm Day workout focusing on bodybuild training.",
+        "estimatedDuration": 90,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "06ff4c33-9715-454c-948d-d359411ced49",
+                "exerciseId": "06ff4c33-9715-454c-948d-d359411ced49",
+                "name": "Barbell Close Grip Bench Press",
+                "target": "triceps",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 180,
+                "tempo": "2-0-1",
+                "notes": "Setup: Load the bar and set safety pins or use a spotter.",
+                "instructions": [
+                  "Setup: Load the bar and set safety pins or use a spotter. Lie supine on a flat bench with eyes under the bar, feet flat on the floor and a slight lumbar arch.",
+                  "Grip: Use a close grip (hands about shoulder-width or slightly narrower — roughly 6–12 inches apart) with a pronated grip, wrists stacked over wrists and the bar.",
+                  "Scapula and position: Retract and depress your shoulder blades slightly to create a stable chest platform; keep shoulders down away from ears.",
+                  "Unrack: Drive your feet, take a deep breath, brace your core, lock your elbows to lift the bar out of the rack and position it over your sternum with arms vertical.",
+                  "Descent: Lower the bar in a controlled manner to the lower chest/sternum while keeping your elbows tucked close to your torso (avoid wide flaring), inhaling as you descend.",
+                  "Touch and pause: Lightly touch or stop just above the chest (avoid bouncing) and maintain tension in the triceps.",
+                  "Press: Exhale and press the bar upward by extending the elbows, keeping the bar path slightly diagonal toward the head until near full extension (do not hyperextend or lock aggressively).",
+                  "Re-rack: After the set, control the bar back to the rack hooks or have a spotter assist. Maintain form on every rep.",
+                  "Coaching cues & safety: Use a spotter or safety pins for heavy sets, keep wrists neutral, avoid flaring elbows to protect shoulders, and reduce weight if you cannot maintain elbow tuck and controlled descent."
+                ],
+                "description": "A supine barbell press using a narrow grip that shifts emphasis from the chest to the triceps. Performed on a flat bench, the bar is lowered to the lower chest/sternum with elbows kept close to the torso and then pressed back to lockout.",
+                "secondaryMuscles": [
+                  "pectorals",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "c27068a4-f58d-48cf-bca8-46913fc6b3ac",
+                "exerciseId": "c27068a4-f58d-48cf-bca8-46913fc6b3ac",
+                "name": "Barbell Lying Triceps Extension Skull Crusher",
+                "target": "triceps",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 180,
+                "tempo": "2-0-1",
+                "notes": "Lie supine on a flat bench with feet planted on the floor for stability and your head near the end of the bench so the bar can be lowered toward your forehead.",
+                "instructions": [
+                  "Lie supine on a flat bench with feet planted on the floor for stability and your head near the end of the bench so the bar can be lowered toward your forehead.",
+                  "Grip the barbell with a shoulder-width (or slightly narrower) overhand grip and press it up so your arms are fully extended above your chest; wrists should be neutral and stacked over elbows.",
+                  "Keep your upper arms fixed and perpendicular to the floor (or slightly angled toward your head) throughout the set — only the forearm should move.",
+                  "Inhale and slowly lower the bar by flexing the elbows, bringing the bar toward your forehead or just above your temples in a controlled arc.",
+                  "Pause briefly when the bar is a few inches from your forehead (avoid actually hitting your head) and maintain tension in the triceps.",
+                  "Exhale and extend the elbows to press the bar back up to the start position, locking out but avoiding hyperextension of the elbows.",
+                  "Keep wrists straight and avoid flaring the elbows outward or letting the upper arms drift; use a spotter if loading heavy for safety.",
+                  "Perform repetitions with slow, controlled tempo and stop the set if you feel shoulder or wrist pain — reduce weight if form breaks down."
+                ],
+                "description": "A supine barbell isolation exercise that works elbow extension to load the triceps by lowering the bar toward the forehead (skull crusher) and extending back up. Emphasizes controlled movement from the elbow while keeping the upper arms relatively stationary.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "0b9c26b8-bd8f-4e4c-88d1-4183668ef194",
+                "exerciseId": "0b9c26b8-bd8f-4e4c-88d1-4183668ef194",
+                "name": "Cable Triceps Pushdown (V bar)",
+                "target": "triceps",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Setup: Attach a V-bar to the high pulley of a cable machine and select an appropriate weight.",
+                "instructions": [
+                  "Setup: Attach a V-bar to the high pulley of a cable machine and select an appropriate weight. Stand facing the machine, feet about hip-width apart.",
+                  "Grip and posture: Grasp the V-bar with a neutral (palms facing) grip. Step slightly back so the cable is taut, hinge very slightly at the hips, chest up, shoulders back, and eyes forward.",
+                  "Starting position: Tuck your elbows close to your sides and bend the elbows so the V-bar is near chest/upper abdomen level. Keep your upper arms stationary and vertical throughout the movement.",
+                  "Downward movement (concentric): Exhale and press the bar down by extending your elbows until your arms are fully straight and the triceps are contracted. Keep the wrists neutral and avoid letting the elbows drift forward.",
+                  "End position: Pause briefly at full extension without locking the elbows aggressively, maintaining tension on the triceps.",
+                  "Return (eccentric): Inhale and slowly allow the bar to rise back to the starting position by bending the elbows, controlling the weight to avoid momentum. Stop when the forearms reach roughly parallel to the floor or the bar returns to chest/upper abdomen level.",
+                  "Technique tips: Keep the torso stable and avoid using body swing or stepping to generate force. If you feel the delts or upper back taking over, reduce weight and re-establish tight elbows at your sides.",
+                  "Repetitions and safety: Perform 8–15 controlled reps per set depending on goal; choose a weight that allows strict form. Stop if you feel sharp pain in the elbow or wrist."
+                ],
+                "description": "Standing cable pushdown using a V-bar to extend the elbows and isolate the triceps; performed from a standing position with the upper arms held stationary at the sides. Emphasize a full elbow extension and controlled return to work the long and lateral heads of the triceps.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "ca51d26f-46af-4fcf-8fe4-079c8c36d09c",
+                "exerciseId": "ca51d26f-46af-4fcf-8fe4-079c8c36d09c",
+                "name": "Cable Overhead Triceps Extension Straight Bar",
+                "target": "triceps",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Step 1: Attach a straight bar to the high pulley and select an appropriate weight.",
+                "instructions": [
+                  "Step 1: Attach a straight bar to the high pulley and select an appropriate weight.",
+                  "Step 2: Stand facing away from the machine with feet staggered (one foot slightly forward for balance) and grasp the bar with a shoulder-width, overhand grip.",
+                  "Step 3: Raise the bar overhead and bend the elbows so the bar is positioned behind your head; keep upper arms close to your ears and elbows pointing upward (slight forward lean at the hips is acceptable).",
+                  "Step 4: Brace your abs, keep a neutral spine, and stabilize your shoulders (minimize movement of the delts).",
+                  "Step 5: Exhale and extend both elbows to press the bar upward until your arms are fully straight but not locked aggressively; squeeze the triceps at the top.",
+                  "Step 6: Inhale and slowly lower the bar back to the start position behind your head with controlled tension (controlled eccentric), keeping the upper arms stationary.",
+                  "Step 7: Repeat for the desired reps, maintaining strict form; avoid flaring elbows out, arching the lower back, or using momentum from the shoulders.",
+                  "Step 8: To finish safely, return the bar to the starting support or lower the weight before releasing your grip."
+                ],
+                "description": "Standing cable overhead triceps extension using a straight bar: perform controlled elbow extensions with the bar starting behind the head and finishing with arms straight overhead to isolate the triceps. Maintain a stable torso and stationary upper arms so the movement occurs at the elbows.",
+                "secondaryMuscles": [
+                  "delts",
+                  "forearms",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "861a2b10-cd06-4cb9-a459-4d0abcefcc87",
+                "exerciseId": "861a2b10-cd06-4cb9-a459-4d0abcefcc87",
+                "name": "Dumbbell Kickback",
+                "target": "triceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Place one knee and the same-side hand on a flat bench (all fours style) with the opposite foot on the floor for support; hold a dumbbell in the free hand with a neutral grip.",
+                "instructions": [
+                  "Place one knee and the same-side hand on a flat bench (all fours style) with the opposite foot on the floor for support; hold a dumbbell in the free hand with a neutral grip.",
+                  "Hinge at the hips so your torso is nearly parallel to the floor, keep your spine neutral and core braced.",
+                  "Start with the working elbow bent ~90° and upper arm aligned with your torso, keeping the upper arm fixed and close to your side.",
+                  "Exhale and extend the forearm back by straightening the elbow until the arm is fully extended and the triceps are contracted; avoid rotating the shoulder or swinging the torso.",
+                  "Pause briefly at full extension, then inhale and slowly lower the dumbbell back to the starting 90° elbow angle with control.",
+                  "Perform the desired number of repetitions, then switch sides. Use a lighter weight if you cannot maintain a still upper arm or neutral spine."
+                ],
+                "description": "A single-arm, bent-over dumbbell extension performed with the torso supported on a bench to isolate the triceps by extending the elbow. The movement emphasizes a strict elbow extension while keeping the upper arm stationary to maximize triceps contraction.",
+                "secondaryMuscles": [
+                  "delts",
+                  "forearms",
+                  "upper back"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "6d299130-f493-4830-9d6e-c58e48562136",
+                "exerciseId": "6d299130-f493-4830-9d6e-c58e48562136",
+                "name": "Barbell Curl",
+                "target": "biceps",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Stand upright with feet about shoulder-width apart, knees soft, and core braced (standing position).",
+                "instructions": [
+                  "Stand upright with feet about shoulder-width apart, knees soft, and core braced (standing position).",
+                  "Hold the barbell with a shoulder-width underhand (supinated) grip so your palms face forward and the bar rests on the base of the fingers.",
+                  "Start with your arms fully extended down at your thighs, elbows tucked close to your torso and wrists neutral (no excessive bending).",
+                  "Exhale and curl the bar upward by flexing the elbows, keeping the upper arms and elbows stationary at your sides — lift until the forearms approach the biceps or the bar is near chest level.",
+                  "Pause briefly at the top and squeeze the biceps, avoiding shoulder shrugging or leaning back (no trunk momentum).",
+                  "Inhale and slowly lower the bar back to the start position with a controlled eccentric motion until the arms are fully extended.",
+                  "Repeat for the desired number of reps, maintaining steady tempo and strict form; reduce weight if you cannot keep elbows stable and avoid swinging the torso."
+                ],
+                "description": "Standing barbell curl performed with a shoulder-width, underhand (supinated) grip; the exercise isolates elbow flexion to work the biceps with the forearms and delts assisting for stabilization. Use a controlled concentric lift and slow eccentric lowering for full muscle stimulation.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "833b63a4-694a-4666-9543-e8da930bff3b",
+                "exerciseId": "833b63a4-694a-4666-9543-e8da930bff3b",
+                "name": "Dumbbell Standing Biceps Curl",
+                "target": "biceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Stand upright with feet hip-width apart, knees slightly bent and core braced.",
+                "instructions": [
+                  "Stand upright with feet hip-width apart, knees slightly bent and core braced.",
+                  "Hold a dumbbell in each hand at your sides with palms facing forward (supinated grip) and arms fully extended.",
+                  "Keep your elbows close to your torso and fixed in position throughout the movement.",
+                  "Exhale and curl the dumbbells by bending your elbows until the weights reach shoulder level, squeezing the biceps at the top.",
+                  "Pause briefly at the top while maintaining upright posture and avoid leaning back or using momentum.",
+                  "Inhale and slowly lower the dumbbells back to the starting position with full elbow extension under control.",
+                  "Repeat for the desired number of repetitions, focusing on strict form and minimizing shoulder or torso movement."
+                ],
+                "description": "Standing dumbbell biceps curl isolates the biceps by flexing the elbow against resistance while standing upright; perform controlled reps without swinging to maximize tension on the biceps.",
+                "secondaryMuscles": [
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "08cb971a-9530-4a70-bb7e-8f006c081731",
+                "exerciseId": "08cb971a-9530-4a70-bb7e-8f006c081731",
+                "name": "EZ Barbell Curl",
+                "target": "biceps",
+                "equipment": "EZ Barbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Stand upright (standing) with feet about hip-width apart and knees slightly bent.",
+                "instructions": [
+                  "Stand upright (standing) with feet about hip-width apart and knees slightly bent.",
+                  "Grip the EZ bar on the angled (inner) hand positions so your palms are facing upward/neutral; hands about shoulder-width apart.",
+                  "Keep your chest up, shoulders back, and core braced to stabilize the spine; elbows should sit close to your sides.",
+                  "Exhale and curl the bar upward by flexing your elbows, driving the movement with your biceps; keep your upper arms stationary and forearms moving.",
+                  "Pause briefly at the top when the bar is near shoulder level and biceps are fully contracted; avoid shrugging or swinging the torso.",
+                  "Inhale and lower the bar slowly and under control back to full elbow extension without locking the joints.",
+                  "Repeat for the desired number of repetitions, maintaining a steady tempo and strict form throughout."
+                ],
+                "description": "Standing curl using an EZ bar with a semi-supinated grip to isolate elbow flexion and develop the biceps. Perform controlled concentric and eccentric reps while keeping the torso still to minimize cheating.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "06ff4c33-9715-454c-948d-d359411ced49",
+              "name": "Barbell Close Grip Bench Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 2,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 255,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 90,
+        "targetExerciseCount": 8,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 255,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Upper/Lower - Strength (Upper) (30min)",
+      "split": "upper_lower",
+      "dayFocus": "Upper",
+      "duration": 30,
+      "trainingStyles": [
+        "strength_focused"
+      ],
+      "equipment": [
+        "barbell",
+        "dumbbell",
+        "cable"
+      ],
+      "success": true,
+      "latency": 16211,
+      "exerciseCount": 2,
+      "equipmentMatchRate": 100,
+      "avgSets": 5,
+      "avgReps": "4",
+      "avgRest": 123,
+      "error": null,
+      "workout": {
+        "title": "Upper Body - STRENGTH",
+        "description": "Upper Body workout focusing on strength training.",
+        "estimatedDuration": 30,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+                "exerciseId": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+                "name": "Barbell Bench Press",
+                "target": "pectorals",
+                "equipment": "Barbell",
+                "sets": 5,
+                "reps": 4,
+                "restSeconds": 123,
+                "tempo": "X-1-1",
+                "notes": "Set up a flat bench inside a rack so the barbell sits directly above your eyes when you are lying down.",
+                "instructions": [
+                  "Set up a flat bench inside a rack so the barbell sits directly above your eyes when you are lying down.",
+                  "Lie supine on the bench with your head, upper back and glutes in contact with the bench, feet flat on the floor and a small natural arch in the lower back; retract and depress your shoulder blades to create a stable chest platform.",
+                  "Grip the barbell with a pronated (overhand) grip slightly wider than shoulder-width; wrists should be stacked over the elbows and forearms vertical when the bar is over the chest.",
+                  "Unrack the bar by straightening the arms and moving the bar out over the chest while keeping the scapulae stable; lock the elbows briefly before starting the set.",
+                  "Inhale and lower the bar in a controlled manner to the mid-chest/sternum (around nipple level), keeping the elbows at about a 45-degree angle from the torso to protect the shoulders.",
+                  "Allow the bar to touch or come very close to the chest without bouncing; maintain tension in the pectorals and keep the feet and glutes braced.",
+                  "Exhale and press the bar upward explosively while keeping the bar path slightly arced toward the hips until the arms are fully extended but not hyperextended.",
+                  "Pause briefly at the top with the shoulders stable, then begin the next rep. Maintain consistent form and breathing throughout the set.",
+                  "Use a spotter or safety pins in the rack for heavy sets, and avoid flaring the elbows excessively or letting the lower back lift off the bench."
+                ],
+                "description": "The barbell bench press is a compound pressing movement performed lying supine on a flat bench that primarily develops the pectorals while also recruiting the triceps and anterior delts. It involves lowering a loaded barbell to the chest and pressing it back up to full arm extension with controlled technique.",
+                "secondaryMuscles": [
+                  "triceps",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "6a55a9ca-40be-4f8f-aee2-ebd894bd896d",
+                "exerciseId": "6a55a9ca-40be-4f8f-aee2-ebd894bd896d",
+                "name": "Dumbbell One Arm Lateral Raise",
+                "target": "delts",
+                "equipment": "Dumbbell",
+                "sets": 5,
+                "reps": 5,
+                "restSeconds": 123,
+                "tempo": "X-1-1",
+                "notes": "Stand upright with feet hip-width apart and core braced, holding a dumbbell in one hand at your side with a neutral (hammer) grip; keep a slight bend in the elbow.",
+                "instructions": [
+                  "Stand upright with feet hip-width apart and core braced, holding a dumbbell in one hand at your side with a neutral (hammer) grip; keep a slight bend in the elbow.",
+                  "Retract and depress the shoulder blade slightly on the working side (avoid shrugging) and maintain an upright torso — do not lean or swing the body.",
+                  "Exhale and raise the dumbbell laterally away from your body with the elbow leading, keeping the wrist neutral, until the arm is approximately parallel to the floor (shoulder height).",
+                  "Pause briefly at the top with control, then inhale and slowly lower the weight back to the starting position under control.",
+                  "Perform the desired reps, then switch sides; use a lighter weight if you cannot keep a strict, controlled motion without shrugging or leaning."
+                ],
+                "description": "A single-arm dumbbell lateral raise performed standing, lifting the arm out to the side to about shoulder height to isolate the lateral deltoid. It builds shoulder width while requiring scapular control and a strong grip.",
+                "secondaryMuscles": [
+                  "traps",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Focus on explosive concentric movements.",
+          "Take full rest between sets for neural recovery.",
+          "Prioritize form over weight - quality reps build strength."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+              "name": "Barbell Bench Press",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+              "name": "Barbell Bench Press",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "70%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+              "name": "Barbell Bench Press",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "85%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "6a55a9ca-40be-4f8f-aee2-ebd894bd896d",
+              "name": "Dumbbell One Arm Lateral Raise",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "6a55a9ca-40be-4f8f-aee2-ebd894bd896d",
+              "name": "Dumbbell One Arm Lateral Raise",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "70%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "6a55a9ca-40be-4f8f-aee2-ebd894bd896d",
+              "name": "Dumbbell One Arm Lateral Raise",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "85%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 12,
+          "notes": "Progressive warmup to prepare CNS and joints for heavy lifting. Rest 60-90 seconds between warmup sets."
+        }
+      },
+      "meta": {
+        "usedFallback": false,
+        "fallbackReason": null,
+        "exercisesAvailable": 297,
+        "appliedStyles": [
+          "STRENGTH"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 30,
+        "targetExerciseCount": 2,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 297,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Upper/Lower - Strength (Upper) (60min)",
+      "split": "upper_lower",
+      "dayFocus": "Upper",
+      "duration": 60,
+      "trainingStyles": [
+        "strength_focused"
+      ],
+      "equipment": [
+        "barbell",
+        "dumbbell",
+        "cable"
+      ],
+      "success": true,
+      "latency": 13953,
+      "exerciseCount": 3,
+      "equipmentMatchRate": 100,
+      "avgSets": 5,
+      "avgReps": "4",
+      "avgRest": 150,
+      "error": null,
+      "workout": {
+        "title": "Upper Body - STRENGTH",
+        "description": "Upper Body workout focusing on strength training.",
+        "estimatedDuration": 60,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+                "exerciseId": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+                "name": "Barbell Bench Press",
+                "target": "pectorals",
+                "equipment": "Barbell",
+                "sets": 5,
+                "reps": 4,
+                "restSeconds": 180,
+                "tempo": "X-1-1",
+                "notes": "Set up a flat bench inside a rack so the barbell sits directly above your eyes when you are lying down.",
+                "instructions": [
+                  "Set up a flat bench inside a rack so the barbell sits directly above your eyes when you are lying down.",
+                  "Lie supine on the bench with your head, upper back and glutes in contact with the bench, feet flat on the floor and a small natural arch in the lower back; retract and depress your shoulder blades to create a stable chest platform.",
+                  "Grip the barbell with a pronated (overhand) grip slightly wider than shoulder-width; wrists should be stacked over the elbows and forearms vertical when the bar is over the chest.",
+                  "Unrack the bar by straightening the arms and moving the bar out over the chest while keeping the scapulae stable; lock the elbows briefly before starting the set.",
+                  "Inhale and lower the bar in a controlled manner to the mid-chest/sternum (around nipple level), keeping the elbows at about a 45-degree angle from the torso to protect the shoulders.",
+                  "Allow the bar to touch or come very close to the chest without bouncing; maintain tension in the pectorals and keep the feet and glutes braced.",
+                  "Exhale and press the bar upward explosively while keeping the bar path slightly arced toward the hips until the arms are fully extended but not hyperextended.",
+                  "Pause briefly at the top with the shoulders stable, then begin the next rep. Maintain consistent form and breathing throughout the set.",
+                  "Use a spotter or safety pins in the rack for heavy sets, and avoid flaring the elbows excessively or letting the lower back lift off the bench."
+                ],
+                "description": "The barbell bench press is a compound pressing movement performed lying supine on a flat bench that primarily develops the pectorals while also recruiting the triceps and anterior delts. It involves lowering a loaded barbell to the chest and pressing it back up to full arm extension with controlled technique.",
+                "secondaryMuscles": [
+                  "triceps",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "9a0a619a-d54f-48e0-8410-d395772b8e91",
+                "exerciseId": "9a0a619a-d54f-48e0-8410-d395772b8e91",
+                "name": "Barbell Bent Over Row",
+                "target": "lats",
+                "equipment": "Barbell",
+                "sets": 5,
+                "reps": 5,
+                "restSeconds": 180,
+                "tempo": "X-1-1",
+                "notes": "Hinge at the hips with a slight bend in the knees until your torso is roughly 45 degrees to parallel to the floor; keep the spine neutral (no rounding) and engage the abs and glutes.",
+                "instructions": [
+                  "Stand with feet about hip- to shoulder-width apart and the barbell over mid-foot; use an overhand (pronated) grip slightly wider than shoulder width.",
+                  "Hinge at the hips with a slight bend in the knees until your torso is roughly 45 degrees to parallel to the floor; keep the spine neutral (no rounding) and engage the abs and glutes.",
+                  "Hold the bar with arms extended and shoulders protracted, chest up and eyes looking a few feet in front of you to maintain a neutral neck.",
+                  "Initiate the rep by driving the elbows back and up, pulling the bar toward your lower chest / upper abdomen while squeezing the shoulder blades together.",
+                  "Keep the elbows close to the body (not flaring excessively) and avoid using momentum from the hips; breathe out as you pull.",
+                  "Lower the bar slowly and under control to the starting position with arms extended while maintaining the hip hinge and neutral spine; breathe in on the descent.",
+                  "Repeat for the desired reps, controlling tempo and keeping the torso stable — if you cannot maintain a flat back, reduce weight or stop and reset."
+                ],
+                "description": "Standing hip-hinged barbell row where you pull a loaded barbell toward the lower chest/upper abdomen; primarily targets the lats and upper back while requiring posterior chain and core stabilization. Maintain a flat back and drive the elbows back to retract the shoulder blades.",
+                "secondaryMuscles": [
+                  "traps",
+                  "delts",
+                  "biceps",
+                  "forearms",
+                  "glutes",
+                  "hamstrings",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "923bc10c-2d23-4979-b59c-f8703b094634",
+                "exerciseId": "923bc10c-2d23-4979-b59c-f8703b094634",
+                "name": "Dumbbell Seated Shoulder Press",
+                "target": "delts",
+                "equipment": "Dumbbell",
+                "sets": 5,
+                "reps": 6,
+                "restSeconds": 90,
+                "tempo": "X-1-1",
+                "notes": "Sit upright on a bench with back support, feet flat on the floor and core braced to maintain a neutral spine.",
+                "instructions": [
+                  "Sit upright on a bench with back support, feet flat on the floor and core braced to maintain a neutral spine.",
+                  "Hold a dumbbell in each hand at shoulder height with palms facing forward (or slightly rotated) and elbows bent roughly 90 degrees, wrists stacked over elbows.",
+                  "Inhale, then exhale as you press both dumbbells upward in a controlled path until your arms are nearly extended overhead; avoid fully locking the elbows.",
+                  "Pause briefly at the top while keeping the shoulders down and chest lifted (do not shrug excessively).",
+                  "Inhale as you slowly lower the dumbbells back to the starting shoulder-height position under control.",
+                  "Keep the back pressed against the bench and avoid excessive lower-back arching or leaning; repeat for desired reps."
+                ],
+                "description": "Seated dumbbell shoulder press performed from a back-supported bench to drive the weights overhead, primarily working the shoulder (deltoid) muscles with triceps and upper traps assisting. The movement emphasizes vertical pressing strength and shoulder stability.",
+                "secondaryMuscles": [
+                  "triceps",
+                  "traps"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Focus on explosive concentric movements.",
+          "Take full rest between sets for neural recovery.",
+          "Prioritize form over weight - quality reps build strength."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+              "name": "Barbell Bench Press",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+              "name": "Barbell Bench Press",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "70%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+              "name": "Barbell Bench Press",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "85%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "9a0a619a-d54f-48e0-8410-d395772b8e91",
+              "name": "Barbell Bent Over Row",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "9a0a619a-d54f-48e0-8410-d395772b8e91",
+              "name": "Barbell Bent Over Row",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "70%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "9a0a619a-d54f-48e0-8410-d395772b8e91",
+              "name": "Barbell Bent Over Row",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "85%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 12,
+          "notes": "Progressive warmup to prepare CNS and joints for heavy lifting. Rest 60-90 seconds between warmup sets."
+        }
+      },
+      "meta": {
+        "usedFallback": false,
+        "fallbackReason": null,
+        "exercisesAvailable": 297,
+        "appliedStyles": [
+          "STRENGTH"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 60,
+        "targetExerciseCount": 3,
+        "targetSetsPerExercise": 5,
+        "primaryExerciseCount": 297,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Upper/Lower - Strength (Upper) (90min)",
+      "split": "upper_lower",
+      "dayFocus": "Upper",
+      "duration": 90,
+      "trainingStyles": [
+        "strength_focused"
+      ],
+      "equipment": [
+        "barbell",
+        "dumbbell",
+        "cable"
+      ],
+      "success": true,
+      "latency": 15180,
+      "exerciseCount": 5,
+      "equipmentMatchRate": 100,
+      "avgSets": 5,
+      "avgReps": "12",
+      "avgRest": 126,
+      "error": null,
+      "workout": {
+        "title": "Upper Body - STRENGTH",
+        "description": "Upper Body workout focusing on strength training.",
+        "estimatedDuration": 90,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "66ccc543-550c-40f2-b65c-73f0c30c297f",
+                "exerciseId": "66ccc543-550c-40f2-b65c-73f0c30c297f",
+                "name": "Barbell Bench Press",
+                "target": "pectorals",
+                "equipment": "Barbell",
+                "sets": 5,
+                "reps": 4,
+                "restSeconds": 180,
+                "tempo": "X-1-1",
+                "notes": "Lie supine on a flat bench with eyes under the bar, feet flat on the floor and a slight natural arch in the low back.",
+                "instructions": [
+                  "Lie supine on a flat bench with eyes under the bar, feet flat on the floor and a slight natural arch in the low back.",
+                  "Grip the bar with hands slightly wider than shoulder-width, wrists stacked over elbows and thumbs wrapped around the bar.",
+                  "Retract and depress the shoulder blades (pinch the shoulder blades together) to create a stable chest platform.",
+                  "Unrack the bar by straightening the arms and moving the bar over the chest so it is balanced and steady.",
+                  "Inhale, lower the bar under control to the mid-chest (sternum) keeping elbows at about a 45-degree angle from the torso.",
+                  "Pause briefly with the bar touching or just above the chest while maintaining tightness through the core and legs.",
+                  "Exhale and drive the bar upward by extending the elbows, pressing the bar back to the start position while keeping wrists neutral.",
+                  "Avoid excessive elbow flare or bouncing the bar off the chest; maintain a controlled tempo and keep feet planted.",
+                  "After the set, carefully re-rack the bar by guiding it back onto the bench supports before releasing your grip."
+                ],
+                "description": "The barbell bench press is a supine pressing exercise performed on a flat bench that primarily develops the pectorals while also working the triceps and anterior delts. The lifter lowers a barbell to the chest and presses it back to full arm extension under control.",
+                "secondaryMuscles": [
+                  "triceps",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "8cffd660-a02d-4355-9741-c172d0263ac1",
+                "exerciseId": "8cffd660-a02d-4355-9741-c172d0263ac1",
+                "name": "Barbell Incline Bench Press",
+                "target": "pectorals",
+                "equipment": "Barbell",
+                "sets": 5,
+                "reps": 5,
+                "restSeconds": 180,
+                "tempo": "X-1-1",
+                "notes": "Set an incline bench at about 30–45 degrees and position it in a rack with safety catches or a spotter available.",
+                "instructions": [
+                  "Set an incline bench at about 30–45 degrees and position it in a rack with safety catches or a spotter available.",
+                  "Lie supine on the incline bench with your head supported, feet flat on the floor, and back slightly arched while maintaining scapular retraction.",
+                  "Grip the barbell with a pronated grip slightly wider than shoulder-width; wrists stacked over elbows.",
+                  "Unrack the bar by straightening the arms and moving the bar over your upper chest/shoulder line, then stabilize before starting the descent.",
+                  "Inhale and slowly lower the bar in a controlled path to the upper chest/clavicular area, keeping elbows at roughly a 30–60° angle from the torso (avoid flaring to 90°).",
+                  "Lightly touch or stop just above the chest, pause briefly without bouncing, then exhale and press the bar upward and slightly back to the start position, fully extending the elbows.",
+                  "Keep core braced and feet planted throughout to maintain stability and prevent excessive lower back extension.",
+                  "Carefully re-rack the bar under control or have a spotter assist when finished."
+                ],
+                "description": "A barbell press performed on an incline bench that emphasizes the upper portion of the chest by pressing the bar upward and slightly toward the clavicle. It also engages the front delts and triceps for pressing and locking out the weight.",
+                "secondaryMuscles": [
+                  "delts",
+                  "triceps"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "9a79d10b-7d74-46ef-a109-c9cb40b463d4",
+                "exerciseId": "9a79d10b-7d74-46ef-a109-c9cb40b463d4",
+                "name": "Barbell Reverse Grip Incline Bench Row",
+                "target": "lats",
+                "equipment": "Barbell",
+                "sets": 5,
+                "reps": 6,
+                "restSeconds": 90,
+                "tempo": "X-1-1",
+                "notes": "Set an incline bench to about 30–45 degrees and position it so your chest rests firmly on the pad with feet braced on the floor or foot supports (prone position).",
+                "instructions": [
+                  "Set an incline bench to about 30–45 degrees and position it so your chest rests firmly on the pad with feet braced on the floor or foot supports (prone position).",
+                  "Load a barbell and grasp it with a shoulder-width reverse (underhand) grip so palms face up and arms hang straight down toward the floor.",
+                  "Start with your chest pressed into the bench, shoulders relaxed and scapulae slightly protracted, core engaged and neck neutral.",
+                  "Initiate the movement by retracting your scapulae and pulling the barbell upward in a controlled path toward your lower chest / upper abdomen, leading with the elbows and keeping them close to your sides.",
+                  "Pause 1 second at the top and squeeze the lats and upper back without hyperextending the spine or lifting your chest off the bench.",
+                  "Lower the barbell slowly back to the start with full arm extension while maintaining tension in the lats; avoid dropping the weight or using momentum.",
+                  "Repeat for the desired reps. Breathe out while pulling and inhale while lowering."
+                ],
+                "description": "Prone incline bench row performed with a reverse (underhand) grip that emphasizes the lats while also engaging the upper back and arms. Lying chest-down on an incline bench, you pull a barbell up toward the lower chest/upper abdomen and lower it under control.",
+                "secondaryMuscles": [
+                  "biceps",
+                  "upper back",
+                  "delts",
+                  "traps"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "cf4d2cc7-4085-4ae5-a567-697b2f89763a",
+                "exerciseId": "cf4d2cc7-4085-4ae5-a567-697b2f89763a",
+                "name": "Dumbbell Rear Lateral Raise",
+                "target": "delts",
+                "equipment": "Dumbbell",
+                "sets": 5,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "X-1-1",
+                "notes": "Set an incline bench so the back pad is at a low angle and stand facing the side of the bench.",
+                "instructions": [
+                  "Set an incline bench so the back pad is at a low angle and stand facing the side of the bench.",
+                  "Pick up a dumbbell in each hand with a neutral (palms facing) grip and take a hip-width stance with a slight bend in the knees.",
+                  "Hinge forward at the hips and place your forehead or chest gently against the bench pad for support so your torso is close to horizontal (bench-assisted bent-over position).",
+                  "Let the arms hang straight down from the shoulders with a small bend in the elbows; keep a neutral spine and the head supported on the bench.",
+                  "Exhale and raise the dumbbells out to the sides in a wide arc — lead with the elbows — until your upper arms are roughly parallel to the floor and you feel the rear delts contract.",
+                  "Pause briefly at the top, then inhale and lower the dumbbells slowly and under control back to the starting position.",
+                  "Keep the movement strict (no torso rotation or momentum) and maintain head/chest support on the bench throughout the set.",
+                  "Choose a weight that allows controlled form for the full range of motion and perform recommended reps."
+                ],
+                "description": "A bent-over, bench-supported dumbbell raise that targets the rear (posterior) delts by moving the arms out to the sides while the torso is stabilized. The head/chest is supported on an incline bench to reduce momentum and isolate the rear deltoids.",
+                "secondaryMuscles": [
+                  "upper back",
+                  "traps",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "5ce12499-1f9a-4633-85d3-0d8feb2e1355",
+                "exerciseId": "5ce12499-1f9a-4633-85d3-0d8feb2e1355",
+                "name": "Dumbbell Rear Fly",
+                "target": "delts",
+                "equipment": "Dumbbell",
+                "sets": 5,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "X-1-1",
+                "notes": "Sit near the end of a flat bench with feet flat on the floor about hip-width apart.",
+                "instructions": [
+                  "Sit near the end of a flat bench with feet flat on the floor about hip-width apart.",
+                  "Hinge forward at the hips until your torso is leaning forward (near-parallel to the floor) while keeping a neutral spine and neck; hold a dumbbell in each hand with a neutral grip and arms hanging down.",
+                  "Keep a slight bend in the elbows and brace your core to prevent swinging.",
+                  "Exhale and raise the dumbbells out to the sides in a wide arc, leading with your elbows and focusing on contracting the rear delts; lift until your upper arms are roughly parallel to the floor or in line with your shoulders.",
+                  "Pause briefly at the top while squeezing the shoulder blades, then slowly lower the weights back to the start under control while inhaling.",
+                  "Repeat for the desired number of repetitions, maintaining a neutral spine and avoiding momentum or torso rotation."
+                ],
+                "description": "A bent-over dumbbell fly that emphasizes the rear deltoids by horizontally abducting the arms from a forward-leaning seated position. Performed with a slight elbow bend while squeezing the shoulder blades at the top of the movement.",
+                "secondaryMuscles": [
+                  "upper back",
+                  "traps",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Focus on explosive concentric movements.",
+          "Take full rest between sets for neural recovery.",
+          "Prioritize form over weight - quality reps build strength."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "66ccc543-550c-40f2-b65c-73f0c30c297f",
+              "name": "Barbell Bench Press",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "66ccc543-550c-40f2-b65c-73f0c30c297f",
+              "name": "Barbell Bench Press",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "70%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "66ccc543-550c-40f2-b65c-73f0c30c297f",
+              "name": "Barbell Bench Press",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "85%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "8cffd660-a02d-4355-9741-c172d0263ac1",
+              "name": "Barbell Incline Bench Press",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "8cffd660-a02d-4355-9741-c172d0263ac1",
+              "name": "Barbell Incline Bench Press",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "70%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "8cffd660-a02d-4355-9741-c172d0263ac1",
+              "name": "Barbell Incline Bench Press",
+              "sets": 1,
+              "reps": 10,
+              "intensity": "85%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 12,
+          "notes": "Progressive warmup to prepare CNS and joints for heavy lifting. Rest 60-90 seconds between warmup sets."
+        }
+      },
+      "meta": {
+        "usedFallback": false,
+        "fallbackReason": null,
+        "exercisesAvailable": 297,
+        "appliedStyles": [
+          "STRENGTH"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 90,
+        "targetExerciseCount": 5,
+        "targetSetsPerExercise": 5,
+        "primaryExerciseCount": 297,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Upper/Lower - HIT (Lower) (30min)",
+      "split": "upper_lower",
+      "dayFocus": "Lower",
+      "duration": 30,
+      "trainingStyles": [
+        "high_intensity_hit"
+      ],
+      "equipment": [
+        "leverage machine",
+        "barbell"
+      ],
+      "success": true,
+      "latency": 15421,
+      "exerciseCount": 3,
+      "equipmentMatchRate": 100,
+      "avgSets": 2,
+      "avgReps": "6",
+      "avgRest": 180,
+      "error": null,
+      "workout": {
+        "title": "Lower Body - HIT",
+        "description": "Lower Body workout focusing on hit training.",
+        "estimatedDuration": 30,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "d6bb198d-d038-46b5-afca-09c0475a2693",
+                "exerciseId": "d6bb198d-d038-46b5-afca-09c0475a2693",
+                "name": "Barbell Full Squat",
+                "target": "quads",
+                "equipment": "Barbell",
+                "sets": 2,
+                "reps": 6,
+                "restSeconds": 180,
+                "tempo": "4-2-4",
+                "notes": "Stand upright (standing) under a loaded barbell set at about mid-chest height in a squat rack; step under the bar so it rests across your upper traps/shoulders (not on the neck). Train to muscular failure.",
+                "intensityTechnique": "rest-pause",
+                "instructions": [
+                  "Stand upright (standing) under a loaded barbell set at about mid-chest height in a squat rack; step under the bar so it rests across your upper traps/shoulders (not on the neck).",
+                  "Grip the bar just outside shoulder width, lift the chest, pull the shoulder blades together, and unrack the bar by straightening the legs and stepping back to clear the rack.",
+                  "Position feet shoulder-width to slightly wider with toes pointed slightly outward; establish a stable stance with weight distributed through the midfoot and heel.",
+                  "Brace your core (abs) and keep a neutral spine; inhale before you descend to maintain intra-abdominal pressure.",
+                  "Begin the descent by pushing the hips back and bending the knees simultaneously, keeping the chest up and spine neutral — descend until your hips drop below parallel (full squat depth).",
+                  "Ensure knees track over the toes and do not collapse inward; keep the weight on the heels/midfoot and maintain even foot contact with the floor.",
+                  "Pause briefly at the bottom if desired, then drive forcefully through the heels to extend the hips and knees and return to a fully upright position, exhaling as you ascend.",
+                  "Control the movement on the way up and down; use safety pins or a spotter when training heavy and avoid rounding the lower back at any point."
+                ],
+                "description": "A barbell back full squat performed to below-parallel depth; primarily loads the quadriceps while also recruiting the glutes, hamstrings and core for stabilization. The lifter descends with the bar on the upper back and then drives back up to standing.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "hamstrings",
+                  "calves",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "bbba2349-67d9-44c8-9009-2918ec900c16",
+                "exerciseId": "bbba2349-67d9-44c8-9009-2918ec900c16",
+                "name": "Barbell Pause Deadlift",
+                "target": "glutes",
+                "equipment": "Barbell",
+                "sets": 2,
+                "reps": 8,
+                "restSeconds": 180,
+                "tempo": "4-2-4",
+                "notes": "Set position by hinging at the hips with a slight knee bend so your shins are near vertical, chest lifted, shoulder blades over the bar, and back neutral (no rounding). Stop 1 rep short of failure (RPE 9). Spinal safety takes priority.",
+                "instructions": [
+                  "Stand with feet about hip-width apart and the barbell positioned over the mid-foot; approach the bar and grip it just outside the knees (double overhand or mixed grip).",
+                  "Set position by hinging at the hips with a slight knee bend so your shins are near vertical, chest lifted, shoulder blades over the bar, and back neutral (no rounding).",
+                  "Take a deep breath and brace your core, pull the slack out of the bar by tensioning the lats and upper back before initiating the lift.",
+                  "Drive through the heels and extend the hips and knees together to lift the bar, keeping the bar close to the body and maintaining a neutral spine.",
+                  "When the bar reaches the hip/knee region (the sticking point), intentionally pause and hold the top of the hinge for 1–2 seconds while keeping hips tight and chest up.",
+                  "After the pause, actively push the hips back and bend the knees to lower the bar under control to the floor, maintaining a neutral spine throughout the descent.",
+                  "Reset your position and breathing between reps if needed; avoid using a rounded back or excessive knee collapse during the lift and pause."
+                ],
+                "description": "A barbell deadlift variation where the lifter pauses at the hip/knee region to remove momentum and increase time under tension, emphasizing hip extension. The pause forces greater glute and posterior chain activation while demanding stable posture.",
+                "secondaryMuscles": [
+                  "hamstrings",
+                  "spine",
+                  "quads",
+                  "forearms",
+                  "upper back"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "05da0e6b-50ed-4a51-a0ce-2fb3fc564cb6",
+                "exerciseId": "05da0e6b-50ed-4a51-a0ce-2fb3fc564cb6",
+                "name": "Barbell Standing Leg Calf Raise",
+                "target": "calves",
+                "equipment": "Barbell",
+                "sets": 2,
+                "reps": 10,
+                "restSeconds": 180,
+                "tempo": "4-2-4",
+                "notes": "Set up a squat rack at an appropriate height and load the barbell; unrack the bar and place it securely across your upper back/traps (not on your neck). Train to muscular failure.",
+                "intensityTechnique": "rest-pause",
+                "instructions": [
+                  "Set up a squat rack at an appropriate height and load the barbell; unrack the bar and place it securely across your upper back/traps (not on your neck).",
+                  "Step onto a raised, stable platform or aerobic step so the balls of your feet are on the edge and your heels can drop freely; stand upright with feet about hip-to-shoulder width and toes pointing forward.",
+                  "Grip the bar with a comfortable overhand grip to maintain control; engage your abs and keep your chest up and spine neutral throughout (standing position).",
+                  "Keep knees straight but not locked (a slight soft bend) and maintain weight balanced over the balls of your feet.",
+                  "Exhale and raise your heels by plantarflexing at the ankle, lifting as high as possible onto your toes and pausing 1–2 seconds at the top to maximize contraction.",
+                  "Inhale and slowly lower your heels down below the platform level until you feel a stretch in the calves; control the descent — do not drop quickly or bounce.",
+                  "Repeat for the desired repetitions, maintaining a steady tempo and full range of motion. Use a spotter or safety pins in the rack if using heavy weight.",
+                  "When finished, carefully step down from the platform and re-rack the bar in the squat rack."
+                ],
+                "description": "Standing barbell calf raise performed from a raised platform with a barbell across the upper back; rise onto the toes to concentrically contract the calves, then lower the heels below the platform for a full stretch. This is a standing, weight-bearing isolation exercise for the calves with upper-back and core stabilization.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "traps",
+                  "upper back",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Every working set should reach true muscular failure.",
+          "Use slow, controlled tempo throughout the movement.",
+          "Allow full recovery between exercises - this is not cardio."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "d6bb198d-d038-46b5-afca-09c0475a2693",
+              "name": "Barbell Full Squat",
+              "sets": 2,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "bbba2349-67d9-44c8-9009-2918ec900c16",
+              "name": "Barbell Pause Deadlift",
+              "sets": 2,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 8,
+          "notes": "Light warmup to prepare muscles without pre-fatigue. Working sets will be to absolute failure."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 184,
+        "appliedStyles": [
+          "HIT"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 30,
+        "targetExerciseCount": 3,
+        "targetSetsPerExercise": 2,
+        "primaryExerciseCount": 184,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Upper/Lower - HIT (Lower) (60min)",
+      "split": "upper_lower",
+      "dayFocus": "Lower",
+      "duration": 60,
+      "trainingStyles": [
+        "high_intensity_hit"
+      ],
+      "equipment": [
+        "leverage machine",
+        "barbell"
+      ],
+      "success": true,
+      "latency": 18889,
+      "exerciseCount": 5,
+      "equipmentMatchRate": 100,
+      "avgSets": 2,
+      "avgReps": "10",
+      "avgRest": 144,
+      "error": null,
+      "workout": {
+        "title": "Lower Body - HIT",
+        "description": "Lower Body workout focusing on hit training.",
+        "estimatedDuration": 60,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "d6bb198d-d038-46b5-afca-09c0475a2693",
+                "exerciseId": "d6bb198d-d038-46b5-afca-09c0475a2693",
+                "name": "Barbell Full Squat",
+                "target": "quads",
+                "equipment": "Barbell",
+                "sets": 2,
+                "reps": 6,
+                "restSeconds": 180,
+                "tempo": "4-2-4",
+                "notes": "Stand upright (standing) under a loaded barbell set at about mid-chest height in a squat rack; step under the bar so it rests across your upper traps/shoulders (not on the neck). Train to muscular failure.",
+                "intensityTechnique": "rest-pause",
+                "instructions": [
+                  "Stand upright (standing) under a loaded barbell set at about mid-chest height in a squat rack; step under the bar so it rests across your upper traps/shoulders (not on the neck).",
+                  "Grip the bar just outside shoulder width, lift the chest, pull the shoulder blades together, and unrack the bar by straightening the legs and stepping back to clear the rack.",
+                  "Position feet shoulder-width to slightly wider with toes pointed slightly outward; establish a stable stance with weight distributed through the midfoot and heel.",
+                  "Brace your core (abs) and keep a neutral spine; inhale before you descend to maintain intra-abdominal pressure.",
+                  "Begin the descent by pushing the hips back and bending the knees simultaneously, keeping the chest up and spine neutral — descend until your hips drop below parallel (full squat depth).",
+                  "Ensure knees track over the toes and do not collapse inward; keep the weight on the heels/midfoot and maintain even foot contact with the floor.",
+                  "Pause briefly at the bottom if desired, then drive forcefully through the heels to extend the hips and knees and return to a fully upright position, exhaling as you ascend.",
+                  "Control the movement on the way up and down; use safety pins or a spotter when training heavy and avoid rounding the lower back at any point."
+                ],
+                "description": "A barbell back full squat performed to below-parallel depth; primarily loads the quadriceps while also recruiting the glutes, hamstrings and core for stabilization. The lifter descends with the bar on the upper back and then drives back up to standing.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "hamstrings",
+                  "calves",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "bbad65cc-3d4b-4961-bce6-044a94ecc90d",
+                "exerciseId": "bbad65cc-3d4b-4961-bce6-044a94ecc90d",
+                "name": "Barbell Romanian Deadlift",
+                "target": "hamstrings",
+                "equipment": "Barbell",
+                "sets": 2,
+                "reps": 7,
+                "restSeconds": 180,
+                "tempo": "4-2-4",
+                "notes": "Stand upright holding a barbell with an overhand (or mixed) grip, feet about hip-width apart and the bar resting against your thighs; maintain a neutral spine and engaged core. Stop 1 rep short of failure (RPE 9). Spinal safety takes priority.",
+                "instructions": [
+                  "Stand upright holding a barbell with an overhand (or mixed) grip, feet about hip-width apart and the bar resting against your thighs; maintain a neutral spine and engaged core.",
+                  "Set a small, consistent bend in the knees (soft knees) — do not bend into a squat; this is a hinge at the hips, not a knee-dominant lift.",
+                  "Take a breath in, brace your core, then push your hips back while keeping the chest up and spine neutral; allow the bar to travel down close to the front of your legs.",
+                  "Lower the bar until you feel a strong but safe stretch in the hamstrings (typically to mid‑shin), keeping the bar close to the body and shoulders pulled back — avoid rounding the lower back.",
+                  "Pause briefly at the bottom while maintaining tension in the hamstrings and back; keep your head in a neutral alignment (looking a few feet in front of you).",
+                  "Exhale and drive your hips forward by contracting the glutes and hamstrings to return to the standing start position; do not hyperextend the lower back at the top.",
+                  "Control the descent and ascent on every rep, using a weight that lets you maintain a neutral spine and full hip hinge pattern.",
+                  "If grip is limiting, switch to a mixed grip or use straps; always prioritize form over load and stop if you feel lumbar rounding or sharp pain."
+                ],
+                "description": "A bilateral hip-hinge performed from standing that emphasizes the hamstrings by lowering a loaded barbell along the thighs with a neutral spine and slight knee bend; returned to standing by driving the hips forward and squeezing the glutes. Builds posterior chain strength and improves hip extension.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "spine",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "e4b53f2f-adfb-4c99-aa6d-0b822acae666",
+                "exerciseId": "e4b53f2f-adfb-4c99-aa6d-0b822acae666",
+                "name": "Barbell Glute Bridge (hands on bar)",
+                "target": "glutes",
+                "equipment": "Barbell",
+                "sets": 2,
+                "reps": 8,
+                "restSeconds": 180,
+                "tempo": "4-2-4",
+                "notes": "Lie supine on the floor with knees bent and feet flat on the floor about hip-width apart; position the loaded barbell across your hips and grasp the bar with both hands on either side to stabilize it. Train to muscular failure.",
+                "intensityTechnique": "rest-pause",
+                "instructions": [
+                  "Lie supine on the floor with knees bent and feet flat on the floor about hip-width apart; position the loaded barbell across your hips and grasp the bar with both hands on either side to stabilize it.",
+                  "Brace your core (engage abs) and press your heels into the floor so that your shins are roughly vertical or slightly angled; keep your chin neutral and your upper back and shoulders resting on the floor.",
+                  "Drive through your heels and squeeze your glutes to lift your hips off the floor, extending the hips until your body forms a straight line from shoulders to knees (avoid hyperextending the lower back).",
+                  "Hold the top position briefly and actively squeeze the glutes, keeping the bar stable with your hands and maintaining a neutral spine.",
+                  "Slowly lower your hips back down under control until your glutes touch or are just above the floor, resetting your core tension as needed.",
+                  "Repeat for the desired number of reps, maintaining even foot placement and steady breathing (exhale on the lift, inhale on the descent)."
+                ],
+                "description": "Supine hip thrust variation with a barbell placed across the hips; drive the hips upward by contracting the glutes until the body forms a straight line from shoulders to knees. Hands hold the bar at the hips to stabilize the load while the core and posterior chain control the movement.",
+                "secondaryMuscles": [
+                  "hamstrings",
+                  "abs",
+                  "spine"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "77bd5473-fc5c-426c-9fcd-56e8e8af2bd4",
+                "exerciseId": "77bd5473-fc5c-426c-9fcd-56e8e8af2bd4",
+                "name": "Lever Seated Calf Press",
+                "target": "calves",
+                "equipment": "Leverage Machine",
+                "sets": 2,
+                "reps": 10,
+                "restSeconds": 90,
+                "tempo": "4-2-4",
+                "notes": "Adjust the seat and foot platform so your knees are roughly at 90 degrees when your feet are on the plate and select an appropriate weight. Train to muscular failure.",
+                "intensityTechnique": "static-hold",
+                "instructions": [
+                  "Adjust the seat and foot platform so your knees are roughly at 90 degrees when your feet are on the plate and select an appropriate weight.",
+                  "Sit with your back fully supported against the pad and both feet placed hip-width on the lower edge of the foot platform (balls of feet and toes on the platform, heels free to move).",
+                  "Grip the handles or seat sides for stability and ensure the safety latch or stops are set before starting.",
+                  "Unlatch the machine (if applicable) and begin from a neutral/dorsiflexed position with a slight stretch in the calves.",
+                  "Exhale and press through the balls of your feet by plantarflexing the ankles to raise the platform until your calves are fully contracted; do not use the knees or hips to drive the movement.",
+                  "Pause briefly at the top and squeeze the calves, then inhale and slowly lower the platform under control until you feel a stretch in the calves (avoid dropping quickly or bouncing).",
+                  "Repeat for the desired number of repetitions, then re-engage the safety latch before exiting the machine."
+                ],
+                "description": "Seated on a lever calf press machine, this exercise uses controlled ankle plantarflexion to raise the foot platform and load the calf muscles. It emphasizes the gastrocnemius/soleus complex while the torso and knees remain supported.",
+                "secondaryMuscles": [],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "37076efc-4154-4bab-8965-581a9af7d61b",
+                "exerciseId": "37076efc-4154-4bab-8965-581a9af7d61b",
+                "name": "Lever Lying Leg Curl",
+                "target": "hamstrings",
+                "equipment": "Leverage Machine",
+                "sets": 2,
+                "reps": 10,
+                "restSeconds": 90,
+                "tempo": "4-2-4",
+                "notes": "Set the lever machine so the pivot aligns with the knee joint and place the lower-leg pad just above the heels / over the Achilles area. Train to muscular failure.",
+                "intensityTechnique": "static-hold",
+                "instructions": [
+                  "Set the lever machine so the pivot aligns with the knee joint and place the lower-leg pad just above the heels / over the Achilles area.",
+                  "Lie prone (face down) on the bench with your hips flat on the pad, chest supported, and hands holding the front handles or bench for stability.",
+                  "Position your legs fully extended with the pad resting on the back of your lower legs and feet relaxed; maintain a neutral spine throughout.",
+                  "Exhale and curl your lower legs by flexing the knees, bringing your heels toward your glutes in a controlled motion until you reach near-full knee flexion.",
+                  "Pause and squeeze the hamstrings at the top for 1 second, keeping hips and torso pressed into the bench (avoid lifting the hips).",
+                  "Inhale and slowly lower the lever back to the start (near full knee extension) under control without letting the weight slam or locking the knees.",
+                  "Repeat for the desired reps, maintaining steady tempo and full range of motion; adjust load so you can control both concentric and eccentric phases.",
+                  "Stop or reduce weight if you feel excessive hip rise, lower-back strain, or knee pain; keep movements smooth and joint-focused."
+                ],
+                "description": "Prone (lying face down) leg curl performed on a lever machine that isolates the hamstrings by flexing the knee against a padded lever. The movement curls the lower leg toward the buttocks while the torso remains stabilized on the bench.",
+                "secondaryMuscles": [
+                  "calves",
+                  "glutes"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Every working set should reach true muscular failure.",
+          "Use slow, controlled tempo throughout the movement.",
+          "Allow full recovery between exercises - this is not cardio."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "d6bb198d-d038-46b5-afca-09c0475a2693",
+              "name": "Barbell Full Squat",
+              "sets": 2,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "bbad65cc-3d4b-4961-bce6-044a94ecc90d",
+              "name": "Barbell Romanian Deadlift",
+              "sets": 2,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 8,
+          "notes": "Light warmup to prepare muscles without pre-fatigue. Working sets will be to absolute failure."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 184,
+        "appliedStyles": [
+          "HIT"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 60,
+        "targetExerciseCount": 5,
+        "targetSetsPerExercise": 2,
+        "primaryExerciseCount": 184,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Upper/Lower - HIT (Lower) (90min)",
+      "split": "upper_lower",
+      "dayFocus": "Lower",
+      "duration": 90,
+      "trainingStyles": [
+        "high_intensity_hit"
+      ],
+      "equipment": [
+        "leverage machine",
+        "barbell"
+      ],
+      "success": true,
+      "latency": 17065,
+      "exerciseCount": 6,
+      "equipmentMatchRate": 100,
+      "avgSets": 2,
+      "avgReps": "10",
+      "avgRest": 135,
+      "error": null,
+      "workout": {
+        "title": "Lower Body - HIT",
+        "description": "Lower Body workout focusing on hit training.",
+        "estimatedDuration": 90,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "5c43b142-d898-4a6b-bcea-40574a885b00",
+                "exerciseId": "5c43b142-d898-4a6b-bcea-40574a885b00",
+                "name": "Barbell Squat",
+                "target": "quads",
+                "equipment": "Barbell",
+                "sets": 2,
+                "reps": 6,
+                "restSeconds": 180,
+                "tempo": "4-2-4",
+                "notes": "Set the bar in a squat rack at about mid-chest height. Train to muscular failure.",
+                "intensityTechnique": "rest-pause",
+                "instructions": [
+                  "Set the bar in a squat rack at about mid-chest height. Position yourself under the bar so it rests across your upper traps (high-bar) or rear delts (low-bar) depending on preference.",
+                  "Grip the bar with hands just outside shoulder width, elbows pointing down and chest up. Stand with feet roughly shoulder-width apart and toes pointed slightly outward.",
+                  "Brace your core and take a full breath in, then unrack the bar by extending your legs and taking 1–2 controlled steps backward to clear the rack; establish a stable, shoulder-width stance.",
+                  "Keep a neutral spine and an upright chest. Initiate the movement by pushing your hips back slightly and bending at the knees, sending your knees outward to track over your toes.",
+                  "Descend in a controlled manner until your thighs are at least parallel to the floor (or deeper if mobility allows) while keeping weight on your midfoot/heels and maintaining a braced core.",
+                  "Avoid knee collapse (valgus) — consciously push knees outward and keep toes engaged. Do not let the lower back round; maintain a neutral spine throughout.",
+                  "Drive through your heels and midfoot to stand back up, exhaling as you ascend and extending hips and knees simultaneously until fully upright.",
+                  "Reset your breathing and bracing between reps as needed. When finished, step forward under control and re-rack the bar securely.",
+                  "Use appropriate weight, a spotter or safety pins in the rack if lifting near maximum loads, and adjust stance or bar position to reduce discomfort in shoulders or lower back."
+                ],
+                "description": "Barbell back squat is a compound, standing lower-body exercise that primarily develops the quadriceps while also engaging the glutes, hamstrings and core for stability. The barbell rests across the upper back while you descend by bending hips and knees, then drive back up to standing.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "hamstrings",
+                  "calves",
+                  "abs",
+                  "spine",
+                  "traps"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "4bd45b35-19e3-4ee2-a363-2733e713d3c3",
+                "exerciseId": "4bd45b35-19e3-4ee2-a363-2733e713d3c3",
+                "name": "Barbell Romanian Deadlift",
+                "target": "hamstrings",
+                "equipment": "Barbell",
+                "sets": 2,
+                "reps": 7,
+                "restSeconds": 180,
+                "tempo": "4-2-4",
+                "notes": "Brace your core, pull your shoulders back slightly, and set a neutral spine; keep a small, fixed bend in the knees (soft knees) — do not squat. Stop 1 rep short of failure (RPE 9). Spinal safety takes priority.",
+                "instructions": [
+                  "Stand with feet about hip-width apart and the barbell over the middle of your feet; grip the bar just outside your thighs with an overhand or mixed grip.",
+                  "Brace your core, pull your shoulders back slightly, and set a neutral spine; keep a small, fixed bend in the knees (soft knees) — do not squat.",
+                  "Initiate the movement by pushing your hips straight back (hip hinge) and allow the bar to descend close to your legs, keeping your chest up and eyes forward.",
+                  "Continue hinging until you feel a stretch in the hamstrings (bar typically reaches just below the knees or mid-shin depending on flexibility) while maintaining a flat back.",
+                  "Pause briefly at the bottom without rounding the lower back; keep the lats engaged to keep the bar close to the body.",
+                  "Drive the hips forward by contracting the glutes and hamstrings to return to a standing position, finishing with hips fully extended but without hyperextending the spine.",
+                  "Breathe: inhale on the descent, exhale as you drive the hips forward. Repeat for desired repetitions, focusing on controlled tempo and maintaining the hip-hinge pattern."
+                ],
+                "description": "A hip-hinge movement performed standing with a barbell that emphasizes eccentric and concentric loading of the hamstrings and glutes while the posterior chain and grip stabilize the load. Maintain a neutral spine and a soft knee angle throughout the movement.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "spine",
+                  "forearms",
+                  "lats"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "51591636-8e3d-4d2e-b504-1b6b183d25da",
+                "exerciseId": "51591636-8e3d-4d2e-b504-1b6b183d25da",
+                "name": "Lever Belt Sumo Squat",
+                "target": "glutes",
+                "equipment": "Leverage Machine",
+                "sets": 2,
+                "reps": 8,
+                "restSeconds": 180,
+                "tempo": "4-2-4",
+                "notes": "Stand on the platform facing the machine with the lever belt secured low on your hips; grab the front handles for light support if available. Train to muscular failure.",
+                "intensityTechnique": "rest-pause",
+                "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Hips/Lever-Belt-Sumo-Squat_Hips_.mp4",
+                "instructions": [
+                  "Stand on the platform facing the machine with the lever belt secured low on your hips; grab the front handles for light support if available.",
+                  "Position your feet much wider than shoulder-width with toes pointed out at ~30–45 degrees (sumo stance).",
+                  "Brace your core, keep chest tall and a neutral spine, and allow a slight forward torso lean while maintaining an upright upper body.",
+                  "Begin the movement by pushing your hips back and bending at the knees, lowering yourself into a squat until your thighs are roughly parallel to the platform or a comfortable depth where knees track over toes.",
+                  "Keep your knees tracking in line with your toes and distribute weight through your heels and mid-foot; avoid collapsing the knees inward.",
+                  "Drive forcefully through the heels and hips to return to standing, fully extending the hips at the top while resisting the lever’s load throughout the motion.",
+                  "Control the descent on each rep, breathe in on the way down and exhale as you drive up, and perform repetitions with a steady tempo."
+                ],
+                "description": "A wide-stance (sumo) squat performed with a lever belt/harness attached to a machine; emphasizes hip drive and inner-thigh engagement while reducing load on the spine. Use a wide, turned-out foot position and sit back between the heels, then drive up through the hips.",
+                "secondaryMuscles": [
+                  "quads",
+                  "adductors",
+                  "hamstrings"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "77bd5473-fc5c-426c-9fcd-56e8e8af2bd4",
+                "exerciseId": "77bd5473-fc5c-426c-9fcd-56e8e8af2bd4",
+                "name": "Lever Seated Calf Press",
+                "target": "calves",
+                "equipment": "Leverage Machine",
+                "sets": 2,
+                "reps": 10,
+                "restSeconds": 90,
+                "tempo": "4-2-4",
+                "notes": "Adjust the seat and foot platform so your knees are roughly at 90 degrees when your feet are on the plate and select an appropriate weight. Train to muscular failure.",
+                "intensityTechnique": "static-hold",
+                "instructions": [
+                  "Adjust the seat and foot platform so your knees are roughly at 90 degrees when your feet are on the plate and select an appropriate weight.",
+                  "Sit with your back fully supported against the pad and both feet placed hip-width on the lower edge of the foot platform (balls of feet and toes on the platform, heels free to move).",
+                  "Grip the handles or seat sides for stability and ensure the safety latch or stops are set before starting.",
+                  "Unlatch the machine (if applicable) and begin from a neutral/dorsiflexed position with a slight stretch in the calves.",
+                  "Exhale and press through the balls of your feet by plantarflexing the ankles to raise the platform until your calves are fully contracted; do not use the knees or hips to drive the movement.",
+                  "Pause briefly at the top and squeeze the calves, then inhale and slowly lower the platform under control until you feel a stretch in the calves (avoid dropping quickly or bouncing).",
+                  "Repeat for the desired number of repetitions, then re-engage the safety latch before exiting the machine."
+                ],
+                "description": "Seated on a lever calf press machine, this exercise uses controlled ankle plantarflexion to raise the foot platform and load the calf muscles. It emphasizes the gastrocnemius/soleus complex while the torso and knees remain supported.",
+                "secondaryMuscles": [],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "e85b83ff-661e-4a14-b262-044ed7578428",
+                "exerciseId": "e85b83ff-661e-4a14-b262-044ed7578428",
+                "name": "Lever Lying Leg Curl",
+                "target": "hamstrings",
+                "equipment": "Leverage Machine",
+                "sets": 2,
+                "reps": 10,
+                "restSeconds": 90,
+                "tempo": "4-2-4",
+                "notes": "Adjust the machine so the hip support pad allows your hips to stay flat on the bench and the lever pivot aligns with your knees; select appropriate weight. Train to muscular failure.",
+                "intensityTechnique": "static-hold",
+                "instructions": [
+                  "Adjust the machine so the hip support pad allows your hips to stay flat on the bench and the lever pivot aligns with your knees; select appropriate weight.",
+                  "Lie prone (face down) on the bench with your knees just off the edge, chest supported, and hook your lower calves/ankles under the padded lever.",
+                  "Grip the handles or edge of the bench for stability and keep your hips pressed into the bench throughout the movement.",
+                  "Exhale and curl your heels up toward your glutes by flexing the knees until you reach a full but comfortable contraction.",
+                  "Pause briefly at the top and squeeze the hamstrings and glutes.",
+                  "Inhale and slowly lower the lever back to the start with controlled extension of the knees, avoiding letting the hips rise.",
+                  "Perform repetitions with steady tempo, focusing on full range of motion and control rather than momentum."
+                ],
+                "description": "Prone (face down) leg curl performed on a lever machine that isolates the hamstrings by bending the knees to lift a pad toward the glutes. The movement emphasizes knee flexion with a controlled eccentric return.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "calves"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "ec73ad7d-a55d-4cc2-b66d-645155713fb6",
+                "exerciseId": "ec73ad7d-a55d-4cc2-b66d-645155713fb6",
+                "name": "Lever Standing Calf Raise",
+                "target": "calves",
+                "equipment": "Leverage Machine",
+                "sets": 2,
+                "reps": 10,
+                "restSeconds": 90,
+                "tempo": "4-2-4",
+                "notes": "Set the desired weight on the lever standing calf raise machine and step onto the foot platform so the balls of your feet are on the edge and your heels can hang freely. Train to muscular failure.",
+                "intensityTechnique": "static-hold",
+                "instructions": [
+                  "Set the desired weight on the lever standing calf raise machine and step onto the foot platform so the balls of your feet are on the edge and your heels can hang freely.",
+                  "Position your shoulders under the padded lever, stand tall and grip the machine handles for stability; feet should be hip-width and toes pointing forward (or slightly turned in/out to vary emphasis).",
+                  "Begin with a full stretch: lower your heels down until you feel a controlled stretch in the calves (keep torso upright and spine neutral).",
+                  "Drive through the balls of your feet to raise your heels as high as possible, exhaling and keeping knees straight (a slight knee bend shifts emphasis to the soleus if desired).",
+                  "Pause 1–2 seconds at the top and squeeze the calves, then slowly lower your heels back to the stretched starting position with control—avoid bouncing.",
+                  "Repeat for the prescribed number of repetitions, maintaining steady tempo and proper alignment throughout."
+                ],
+                "description": "A machine-based standing calf raise where the shoulders are braced under a padded lever and the heels drop and rise from a platform to load the calf muscles through a full range of motion. Emphasizes plantarflexion to strengthen and develop the gastrocnemius/soleus complex.",
+                "secondaryMuscles": [],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Every working set should reach true muscular failure.",
+          "Use slow, controlled tempo throughout the movement.",
+          "Allow full recovery between exercises - this is not cardio."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "5c43b142-d898-4a6b-bcea-40574a885b00",
+              "name": "Barbell Squat",
+              "sets": 2,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "4bd45b35-19e3-4ee2-a363-2733e713d3c3",
+              "name": "Barbell Romanian Deadlift",
+              "sets": 2,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 8,
+          "notes": "Light warmup to prepare muscles without pre-fatigue. Working sets will be to absolute failure."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 184,
+        "appliedStyles": [
+          "HIT"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 90,
+        "targetExerciseCount": 6,
+        "targetSetsPerExercise": 2,
+        "primaryExerciseCount": 184,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "PPL - Bodybuilding (Push) (30min)",
+      "split": "push_pull_legs",
+      "dayFocus": "Push",
+      "duration": 30,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "barbell",
+        "dumbbell",
+        "cable",
+        "leverage machine"
+      ],
+      "success": true,
+      "latency": 16353,
+      "exerciseCount": 3,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "8",
+      "avgRest": 96,
+      "error": null,
+      "workout": {
+        "title": "Push Day - BODYBUILD",
+        "description": "Push Day workout focusing on bodybuild training.",
+        "estimatedDuration": 30,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+                "exerciseId": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+                "name": "Barbell Bench Press",
+                "target": "pectorals",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Set up a flat bench inside a rack so the barbell sits directly above your eyes when you are lying down.",
+                "instructions": [
+                  "Set up a flat bench inside a rack so the barbell sits directly above your eyes when you are lying down.",
+                  "Lie supine on the bench with your head, upper back and glutes in contact with the bench, feet flat on the floor and a small natural arch in the lower back; retract and depress your shoulder blades to create a stable chest platform.",
+                  "Grip the barbell with a pronated (overhand) grip slightly wider than shoulder-width; wrists should be stacked over the elbows and forearms vertical when the bar is over the chest.",
+                  "Unrack the bar by straightening the arms and moving the bar out over the chest while keeping the scapulae stable; lock the elbows briefly before starting the set.",
+                  "Inhale and lower the bar in a controlled manner to the mid-chest/sternum (around nipple level), keeping the elbows at about a 45-degree angle from the torso to protect the shoulders.",
+                  "Allow the bar to touch or come very close to the chest without bouncing; maintain tension in the pectorals and keep the feet and glutes braced.",
+                  "Exhale and press the bar upward explosively while keeping the bar path slightly arced toward the hips until the arms are fully extended but not hyperextended.",
+                  "Pause briefly at the top with the shoulders stable, then begin the next rep. Maintain consistent form and breathing throughout the set.",
+                  "Use a spotter or safety pins in the rack for heavy sets, and avoid flaring the elbows excessively or letting the lower back lift off the bench."
+                ],
+                "description": "The barbell bench press is a compound pressing movement performed lying supine on a flat bench that primarily develops the pectorals while also recruiting the triceps and anterior delts. It involves lowering a loaded barbell to the chest and pressing it back up to full arm extension with controlled technique.",
+                "secondaryMuscles": [
+                  "triceps",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "937ae3d2-af3f-4733-a8e6-d241a4a352ed",
+                "exerciseId": "937ae3d2-af3f-4733-a8e6-d241a4a352ed",
+                "name": "Dumbbell Incline Bench Press",
+                "target": "pectorals",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Set an incline bench to about 30–45° and sit with a dumbbell in each hand resting on your thighs.",
+                "instructions": [
+                  "Set an incline bench to about 30–45° and sit with a dumbbell in each hand resting on your thighs.",
+                  "Lie back so your upper back and head are supported (supine on the incline bench) and plant your feet flat on the floor for stability.",
+                  "Bring the dumbbells up to shoulder level with palms facing forward and elbows bent (upper arms roughly 45° from the torso) while retracting the shoulder blades slightly.",
+                  "Unrack the dumbbells by pressing them up and then lowering them to start position so the handles are beside your upper chest/shoulder area.",
+                  "Press the dumbbells upward and slightly together until your arms are nearly straight (avoid locking or hyperextending the elbows); exhale during the press.",
+                  "Pause briefly at the top with tension in the pectorals, then slowly lower the dumbbells under control back to the upper chest/shoulder level while inhaling.",
+                  "Keep a stable core and avoid excessive arching of the lower back; maintain scapular control and smooth, controlled reps for the desired number of repetitions.",
+                  "If using heavy weights, have a spotter or perform a controlled seated dumbbell rack/unrack to avoid strain when starting or finishing the set."
+                ],
+                "description": "A pressing movement performed lying supine on an incline bench that emphasizes the upper portion of the chest. Dumbbells allow a slightly greater range of motion and independent arm movement compared with a barbell.",
+                "secondaryMuscles": [
+                  "delts",
+                  "triceps"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "0acf5f13-d4b4-4a52-8aed-5e3067f7ae82",
+                "exerciseId": "0acf5f13-d4b4-4a52-8aed-5e3067f7ae82",
+                "name": "Dumbbell Seated Close Grip Press",
+                "target": "triceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Sit upright on a bench with back support, feet flat on the floor and core braced.",
+                "instructions": [
+                  "Sit upright on a bench with back support, feet flat on the floor and core braced.",
+                  "Pick up two dumbbells and hold them close together at chest/shoulder height with a neutral or slightly pronated grip so the heads are nearly touching and elbows point down and slightly forward.",
+                  "Keep your elbows tucked close to your sides (not flaring out) and maintain an upright torso throughout the movement.",
+                  "Exhale and press the dumbbells straight upward until your arms are almost fully extended, stopping short of locking the elbows.",
+                  "Inhale and slowly lower the dumbbells back to the starting position at shoulder height under control.",
+                  "Repeat for the desired number of repetitions, maintaining tight core and avoiding excessive arching of the lower back.",
+                  "Common cues: keep dumbbell heads close together, drive through the triceps rather than pushing with the chest, and avoid flaring the elbows outward."
+                ],
+                "description": "Seated dumbbell close-grip press is a pressing movement performed sitting with the dumbbells held close together at shoulder level; it emphasizes the triceps while also engaging the front delts and inner chest. Press the weights upward in a controlled motion, keeping the dumbbells close to each other and elbows tucked.",
+                "secondaryMuscles": [
+                  "delts",
+                  "pectorals"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "068ee8ae-6230-4522-b6bf-e83a56c56078",
+              "name": "Barbell Bench Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "0acf5f13-d4b4-4a52-8aed-5e3067f7ae82",
+              "name": "Dumbbell Seated Close Grip Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 4,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": false,
+        "fallbackReason": null,
+        "exercisesAvailable": 261,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 30,
+        "targetExerciseCount": 3,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 261,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "PPL - Bodybuilding (Push) (60min)",
+      "split": "push_pull_legs",
+      "dayFocus": "Push",
+      "duration": 60,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "barbell",
+        "dumbbell",
+        "cable",
+        "leverage machine"
+      ],
+      "success": true,
+      "latency": 17719,
+      "exerciseCount": 6,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "12",
+      "avgRest": 113,
+      "error": null,
+      "workout": {
+        "title": "Push Day - BODYBUILD",
+        "description": "Push Day workout focusing on bodybuild training.",
+        "estimatedDuration": 60,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "66ccc543-550c-40f2-b65c-73f0c30c297f",
+                "exerciseId": "66ccc543-550c-40f2-b65c-73f0c30c297f",
+                "name": "Barbell Bench Press",
+                "target": "pectorals",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 151,
+                "tempo": "2-0-1",
+                "notes": "Lie supine on a flat bench with eyes under the bar, feet flat on the floor and a slight natural arch in the low back.",
+                "instructions": [
+                  "Lie supine on a flat bench with eyes under the bar, feet flat on the floor and a slight natural arch in the low back.",
+                  "Grip the bar with hands slightly wider than shoulder-width, wrists stacked over elbows and thumbs wrapped around the bar.",
+                  "Retract and depress the shoulder blades (pinch the shoulder blades together) to create a stable chest platform.",
+                  "Unrack the bar by straightening the arms and moving the bar over the chest so it is balanced and steady.",
+                  "Inhale, lower the bar under control to the mid-chest (sternum) keeping elbows at about a 45-degree angle from the torso.",
+                  "Pause briefly with the bar touching or just above the chest while maintaining tightness through the core and legs.",
+                  "Exhale and drive the bar upward by extending the elbows, pressing the bar back to the start position while keeping wrists neutral.",
+                  "Avoid excessive elbow flare or bouncing the bar off the chest; maintain a controlled tempo and keep feet planted.",
+                  "After the set, carefully re-rack the bar by guiding it back onto the bench supports before releasing your grip."
+                ],
+                "description": "The barbell bench press is a supine pressing exercise performed on a flat bench that primarily develops the pectorals while also working the triceps and anterior delts. The lifter lowers a barbell to the chest and presses it back to full arm extension under control.",
+                "secondaryMuscles": [
+                  "triceps",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "937ae3d2-af3f-4733-a8e6-d241a4a352ed",
+                "exerciseId": "937ae3d2-af3f-4733-a8e6-d241a4a352ed",
+                "name": "Dumbbell Incline Bench Press",
+                "target": "pectorals",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 151,
+                "tempo": "2-0-1",
+                "notes": "Set an incline bench to about 30–45° and sit with a dumbbell in each hand resting on your thighs.",
+                "instructions": [
+                  "Set an incline bench to about 30–45° and sit with a dumbbell in each hand resting on your thighs.",
+                  "Lie back so your upper back and head are supported (supine on the incline bench) and plant your feet flat on the floor for stability.",
+                  "Bring the dumbbells up to shoulder level with palms facing forward and elbows bent (upper arms roughly 45° from the torso) while retracting the shoulder blades slightly.",
+                  "Unrack the dumbbells by pressing them up and then lowering them to start position so the handles are beside your upper chest/shoulder area.",
+                  "Press the dumbbells upward and slightly together until your arms are nearly straight (avoid locking or hyperextending the elbows); exhale during the press.",
+                  "Pause briefly at the top with tension in the pectorals, then slowly lower the dumbbells under control back to the upper chest/shoulder level while inhaling.",
+                  "Keep a stable core and avoid excessive arching of the lower back; maintain scapular control and smooth, controlled reps for the desired number of repetitions.",
+                  "If using heavy weights, have a spotter or perform a controlled seated dumbbell rack/unrack to avoid strain when starting or finishing the set."
+                ],
+                "description": "A pressing movement performed lying supine on an incline bench that emphasizes the upper portion of the chest. Dumbbells allow a slightly greater range of motion and independent arm movement compared with a barbell.",
+                "secondaryMuscles": [
+                  "delts",
+                  "triceps"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "0acf5f13-d4b4-4a52-8aed-5e3067f7ae82",
+                "exerciseId": "0acf5f13-d4b4-4a52-8aed-5e3067f7ae82",
+                "name": "Dumbbell Seated Close Grip Press",
+                "target": "triceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 151,
+                "tempo": "2-0-1",
+                "notes": "Sit upright on a bench with back support, feet flat on the floor and core braced.",
+                "instructions": [
+                  "Sit upright on a bench with back support, feet flat on the floor and core braced.",
+                  "Pick up two dumbbells and hold them close together at chest/shoulder height with a neutral or slightly pronated grip so the heads are nearly touching and elbows point down and slightly forward.",
+                  "Keep your elbows tucked close to your sides (not flaring out) and maintain an upright torso throughout the movement.",
+                  "Exhale and press the dumbbells straight upward until your arms are almost fully extended, stopping short of locking the elbows.",
+                  "Inhale and slowly lower the dumbbells back to the starting position at shoulder height under control.",
+                  "Repeat for the desired number of repetitions, maintaining tight core and avoiding excessive arching of the lower back.",
+                  "Common cues: keep dumbbell heads close together, drive through the triceps rather than pushing with the chest, and avoid flaring the elbows outward."
+                ],
+                "description": "Seated dumbbell close-grip press is a pressing movement performed sitting with the dumbbells held close together at shoulder level; it emphasizes the triceps while also engaging the front delts and inner chest. Press the weights upward in a controlled motion, keeping the dumbbells close to each other and elbows tucked.",
+                "secondaryMuscles": [
+                  "delts",
+                  "pectorals"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "e3910bf9-7244-4539-a7cc-807a7b241ee6",
+                "exerciseId": "e3910bf9-7244-4539-a7cc-807a7b241ee6",
+                "name": "Dumbbell Seated Alternate Shoulder Press",
+                "target": "delts",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 75,
+                "tempo": "2-0-1",
+                "notes": "Keep your back pressed into the bench and your head neutral; this is the starting position.",
+                "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Shoulders/Dumbbell-Seated-Alternate-Shoulder-Press_Shoulders.mp4",
+                "instructions": [
+                  "Sit on a bench with back support, feet flat on the floor and core braced; hold a dumbbell in each hand at shoulder height with palms facing forward or slightly rotated.",
+                  "Keep your back pressed into the bench and your head neutral; this is the starting position.",
+                  "Exhale and press one dumbbell straight up until the arm is almost fully extended overhead, avoiding hyperextension of the elbow and excessive back arch.",
+                  "Pause briefly at the top while maintaining control, then inhale and slowly lower the dumbbell back to shoulder height.",
+                  "As you lower the first dumbbell, keep the opposite dumbbell stable at shoulder height (or lower it slightly if needed for safety), then repeat the press on the other side so you alternate arms each rep.",
+                  "Maintain an upright, back-supported seated position throughout and avoid leaning or twisting the torso; engage the core to stabilize.",
+                  "Perform controlled reps with a steady tempo (e.g., 1–2 seconds up, 2–3 seconds down) and choose a weight that allows full control and proper form.",
+                  "Stop if you feel shoulder pain and ensure balanced reps on each side to correct imbalances."
+                ],
+                "description": "Seated alternate dumbbell shoulder presses performed with a back-supported bench, pressing one dumbbell overhead at a time while the other stays at shoulder level. This unilateral variation emphasizes the delts while challenging stability and shoulder girdle control.",
+                "secondaryMuscles": [
+                  "triceps",
+                  "traps",
+                  "upper back"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "49cdf24a-71c1-4b32-b236-9f9ffe439a6e",
+                "exerciseId": "49cdf24a-71c1-4b32-b236-9f9ffe439a6e",
+                "name": "Cable Standing Fly",
+                "target": "pectorals",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 75,
+                "tempo": "2-0-1",
+                "notes": "Set the cable pulleys to a high or slightly above-shoulder position and attach single-handle grips.",
+                "instructions": [
+                  "Set the cable pulleys to a high or slightly above-shoulder position and attach single-handle grips.",
+                  "Stand centered between the towers in a staggered (split) stance or feet shoulder-width apart with a slight forward lean from the hips so you have stable balance; brace your core.",
+                  "Grasp a handle in each hand with a neutral or palms-down grip and take one step forward until you feel light tension in the cables; keep a small bend in the elbows throughout.",
+                  "Start with your arms out to the sides roughly at shoulder height (or slightly higher for a high-cable fly) and chest lifted; retract your shoulder blades slightly to protect the joints.",
+                  "Exhale and bring the handles together in a controlled arc in front of your chest at midline, leading with the elbows and squeezing the pectorals at the finish.",
+                  "Pause briefly with hands meeting or slightly overlapping, then inhale and slowly resist the cables as you return your arms to the start position using the same arcing path.",
+                  "Keep the movement smooth and avoid locking the elbows, excessive torso rotation, or shrugging the shoulders; maintain core tension for stability."
+                ],
+                "description": "Standing cable fly performed with the pulleys set high to mid-high engages the chest by bringing the arms together in a wide arc; the shoulders and core stabilize the movement. It emphasizes the pectoral fibers with controlled concentric adduction and slow eccentric return.",
+                "secondaryMuscles": [
+                  "delts",
+                  "forearms",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "ecc52483-c81a-46c9-8557-fd81144d777d",
+                "exerciseId": "ecc52483-c81a-46c9-8557-fd81144d777d",
+                "name": "Dumbbell Reverse Fly",
+                "target": "delts",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 75,
+                "tempo": "2-0-1",
+                "notes": "Set an incline bench to about 30-45 degrees and position it so you can lie face down with your chest supported and feet on the floor or toes braced behind you (prone on bench).",
+                "instructions": [
+                  "Set an incline bench to about 30-45 degrees and position it so you can lie face down with your chest supported and feet on the floor or toes braced behind you (prone on bench).",
+                  "Pick up a pair of light-to-moderate dumbbells and hold them with a neutral grip (palms facing each other) with arms hanging straight down beneath your shoulders.",
+                  "Tuck your chin slightly so your neck stays neutral and pull your shoulder blades down and back (scapular retraction) before starting the rep.",
+                  "With a slight bend in the elbows, raise the dumbbells out to your sides in a wide arc until your upper arms are roughly parallel to the floor; lead the movement from the shoulders (posterior delts), not the hands.",
+                  "Pause and squeeze the shoulder blades and traps at the top for 1 second, keeping the torso stable on the bench and avoiding trunk rotation or swinging.",
+                  "Lower the dumbbells slowly and under control back to the starting position, maintaining the slight elbow bend and scapular control.",
+                  "Repeat for the desired reps, breathing out as you lift and in as you lower. Reduce weight if you must use momentum to complete the reps."
+                ],
+                "description": "Chest-supported dumbbell reverse fly performed prone on an incline bench that isolates the posterior delts while also engaging the upper back and traps for scapular retraction. Use a controlled, wide-arc motion with a slight elbow bend to avoid momentum.",
+                "secondaryMuscles": [
+                  "upper back",
+                  "traps"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "66ccc543-550c-40f2-b65c-73f0c30c297f",
+              "name": "Barbell Bench Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "0acf5f13-d4b4-4a52-8aed-5e3067f7ae82",
+              "name": "Dumbbell Seated Close Grip Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 4,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": false,
+        "fallbackReason": null,
+        "exercisesAvailable": 261,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 60,
+        "targetExerciseCount": 6,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 261,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "PPL - Bodybuilding (Push) (90min)",
+      "split": "push_pull_legs",
+      "dayFocus": "Push",
+      "duration": 90,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "barbell",
+        "dumbbell",
+        "cable",
+        "leverage machine"
+      ],
+      "success": true,
+      "latency": 18396,
+      "exerciseCount": 8,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "12",
+      "avgRest": 124,
+      "error": null,
+      "workout": {
+        "title": "Push Day - BODYBUILD",
+        "description": "Push Day workout focusing on bodybuild training.",
+        "estimatedDuration": 90,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "66ccc543-550c-40f2-b65c-73f0c30c297f",
+                "exerciseId": "66ccc543-550c-40f2-b65c-73f0c30c297f",
+                "name": "Barbell Bench Press",
+                "target": "pectorals",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 180,
+                "tempo": "2-0-1",
+                "notes": "Lie supine on a flat bench with eyes under the bar, feet flat on the floor and a slight natural arch in the low back.",
+                "instructions": [
+                  "Lie supine on a flat bench with eyes under the bar, feet flat on the floor and a slight natural arch in the low back.",
+                  "Grip the bar with hands slightly wider than shoulder-width, wrists stacked over elbows and thumbs wrapped around the bar.",
+                  "Retract and depress the shoulder blades (pinch the shoulder blades together) to create a stable chest platform.",
+                  "Unrack the bar by straightening the arms and moving the bar over the chest so it is balanced and steady.",
+                  "Inhale, lower the bar under control to the mid-chest (sternum) keeping elbows at about a 45-degree angle from the torso.",
+                  "Pause briefly with the bar touching or just above the chest while maintaining tightness through the core and legs.",
+                  "Exhale and drive the bar upward by extending the elbows, pressing the bar back to the start position while keeping wrists neutral.",
+                  "Avoid excessive elbow flare or bouncing the bar off the chest; maintain a controlled tempo and keep feet planted.",
+                  "After the set, carefully re-rack the bar by guiding it back onto the bench supports before releasing your grip."
+                ],
+                "description": "The barbell bench press is a supine pressing exercise performed on a flat bench that primarily develops the pectorals while also working the triceps and anterior delts. The lifter lowers a barbell to the chest and presses it back to full arm extension under control.",
+                "secondaryMuscles": [
+                  "triceps",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "8cffd660-a02d-4355-9741-c172d0263ac1",
+                "exerciseId": "8cffd660-a02d-4355-9741-c172d0263ac1",
+                "name": "Barbell Incline Bench Press",
+                "target": "pectorals",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 9,
+                "restSeconds": 180,
+                "tempo": "2-0-1",
+                "notes": "Set an incline bench at about 30–45 degrees and position it in a rack with safety catches or a spotter available.",
+                "instructions": [
+                  "Set an incline bench at about 30–45 degrees and position it in a rack with safety catches or a spotter available.",
+                  "Lie supine on the incline bench with your head supported, feet flat on the floor, and back slightly arched while maintaining scapular retraction.",
+                  "Grip the barbell with a pronated grip slightly wider than shoulder-width; wrists stacked over elbows.",
+                  "Unrack the bar by straightening the arms and moving the bar over your upper chest/shoulder line, then stabilize before starting the descent.",
+                  "Inhale and slowly lower the bar in a controlled path to the upper chest/clavicular area, keeping elbows at roughly a 30–60° angle from the torso (avoid flaring to 90°).",
+                  "Lightly touch or stop just above the chest, pause briefly without bouncing, then exhale and press the bar upward and slightly back to the start position, fully extending the elbows.",
+                  "Keep core braced and feet planted throughout to maintain stability and prevent excessive lower back extension.",
+                  "Carefully re-rack the bar under control or have a spotter assist when finished."
+                ],
+                "description": "A barbell press performed on an incline bench that emphasizes the upper portion of the chest by pressing the bar upward and slightly toward the clavicle. It also engages the front delts and triceps for pressing and locking out the weight.",
+                "secondaryMuscles": [
+                  "delts",
+                  "triceps"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "0acf5f13-d4b4-4a52-8aed-5e3067f7ae82",
+                "exerciseId": "0acf5f13-d4b4-4a52-8aed-5e3067f7ae82",
+                "name": "Dumbbell Seated Close Grip Press",
+                "target": "triceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 180,
+                "tempo": "2-0-1",
+                "notes": "Sit upright on a bench with back support, feet flat on the floor and core braced.",
+                "instructions": [
+                  "Sit upright on a bench with back support, feet flat on the floor and core braced.",
+                  "Pick up two dumbbells and hold them close together at chest/shoulder height with a neutral or slightly pronated grip so the heads are nearly touching and elbows point down and slightly forward.",
+                  "Keep your elbows tucked close to your sides (not flaring out) and maintain an upright torso throughout the movement.",
+                  "Exhale and press the dumbbells straight upward until your arms are almost fully extended, stopping short of locking the elbows.",
+                  "Inhale and slowly lower the dumbbells back to the starting position at shoulder height under control.",
+                  "Repeat for the desired number of repetitions, maintaining tight core and avoiding excessive arching of the lower back.",
+                  "Common cues: keep dumbbell heads close together, drive through the triceps rather than pushing with the chest, and avoid flaring the elbows outward."
+                ],
+                "description": "Seated dumbbell close-grip press is a pressing movement performed sitting with the dumbbells held close together at shoulder level; it emphasizes the triceps while also engaging the front delts and inner chest. Press the weights upward in a controlled motion, keeping the dumbbells close to each other and elbows tucked.",
+                "secondaryMuscles": [
+                  "delts",
+                  "pectorals"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "70b1092d-00a6-4c94-b0f0-89165d0aa249",
+                "exerciseId": "70b1092d-00a6-4c94-b0f0-89165d0aa249",
+                "name": "Cable Rear Delt Row (parallel bar)",
+                "target": "delts",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Attach a parallel (double) handle to the cable, reach forward and grasp the handles with a neutral grip, arms extended and torso upright.",
+                "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Shoulders/Cable-Rear-Delt-Row-(parallel-bar)_Shoulders_.mp4",
+                "instructions": [
+                  "Sit on the bench facing the cable machine with feet braced against the footplate and knees slightly bent.",
+                  "Attach a parallel (double) handle to the cable, reach forward and grasp the handles with a neutral grip, arms extended and torso upright.",
+                  "Lean forward slightly at the hips while keeping the chest up so your torso is stable but not rounded.",
+                  "Initiate the movement by driving your elbows out to the sides (flare them) and pulling the handles back toward your upper chest/neck area, focusing on contracting the rear delts and squeezing the shoulder blades together.",
+                  "Pause for 1 second at the peak contraction while maintaining an upright torso and preventing the shoulder blades from dipping or the back from rounding.",
+                  "Slowly return the handles to the starting position with controlled tension, fully extending the arms but avoiding locking the elbows.",
+                  "Maintain a steady tempo, avoid using momentum or leaning the torso backward, and keep the neck neutral throughout the set.",
+                  "Adjust the cable height so the line of pull targets the posterior shoulder (generally mid-to-high pulley) and choose a weight that allows strict form."
+                ],
+                "description": "A seated cable row variation that emphasizes the rear (posterior) deltoids by pulling a parallel bar with elbows flared wide, squeezing the shoulder blades together. Performed seated with feet braced, it targets the upper back and shoulder posterior chain while using the arms for pulling support.",
+                "secondaryMuscles": [
+                  "upper back",
+                  "traps",
+                  "biceps",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "2c30c7e0-8a94-4f49-8ac5-6d5cf893b077",
+                "exerciseId": "2c30c7e0-8a94-4f49-8ac5-6d5cf893b077",
+                "name": "Dumbbell Incline Hammer Press",
+                "target": "pectorals",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Set an adjustable bench to a 30–45° incline and select two dumbbells of appropriate weight.",
+                "instructions": [
+                  "Set an adjustable bench to a 30–45° incline and select two dumbbells of appropriate weight.",
+                  "Sit on the bench and plant your feet flat on the floor; lie back so your head, upper back and hips are supported (supine on an incline bench).",
+                  "Hold a dumbbell in each hand with a neutral (palms facing each other) grip; bring the dumbbells to shoulder level with elbows bent (~90°) and wrists stacked over elbows.",
+                  "Brace your core, retract your shoulder blades slightly, and keep the elbows under the wrists (avoid excessive flaring).",
+                  "Exhale and press both dumbbells up and slightly together until your arms are almost extended — do not lock the elbows at the top.",
+                  "Pause briefly at the top, then inhale and lower the dumbbells in a controlled manner back to shoulder level, keeping the same neutral grip.",
+                  "Repeat for the desired number of reps while maintaining steady tempo, stable bench contact, and neutral wrist alignment."
+                ],
+                "description": "Seated on an incline bench, dumbbells are pressed upward with a neutral (hammer) grip to emphasize the upper chest. The movement uses a controlled press and descent to work the pectorals with assistance from the delts and triceps.",
+                "secondaryMuscles": [
+                  "delts",
+                  "triceps"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "3b120108-e9c0-469f-86f0-27c2905b1fa2",
+                "exerciseId": "3b120108-e9c0-469f-86f0-27c2905b1fa2",
+                "name": "Dumbbell Fly",
+                "target": "pectorals",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Step 1: Lie supine on a flat bench with feet planted on the floor and a neutral spine; hold a dumbbell in each hand above your chest with palms facing each other and elbows slightly bent.",
+                "instructions": [
+                  "Step 1: Lie supine on a flat bench with feet planted on the floor and a neutral spine; hold a dumbbell in each hand above your chest with palms facing each other and elbows slightly bent.",
+                  "Step 2: Brace your core and gently retract and depress your shoulder blades to stabilize the shoulder girdle throughout the movement.",
+                  "Step 3: Inhale and slowly lower the dumbbells out to the sides in a wide arc, keeping the same slight bend in your elbows and stopping when your upper arms are about parallel to the floor or you feel a comfortable stretch in the chest (avoid dropping below bench level).",
+                  "Step 4: Pause briefly at the bottom without relaxing the shoulders, then exhale and drive the dumbbells back up in the same arc by contracting the pectorals until the weights meet or are close together over your sternum.",
+                  "Step 5: Maintain controlled tempo (no bouncing), keep elbows fixed at the same angle, and avoid locking the arms at the top; repeat for desired reps."
+                ],
+                "description": "Lying flat on a bench while holding dumbbells, the dumbbell fly opens the arms in a wide arc and brings them together to isolate and stretch the chest (pectorals). Movement emphasizes a controlled, arcing motion with a slight bend in the elbows to protect the shoulder joint.",
+                "secondaryMuscles": [
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "8ed6d29d-df64-4ebe-a7a3-89489c8dfb6c",
+                "exerciseId": "8ed6d29d-df64-4ebe-a7a3-89489c8dfb6c",
+                "name": "Cable Low Fly",
+                "target": "pectorals",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Set both cable pulleys to the lowest position and attach single-hand handles.",
+                "instructions": [
+                  "Set both cable pulleys to the lowest position and attach single-hand handles.",
+                  "Stand centered between the towers in an upright position with feet shoulder-width apart or one foot slightly staggered for stability.",
+                  "Grasp the handles with a neutral grip so the cables run low behind your legs; step forward slightly to create tension in the cables and keep a tall chest.",
+                  "Keep a slight bend in the elbows throughout the exercise (soft elbows) and a small forward lean from the hips; do not round the shoulders.",
+                  "Exhale and pull both handles upward and inward in a controlled wide arc until your hands meet or nearly meet at chest level, squeezing the pectorals at the end of the motion.",
+                  "Hold the peak contraction briefly, keeping the shoulders down and scapulae stable (use serratus anterior to stabilize the shoulder blades).",
+                  "Inhale and slowly reverse the movement, allowing the cables to return your arms to the start position with control — do not let the weights slam.",
+                  "Repeat for the desired number of repetitions, maintaining posture, a consistent elbow angle, and steady tempo throughout."
+                ],
+                "description": "Standing cable low fly performed with the pulleys set low; you pull each handle upward and inward in a wide arc to bring the hands together in front of the chest, emphasizing horizontal adduction to work the pectorals. Maintain a slight elbow bend and controlled tempo throughout the movement.",
+                "secondaryMuscles": [
+                  "delts",
+                  "serratus anterior",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "d8684d26-30e9-4dad-b48d-9d5983a06eaa",
+                "exerciseId": "d8684d26-30e9-4dad-b48d-9d5983a06eaa",
+                "name": "Cable Lateral Raise",
+                "target": "delts",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Set both cable pulleys to the lowest position and attach single handles.",
+                "instructions": [
+                  "Set both cable pulleys to the lowest position and attach single handles. Stand centered between the two towers and grasp each handle with the opposite hand so the cables cross in front of you (or hold same-side handles if preferred).",
+                  "Stand upright with feet about hip-width apart, knees soft, and core braced (neutral spine). Keep a slight bend in the elbows and wrists neutral.",
+                  "Start with the handles low by your thighs; palms can face inward or slightly forward. Maintain a small forward lean from the hips if comfortable to allow a natural arc.",
+                  "Keeping the elbows slightly bent, exhale and raise both arms out to the sides in a smooth arc until your hands reach approximately shoulder height. Lead the movement with the elbow, not the wrist.",
+                  "Pause briefly at the top while maintaining tension in the delts; avoid shrugging the shoulders upward toward your ears.",
+                  "Inhale and lower the handles slowly and under control back to the starting position, keeping tension on the cables throughout the descent.",
+                  "Repeat for the desired number of reps. Use a lighter weight if you cannot maintain strict form or if you begin using torso momentum."
+                ],
+                "description": "A standing cable lateral raise performed from low pulleys to isolate the lateral head of the delts; cables provide constant tension while you lift the arms out to the sides to shoulder height. The movement is done with a slight elbow bend and controlled tempo to minimize momentum.",
+                "secondaryMuscles": [
+                  "traps",
+                  "forearms",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "66ccc543-550c-40f2-b65c-73f0c30c297f",
+              "name": "Barbell Bench Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "0acf5f13-d4b4-4a52-8aed-5e3067f7ae82",
+              "name": "Dumbbell Seated Close Grip Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 4,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": false,
+        "fallbackReason": null,
+        "exercisesAvailable": 261,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 90,
+        "targetExerciseCount": 8,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 261,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "successCount": 12,
+    "parseErrorCount": 0,
+    "apiErrorCount": 0,
+    "totalLatency": 203323,
+    "avgLatency": 16944,
+    "avgExerciseCount": 4.8,
+    "avgEquipmentMatchRate": 100,
+    "avgSets": 3.8,
+    "avgRest": 126,
+    "repsCounts": {
+      "4": 2,
+      "6": 1,
+      "8": 1,
+      "10": 3,
+      "12": 5
+    },
+    "avgReps": "12",
+    "successRate": 100
+  }
+}

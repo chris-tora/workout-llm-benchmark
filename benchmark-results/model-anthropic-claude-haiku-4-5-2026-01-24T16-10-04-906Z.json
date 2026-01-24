@@ -1,0 +1,211 @@
+{
+  "modelId": "anthropic/claude-haiku-4.5",
+  "modelName": "Claude 4.5 Haiku",
+  "tier": "fast",
+  "timestamp": "2026-01-24T16:10:04.906Z",
+  "totalScenarios": 1,
+  "scenarios": [
+    {
+      "name": "Bro Split (Legs) (30min)",
+      "split": "bro_split",
+      "dayFocus": "Legs",
+      "duration": 30,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Barbell",
+        "Dumbbells",
+        "Leg Press",
+        "Leg Curl Machine",
+        "Leg Extension Machine"
+      ],
+      "success": true,
+      "latency": 11607,
+      "exerciseCount": 3,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "8",
+      "avgRest": 96,
+      "error": null,
+      "workout": {
+        "title": "Leg Day - BODYBUILD",
+        "description": "Leg Day workout focusing on bodybuild training.",
+        "estimatedDuration": 30,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "620915c1-ccb9-4b31-a175-876669ee7533",
+                "exerciseId": "620915c1-ccb9-4b31-a175-876669ee7533",
+                "name": "Barbell Low Bar Squat",
+                "target": "quads",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Set the bar in a squat rack at mid-back height.",
+                "instructions": [
+                  "Set the bar in a squat rack at mid-back height. Step under the bar and place it across the rear delts/upper trapezius area just below the top of the shoulders (low-bar position), not on the neck.",
+                  "Grip the bar slightly wider than shoulder width, retract the shoulder blades and squeeze the upper back to create a stable shelf; elbows should be pointed slightly down and back to support the bar.",
+                  "Unrack the bar by straightening the legs and take 1–2 small steps back to clear the rack. Stand with feet about shoulder-width apart or slightly wider, toes pointed slightly outward.",
+                  "Brace your core (tighten abs and breathe into the belly) and maintain a neutral spine; keep chest up and eyes forward. The torso will lean forward more than a high-bar squat but should remain rigid.",
+                  "Begin the descent by pushing the hips back and bending the knees simultaneously; keep the knees tracking over the toes and push them outward to avoid caving in.",
+                  "Lower until the thighs are at least parallel to the floor (or to your comfortable depth while maintaining form), keeping weight distributed through the midfoot and heels.",
+                  "Drive upward by pushing through the heels and extending the hips and knees simultaneously while maintaining a braced core and tight upper back; exhale as you rise.",
+                  "Return to a fully upright standing position with hips locked out, then repeat for the desired reps. Control the bar on each rep and reset your breath and brace between reps if needed.",
+                  "When finished, walk the bar forward and carefully re-rack it on the squat rack. Use a spotter or safety pins if lifting heavy or training near failure."
+                ],
+                "description": "A loaded barbell squat with the bar positioned low on the rear shoulders (across the posterior deltoids), emphasizing the thighs and posterior chain. The movement consists of a controlled hip-back-and-down descent to roughly parallel followed by an explosive drive back to standing.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "hamstrings",
+                  "calves",
+                  "abs",
+                  "upper back"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "bbad65cc-3d4b-4961-bce6-044a94ecc90d",
+                "exerciseId": "bbad65cc-3d4b-4961-bce6-044a94ecc90d",
+                "name": "Barbell Romanian Deadlift",
+                "target": "hamstrings",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Stand upright holding a barbell with an overhand (or mixed) grip, feet about hip-width apart and the bar resting against your thighs; maintain a neutral spine and engaged core.",
+                "instructions": [
+                  "Stand upright holding a barbell with an overhand (or mixed) grip, feet about hip-width apart and the bar resting against your thighs; maintain a neutral spine and engaged core.",
+                  "Set a small, consistent bend in the knees (soft knees) — do not bend into a squat; this is a hinge at the hips, not a knee-dominant lift.",
+                  "Take a breath in, brace your core, then push your hips back while keeping the chest up and spine neutral; allow the bar to travel down close to the front of your legs.",
+                  "Lower the bar until you feel a strong but safe stretch in the hamstrings (typically to mid‑shin), keeping the bar close to the body and shoulders pulled back — avoid rounding the lower back.",
+                  "Pause briefly at the bottom while maintaining tension in the hamstrings and back; keep your head in a neutral alignment (looking a few feet in front of you).",
+                  "Exhale and drive your hips forward by contracting the glutes and hamstrings to return to the standing start position; do not hyperextend the lower back at the top.",
+                  "Control the descent and ascent on every rep, using a weight that lets you maintain a neutral spine and full hip hinge pattern.",
+                  "If grip is limiting, switch to a mixed grip or use straps; always prioritize form over load and stop if you feel lumbar rounding or sharp pain."
+                ],
+                "description": "A bilateral hip-hinge performed from standing that emphasizes the hamstrings by lowering a loaded barbell along the thighs with a neutral spine and slight knee bend; returned to standing by driving the hips forward and squeezing the glutes. Builds posterior chain strength and improves hip extension.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "spine",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "05da0e6b-50ed-4a51-a0ce-2fb3fc564cb6",
+                "exerciseId": "05da0e6b-50ed-4a51-a0ce-2fb3fc564cb6",
+                "name": "Barbell Standing Leg Calf Raise",
+                "target": "calves",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Set up a squat rack at an appropriate height and load the barbell; unrack the bar and place it securely across your upper back/traps (not on your neck).",
+                "instructions": [
+                  "Set up a squat rack at an appropriate height and load the barbell; unrack the bar and place it securely across your upper back/traps (not on your neck).",
+                  "Step onto a raised, stable platform or aerobic step so the balls of your feet are on the edge and your heels can drop freely; stand upright with feet about hip-to-shoulder width and toes pointing forward.",
+                  "Grip the bar with a comfortable overhand grip to maintain control; engage your abs and keep your chest up and spine neutral throughout (standing position).",
+                  "Keep knees straight but not locked (a slight soft bend) and maintain weight balanced over the balls of your feet.",
+                  "Exhale and raise your heels by plantarflexing at the ankle, lifting as high as possible onto your toes and pausing 1–2 seconds at the top to maximize contraction.",
+                  "Inhale and slowly lower your heels down below the platform level until you feel a stretch in the calves; control the descent — do not drop quickly or bounce.",
+                  "Repeat for the desired repetitions, maintaining a steady tempo and full range of motion. Use a spotter or safety pins in the rack if using heavy weight.",
+                  "When finished, carefully step down from the platform and re-rack the bar in the squat rack."
+                ],
+                "description": "Standing barbell calf raise performed from a raised platform with a barbell across the upper back; rise onto the toes to concentrically contract the calves, then lower the heels below the platform for a full stretch. This is a standing, weight-bearing isolation exercise for the calves with upper-back and core stabilization.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "traps",
+                  "upper back",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "620915c1-ccb9-4b31-a175-876669ee7533",
+              "name": "Barbell Low Bar Squat",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "bbad65cc-3d4b-4961-bce6-044a94ecc90d",
+              "name": "Barbell Romanian Deadlift",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "05da0e6b-50ed-4a51-a0ce-2fb3fc564cb6",
+              "name": "Barbell Standing Leg Calf Raise",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 6,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 307,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 30,
+        "targetExerciseCount": 3,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 307,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "successCount": 1,
+    "parseErrorCount": 0,
+    "apiErrorCount": 0,
+    "totalLatency": 11607,
+    "avgLatency": 11607,
+    "avgExerciseCount": 3,
+    "avgEquipmentMatchRate": 100,
+    "avgSets": 4,
+    "avgRest": 96,
+    "repsCounts": {
+      "8": 1
+    },
+    "avgReps": "8",
+    "successRate": 100
+  }
+}

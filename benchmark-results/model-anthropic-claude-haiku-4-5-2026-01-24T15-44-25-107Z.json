@@ -1,0 +1,731 @@
+{
+  "modelId": "anthropic/claude-haiku-4.5",
+  "modelName": "Claude 4.5 Haiku",
+  "tier": "fast",
+  "timestamp": "2026-01-24T15:44:25.107Z",
+  "totalScenarios": 3,
+  "scenarios": [
+    {
+      "name": "Bro Split (Arms) (30min)",
+      "split": "bro_split",
+      "dayFocus": "Arms",
+      "duration": 30,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Dumbbells",
+        "Barbell",
+        "Cable Machine",
+        "EZ Bar"
+      ],
+      "success": true,
+      "latency": 22412,
+      "exerciseCount": 3,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "8",
+      "avgRest": 96,
+      "error": null,
+      "workout": {
+        "title": "Arm Day - BODYBUILD",
+        "description": "Arm Day workout focusing on bodybuild training.",
+        "estimatedDuration": 30,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "c27068a4-f58d-48cf-bca8-46913fc6b3ac",
+                "exerciseId": "c27068a4-f58d-48cf-bca8-46913fc6b3ac",
+                "name": "Barbell Lying Triceps Extension Skull Crusher",
+                "target": "triceps",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Lie supine on a flat bench with feet planted on the floor for stability and your head near the end of the bench so the bar can be lowered toward your forehead.",
+                "instructions": [
+                  "Lie supine on a flat bench with feet planted on the floor for stability and your head near the end of the bench so the bar can be lowered toward your forehead.",
+                  "Grip the barbell with a shoulder-width (or slightly narrower) overhand grip and press it up so your arms are fully extended above your chest; wrists should be neutral and stacked over elbows.",
+                  "Keep your upper arms fixed and perpendicular to the floor (or slightly angled toward your head) throughout the set — only the forearm should move.",
+                  "Inhale and slowly lower the bar by flexing the elbows, bringing the bar toward your forehead or just above your temples in a controlled arc.",
+                  "Pause briefly when the bar is a few inches from your forehead (avoid actually hitting your head) and maintain tension in the triceps.",
+                  "Exhale and extend the elbows to press the bar back up to the start position, locking out but avoiding hyperextension of the elbows.",
+                  "Keep wrists straight and avoid flaring the elbows outward or letting the upper arms drift; use a spotter if loading heavy for safety.",
+                  "Perform repetitions with slow, controlled tempo and stop the set if you feel shoulder or wrist pain — reduce weight if form breaks down."
+                ],
+                "description": "A supine barbell isolation exercise that works elbow extension to load the triceps by lowering the bar toward the forehead (skull crusher) and extending back up. Emphasizes controlled movement from the elbow while keeping the upper arms relatively stationary.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "1d8d861e-ced3-48b3-9c06-8eab4360899d",
+                "exerciseId": "1d8d861e-ced3-48b3-9c06-8eab4360899d",
+                "name": "Cable Pushdown (with rope attachment)",
+                "target": "triceps",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Set a high pulley with a rope attachment and select an appropriate weight.",
+                "instructions": [
+                  "Set a high pulley with a rope attachment and select an appropriate weight.",
+                  "Stand upright facing the machine with feet shoulder-width apart and a slight forward lean from the hips; brace your core.",
+                  "Grasp the rope with a neutral grip so palms face each other and thumbs point inward; elbows should be tucked at your sides and forearms pointing forward with the upper arms nearly vertical.",
+                  "Inhale, then exhale as you extend your elbows to push the rope downward until your arms are fully straight; at the bottom, separate the rope ends slightly outward to maximize triceps contraction.",
+                  "Pause briefly at full extension while keeping the elbows stationary and wrists neutral.",
+                  "Slowly control the return (eccentric) phase by allowing the forearms to rise back to the start position until forearms are approximately parallel to the floor or at about 90° elbow flexion.",
+                  "Repeat for the desired number of repetitions while avoiding torso sway, shoulder elevation, or elbow travel forward/backward.",
+                  "If you feel shoulder or lower-back compensation, reduce weight, shorten range slightly, or keep a more upright torso and tighter core brace."
+                ],
+                "description": "Standing cable rope pushdowns isolate the triceps by extending the elbow against a high-pulley resistance; the rope attachment allows a neutral grip and slight outward flare at full extension to emphasize all triceps heads. Keep the elbows fixed at the sides and move only at the elbow joint for controlled concentric and eccentric phases.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "86f9f2cc-f1d3-4a11-bc53-949809d2508a",
+                "exerciseId": "86f9f2cc-f1d3-4a11-bc53-949809d2508a",
+                "name": "Dumbbell Incline Inner Biceps Curl",
+                "target": "biceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 96,
+                "tempo": "2-0-1",
+                "notes": "Set an adjustable bench to an incline of about 30–45 degrees and sit with your back pressed firmly against the pad.",
+                "instructions": [
+                  "Set an adjustable bench to an incline of about 30–45 degrees and sit with your back pressed firmly against the pad.",
+                  "Hold a dumbbell in each hand with your arms fully extended down toward the floor and palms initially facing inward (neutral grip). Keep your feet flat on the floor for stability.",
+                  "Retract your shoulder blades and allow your elbows to sit slightly behind your torso so the biceps are lengthened at the start position.",
+                  "Keeping the upper arms and elbows stationary, curl the dumbbells up by flexing at the elbow; rotate (supinate) the wrists slightly so the palms face toward your shoulders at the top if comfortable.",
+                  "Squeeze the biceps at the top for a brief pause (1 second) while avoiding shoulder or torso movement.",
+                  "Slowly lower the weights back to the fully stretched start position under control, maintaining tension on the biceps; do not let the dumbbells swing.",
+                  "Breathe out while curling up and breathe in while lowering. Use a moderate weight that allows strict form and a full range of motion."
+                ],
+                "description": "Seated on an incline bench with the arms hanging back, this dumbbell curl variation places the biceps under a long stretch and emphasizes the inner (short) head. Perform slow, controlled curls while keeping the elbows stationary behind the torso to maximize biceps tension.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "c27068a4-f58d-48cf-bca8-46913fc6b3ac",
+              "name": "Barbell Lying Triceps Extension Skull Crusher",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 2,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 255,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 30,
+        "targetExerciseCount": 3,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 255,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Bro Split (Arms) (60min)",
+      "split": "bro_split",
+      "dayFocus": "Arms",
+      "duration": 60,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Dumbbells",
+        "Barbell",
+        "Cable Machine",
+        "EZ Bar"
+      ],
+      "success": true,
+      "latency": 11720,
+      "exerciseCount": 6,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "12",
+      "avgRest": 113,
+      "error": null,
+      "workout": {
+        "title": "Arm Day - BODYBUILD",
+        "description": "Arm Day workout focusing on bodybuild training.",
+        "estimatedDuration": 60,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "a1777cb4-4310-4641-a005-470b06fc5733",
+                "exerciseId": "a1777cb4-4310-4641-a005-470b06fc5733",
+                "name": "Barbell JM-Bench Press",
+                "target": "triceps",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 170,
+                "tempo": "2-0-1",
+                "notes": "Set up supine on a flat bench with feet planted on the floor, eyes roughly under the bar; use a spotter or safety pins if available.",
+                "instructions": [
+                  "Set up supine on a flat bench with feet planted on the floor, eyes roughly under the bar; use a spotter or safety pins if available.",
+                  "Grip the bar with a narrow to shoulder-width grip (hands about shoulder-width or slightly narrower) and unrack the bar, arms extended over chest.",
+                  "Keeping the elbows tucked but not pinned to the sides, slowly lower the bar in a slight arc toward the area between the forehead and upper chest, bending only at the elbows.",
+                  "Stop the descent when the forearms are near the forehead/upper chest (comfortable range) and pause briefly without bouncing.",
+                  "Drive the bar back up by extending the elbows, following the same slight arc until the arms are fully extended over the chest; avoid flaring the elbows outward.",
+                  "Control the eccentric (lowering) and concentric (lifting) phases, breathe in on the descent and exhale as you press up.",
+                  "Rack the bar under control at the top or have the spotter assist when finished; use light weight and strict form to protect the elbows and shoulders."
+                ],
+                "description": "A lying barbell press that blends a close-grip bench press and skullcrusher motion to emphasize elbow extension; the bar is lowered in a slight arc toward the forehead/upper-chest area and pressed back up. Primarily trains the triceps while also recruiting the pectorals and front delts for stabilization and drive.",
+                "secondaryMuscles": [
+                  "pectorals",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "db687142-fd15-442f-b95c-6fa14f78c32f",
+                "exerciseId": "db687142-fd15-442f-b95c-6fa14f78c32f",
+                "name": "Dumbbell Close grip Press",
+                "target": "triceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 170,
+                "tempo": "2-0-1",
+                "notes": "Lie supine on a flat bench with feet planted on the floor and a slight natural arch in the lower back.",
+                "instructions": [
+                  "Lie supine on a flat bench with feet planted on the floor and a slight natural arch in the lower back.",
+                  "Hold a dumbbell in each hand with a neutral (palms facing each other) close grip so the dumbbells are touching or nearly touching over your sternum.",
+                  "Tuck your elbows close to your sides (keep them pointing rearward, not flared wide) to bias the triceps.",
+                  "Brace your core and inhale, then press the dumbbells straight up by extending the elbows until arms are nearly straight and triceps are contracted; keep the dumbbells close together throughout the movement.",
+                  "Pause briefly at the top without locking the elbows aggressively, maintaining wrist neutrality.",
+                  "Exhale and slowly lower the dumbbells under control back to the starting position at the chest while maintaining elbow tuck and shoulder stability.",
+                  "Repeat for the desired reps, keeping movement tempo controlled and avoiding excessive shoulder flaring or back drive."
+                ],
+                "description": "Lying supine on a flat bench, press two dumbbells together with a narrow/neutral grip and extend the arms to emphasize the triceps while still recruiting the chest and front delts. Keeping the dumbbells close limits shoulder flare and shifts load onto the triceps.",
+                "secondaryMuscles": [
+                  "pectorals",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "bf694b78-7b97-4dcf-b751-c75f493efa65",
+                "exerciseId": "bf694b78-7b97-4dcf-b751-c75f493efa65",
+                "name": "Cable One Arm Triceps Pushdown",
+                "target": "triceps",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Attach a single handle to the high pulley and select an appropriate weight.",
+                "instructions": [
+                  "Attach a single handle to the high pulley and select an appropriate weight.",
+                  "Stand facing the machine with feet hip- to shoulder-width apart and a slight bend in the knees; grab the handle with one hand in a neutral grip.",
+                  "Tuck the working elbow to your side so the upper arm is stationary and bent about 90°; brace your core and adopt a slight forward lean from the hips if needed for balance.",
+                  "Exhale and press the handle down by extending the elbow until the arm is fully straight and the triceps are contracted; keep the wrist neutral.",
+                  "Pause briefly at full extension, focusing on squeezing the triceps and avoiding shoulder or upper-arm movement.",
+                  "Inhale and slowly return the handle to the start position under control until the elbow is about 90°; do not let the upper arm drift away from your side.",
+                  "Repeat for the desired reps, then switch to the other arm. Avoid using body momentum or swinging to move the weight."
+                ],
+                "description": "A single-arm cable pushdown that isolates the triceps by extending the elbow against the cable's resistance while the upper arm remains stationary at the side. Performed standing with a single handle attached to a high pulley for constant tension.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "c9f77c11-b3bc-4358-a107-e169c7bf30c0",
+                "exerciseId": "c9f77c11-b3bc-4358-a107-e169c7bf30c0",
+                "name": "Cable Rope High Pulley Overhead Triceps Extension",
+                "target": "triceps",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Set a rope attachment on a high pulley and select an appropriate weight.",
+                "instructions": [
+                  "Set a rope attachment on a high pulley and select an appropriate weight.",
+                  "Stand with your back toward the machine, take a staggered (split) stance for stability, and lean slightly forward at the hips so your torso is angled down but spine remains neutral.",
+                  "Reach overhead and grasp the rope with both hands in a neutral (thumbs-up) grip, bringing the rope ends beside your head so your upper arms are vertical or slightly forward and elbows pointing up.",
+                  "Brace your core and keep your upper arms stationary (elbows fixed close to head) throughout the movement.",
+                  "Exhale and extend your forearms by straightening the elbows, pulling the rope forward/overhead until your arms are fully extended but not aggressively locked out.",
+                  "Pause briefly at full extension to contract the triceps.",
+                  "Inhale and slowly allow the rope to return to the start position by bending the elbows, controlling the descent until your forearms are back beside or slightly behind your head.",
+                  "Repeat for the desired reps while maintaining a neutral wrist position, minimal trunk movement, and steady controlled tempo."
+                ],
+                "description": "Standing cable rope overhead triceps extension performed from a high pulley; you extend the elbows to work the triceps while the torso is braced in a slight forward lean. The rope allows a neutral (thumbs-up) grip and greater range of motion behind the head.",
+                "secondaryMuscles": [
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "d7241cf5-3b46-456d-9020-c0b8de403b2e",
+                "exerciseId": "d7241cf5-3b46-456d-9020-c0b8de403b2e",
+                "name": "Dumbbell Biceps Curl",
+                "target": "biceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 11,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Stand upright (standing) with feet about hip-width apart, knees soft and core braced.",
+                "instructions": [
+                  "Stand upright (standing) with feet about hip-width apart, knees soft and core braced.",
+                  "Hold a dumbbell in each hand at your sides with arms fully extended, palms facing forward and wrists neutral.",
+                  "Keep elbows close to your torso and shoulders down and back (minimal shoulder movement) to isolate the biceps.",
+                  "Exhale and curl the dumbbells upward by flexing the elbows until the dumbbells reach about shoulder level; squeeze the biceps at the top.",
+                  "Pause briefly at the top, then inhale and lower the dumbbells slowly and under control back to the starting position, fully extending the elbow without locking.",
+                  "Avoid swinging the torso or using momentum — if you must, reduce weight. Maintain neutral wrists and keep delts stable throughout.",
+                  "Repeat for the desired number of repetitions while maintaining steady breathing and a full range of motion."
+                ],
+                "description": "Standing dumbbell biceps curl that isolates the biceps by flexing the elbow to lift the dumbbell from the sides to shoulder level; performed with a controlled tempo to emphasize the concentric and eccentric phases.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "06c6e1bb-be8d-4d19-beeb-80ddb393bd88",
+                "exerciseId": "06c6e1bb-be8d-4d19-beeb-80ddb393bd88",
+                "name": "Dumbbell Concentration Curl",
+                "target": "biceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Pick up a dumbbell with one hand using a fully supinated (palm-up) grip and let your arm hang between your legs.",
+                "instructions": [
+                  "Sit on the end of a flat bench with feet flat on the floor about hip-width apart and knees bent.",
+                  "Pick up a dumbbell with one hand using a fully supinated (palm-up) grip and let your arm hang between your legs.",
+                  "Lean forward slightly at the hips and place the back of your upper arm (triceps area) or elbow against the inside of the same-side thigh so the elbow is fixed.",
+                  "Brace your core and keep your upper arm stationary; this is a seated, supported position to isolate the biceps.",
+                  "Exhale and curl the dumbbell upward by flexing the elbow until the dumbbell approaches shoulder level, focusing on contracting the biceps and keeping the wrist neutral.",
+                  "Pause and squeeze the biceps at the top for 1 second without shrugging the shoulder or rocking the torso.",
+                  "Inhale and slowly lower the dumbbell back to the fully extended starting position with control (eccentric phase).",
+                  "Avoid using body momentum or moving the upper arm; switch sides after completing the set for the opposite arm."
+                ],
+                "description": "Seated, single-arm dumbbell curl performed with the working elbow braced against the inside of the same-side thigh to isolate the biceps. The exercise emphasizes a strict concentric curl and controlled eccentric lowering to maximize biceps contraction.",
+                "secondaryMuscles": [
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "a1777cb4-4310-4641-a005-470b06fc5733",
+              "name": "Barbell JM-Bench Press",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 2,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 255,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 60,
+        "targetExerciseCount": 6,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 255,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Bro Split (Arms) (90min)",
+      "split": "bro_split",
+      "dayFocus": "Arms",
+      "duration": 90,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Dumbbells",
+        "Barbell",
+        "Cable Machine",
+        "EZ Bar"
+      ],
+      "success": true,
+      "latency": 11933,
+      "exerciseCount": 8,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "12",
+      "avgRest": 113,
+      "error": null,
+      "workout": {
+        "title": "Arm Day - BODYBUILD",
+        "description": "Arm Day workout focusing on bodybuild training.",
+        "estimatedDuration": 90,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "909cb5b8-dc40-44f6-8b7c-9b88f13ab0bb",
+                "exerciseId": "909cb5b8-dc40-44f6-8b7c-9b88f13ab0bb",
+                "name": "Barbell Standing Overhead Triceps Extension",
+                "target": "triceps",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 180,
+                "tempo": "2-0-1",
+                "notes": "Stand upright with feet hip-width apart and knees slightly soft, holding a barbell overhead with a narrow grip (hands close together).",
+                "instructions": [
+                  "Stand upright with feet hip-width apart and knees slightly soft, holding a barbell overhead with a narrow grip (hands close together).",
+                  "Press the barbell overhead so it is directly above your head, then slowly tilt the bar back so it can be lowered behind your head while keeping the upper arms stationary and vertical.",
+                  "Bend only at the elbows to lower the barbell behind your head until forearms approach the back of the upper arms (controlled stretch in the triceps).",
+                  "Pause briefly at the bottom without moving the upper arms, then exhale and extend the elbows to press the barbell back up to the overhead start position.",
+                  "Keep elbows pointing forward and close to each other (do not let them flare), brace your abs and avoid arching the lower back throughout the movement.",
+                  "Control the tempo on both lowering and lifting phases; use a weight that allows strict form and steady breathing."
+                ],
+                "description": "Standing barbell overhead triceps extension where the lifter lowers a barbell behind the head by flexing the elbows, then extends the elbows to return to the start, isolating the triceps. The shoulders and core remain stable to control movement.",
+                "secondaryMuscles": [
+                  "delts",
+                  "forearms",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "ee714874-8a50-44f9-8350-e8d0b114936c",
+                "exerciseId": "ee714874-8a50-44f9-8350-e8d0b114936c",
+                "name": "Cable Jack Hammer Pushdown",
+                "target": "triceps",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 9,
+                "restSeconds": 180,
+                "tempo": "2-0-1",
+                "notes": "Set a high pulley with a short straight bar, rope, or hammer-style handle and select an appropriate weight.",
+                "instructions": [
+                  "Set a high pulley with a short straight bar, rope, or hammer-style handle and select an appropriate weight.",
+                  "Stand facing the machine with feet about hip-width apart and take a neutral (palms facing each other) hammer grip on the handle; lean slightly forward at the hips for balance.",
+                  "Tuck your elbows to your sides and keep them fixed there for the entire set; your upper arms should remain stationary and perpendicular to the floor.",
+                  "Exhale and press the handle down by extending your elbows until your arms are fully straight and triceps are contracted; avoid flaring the elbows forward.",
+                  "Pause and squeeze the triceps at full extension (1 second), then inhale and slowly return the handle to the start position with control until the forearms are roughly parallel to the floor.",
+                  "Maintain a controlled tempo (e.g., 1–2 seconds down, 1–2 seconds up), keep the torso stable and abs braced, and repeat for desired reps.",
+                  "Avoid using body momentum or excessive shoulder movement; reduce weight if you cannot keep elbows stationary or if you feel strain in the wrists."
+                ],
+                "description": "A standing cable pushdown performed with a neutral (hammer) grip that emphasizes elbow extension to load the triceps while minimizing shoulder movement. Use a high pulley with a short straight bar or rope/hammer attachment and keep the elbows locked at the sides throughout the movement.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "860483f7-b792-4719-85aa-c558b758a99c",
+                "exerciseId": "860483f7-b792-4719-85aa-c558b758a99c",
+                "name": "Dumbbell Biceps Curl",
+                "target": "biceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Stand tall with feet about shoulder-width apart, knees soft and core engaged; hold a dumbbell in each hand at your sides in a supinated (palms facing forward) grip.",
+                "instructions": [
+                  "Stand tall with feet about shoulder-width apart, knees soft and core engaged; hold a dumbbell in each hand at your sides in a supinated (palms facing forward) grip.",
+                  "Keep your torso upright and shoulders back; allow the elbows to rest close to your ribs and remain stationary throughout the movement.",
+                  "Exhale and curl the dumbbells by flexing at the elbow, moving only the forearms so the dumbbells travel toward the front of the shoulders.",
+                  "Pause and squeeze the biceps at the top of the movement when the dumbbells reach shoulder level; do not lean back or use momentum.",
+                  "Inhale and slowly lower the dumbbells back to the starting position with controlled extension of the elbows until the arms are straight.",
+                  "Repeat for the prescribed reps, maintaining a neutral wrist and avoiding swinging the body; if you must swing, reduce the weight."
+                ],
+                "description": "A standing dumbbell biceps curl isolates the elbow flexors by lifting weights from the thighs to shoulder level using a supinated grip. It builds biceps strength and size while the forearms assist in gripping and stabilizing the load.",
+                "secondaryMuscles": [
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "5c5bf8f4-ea98-42e3-ad13-cc654021489e",
+                "exerciseId": "5c5bf8f4-ea98-42e3-ad13-cc654021489e",
+                "name": "Cable Neutral Grip Biceps Curl",
+                "target": "biceps",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Set both pulleys to the lowest position and attach neutral/hammer handles.",
+                "instructions": [
+                  "Set both pulleys to the lowest position and attach neutral/hammer handles.",
+                  "Stand facing the machine (or slightly away) in a staggered stance (one foot forward, one back) for stability with a slight forward lean from the hips; brace your core.",
+                  "Grasp the handles with a neutral grip (palms facing each other) and let your arms hang fully extended at your sides. Keep elbows close to your torso and shoulders down/back.",
+                  "Exhale and curl the handles by flexing your elbows, keeping the upper arms stationary and nothing moving at the shoulder.",
+                  "Pause and squeeze the biceps at the top of the movement while maintaining neutral wrist alignment (no wrist bend).",
+                  "Inhale and slowly lower the handles back to the start position under control, fully extending the elbows but avoiding locking them.",
+                  "Repeat for the desired reps, keeping motion smooth and avoiding trunk swing or using momentum to lift the weight."
+                ],
+                "description": "A standing cable curl performed with neutral (hammer) grips that emphasizes elbow flexion to load the biceps while keeping the wrists in a neutral position. Performed with low cable pulleys and a staggered stance for stability.",
+                "secondaryMuscles": [
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "36b11ac1-ba3b-4128-ac9b-e785c176a441",
+                "exerciseId": "36b11ac1-ba3b-4128-ac9b-e785c176a441",
+                "name": "Dumbbell One Arm Kickback",
+                "target": "triceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 11,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Hold a dumbbell in the working hand with a neutral grip and place your non-working hand or forearm on the front thigh for support if needed.",
+                "instructions": [
+                  "Stand with feet staggered (one foot forward, one foot back) and hinge forward at the hips until your torso is roughly parallel to the floor; keep a slight bend in both knees.",
+                  "Hold a dumbbell in the working hand with a neutral grip and place your non-working hand or forearm on the front thigh for support if needed.",
+                  "Keep the working upper arm tucked close to your torso and bent at ~90 degrees at the elbow to start; maintain a flat, braced spine and engaged core.",
+                  "Press the dumbbell straight back by extending the elbow until the arm is fully straight and the triceps are contracted; avoid moving the upper arm or rotating the shoulder.",
+                  "Squeeze the triceps briefly at the top of the movement, keeping the wrist neutral and elbow pointing backward, not downward.",
+                  "Slowly bend the elbow to lower the dumbbell back to the starting 90-degree position under control.",
+                  "Breathe out during the extension (concentric) and inhale as you return (eccentric).",
+                  "Repeat for the desired reps, then switch sides; use a lighter weight if you cannot maintain strict form or if you see shoulder movement."
+                ],
+                "description": "A single-arm bent-over dumbbell extension that isolates the triceps by extending the elbow from a hinged-over position. Performed one arm at a time with the upper arm held steady so the triceps do the work.",
+                "secondaryMuscles": [
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "24546467-aa79-4fa1-bc52-2b8f0b1c6610",
+                "exerciseId": "24546467-aa79-4fa1-bc52-2b8f0b1c6610",
+                "name": "EZ Barbell Lying Triceps Extension",
+                "target": "triceps",
+                "equipment": "EZ Barbell",
+                "sets": 4,
+                "reps": 11,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Setup: Load the EZ bar with an appropriate weight and place it on the rack.",
+                "instructions": [
+                  "Setup: Load the EZ bar with an appropriate weight and place it on the rack. Lie supine (flat on your back) on a flat bench with feet flat on the floor for stability.",
+                  "Grip the bar with a shoulder-width or slightly narrower angled grip on the EZ bar and lift it off the rack so your arms are fully extended above your chest (bar over your forehead/chest line).",
+                  "Positioning: Keep your upper arms perpendicular to the floor (elbows pointing toward the ceiling) and wrists neutral; avoid flaring elbows outward—upper arms should remain stationary throughout the movement.",
+                  "Lowering phase: Inhale and slowly bend only at the elbows, lowering the bar in a controlled arc toward your forehead or just behind your head until your forearms are near parallel to the floor or you feel a full triceps stretch.",
+                  "Pressing phase: Exhale and extend the elbows to press the bar back up to the starting position with the arms nearly straight but avoiding full joint lockout if preferred for tension.",
+                  "Repetitions: Repeat for the desired number of reps with a controlled tempo; keep the core engaged and avoid arching the lower back.",
+                  "Safety notes: Use a spotter for heavy sets, control the descent to avoid striking the face, and reduce weight if elbows drift or upper arms move excessively."
+                ],
+                "description": "A supine arm exercise performed with an EZ curl bar that isolates the triceps by extending the elbows from a bent position; commonly called skull crushers or lying triceps extensions. It emphasizes the long and lateral heads of the triceps while the pectorals and forearms assist with stabilization and grip.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "pectorals"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "1db11560-ce3c-4788-a774-79b975e44c40",
+                "exerciseId": "1db11560-ce3c-4788-a774-79b975e44c40",
+                "name": "Dumbbell Kickback",
+                "target": "triceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Hinge forward at the hips until your torso is nearly parallel to the floor, maintain a neutral spine and brace your abs.",
+                "instructions": [
+                  "Position yourself with one knee and the same-side hand resting on a flat bench (all fours variation with one leg off the bench); place the opposite foot on the floor for stability.",
+                  "Hinge forward at the hips until your torso is nearly parallel to the floor, maintain a neutral spine and brace your abs.",
+                  "Hold a dumbbell in the free hand with a neutral grip (palm facing your torso) and let your upper arm hang so the elbow is bent about 90° and tucked close to your side.",
+                  "Keep the upper arm stationary and exhale as you extend your elbow, driving the dumbbell straight back until your arm is fully extended and the triceps is contracted.",
+                  "Pause briefly at full extension, focusing on squeezing the triceps, then inhale and slowly return the dumbbell to the starting 90° elbow position with control.",
+                  "Perform the desired repetitions, then switch sides. Avoid swinging your torso or using momentum — only the forearm should move."
+                ],
+                "description": "Single-arm dumbbell kickback performed with one hand and knee supported on a bench; extend the elbow to drive the dumbbell back and straighten the arm, emphasizing the triceps. Keep the torso stable and hinge at the hips so only the forearm moves.",
+                "secondaryMuscles": [
+                  "delts",
+                  "forearms",
+                  "upper back"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "e93b1009-bf77-4077-91e5-4cf8528ba70a",
+                "exerciseId": "e93b1009-bf77-4077-91e5-4cf8528ba70a",
+                "name": "Dumbbell Hammer Curl",
+                "target": "biceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 90,
+                "tempo": "2-0-1",
+                "notes": "Stand tall with feet about hip-width apart, knees slightly bent and core braced; hold a dumbbell in each hand at your sides with a neutral (thumbs-up) grip and wrists aligned with forearms.",
+                "instructions": [
+                  "Stand tall with feet about hip-width apart, knees slightly bent and core braced; hold a dumbbell in each hand at your sides with a neutral (thumbs-up) grip and wrists aligned with forearms.",
+                  "Keep your elbows tucked to your sides and stationary throughout the movement; avoid letting them drift forward or backward.",
+                  "Exhale and curl both dumbbells upward by flexing at the elbow, keeping palms facing each other and maintaining a straight wrist; lift until the dumbbells reach near shoulder level and you feel a contraction in the biceps.",
+                  "Pause and squeeze at the top for 1 second while keeping the forearms and wrists neutral.",
+                  "Inhale and slowly lower the dumbbells back to the starting position with controlled tempo until arms are fully extended but not locked out.",
+                  "Repeat for the desired number of repetitions, avoiding body swing or using momentum; if momentum appears, reduce weight or perform the exercise seated or with back support."
+                ],
+                "description": "Standing dumbbell hammer curl performed with a neutral (thumbs-up) grip to emphasize the biceps while also recruiting the forearm muscles; performed slowly with controlled motion and minimal torso movement.",
+                "secondaryMuscles": [
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "909cb5b8-dc40-44f6-8b7c-9b88f13ab0bb",
+              "name": "Barbell Standing Overhead Triceps Extension",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 2,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 255,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 90,
+        "targetExerciseCount": 8,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 255,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "successCount": 3,
+    "parseErrorCount": 0,
+    "apiErrorCount": 0,
+    "totalLatency": 46065,
+    "avgLatency": 15355,
+    "avgExerciseCount": 5.7,
+    "avgEquipmentMatchRate": 100,
+    "avgSets": 4,
+    "avgRest": 107,
+    "repsCounts": {
+      "8": 1,
+      "12": 2
+    },
+    "avgReps": "12",
+    "successRate": 100
+  }
+}

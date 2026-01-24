@@ -1,0 +1,1096 @@
+{
+  "modelId": "openai/gpt-4o-mini",
+  "modelName": "gpt-4o-mini",
+  "tier": "unknown",
+  "timestamp": "2026-01-21T12:43:53.313Z",
+  "totalScenarios": 5,
+  "scenarios": [
+    {
+      "name": "Bro Split (Chest) (60min)",
+      "split": "bro_split",
+      "dayFocus": "Chest",
+      "duration": 60,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Dumbbells",
+        "Barbell",
+        "Cable Machine",
+        "Chest Press",
+        "Pec Deck"
+      ],
+      "success": false,
+      "latency": 13861,
+      "exerciseCount": 0,
+      "equipmentMatchRate": 0,
+      "avgSets": 0,
+      "avgReps": "-",
+      "avgRest": 0,
+      "error": "HTTP 503: {\"code\":\"BOOT_ERROR\",\"message\":\"Function failed to start (please check logs)\"}",
+      "workout": null,
+      "meta": null
+    },
+    {
+      "name": "Bro Split (Back) (60min)",
+      "split": "bro_split",
+      "dayFocus": "Back",
+      "duration": 60,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Dumbbells",
+        "Barbell",
+        "Cable Machine",
+        "Lat Pulldown",
+        "Seated Row Machine"
+      ],
+      "success": true,
+      "latency": 18613,
+      "exerciseCount": 6,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "12",
+      "avgRest": 113,
+      "error": null,
+      "workout": {
+        "title": "Back Day - BODYBUILD",
+        "description": "Back Day workout focusing on bodybuild training.",
+        "estimatedDuration": 60,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "81946683-c933-4fa0-ab53-bda2f1de251f",
+                "exerciseId": "81946683-c933-4fa0-ab53-bda2f1de251f",
+                "name": "Dumbbell Reverse Grip Row",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/81946683-c933-4fa0-ab53-bda2f1de251f.gif",
+                "target": "lats",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 151,
+                "tempo": "2-0-1",
+                "notes": "Hinge at the hips until your torso is roughly parallel to the floor, maintain a neutral spine, and keep a slight bend in the knees (standing, bent-over position).",
+                "instructions": [
+                  "Stand with feet about hip-width apart holding a dumbbell in each hand with a reverse (palms-up / supinated) grip.",
+                  "Hinge at the hips until your torso is roughly parallel to the floor, maintain a neutral spine, and keep a slight bend in the knees (standing, bent-over position).",
+                  "Let the arms hang straight down from the shoulders with the dumbbells under your chest; brace your core and keep the neck in line with the spine.",
+                  "Initiate the pull by driving the elbows upward and backward, pulling the dumbbells toward the lower ribcage/upper waist while keeping elbows close to the body.",
+                  "At the top of the movement, pause briefly and squeeze the shoulder blades together without rotating the torso or shrugging the shoulders.",
+                  "Slowly lower the dumbbells back to the start under control until the arms are extended, maintaining the hip hinge and neutral spine throughout.",
+                  "Breathe out as you pull the weights up and inhale as you lower them; avoid using momentum or excessive torso rotation."
+                ],
+                "description": "A bent-over dumbbell row performed with a reverse (underhand/supinated) grip that emphasizes the lats while increasing biceps involvement. The lifter hip-hinges and pulls the dumbbells toward the torso, squeezing the shoulder blades at the top of the movement.",
+                "secondaryMuscles": [
+                  "biceps",
+                  "upper back",
+                  "forearms",
+                  "traps",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "f31c0b55-ec3f-4494-9baa-7000a47528b9",
+                "exerciseId": "f31c0b55-ec3f-4494-9baa-7000a47528b9",
+                "name": "Dumbbell Bent over Row",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/f31c0b55-ec3f-4494-9baa-7000a47528b9.gif",
+                "target": "upper back",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 151,
+                "tempo": "2-0-1",
+                "notes": "Hinge at the hips and push your butt back until your torso is roughly parallel to the floor (slight knee bend), keeping the spine neutral and eyes looking a few feet ahead.",
+                "instructions": [
+                  "Stand with feet about hip-width apart holding a dumbbell in each hand with a neutral or pronated grip.",
+                  "Hinge at the hips and push your butt back until your torso is roughly parallel to the floor (slight knee bend), keeping the spine neutral and eyes looking a few feet ahead.",
+                  "Let the arms hang straight down from the shoulders with weights beneath you; brace your core to prevent rounding of the lower back.",
+                  "Pull the dumbbells toward your lower ribcage or waist by driving your elbows up and back, squeezing the shoulder blades together at the top of the movement.",
+                  "Pause briefly at the top while maintaining a tight upper back, then lower the weights slowly under control until the arms are extended.",
+                  "Repeat for the desired reps while keeping the torso still—avoid using momentum or excessive torso rotation.",
+                  "Breathe out as you row the weights up and inhale as you lower them; stop the set if you cannot maintain a neutral spine."
+                ],
+                "description": "A bent-over dumbbell row is a standing, hip-hinged pulling exercise that targets the muscles of the upper back while also engaging the lats and arms. It develops horizontal pulling strength and scapular retraction while the spine and forearms stabilize the position.",
+                "secondaryMuscles": [
+                  "lats",
+                  "biceps",
+                  "delts",
+                  "traps",
+                  "forearms",
+                  "spine"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "ff67db44-16bb-4a34-ab3b-3bc05a9309b5",
+                "exerciseId": "ff67db44-16bb-4a34-ab3b-3bc05a9309b5",
+                "name": "Dumbbell Shrug",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/ff67db44-16bb-4a34-ab3b-3bc05a9309b5.gif",
+                "target": "traps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 151,
+                "tempo": "2-0-1",
+                "notes": "Stand upright with feet hip- to shoulder-width apart holding a dumbbell in each hand at your sides (neutral grip, palms facing the body).",
+                "instructions": [
+                  "Stand upright with feet hip- to shoulder-width apart holding a dumbbell in each hand at your sides (neutral grip, palms facing the body).",
+                  "Keep a neutral spine and neck, chest up, and arms straight but not locked; maintain a slight bend in the knees.",
+                  "Exhale and lift your shoulders straight upward toward your ears — move only the shoulders, not the arms or torso.",
+                  "Pause and squeeze the top of the traps for 1–2 seconds while keeping the neck relaxed (do not jut the chin forward).",
+                  "Inhale and lower the shoulders back down under control to the starting position; avoid letting the weights drop.",
+                  "Repeat for the desired number of repetitions, maintaining slow, controlled reps and avoiding any rolling or circular shoulder motion.",
+                  "If grip is limiting, consider using lifting straps; for variation you can perform seated shrugs to reduce lower body involvement."
+                ],
+                "description": "Standing dumbbell shrugs raise the shoulders straight up toward the ears to primarily target the trapezius and supporting shoulder/neck muscles. Use a controlled motion with a brief squeeze at the top and avoid rolling the shoulders.",
+                "secondaryMuscles": [
+                  "levator scapulae",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "1c67a573-e171-46f7-9a0b-d08300a717b4",
+                "exerciseId": "1c67a573-e171-46f7-9a0b-d08300a717b4",
+                "name": "Cable Single Arm High Row with Chest Support",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/1c67a573-e171-46f7-9a0b-d08300a717b4.gif",
+                "target": "lats",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 75,
+                "tempo": "2-0-1",
+                "notes": "Set a single handle on a high pulley (above head height) and select an appropriate weight.",
+                "instructions": [
+                  "Set a single handle on a high pulley (above head height) and select an appropriate weight.",
+                  "Sit on a bench facing the machine with your chest pressed firmly against the vertical chest support pad and feet flat on the floor for stability.",
+                  "Reach up and grab the handle with a neutral or overhand grip; allow the working arm to start extended overhead while keeping your torso braced against the pad.",
+                  "Engage your scapula (pull the shoulder blade slightly down and back) before initiating the pull to protect the shoulder.",
+                  "Pull the handle downward and back in a controlled arc so the elbow travels behind your torso and the hand finishes near the upper chest/side, squeezing the lats and upper back at the end of the concentric phase.",
+                  "Pause briefly at the contracted position while maintaining chest contact with the pad and avoiding torso rotation or leaning.",
+                  "Slowly return the handle to the start position with control, allowing the arm to extend fully while maintaining scapular control.",
+                  "Repeat for the desired reps, then switch sides. Keep breathing: exhale while pulling, inhale while returning."
+                ],
+                "description": "Seated single-arm high cable row performed with the chest braced against a vertical pad; pull the handle down and back to drive the elbow behind the torso and load the lats and upper back. This isolates one side for focused unilateral strength and scapular retraction.",
+                "secondaryMuscles": [
+                  "delts",
+                  "biceps",
+                  "traps",
+                  "upper back"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "8e0de264-050b-4766-9f32-20bb0e6bbc89",
+                "exerciseId": "8e0de264-050b-4766-9f32-20bb0e6bbc89",
+                "name": "Dumbbell One Arm Row (rack support)",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/8e0de264-050b-4766-9f32-20bb0e6bbc89.gif",
+                "target": "lats",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 75,
+                "tempo": "2-0-1",
+                "notes": "Hinge forward at the hips until your torso is roughly parallel to the floor while keeping a slight bend in both knees; maintain a neutral spine and long neck throughout.",
+                "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Back/Dumbbell-One-Arm-Row-(rack-support)_Back.mp4",
+                "instructions": [
+                  "Stand with a staggered stance (one foot forward, one foot back) beside a rack; place the hand nearest the rack on the rail at about hip height for support.",
+                  "Hinge forward at the hips until your torso is roughly parallel to the floor while keeping a slight bend in both knees; maintain a neutral spine and long neck throughout.",
+                  "Let the working arm hang straight down holding a dumbbell with a neutral or overhand grip, shoulder relaxed.",
+                  "Brace your core and pull the dumbbell upward in a vertical path, leading with the elbow and driving it toward your ribcage/hip; keep the elbow close to your body.",
+                  "Squeeze the shoulder blade toward the spine at the top of the movement and pause briefly to maximize lat/upper-back contraction.",
+                  "Slowly lower the dumbbell back to the starting position under control until the arm is fully extended, maintaining torso stability and avoiding rotation.",
+                  "Complete the desired reps on one side, then switch sides so the opposite hand supports on the rack and repeat. Keep breathing steadily (exhale on the pull, inhale on the return)."
+                ],
+                "description": "A single-arm bent-over row performed with one hand bracing on a rack for support; the exercise emphasizes a unilateral pull to develop the lats while also engaging the upper back and arm muscles. The support hand and staggered stance increase stability and allow focus on a full, controlled contraction of the pulling side.",
+                "secondaryMuscles": [
+                  "upper back",
+                  "biceps",
+                  "delts",
+                  "traps",
+                  "spine"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "54df93ae-11ff-4abc-afb1-2b856a941e49",
+                "exerciseId": "54df93ae-11ff-4abc-afb1-2b856a941e49",
+                "name": "Cable Lying Extension Pullover (with rope attachment)",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/54df93ae-11ff-4abc-afb1-2b856a941e49.gif",
+                "target": "lats",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 75,
+                "tempo": "2-0-1",
+                "notes": "Setup: Attach a rope handle to the cable and set the pulley to a low or mid-low position in front of the bench.",
+                "instructions": [
+                  "Setup: Attach a rope handle to the cable and set the pulley to a low or mid-low position in front of the bench. Position the bench so your head is near the cable column.",
+                  "Starting position: Lie supine (on your back) on the bench with feet flat on the floor for stability, knees bent if needed. Reach up and grab the rope with both hands (neutral grip), arms extended overhead but with a small bend in the elbows. Maintain a neutral spine.",
+                  "Body position cues: Keep your ribs down and core braced to avoid excessive lower-back arching; shoulders should be relaxed away from the ears. Hands start above or slightly behind your head depending on pulley placement.",
+                  "Pulling phase: Exhale and pull the rope in a controlled arc using your lats and shoulder extensors, bringing your hands down and back toward your hips/upper thighs. Keep the elbows slightly bent and fixed in that angle (no large elbow bending).",
+                  "Peak contraction: Stop when your hands reach the upper-thigh/hip area or you feel a full lat contraction without forcing the shoulder into discomfort. Squeeze the lats briefly at the bottom of the movement.",
+                  "Return phase: Inhale and slowly reverse the movement, allowing the rope to return overhead under control until you feel a stretch in the lats and chest. Do not let the weight slam the pulley.",
+                  "Repetitions and safety: Use a weight that allows full range with strict form. Avoid shrugging the shoulders or using momentum; keep movement smooth and controlled. Stop or reduce range if you experience shoulder pain."
+                ],
+                "description": "Lying on a flat bench with a rope attached to a cable, you extend the shoulders in an arc from an overhead position down toward the hips, emphasizing a lat-driven pullover motion. The rope attachment allows a greater range of motion and a strong contraction of the lats while the chest and triceps assist and the serratus stabilizes the shoulder girdle.",
+                "secondaryMuscles": [
+                  "pectorals",
+                  "triceps",
+                  "serratus anterior"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "81946683-c933-4fa0-ab53-bda2f1de251f",
+              "name": "Dumbbell Reverse Grip Row",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 2,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": false,
+        "fallbackReason": null,
+        "exercisesAvailable": 156,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 60,
+        "targetExerciseCount": 6,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 156,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Bro Split (Shoulders) (60min)",
+      "split": "bro_split",
+      "dayFocus": "Shoulders",
+      "duration": 60,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "dumbbell",
+        "barbell",
+        "cable",
+        "leverage machine"
+      ],
+      "success": true,
+      "latency": 17763,
+      "exerciseCount": 6,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "12",
+      "avgRest": 113,
+      "error": null,
+      "workout": {
+        "title": "Shoulder Day - BODYBUILD",
+        "description": "Shoulder Day workout focusing on bodybuild training.",
+        "estimatedDuration": 60,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "dc5ddce9-0356-46f9-84a4-65bb451d5d47",
+                "exerciseId": "dc5ddce9-0356-46f9-84a4-65bb451d5d47",
+                "name": "Cable Single Arm Neutral Grip Front Raise",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/dc5ddce9-0356-46f9-84a4-65bb451d5d47.gif",
+                "target": "delts",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 170,
+                "tempo": "2-0-1",
+                "notes": "Set a single-handle on a low cable pulley (near the floor) and select an appropriate weight.",
+                "instructions": [
+                  "Set a single-handle on a low cable pulley (near the floor) and select an appropriate weight.",
+                  "Stand upright facing forward with feet hip-width apart and take a small step away from the machine so there is tension on the cable; hold the handle in one hand with a neutral (thumbs-up) grip at your side.",
+                  "Keep a slight bend in the elbow and a neutral wrist; brace your core and maintain an upright torso (avoid leaning or rotating).",
+                  "Exhale and raise the arm straight forward in a controlled motion to about shoulder height (arm roughly parallel to the floor), leading with the elbow but keeping the hand in line with the forearm.",
+                  "Pause briefly at the top while keeping the shoulder down (do not shrug), then inhale and lower the arm slowly back to the start position under control.",
+                  "Repeat for the desired reps, then switch sides. Focus on using the deltoid to lift rather than swinging the body or using momentum."
+                ],
+                "description": "A single-arm cable front raise performed with a neutral (thumbs-up) grip to isolate the anterior deltoid while the cable provides constant tension. Performed standing, it emphasizes controlled shoulder flexion from the front of the body.",
+                "secondaryMuscles": [
+                  "pectorals",
+                  "forearms",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "4697f46f-5895-4c13-b0c2-0aa4237c06ec",
+                "exerciseId": "4697f46f-5895-4c13-b0c2-0aa4237c06ec",
+                "name": "Barbell Incline Lying Rear Delt Raise",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/4697f46f-5895-4c13-b0c2-0aa4237c06ec.gif",
+                "target": "delts",
+                "equipment": "Barbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 170,
+                "tempo": "2-0-1",
+                "notes": "Set an incline bench to about 30–45 degrees and place it so you can lie face down (prone) with your chest supported and feet braced on the floor or toes on the floor behind you.",
+                "instructions": [
+                  "Set an incline bench to about 30–45 degrees and place it so you can lie face down (prone) with your chest supported and feet braced on the floor or toes on the floor behind you.",
+                  "Grasp a barbell with a shoulder-width (or slightly wider) grip, palms facing down (pronated) or neutral if using a specialty bar, letting the bar hang straight down toward the floor with a slight bend in the elbows.",
+                  "Retract your shoulder blades slightly and keep your neck neutral, chest pressed into the bench to prevent using torso momentum.",
+                  "Exhale and raise the barbell out to your sides in a controlled arc by horizontally abducting the shoulders, leading with the elbows until your upper arms are roughly parallel to the floor or at shoulder level.",
+                  "Pause briefly at the top and focus on squeezing the rear delts, traps, and upper back; avoid shrugging the shoulders or using excessive momentum.",
+                  "Inhale and slowly lower the barbell back to the starting position under control, maintaining the slight elbow bend and chest contact with the bench.",
+                  "Perform the desired number of reps with smooth tempo; choose light-to-moderate weight to maintain strict form and protect the shoulder joint."
+                ],
+                "description": "Prone on an incline bench, lift a barbell out to the sides in a horizontal abduction, emphasizing contraction of the rear delts. The chest is supported on the bench while the arms move in an arc to shoulder level with a slight elbow bend.",
+                "secondaryMuscles": [
+                  "traps",
+                  "upper back",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "76ec77b3-aea6-4b70-9012-a496408ae4ef",
+                "exerciseId": "76ec77b3-aea6-4b70-9012-a496408ae4ef",
+                "name": "Dumbbell One Arm Shoulder Press (VERSION 2)",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/76ec77b3-aea6-4b70-9012-a496408ae4ef.gif",
+                "target": "delts",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Stand tall with feet about hip-width apart and knees soft; hold a dumbbell in one hand at shoulder height with the elbow bent and the palm facing forward or slightly inward.",
+                "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Shoulders/Dumbbell-One-Arm-Shoulder-Press-(VERSION-2)_Should.mp4",
+                "instructions": [
+                  "Stand tall with feet about hip-width apart and knees soft; hold a dumbbell in one hand at shoulder height with the elbow bent and the palm facing forward or slightly inward.",
+                  "Brace your core and keep a neutral spine; place the free hand on your hip or at your side for balance.",
+                  "Exhale and press the dumbbell straight upward by extending the elbow and lifting the arm until it is fully or nearly fully overhead without overarching the lower back.",
+                  "Keep the shoulder blade stable and avoid shrugging the working shoulder; do not lean or rotate the torso toward the working side.",
+                  "Inhale and slowly lower the dumbbell under control back to the starting shoulder-height position.",
+                  "Perform the desired number of reps on one side, then switch arms and repeat. Use a lighter weight if you cannot maintain good posture or if the lower back arches."
+                ],
+                "description": "Standing single-arm dumbbell shoulder press performed from shoulder height to overhead to target the delts. The movement uses the triceps and serratus anterior for elbow extension and scapular stability while the core resists trunk tilt.",
+                "secondaryMuscles": [
+                  "triceps",
+                  "serratus anterior"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "5e30a06c-6c3a-4ef8-9e05-4526cd6fcb94",
+                "exerciseId": "5e30a06c-6c3a-4ef8-9e05-4526cd6fcb94",
+                "name": "Dumbbell Seated Shoulder Press (parallel grip)",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/5e30a06c-6c3a-4ef8-9e05-4526cd6fcb94.gif",
+                "target": "delts",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Sit upright on a bench with back fully supported, feet flat on the floor and core braced (seated, back-supported).",
+                "instructions": [
+                  "Sit upright on a bench with back fully supported, feet flat on the floor and core braced (seated, back-supported).",
+                  "Hold a dumbbell in each hand at shoulder height with a parallel grip (palms facing each other), elbows roughly under wrists and pointing slightly forward.",
+                  "Keep the chest up and shoulder blades stable; exhale and press the dumbbells straight up until the arms are nearly extended but not locked.",
+                  "Pause briefly at the top with wrists neutral and head in a neutral position, then inhale and slowly lower the dumbbells back to the starting shoulder-height position under control.",
+                  "Repeat for the desired number of repetitions, avoiding excessive lower back arching or flaring the elbows too wide."
+                ],
+                "description": "Seated dumbbell shoulder press with a parallel (palms-facing) grip; presses dumbbells from shoulder height overhead to work the delts while the triceps and upper back stabilize and assist.",
+                "secondaryMuscles": [
+                  "triceps",
+                  "traps",
+                  "upper back"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "ab152327-24e6-4976-98ce-4e8c0cba9c2d",
+                "exerciseId": "ab152327-24e6-4976-98ce-4e8c0cba9c2d",
+                "name": "Dumbbell Rear Delt Raise",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/ab152327-24e6-4976-98ce-4e8c0cba9c2d.gif",
+                "target": "delts",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Stand feet hip-width apart holding a dumbbell in each hand with a neutral (palms facing) grip.",
+                "instructions": [
+                  "Stand feet hip-width apart holding a dumbbell in each hand with a neutral (palms facing) grip.",
+                  "Hinge forward at the hips until your torso is roughly parallel to the floor, keep a neutral spine and knees slightly bent (bent-over position).",
+                  "Let your arms hang straight down from the shoulders with a slight bend in the elbows; maintain a braced core and avoid rounding the back.",
+                  "Keeping the elbows slightly bent, raise the dumbbells out to the sides in a wide arc until your upper arms are roughly parallel to the ground (level with the shoulders).",
+                  "Squeeze the rear delts and shoulder blades together at the top for a brief pause, avoid shrugging the shoulders up toward the ears.",
+                  "Slowly lower the dumbbells back to the start under control, resisting any momentum; repeat for desired reps.",
+                  "Keep the movement strict: use lighter weight if you must swing the torso or bend the elbows excessively, and breathe out on the lift and in on the lower."
+                ],
+                "description": "A bent-over dumbbell raise that isolates the rear (posterior) deltoids by lifting the arms out to the sides while the torso is hinged forward. It emphasizes shoulder horizontal abduction and scapular retraction with a controlled tempo.",
+                "secondaryMuscles": [
+                  "upper back",
+                  "traps",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "20cffaa3-b90b-4f9b-b64e-e283c46345a6",
+                "exerciseId": "20cffaa3-b90b-4f9b-b64e-e283c46345a6",
+                "name": "Cable One Arm Front Raise",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/20cffaa3-b90b-4f9b-b64e-e283c46345a6.gif",
+                "target": "delts",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Set a single handle on the low pulley and select an appropriate weight.",
+                "instructions": [
+                  "Set a single handle on the low pulley and select an appropriate weight.",
+                  "Stand upright (neutral spine) facing away from the machine with feet hip-width apart or in a slight staggered stance for stability; grasp the handle with the working hand using an overhand grip (palm facing down) and let the arm hang in front of your thigh with a small bend in the elbow.",
+                  "Brace your abs, keep your chest tall and shoulders down, and hold the non-working hand on your hip or at your side to prevent torso movement.",
+                  "Exhale and raise the working arm straight forward in a controlled arc until the hand reaches shoulder height (arm roughly parallel to the floor); keep the elbow slightly bent and the wrist neutral.",
+                  "Pause briefly at the top while maintaining tension in the delts; avoid shrugging the shoulder or leaning back.",
+                  "Inhale and slowly lower the arm back to the starting position under control, resisting the cable.",
+                  "Perform the desired reps on one side, then switch to the other arm. Maintain strict form—no swinging or using body momentum."
+                ],
+                "description": "A unilateral cable front raise that isolates the anterior deltoid by lifting a single arm straight in front of the body from a low pulley. It provides constant tension through the range of motion and requires core stabilization to prevent torso movement.",
+                "secondaryMuscles": [
+                  "pectorals",
+                  "traps",
+                  "forearms",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "dc5ddce9-0356-46f9-84a4-65bb451d5d47",
+              "name": "Cable Single Arm Neutral Grip Front Raise",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 2,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": false,
+        "fallbackReason": null,
+        "exercisesAvailable": 168,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 60,
+        "targetExerciseCount": 6,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 168,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Bro Split (Arms) (60min)",
+      "split": "bro_split",
+      "dayFocus": "Arms",
+      "duration": 60,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Dumbbells",
+        "Barbell",
+        "Cable Machine",
+        "EZ Bar"
+      ],
+      "success": true,
+      "latency": 21566,
+      "exerciseCount": 6,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "12",
+      "avgRest": 113,
+      "error": null,
+      "workout": {
+        "title": "Arm Day - BODYBUILD",
+        "description": "Arm Day workout focusing on bodybuild training.",
+        "estimatedDuration": 60,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "6cfe8e27-adc4-42f5-94b1-ff7d22ddd639",
+                "exerciseId": "6cfe8e27-adc4-42f5-94b1-ff7d22ddd639",
+                "name": "Dumbbell High Curl",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/6cfe8e27-adc4-42f5-94b1-ff7d22ddd639.gif",
+                "target": "biceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 170,
+                "tempo": "2-0-1",
+                "notes": "Stand upright, feet hip-width apart and core engaged, holding a dumbbell in each hand.",
+                "instructions": [
+                  "Stand upright, feet hip-width apart and core engaged, holding a dumbbell in each hand.",
+                  "Raise your upper arms out to the sides so they are approximately parallel to the floor (elbows at shoulder height) with a slight bend at the elbow; palms should face forward (supinated) or slightly inward depending on comfort.",
+                  "Keep your torso still and shoulders down; do not lean or swing.",
+                  "Curl the dumbbells by flexing at the elbows, bringing the weights up toward your head/ear level while keeping the upper arms fixed in the lateral position; exhale as you lift.",
+                  "Pause and squeeze the biceps at the top of the movement without shrugging the shoulders.",
+                  "Slowly lower the dumbbells back to the start position with control while inhaling, maintaining the upper-arm position and neutral wrists.",
+                  "Repeat for the desired number of repetitions, maintaining strict form and avoiding momentum."
+                ],
+                "description": "A standing curl variation performed with the upper arms held out to the sides so the elbows are at or near shoulder height; the movement emphasizes elbow flexion to load the biceps. Perform controlled curls up toward the head, pause at the top, then lower with control.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "delts"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "db687142-fd15-442f-b95c-6fa14f78c32f",
+                "exerciseId": "db687142-fd15-442f-b95c-6fa14f78c32f",
+                "name": "Dumbbell Close grip Press",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/db687142-fd15-442f-b95c-6fa14f78c32f.gif",
+                "target": "triceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 170,
+                "tempo": "2-0-1",
+                "notes": "Lie supine on a flat bench with feet planted on the floor and a slight natural arch in the lower back.",
+                "instructions": [
+                  "Lie supine on a flat bench with feet planted on the floor and a slight natural arch in the lower back.",
+                  "Hold a dumbbell in each hand with a neutral (palms facing each other) close grip so the dumbbells are touching or nearly touching over your sternum.",
+                  "Tuck your elbows close to your sides (keep them pointing rearward, not flared wide) to bias the triceps.",
+                  "Brace your core and inhale, then press the dumbbells straight up by extending the elbows until arms are nearly straight and triceps are contracted; keep the dumbbells close together throughout the movement.",
+                  "Pause briefly at the top without locking the elbows aggressively, maintaining wrist neutrality.",
+                  "Exhale and slowly lower the dumbbells under control back to the starting position at the chest while maintaining elbow tuck and shoulder stability.",
+                  "Repeat for the desired reps, keeping movement tempo controlled and avoiding excessive shoulder flaring or back drive."
+                ],
+                "description": "Lying supine on a flat bench, press two dumbbells together with a narrow/neutral grip and extend the arms to emphasize the triceps while still recruiting the chest and front delts. Keeping the dumbbells close limits shoulder flare and shifts load onto the triceps.",
+                "secondaryMuscles": [
+                  "pectorals",
+                  "delts",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "969a8938-096f-4138-9fe5-84efbcc393ca",
+                "exerciseId": "969a8938-096f-4138-9fe5-84efbcc393ca",
+                "name": "EZ Barbell Close Grip Preacher Curl",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/969a8938-096f-4138-9fe5-84efbcc393ca.gif",
+                "target": "biceps",
+                "equipment": "EZ Barbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Set the preacher bench height so your armpits/upper arms rest comfortably on the pad and your chest is supported while seated.",
+                "instructions": [
+                  "Set the preacher bench height so your armpits/upper arms rest comfortably on the pad and your chest is supported while seated.",
+                  "Load an EZ bar with an appropriate weight and take a close (narrow) underhand grip on the inner bends of the bar, hands about shoulder-width or slightly narrower.",
+                  "Sit with your feet flat on the floor, chest against the pad and upper arms lying flat on the preacher pad; let your arms hang down fully extended to start.",
+                  "Brace your core, keep your torso stable and wrists neutral, then exhale and curl the bar upward by flexing the elbows until your forearms approach vertical and biceps are fully contracted.",
+                  "Pause briefly at the top while squeezing the biceps, then inhale and lower the bar slowly and under control until your arms are fully extended and the biceps are lengthened.",
+                  "Keep the upper arms pressed against the pad and avoid rocking the torso or using momentum; repeat for the desired number of reps."
+                ],
+                "description": "Seated on a preacher bench, the EZ bar close-grip preacher curl isolates the biceps by preventing upper-arm movement and forcing the elbow to do the work. Using a narrow grip places additional emphasis on the biceps peak while engaging the forearms for grip and stabilization.",
+                "secondaryMuscles": [
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "03885a63-cf48-4a39-aa21-ba71bc1e4120",
+                "exerciseId": "03885a63-cf48-4a39-aa21-ba71bc1e4120",
+                "name": "Dumbbell Seated Kickback",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/03885a63-cf48-4a39-aa21-ba71bc1e4120.gif",
+                "target": "triceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Hold a dumbbell in each hand with a neutral grip (palms facing each other).",
+                "instructions": [
+                  "Sit on the edge of a flat bench with feet flat on the floor, knees bent and torso leaning forward at the hips (chest toward thighs) so your back is nearly parallel to the floor.",
+                  "Hold a dumbbell in each hand with a neutral grip (palms facing each other). Let your upper arms hang down close to your sides with elbows bent ~90°.",
+                  "Brace your core and keep your neck neutral; keep the upper arms fixed against your torso (avoid swinging the shoulders).",
+                  "Exhale and extend the forearms straight back by contracting the triceps until the elbows are fully extended and the dumbbells are behind you; keep the wrists neutral.",
+                  "Pause briefly at full extension, squeezing the triceps, then inhale and slowly lower the weights back to the starting 90° elbow bend with controlled motion.",
+                  "Repeat for the desired reps, maintaining a rigid torso and stationary upper arms throughout each repetition. Avoid using momentum or letting the elbows drift forward."
+                ],
+                "description": "Seated triceps kickbacks are performed from a forward-leaning seated position, extending the forearm back to isolate and work the triceps. Keep the upper arm stationary and move only at the elbow to emphasize the posterior arm.",
+                "secondaryMuscles": [
+                  "forearms",
+                  "delts",
+                  "upper back"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "99a4a1ab-ed44-42b5-bef3-62a3aae6bce2",
+                "exerciseId": "99a4a1ab-ed44-42b5-bef3-62a3aae6bce2",
+                "name": "Cable Reverse Grip Triceps Pushdown (SZ bar)",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/99a4a1ab-ed44-42b5-bef3-62a3aae6bce2.gif",
+                "target": "triceps",
+                "equipment": "Cable",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Attach an SZ bar to the high pulley of a cable machine and select an appropriate weight.",
+                "instructions": [
+                  "Attach an SZ bar to the high pulley of a cable machine and select an appropriate weight.",
+                  "Stand facing the machine with feet shoulder-width apart, knees slightly bent and core braced; grip the SZ bar with an underhand (palms up) reverse grip roughly shoulder-width apart.",
+                  "Tuck your elbows close to your sides and keep your upper arms stationary throughout the movement.",
+                  "Exhale and extend your elbows to push the bar down until your arms are nearly straight and triceps are fully contracted; keep wrists neutral and avoid flaring the elbows.",
+                  "Pause briefly at the bottom to feel the triceps contraction without locking the elbows or using torso momentum.",
+                  "Inhale and slowly allow the bar to rise back to the start position under control, returning to about a 90-degree elbow angle or slightly less while maintaining elbow position.",
+                  "Repeat for the desired number of repetitions, keeping movement tempo controlled and avoiding shoulder or torso involvement."
+                ],
+                "description": "Standing cable pushdown using an SZ (curl) bar with a reverse (underhand/supinated) grip to emphasize elbow extension and load the triceps. Perform controlled extensions and returns while keeping the upper arms stationary to isolate the triceps.",
+                "secondaryMuscles": [
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "ee7e869f-909f-492f-a760-03f750f83939",
+                "exerciseId": "ee7e869f-909f-492f-a760-03f750f83939",
+                "name": "Dumbbell Seated Alternate Biceps Curl",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/ee7e869f-909f-492f-a760-03f750f83939.gif",
+                "target": "biceps",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 85,
+                "tempo": "2-0-1",
+                "notes": "Sit upright on a bench with feet flat on the floor, knees bent, and a neutral spine; hold a dumbbell in each hand at your sides (arms fully extended) while seated.",
+                "instructions": [
+                  "Sit upright on a bench with feet flat on the floor, knees bent, and a neutral spine; hold a dumbbell in each hand at your sides (arms fully extended) while seated.",
+                  "Start with palms facing inward (neutral grip) and elbows close to your torso; keep the upper arms stationary throughout the movement.",
+                  "Exhale and curl one dumbbell by flexing the elbow while rotating (supinating) the wrist so the palm faces your shoulder at the top of the movement; pause and squeeze the biceps.",
+                  "Inhale and slowly lower the dumbbell back to the starting position with control, returning the wrist to the neutral position if desired.",
+                  "Repeat the curl with the opposite arm, alternating sides for the desired number of repetitions; avoid swinging the torso or using shoulder momentum.",
+                  "Maintain a steady tempo, keep elbows fixed near your ribs, and breathe out on the concentric (curl) and in on the eccentric (lower)."
+                ],
+                "description": "Seated alternate dumbbell biceps curl performed one arm at a time to isolate the biceps while minimizing body swing. Each repetition includes a curl with wrist supination and a controlled eccentric return.",
+                "secondaryMuscles": [
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "6cfe8e27-adc4-42f5-94b1-ff7d22ddd639",
+              "name": "Dumbbell High Curl",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 2,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 270,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 60,
+        "targetExerciseCount": 6,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 270,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    },
+    {
+      "name": "Bro Split (Legs) (60min)",
+      "split": "bro_split",
+      "dayFocus": "Legs",
+      "duration": 60,
+      "trainingStyles": [
+        "classic_bodybuilding"
+      ],
+      "equipment": [
+        "Barbell",
+        "Dumbbells",
+        "Leg Press",
+        "Leg Curl Machine",
+        "Leg Extension Machine"
+      ],
+      "success": true,
+      "latency": 16021,
+      "exerciseCount": 6,
+      "equipmentMatchRate": 100,
+      "avgSets": 4,
+      "avgReps": "12",
+      "avgRest": 113,
+      "error": null,
+      "workout": {
+        "title": "Leg Day - BODYBUILD",
+        "description": "Leg Day workout focusing on bodybuild training.",
+        "estimatedDuration": 60,
+        "structure": "STANDARD",
+        "sections": [
+          {
+            "name": "Main Lifts",
+            "exercises": [
+              {
+                "id": "c8fd1eca-b09a-4483-a85a-584a0d2dd853",
+                "exerciseId": "c8fd1eca-b09a-4483-a85a-584a0d2dd853",
+                "name": "Smith Squat",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/c8fd1eca-b09a-4483-a85a-584a0d2dd853.gif",
+                "target": "quads",
+                "equipment": "Smith Machine",
+                "sets": 4,
+                "reps": 8,
+                "restSeconds": 151,
+                "tempo": "2-0-1",
+                "notes": "Set up a flat bench inside the Smith machine so it sits behind you at a height that allows your hips to lightly touch the bench at the bottom of the squat without fully relaxing.",
+                "instructions": [
+                  "Set up a flat bench inside the Smith machine so it sits behind you at a height that allows your hips to lightly touch the bench at the bottom of the squat without fully relaxing.",
+                  "Load the bar, step under it and position the bar across your upper traps/trapezius (not on the neck). Grip the bar slightly wider than shoulder-width, feet shoulder-width apart and toes pointed slightly outward.",
+                  "Unrack the bar by rotating it and take one or two small steps forward so the bench is directly behind you; maintain a neutral spine and an upright chest.",
+                  "Inhale and initiate the descent by pushing your hips back and bending at the knees, keeping weight through your heels and mid-foot and ensuring your knees track over your toes.",
+                  "Lower under control until your glutes lightly touch the bench (brief contact only) — do not sit down fully or bounce off the bench.",
+                  "Pause briefly, then exhale and drive through your heels to stand by extending the knees and hips until fully upright without hyperextending the lower back.",
+                  "Repeat for the desired number of reps, then carefully step forward and re-rack the bar by rotating it onto the Smith machine catches.",
+                  "Use safety stops at an appropriate height, keep a controlled tempo, and adjust foot position (slightly forward or neutral) to vary quad vs. glute emphasis as needed."
+                ],
+                "description": "A bench-assisted squat performed in a Smith machine that emphasizes the quadriceps by sitting back lightly to a bench and then standing back up under controlled tension. The bench provides a consistent depth cue and reduces balance demand so you can focus on quad drive.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "hamstrings"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "d3e4693d-72d8-4bf3-8e73-bbdd834a7e76",
+                "exerciseId": "d3e4693d-72d8-4bf3-8e73-bbdd834a7e76",
+                "name": "Dumbbell Reverse Lunge from Deficit",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/d3e4693d-72d8-4bf3-8e73-bbdd834a7e76.gif",
+                "target": "quads",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 151,
+                "tempo": "2-0-1",
+                "notes": "Start standing upright on a low step or platform with your front foot centered on the platform and the rear foot on the floor behind you; hold a dumbbell in each hand at your sides and brace your core.",
+                "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Thighs/Dumbbell-Reverse-Lunge-from-Deficit-(male)_Thighs_.mp4",
+                "instructions": [
+                  "Start standing upright on a low step or platform with your front foot centered on the platform and the rear foot on the floor behind you; hold a dumbbell in each hand at your sides and brace your core.",
+                  "Keep your torso tall and shoulders back, then step the rear foot straight back off the platform into a controlled reverse lunge so the front knee bends and the back knee lowers toward the floor.",
+                  "Lower until the front thigh is about parallel to the floor or you feel a full comfortable stretch (front knee tracking over toes), keeping most of your weight through the front heel.",
+                  "Pause briefly at the bottom, then drive through the front heel to extend the front knee and return the rear foot up onto the platform to the starting position.",
+                  "Repeat for the desired reps on one leg, then switch legs; maintain a controlled tempo, full range of motion from the deficit, and keep the torso upright throughout."
+                ],
+                "description": "A single-leg reverse lunge performed while the front foot is positioned on a raised platform (deficit) to increase range of motion; dumbbells are held at the sides for added resistance. The exercise emphasizes knee extension of the front leg while challenging unilateral strength and stability.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "hamstrings",
+                  "calves",
+                  "abs"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "febdab63-baee-4ff6-9512-ed9a2f5a6aaa",
+                "exerciseId": "febdab63-baee-4ff6-9512-ed9a2f5a6aaa",
+                "name": "Dumbbell Standing Single Leg Calf Raise",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/febdab63-baee-4ff6-9512-ed9a2f5a6aaa.gif",
+                "target": "calves",
+                "equipment": "Dumbbell",
+                "sets": 4,
+                "reps": 10,
+                "restSeconds": 151,
+                "tempo": "2-0-1",
+                "notes": "Start standing upright (single-leg stance) on the working foot with toes facing forward; hold a dumbbell in each hand at your sides (or one dumbbell in each hand if preferred) and let the non-working leg hang or be slightly bent behind you -- torso neutral and shoulders relaxed.",
+                "videoUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-videos/Calves/Dumbbell-Standing-Single-Leg-Calf-Raise_Calves_.mp4",
+                "instructions": [
+                  "Start standing upright (single-leg stance) on the working foot with toes facing forward; hold a dumbbell in each hand at your sides (or one dumbbell in each hand if preferred) and let the non-working leg hang or be slightly bent behind you -- torso neutral and shoulders relaxed.",
+                  "Find balance and keep the knee of the working leg straight or with a slight bend (do not lock); engage your abs to stabilize the torso and keep weight centered over the midfoot.",
+                  "Slowly raise your heel by plantarflexing the ankle (push through the ball of the foot) until you reach maximum height on the toes; avoid leaning forward or using momentum.",
+                  "Pause briefly at the top and squeeze the calf, maintaining an upright posture and stable core.",
+                  "Lower the heel slowly and with control until the sole is flat on the floor (or slightly below the step if performed on an elevated surface) to complete one repetition.",
+                  "Perform the desired number of reps, then switch legs; use a nearby wall or rail for light support if balance is a limiting factor but avoid pushing off with the support."
+                ],
+                "description": "A single-leg calf raise performed standing while holding dumbbell(s) to add resistance; it isolates the calf (gastrocnemius/soleus) on the working leg while the opposite leg is off the ground. Balance and core stability are required to perform controlled raises and lowers.",
+                "secondaryMuscles": [
+                  "abs",
+                  "forearms"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          },
+          {
+            "name": "Accessories",
+            "exercises": [
+              {
+                "id": "ba31c45e-95d0-44b8-ba20-a52c49409fe7",
+                "exerciseId": "ba31c45e-95d0-44b8-ba20-a52c49409fe7",
+                "name": "Lever Seated Leg Curl",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/ba31c45e-95d0-44b8-ba20-a52c49409fe7.gif",
+                "target": "hamstrings",
+                "equipment": "Leverage Machine",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 75,
+                "tempo": "2-0-1",
+                "notes": "Sit upright on the seated leg curl machine with your back firmly against the backrest and feet positioned under the lower padded roller just above the heels/ankles.",
+                "instructions": [
+                  "Sit upright on the seated leg curl machine with your back firmly against the backrest and feet positioned under the lower padded roller just above the heels/ankles.",
+                  "Adjust the thigh/pelvic pad so it rests snugly on top of your thighs to prevent your hips from rising during the movement; grip the handles for stability.",
+                  "Start with knees nearly extended but not fully locked, torso upright and core engaged to stabilize the spine.",
+                  "Exhale and curl the lower leg by flexing the knees, driving the padded roller down and back toward your glutes in a controlled motion.",
+                  "Pause and squeeze the hamstrings at the top of the movement without lifting your hips off the seat.",
+                  "Inhale and slowly return to the start position, fully extending the knees under control without letting the weight slam or locking the knees.",
+                  "Repeat for the desired number of repetitions while keeping the torso still and avoiding swinging or using momentum."
+                ],
+                "description": "Seated leg curl on a lever machine isolates knee flexion to train the hamstrings, with assistance from the glutes and calves. Performed seated with a padded lever that is pulled by bending the knees and bringing the heels toward the buttocks.",
+                "secondaryMuscles": [
+                  "glutes",
+                  "calves"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "9cdc6904-8df9-4cd6-96ed-d4462f404f01",
+                "exerciseId": "9cdc6904-8df9-4cd6-96ed-d4462f404f01",
+                "name": "Smith Bent Knee Good morning",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/9cdc6904-8df9-4cd6-96ed-d4462f404f01.gif",
+                "target": "glutes",
+                "equipment": "Smith Machine",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 75,
+                "tempo": "2-0-1",
+                "notes": "Set the Smith bar at shoulder height and load appropriate weight; position the safety stops so you can re-rack safely.",
+                "instructions": [
+                  "Set the Smith bar at shoulder height and load appropriate weight; position the safety stops so you can re-rack safely.",
+                  "Stand under the bar and place it across your upper back/traps, grip the bar with hands just outside shoulder width, then step back to stand with feet about shoulder-width apart.",
+                  "Bend the knees slightly (soft knees) and brace your core; keep a neutral spine and chest lifted throughout the movement.",
+                  "Begin the rep by pushing the hips straight back (hip hinge) while maintaining the slight knee bend; allow the torso to lean forward until you feel a controlled stretch in the glutes/hamstrings or your torso is roughly parallel to the floor.",
+                  "Keep the bar travel vertical on the Smith track and maintain a strong, neutral spine — avoid rounding the lower back.",
+                  "Pause briefly at the bottom, then drive the hips forward by contracting the glutes to return to the upright starting position, keeping the motion controlled.",
+                  "Exhale as you return to standing and keep the knees slightly flexed throughout; do not turn the movement into a squat (minimize knee travel forward).",
+                  "After completing the set, carefully walk the bar forward and re-rack it on the Smith machine using the safety catches if needed."
+                ],
+                "description": "A bent-knee good morning performed on a Smith machine: the lifter hinges at the hips with a bar on the upper back to load the glutes and spinal erectors while keeping the knees slightly bent. The movement emphasizes hip extension and posterior chain control.",
+                "secondaryMuscles": [
+                  "hamstrings",
+                  "spine"
+                ],
+                "sourceTier": "primary"
+              },
+              {
+                "id": "37076efc-4154-4bab-8965-581a9af7d61b",
+                "exerciseId": "37076efc-4154-4bab-8965-581a9af7d61b",
+                "name": "Lever Lying Leg Curl",
+                "gifUrl": "https://ivfllbccljoyaayftecd.supabase.co/storage/v1/object/public/exercise-gifs/37076efc-4154-4bab-8965-581a9af7d61b.gif",
+                "target": "hamstrings",
+                "equipment": "Leverage Machine",
+                "sets": 4,
+                "reps": 12,
+                "restSeconds": 75,
+                "tempo": "2-0-1",
+                "notes": "Set the lever machine so the pivot aligns with the knee joint and place the lower-leg pad just above the heels / over the Achilles area.",
+                "instructions": [
+                  "Set the lever machine so the pivot aligns with the knee joint and place the lower-leg pad just above the heels / over the Achilles area.",
+                  "Lie prone (face down) on the bench with your hips flat on the pad, chest supported, and hands holding the front handles or bench for stability.",
+                  "Position your legs fully extended with the pad resting on the back of your lower legs and feet relaxed; maintain a neutral spine throughout.",
+                  "Exhale and curl your lower legs by flexing the knees, bringing your heels toward your glutes in a controlled motion until you reach near-full knee flexion.",
+                  "Pause and squeeze the hamstrings at the top for 1 second, keeping hips and torso pressed into the bench (avoid lifting the hips).",
+                  "Inhale and slowly lower the lever back to the start (near full knee extension) under control without letting the weight slam or locking the knees.",
+                  "Repeat for the desired reps, maintaining steady tempo and full range of motion; adjust load so you can control both concentric and eccentric phases.",
+                  "Stop or reduce weight if you feel excessive hip rise, lower-back strain, or knee pain; keep movements smooth and joint-focused."
+                ],
+                "description": "Prone (lying face down) leg curl performed on a lever machine that isolates the hamstrings by flexing the knee against a padded lever. The movement curls the lower leg toward the buttocks while the torso remains stabilized on the bench.",
+                "secondaryMuscles": [
+                  "calves",
+                  "glutes"
+                ],
+                "sourceTier": "primary"
+              }
+            ],
+            "supersets": []
+          }
+        ],
+        "tips": [
+          "Control the eccentric (lowering) phase for 2-3 seconds.",
+          "Focus on the mind-muscle connection.",
+          "Keep rest periods consistent for metabolic stress."
+        ],
+        "warmup": {
+          "exercises": [
+            {
+              "exerciseId": "c8fd1eca-b09a-4483-a85a-584a0d2dd853",
+              "name": "Smith Squat",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "d3e4693d-72d8-4bf3-8e73-bbdd834a7e76",
+              "name": "Dumbbell Reverse Lunge from Deficit",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            },
+            {
+              "exerciseId": "febdab63-baee-4ff6-9512-ed9a2f5a6aaa",
+              "name": "Dumbbell Standing Single Leg Calf Raise",
+              "sets": 1,
+              "reps": 14,
+              "intensity": "50%",
+              "notes": "Light weight, focus on form and range of motion"
+            }
+          ],
+          "duration": 6,
+          "notes": "Brief warmup to activate target muscles. Can skip if first working set feels warm."
+        }
+      },
+      "meta": {
+        "usedFallback": true,
+        "fallbackReason": "body_part_dropped",
+        "exercisesAvailable": 295,
+        "appliedStyles": [
+          "BODYBUILD"
+        ],
+        "isCircuitMode": false,
+        "exerciseSelectionAttempts": 1,
+        "paramAssignmentAttempts": 1,
+        "requestedDuration": 60,
+        "targetExerciseCount": 6,
+        "targetSetsPerExercise": 4,
+        "primaryExerciseCount": 295,
+        "supplementaryExerciseCount": 0,
+        "equipmentMatchRate": 100,
+        "equipmentViolations": [],
+        "primaryEquipmentViolations": [],
+        "deprecationWarnings": [
+          "experienceLevel as string is deprecated. Use a number from 1-10."
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "successCount": 4,
+    "parseErrorCount": 0,
+    "apiErrorCount": 1,
+    "totalLatency": 73963,
+    "avgLatency": 18491,
+    "avgExerciseCount": 6,
+    "avgEquipmentMatchRate": 100,
+    "avgSets": 4,
+    "avgRest": 113,
+    "repsCounts": {
+      "12": 4
+    },
+    "avgReps": "12",
+    "successRate": 80
+  }
+}

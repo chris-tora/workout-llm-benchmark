@@ -1,0 +1,11 @@
+WHY BENCH PRESS DOMINATES AND LEGS ARE MISSING: 5-SENTENCE SUMMARY
+
+1. EXPLICIT PROMPT BIAS: The STRENGTH training prompt explicitly listed "bench" as a prioritized compound movement, directly instructing the LLM to favor bench press over other exercises.
+
+2. MUSCLE DEFAULT MAPPING: The PRIMARY_MUSCLE_BY_DAY mapping defaulted "upper" days to "pectorals" (chest), causing chest exercises to be over-represented in upper body workouts while triceps, shoulders, and back were under-prioritized.
+
+3. DATABASE TIER IMBALANCE: 70% of exercises are classified in the "excluded" tier (should be ~10%) due to over-aggressive position keyword filtering (prone, kneeling, supine), dramatically reducing the available exercise pool for hamstrings, triceps, and other underrepresented muscle groups.
+
+4. MUSCLE COVERAGE BYPASS: The Full Body workout type had no targetMuscles passed to the enforceMusclesCoverage() function, causing muscle balance enforcement to be completely skipped, allowing the LLM to freely choose bench/chest exercises without constraint.
+
+5. COMPOUND BIAS LOOP: When the exercise pool is small for a muscle group (e.g., 1 hamstring vs 73 bench variants), the LLM defaults to well-known exercises it was trained on (bench press, squats), creating a feedback loop where popular exercises get picked repeatedly while rare exercises are never selected.

@@ -20,7 +20,17 @@ export function Gallery() {
     })
       .then(res => res.json())
       .then(data => {
-        setExercises(data)
+        if (Array.isArray(data)) {
+          setExercises(data)
+        } else {
+          console.error('Failed to fetch exercises:', data)
+          setExercises([])
+        }
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error('Gallery fetch error:', err)
+        setExercises([])
         setLoading(false)
       })
   }, [])
