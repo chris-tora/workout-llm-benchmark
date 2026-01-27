@@ -12,6 +12,9 @@ import {
   Check,
   X,
   ImageOff,
+  Eye,
+  EyeOff,
+  Pencil,
 } from 'lucide-react'
 
 const TIER_OPTIONS = [
@@ -26,6 +29,12 @@ const BULK_TIER_OPTIONS = [
   { value: 'always', label: 'Always' },
   { value: 'catalog', label: 'Catalog' },
   { value: 'excluded', label: 'Excluded' },
+]
+
+const VISIBILITY_OPTIONS = [
+  { value: '', label: 'All Exercises' },
+  { value: 'visible', label: 'Visible Only' },
+  { value: 'hidden', label: 'Hidden Only' },
 ]
 
 // Media URLs from Supabase Storage
@@ -170,6 +179,159 @@ function HoverPreview({ exercise, position }) {
   )
 }
 
+function EditExerciseModal({ exercise, onSave, onClose }) {
+  const [formData, setFormData] = useState({
+    name: exercise?.name || '',
+    description: exercise?.description || '',
+    instructions: exercise?.instructions || '',
+    target: exercise?.target || '',
+    secondary_muscles: Array.isArray(exercise?.secondary_muscles)
+      ? exercise.secondary_muscles.join(', ')
+      : (exercise?.secondary_muscles || ''),
+  })
+  const [saving, setSaving] = useState(false)
+  const [error, setError] = useState(null)
+
+  if (!exercise) return null
+
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose()
+    }
+  }
+
+  const handleChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
+  }
+
+  const handleSave = async () => {
+    setSaving(true)
+    setError(null)
+    try {
+      const updates = {
+        name: formData.name,
+        description: formData.description || null,
+        instructions: formData.instructions || null,
+        target: formData.target,
+        secondary_muscles: formData.secondary_muscles
+          ? formData.secondary_muscles.split(',').map((s) => s.trim()).filter(Boolean)
+          : null,
+      }
+      await onSave(exercise.id, updates)
+      onClose()
+    } catch (err) {
+      setError(err.message || 'Failed to save exercise')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  return (
+    <div
+      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+      onClick={handleBackdropClick}
+    >
+      <div className="bg-white rounded-xl shadow-xl w-full max-w-lg mx-4 overflow-hidden">
+        {/* Header */}
+        <div className="flex justify-between items-center px-6 py-4 border-b">
+          <span className="font-semibold text-zinc-900">Edit Exercise</span>
+          <button
+            onClick={onClose}
+            className="text-zinc-400 hover:text-zinc-600"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Form */}
+        <div className="p-6 space-y-4 max-h-[60vh] overflow-y-auto">
+          <div>
+            <label className="block text-sm font-medium text-zinc-700 mb-1">
+              Name
+            </label>
+            <Input
+              value={formData.name}
+              onChange={(e) => handleChange('name', e.target.value)}
+              placeholder="Exercise name"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-zinc-700 mb-1">
+              Description
+            </label>
+            <textarea
+              value={formData.description}
+              onChange={(e) => handleChange('description', e.target.value)}
+              placeholder="Brief description of the exercise"
+              rows={3}
+              className="flex w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-400 resize-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-zinc-700 mb-1">
+              Instructions (JSON array as text)
+            </label>
+            <textarea
+              value={formData.instructions}
+              onChange={(e) => handleChange('instructions', e.target.value)}
+              placeholder='["Step 1", "Step 2", "Step 3"]'
+              rows={4}
+              className="flex w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm font-mono placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-400 resize-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-zinc-700 mb-1">
+              Target Muscle
+            </label>
+            <Input
+              value={formData.target}
+              onChange={(e) => handleChange('target', e.target.value)}
+              placeholder="e.g., biceps, chest, quads"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-zinc-700 mb-1">
+              Secondary Muscles (comma-separated)
+            </label>
+            <Input
+              value={formData.secondary_muscles}
+              onChange={(e) => handleChange('secondary_muscles', e.target.value)}
+              placeholder="e.g., triceps, shoulders, forearms"
+            />
+          </div>
+
+          {error && (
+            <div className="p-3 bg-red-50 border border-red-200 rounded-md text-sm text-red-700">
+              {error}
+            </div>
+          )}
+        </div>
+
+        {/* Footer */}
+        <div className="flex justify-end gap-3 px-6 py-4 border-t bg-zinc-50">
+          <Button variant="outline" onClick={onClose} disabled={saving}>
+            Cancel
+          </Button>
+          <Button onClick={handleSave} disabled={saving}>
+            {saving ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-1 animate-spin" />
+                Saving...
+              </>
+            ) : (
+              'Save Changes'
+            )}
+          </Button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function ExerciseReview() {
   const {
     exercises,
@@ -183,6 +345,10 @@ export function ExerciseReview() {
     bulkUpdateTiers,
     fetchStats,
     fetchFilterOptions,
+    hideExercise,
+    unhideExercise,
+    checkExerciseInUse,
+    updateExercise,
   } = useExercises()
 
   const [selectedIds, setSelectedIds] = useState(new Set())
@@ -194,6 +360,9 @@ export function ExerciseReview() {
   const [savingId, setSavingId] = useState(null)
   const [previewExercise, setPreviewExercise] = useState(null)
   const [hoverExercise, setHoverExercise] = useState({ exercise: null, position: null })
+  const [hidingId, setHidingId] = useState(null)
+  const [hideError, setHideError] = useState(null)
+  const [editingExercise, setEditingExercise] = useState(null)
   const searchTimeoutRef = useRef(null)
 
   const handleExerciseHover = useCallback((exercise, rect) => {
@@ -219,8 +388,9 @@ export function ExerciseReview() {
   }, [fetchStats, fetchFilterOptions])
 
   // Fetch exercises when filters or page changes
+  // Admin view always includes hidden exercises for management
   useEffect(() => {
-    fetchExercises(filters, page - 1)
+    fetchExercises(filters, page - 1, true)
   }, [filters, page, fetchExercises])
 
   // Debounced search
@@ -309,6 +479,41 @@ export function ExerciseReview() {
     [filters, handleFiltersChange]
   )
 
+  const handleHideExercise = useCallback(
+    async (id) => {
+      setHidingId(id)
+      setHideError(null)
+      try {
+        const inUse = await checkExerciseInUse(id)
+        if (inUse) {
+          setHideError({ id, message: 'Cannot hide - exercise is used in workouts' })
+          return
+        }
+        await hideExercise(id)
+      } catch (err) {
+        setHideError({ id, message: err.message || 'Failed to hide exercise' })
+      } finally {
+        setHidingId(null)
+      }
+    },
+    [checkExerciseInUse, hideExercise]
+  )
+
+  const handleUnhideExercise = useCallback(
+    async (id) => {
+      setHidingId(id)
+      setHideError(null)
+      try {
+        await unhideExercise(id)
+      } catch (err) {
+        setHideError({ id, message: err.message || 'Failed to unhide exercise' })
+      } finally {
+        setHidingId(null)
+      }
+    },
+    [unhideExercise]
+  )
+
   const handleReset = useCallback(() => {
     setSearchValue('')
     handleFiltersChange({})
@@ -337,7 +542,8 @@ export function ExerciseReview() {
     filters.bodyPart ||
     filters.target ||
     filters.search ||
-    filters.tierFilter
+    filters.tierFilter ||
+    filters.hiddenFilter
 
   const allSelected =
     exercises.length > 0 && exercises.every((e) => selectedIds.has(e.id))
@@ -537,6 +743,28 @@ export function ExerciseReview() {
               </select>
             </div>
 
+            <div className="w-40">
+              <label className="block text-sm font-medium text-zinc-700 mb-1">
+                Visibility
+              </label>
+              <select
+                className="flex h-10 w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400"
+                value={filters.hiddenFilter || ''}
+                onChange={(e) =>
+                  handleFiltersChange({
+                    ...filters,
+                    hiddenFilter: e.target.value || undefined,
+                  })
+                }
+              >
+                {VISIBILITY_OPTIONS.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             {hasActiveFilters && (
               <Button variant="outline" onClick={handleReset}>
                 <RotateCcw className="w-4 h-4 mr-1" />
@@ -639,86 +867,145 @@ export function ExerciseReview() {
                     <th className="w-36 py-3 px-4 text-left font-medium text-zinc-600">
                       Tier
                     </th>
+                    <th className="w-24 py-3 px-4 text-left font-medium text-zinc-600">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {exercises.length === 0 ? (
                     <tr>
-                      <td colSpan={7} className="py-12 text-center text-zinc-500">
+                      <td colSpan={8} className="py-12 text-center text-zinc-500">
                         No exercises found
                       </td>
                     </tr>
                   ) : (
-                    exercises.map((exercise) => (
-                      <tr
-                        key={exercise.id}
-                        className={`border-b border-zinc-100 hover:bg-zinc-50 transition-colors ${
-                          selectedIds.has(exercise.id) ? 'bg-blue-50' : ''
-                        }`}
-                        onMouseEnter={(e) => {
-                          const rect = e.currentTarget.getBoundingClientRect()
-                          handleExerciseHover(exercise, rect)
-                        }}
-                        onMouseLeave={handleExerciseHoverEnd}
-                      >
-                        <td className="py-3 px-4">
-                          <input
-                            type="checkbox"
-                            checked={selectedIds.has(exercise.id)}
-                            onChange={(e) =>
-                              handleSelect(exercise.id, e.target.checked)
-                            }
-                            className="rounded border-zinc-300"
-                            aria-label={`Select ${exercise.name}`}
-                          />
-                        </td>
-                        <td className="py-3 px-4">
-                          <MediaThumbnail
-                            exercise={exercise}
-                            onClick={() => setPreviewExercise(exercise)}
-                          />
-                        </td>
-                        <td className="py-3 px-4 font-medium text-zinc-900">
-                          {exercise.name}
-                        </td>
-                        <td className="py-3 px-4 text-zinc-600">
-                          {exercise.equipment}
-                        </td>
-                        <td className="py-3 px-4 text-zinc-600">
-                          {exercise.bodypart}
-                        </td>
-                        <td className="py-3 px-4">
-                          <code className="text-xs text-zinc-500 block truncate max-w-xs" title={getMediaUrl(exercise)}>
-                            {getMediaUrl(exercise)}
-                          </code>
-                        </td>
-                        <td className="py-3 px-4">
-                          <div className="relative">
-                            <select
-                              className={`h-8 w-28 rounded-md border px-2 py-1 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-zinc-400 ${getTierSelectClass(
-                                exercise.tier
-                              )}`}
-                              value={exercise.tier || ''}
+                    exercises.map((exercise) => {
+                      const isHidden = exercise.is_hidden === true
+                      return (
+                        <tr
+                          key={exercise.id}
+                          className={`border-b transition-colors ${
+                            isHidden
+                              ? 'border-red-200 bg-red-50/30'
+                              : 'border-zinc-100 hover:bg-zinc-50'
+                          } ${selectedIds.has(exercise.id) ? 'bg-blue-50' : ''} ${
+                            isHidden ? 'opacity-60' : ''
+                          }`}
+                          onMouseEnter={(e) => {
+                            const rect = e.currentTarget.getBoundingClientRect()
+                            handleExerciseHover(exercise, rect)
+                          }}
+                          onMouseLeave={handleExerciseHoverEnd}
+                        >
+                          <td className="py-3 px-4">
+                            <input
+                              type="checkbox"
+                              checked={selectedIds.has(exercise.id)}
                               onChange={(e) =>
-                                handleUpdateTier(exercise.id, e.target.value)
+                                handleSelect(exercise.id, e.target.checked)
                               }
-                              disabled={savingId === exercise.id}
-                            >
-                              {TIER_OPTIONS.map((option) => (
-                                <option key={option.value} value={option.value}>
-                                  {option.label}
-                                </option>
-                              ))}
-                            </select>
-                            {savingId === exercise.id && (
-                              <div className="absolute inset-0 flex items-center justify-center bg-white/50 rounded">
-                                <Loader2 className="w-4 h-4 animate-spin text-blue-500" />
+                              className="rounded border-zinc-300"
+                              aria-label={`Select ${exercise.name}`}
+                            />
+                          </td>
+                          <td className="py-3 px-4">
+                            <MediaThumbnail
+                              exercise={exercise}
+                              onClick={() => setPreviewExercise(exercise)}
+                            />
+                          </td>
+                          <td className="py-3 px-4">
+                            <div className="flex items-center gap-2">
+                              <span className="font-medium text-zinc-900">
+                                {exercise.name}
+                              </span>
+                              {isHidden && (
+                                <span className="px-1.5 py-0.5 text-xs font-medium bg-red-100 text-red-700 border border-red-300 rounded">
+                                  Hidden
+                                </span>
+                              )}
+                            </div>
+                          </td>
+                          <td className="py-3 px-4 text-zinc-600">
+                            {exercise.equipment}
+                          </td>
+                          <td className="py-3 px-4 text-zinc-600">
+                            {exercise.bodypart}
+                          </td>
+                          <td className="py-3 px-4">
+                            <code className="text-xs text-zinc-500 block truncate max-w-xs" title={getMediaUrl(exercise)}>
+                              {getMediaUrl(exercise)}
+                            </code>
+                          </td>
+                          <td className="py-3 px-4">
+                            <div className="relative">
+                              <select
+                                className={`h-8 w-28 rounded-md border px-2 py-1 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-zinc-400 ${getTierSelectClass(
+                                  exercise.tier
+                                )}`}
+                                value={exercise.tier || ''}
+                                onChange={(e) =>
+                                  handleUpdateTier(exercise.id, e.target.value)
+                                }
+                                disabled={savingId === exercise.id}
+                              >
+                                {TIER_OPTIONS.map((option) => (
+                                  <option key={option.value} value={option.value}>
+                                    {option.label}
+                                  </option>
+                                ))}
+                              </select>
+                              {savingId === exercise.id && (
+                                <div className="absolute inset-0 flex items-center justify-center bg-white/50 rounded">
+                                  <Loader2 className="w-4 h-4 animate-spin text-blue-500" />
+                                </div>
+                              )}
+                            </div>
+                          </td>
+                          <td className="py-3 px-4">
+                            <div className="flex flex-col gap-1">
+                              <div className="flex items-center gap-1">
+                                <button
+                                  onClick={() => setEditingExercise(exercise)}
+                                  className="p-1.5 rounded hover:bg-zinc-100 text-zinc-500 hover:text-zinc-700 transition-colors"
+                                  title="Edit exercise"
+                                >
+                                  <Pencil className="w-4 h-4" />
+                                </button>
+                                <button
+                                  onClick={() =>
+                                    isHidden
+                                      ? handleUnhideExercise(exercise.id)
+                                      : handleHideExercise(exercise.id)
+                                  }
+                                  disabled={hidingId === exercise.id}
+                                  className={`p-1.5 rounded transition-colors ${
+                                    isHidden
+                                      ? 'hover:bg-green-100 text-green-600 hover:text-green-700'
+                                      : 'hover:bg-zinc-100 text-zinc-500 hover:text-zinc-700'
+                                  } disabled:opacity-50 disabled:cursor-not-allowed`}
+                                  title={isHidden ? 'Unhide exercise' : 'Hide exercise'}
+                                >
+                                  {hidingId === exercise.id ? (
+                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                  ) : isHidden ? (
+                                    <Eye className="w-4 h-4" />
+                                  ) : (
+                                    <EyeOff className="w-4 h-4" />
+                                  )}
+                                </button>
                               </div>
-                            )}
-                          </div>
-                        </td>
-                      </tr>
-                    ))
+                              {hideError?.id === exercise.id && (
+                                <span className="text-xs text-red-600 max-w-[100px]">
+                                  {hideError.message}
+                                </span>
+                              )}
+                            </div>
+                          </td>
+                        </tr>
+                      )
+                    })
                   )}
                 </tbody>
               </table>
@@ -869,6 +1156,15 @@ export function ExerciseReview() {
             )}
           </div>
         </div>
+      )}
+
+      {/* Edit Exercise Modal */}
+      {editingExercise && (
+        <EditExerciseModal
+          exercise={editingExercise}
+          onSave={updateExercise}
+          onClose={() => setEditingExercise(null)}
+        />
       )}
     </div>
   )

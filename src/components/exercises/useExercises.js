@@ -17,15 +17,18 @@ export function useExercises() {
   const [totalCount, setTotalCount] = useState(0)
   const [hasMore, setHasMore] = useState(false)
 
-  const fetchExercises = useCallback(async (filters, page = 0) => {
+  const fetchExercises = useCallback(async (filters, page = 0, includeHidden = false) => {
     setLoading(true)
     setError(null)
 
     try {
       let query = supabase
         .from('exercises')
-        .select('id, name, equipment, bodypart, target, tier, video_url, gif_url', { count: 'exact' })
+        .select('id, name, equipment, bodypart, target, tier, video_url, gif_url, is_hidden, description, instructions, secondary_muscles', { count: 'exact' })
 
+      if (!includeHidden) {
+        query = query.or('is_hidden.is.null,is_hidden.eq.false')
+      }
       if (filters.equipment) {
         query = query.eq('equipment', filters.equipment)
       }
@@ -40,6 +43,11 @@ export function useExercises() {
       }
       if (filters.tierFilter) {
         query = query.eq('tier', filters.tierFilter)
+      }
+      if (filters.hiddenFilter === 'hidden') {
+        query = query.eq('is_hidden', true)
+      } else if (filters.hiddenFilter === 'visible') {
+        query = query.or('is_hidden.is.null,is_hidden.eq.false')
       }
 
       query = query
@@ -98,6 +106,62 @@ export function useExercises() {
     setExercises((prev) =>
       prev.map((ex) => (ids.includes(ex.id) ? { ...ex, tier } : ex))
     )
+  }, [])
+
+  const updateExercise = useCallback(async (id, updates) => {
+    const { data, error: updateError } = await supabase
+      .from('exercises')
+      .update(updates)
+      .eq('id', id)
+      .select()
+      .single()
+
+    if (updateError) throw updateError
+
+    setExercises((prev) =>
+      prev.map((ex) => (ex.id === id ? { ...ex, ...data } : ex))
+    )
+
+    return data
+  }, [])
+
+  const hideExercise = useCallback(async (id) => {
+    const { error: updateError } = await supabase
+      .from('exercises')
+      .update({ is_hidden: true })
+      .eq('id', id)
+
+    if (updateError) throw updateError
+
+    setExercises((prev) =>
+      prev.map((ex) => (ex.id === id ? { ...ex, is_hidden: true } : ex))
+    )
+
+    return true
+  }, [])
+
+  const unhideExercise = useCallback(async (id) => {
+    const { error: updateError } = await supabase
+      .from('exercises')
+      .update({ is_hidden: false })
+      .eq('id', id)
+
+    if (updateError) throw updateError
+
+    setExercises((prev) =>
+      prev.map((ex) => (ex.id === id ? { ...ex, is_hidden: false } : ex))
+    )
+
+    return true
+  }, [])
+
+  const checkExerciseInUse = useCallback(async (id) => {
+    const { data, error: rpcError } = await supabase
+      .rpc('is_exercise_in_use', { exercise_id: id })
+
+    if (rpcError) throw rpcError
+
+    return data
   }, [])
 
   const fetchStats = useCallback(async () => {
@@ -177,6 +241,10 @@ export function useExercises() {
     fetchExercises,
     updateTier,
     bulkUpdateTiers,
+    updateExercise,
+    hideExercise,
+    unhideExercise,
+    checkExerciseInUse,
     fetchStats,
     fetchFilterOptions,
   }

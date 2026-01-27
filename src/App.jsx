@@ -6,7 +6,8 @@ import { ExerciseReview } from './components/exercises'
 import { UncategorizedExercises } from './components/uncategorized'
 import { MuscleMap } from './components/muscle-map'
 import { BeforeAfterComparison } from './components/before-after'
-import { Beaker, Image, Video, Brain, Dumbbell, User, ArrowLeftRight, AlertTriangle } from 'lucide-react'
+import { AdminPanel } from './components/admin'
+import { Beaker, Image, Video, Brain, Dumbbell, User, ArrowLeftRight, AlertTriangle, Settings } from 'lucide-react'
 
 function NavTab({ to, children }) {
   return (
@@ -66,6 +67,10 @@ function App() {
                 <ArrowLeftRight className="w-4 h-4 mr-1.5" />
                 Before/After
               </NavTab>
+              <NavTab to="/admin">
+                <Settings className="w-4 h-4 mr-1.5" />
+                Admin
+              </NavTab>
             </nav>
           </div>
         </div>
@@ -82,6 +87,7 @@ function App() {
           <Route path="/uncategorized" element={<UncategorizedExercises />} />
           <Route path="/muscle-map" element={<MuscleMap />} />
           <Route path="/before-after" element={<BeforeAfterComparison />} />
+          <Route path="/admin" element={<AdminPanel />} />
         </Routes>
       </main>
 
