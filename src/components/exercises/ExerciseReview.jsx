@@ -44,7 +44,6 @@ const isValidUrl = (url) => url && (url.startsWith('http://') || url.startsWith(
 
 const getMediaUrl = (exercise) => {
   if (isValidUrl(exercise.video_url)) return exercise.video_url
-  if (isValidUrl(exercise.gif_url)) return exercise.gif_url
   return `${SUPABASE_URL}/storage/v1/object/public/exercise-gifs/${exercise.id}.gif`
 }
 

@@ -24,7 +24,7 @@ export function useExercises() {
     try {
       let query = supabase
         .from('exercises')
-        .select('id, name, equipment, bodypart, target, tier, video_url, gif_url, is_hidden, description, instructions, secondary_muscles', { count: 'exact' })
+        .select('id, name, equipment, bodypart, target, tier, video_url, is_hidden, description, instructions, secondary_muscles', { count: 'exact' })
 
       if (!includeHidden) {
         query = query.or('is_hidden.is.null,is_hidden.eq.false')

@@ -15,7 +15,7 @@ export function Gallery() {
   const [selected, setSelected] = useState(null)
 
   useEffect(() => {
-    fetch(`${SUPABASE_URL}/rest/v1/exercises?select=id,name,bodypart,equipment,target,video_url,gif_url&order=name`, {
+    fetch(`${SUPABASE_URL}/rest/v1/exercises?select=id,name,bodypart,equipment,target,video_url&order=name`, {
       headers: { 'apikey': SUPABASE_KEY }
     })
       .then(res => res.json())
@@ -55,7 +55,6 @@ export function Gallery() {
 
   const getMediaUrl = (exercise) => {
     if (isValidUrl(exercise.video_url)) return exercise.video_url
-    if (isValidUrl(exercise.gif_url)) return exercise.gif_url
     return `${SUPABASE_URL}/storage/v1/object/public/exercise-gifs/${exercise.id}.gif`
   }
 

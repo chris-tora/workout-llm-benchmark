@@ -30,7 +30,7 @@ export function useUncategorizedExercises() {
 
       let query = supabase
         .from('exercises')
-        .select('id, name, equipment, bodypart, target, tier, video_url, gif_url, instructions', { count: 'exact' })
+        .select('id, name, equipment, bodypart, target, tier, video_url, instructions', { count: 'exact' })
 
       if (mode === 'uncategorized') {
         query = query.is('tier', null)
