@@ -230,12 +230,13 @@ export function PngStrengthMap({
         </div>
       )}
 
-      {/* Body map - interactive */}
+      {/* Body map - interactive with shine animation */}
       <PngBodyMap
         layers={layers}
         size={size}
         interactive={true}
         onMuscleClick={handleMuscleClick}
+        shine={true}
       />
 
       {/* Legend */}

@@ -1,9 +1,21 @@
-import { useMemo, useState, useRef, useCallback, useEffect } from 'react'
+import { useMemo, useState, useRef, useCallback } from 'react'
 import {
   getMuscleOverlays,
   slugToPath,
   basePath as getBasePath,
 } from '../../constants/muscle-to-png-mapping'
+
+// Global shine animation styles - add to your global CSS or keep here
+const SHINE_ANIMATION_CSS = `
+  @keyframes muscleShineSweep {
+    0% {
+      transform: translateY(-150%);
+    }
+    100% {
+      transform: translateY(150%);
+    }
+  }
+`
 
 const SIZE_CLASSES = {
   sm: 'max-w-[200px]',
@@ -60,6 +72,44 @@ function getPixelAlpha(img, x, y) {
 }
 
 /**
+ * Shine overlay component - renders the sweeping shimmer effect
+ */
+function ShineOverlay({ enabled, className = '' }) {
+  if (!enabled) return null
+
+  return (
+    <>
+      <style>{SHINE_ANIMATION_CSS}</style>
+      <div
+        className={`pointer-events-none absolute inset-0 z-20 overflow-hidden ${className}`}
+        aria-hidden="true"
+      >
+        <div
+          className="absolute inset-0 w-full h-[200%]"
+          style={{
+            background: `
+              linear-gradient(
+                180deg,
+                transparent 0%,
+                transparent 40%,
+                rgba(255, 255, 255, 0.15) 47%,
+                rgba(255, 255, 255, 0.35) 50%,
+                rgba(255, 255, 255, 0.15) 53%,
+                transparent 60%,
+                transparent 100%
+              )
+            `,
+            animation: 'muscleShineSweep 3s ease-in-out infinite',
+            mixBlendMode: 'overlay',
+            willChange: 'transform',
+          }}
+        />
+      </div>
+    </>
+  )
+}
+
+/**
  * Single body panel (front or back) with base image and overlay layers.
  * Implements pixel-perfect click detection by checking alpha values.
  */
@@ -74,6 +124,7 @@ function BodyPanel({
   hoveredSlug,
   onMuscleClick,
   onMuscleHover,
+  shineEnabled,
 }) {
   const baseSrc = getBasePath(view, base)
   const containerRef = useRef(null)
@@ -149,21 +200,24 @@ function BodyPanel({
         onMouseMove={handleContainerMouseMove}
         onMouseLeave={handleContainerMouseLeave}
       >
+        {/* Shine overlay - unified across all muscles */}
+        <ShineOverlay enabled={shineEnabled} />
         <img
           src={baseSrc}
           alt={`${view} body`}
           className="w-full h-auto block relative z-0"
           draggable={false}
         />
+        {/* Muscle overlays container */}
+        <div className="absolute inset-0 z-10">
         {layers.map(({ slug, color, path }) => {
           const isSelected = selectedSlug === slug
           const isHovered = hoveredSlug === slug
 
           // All overlays are pointer-events-none; container handles clicks
-          // z-10 ensures overlays stack above base (z-0)
           // Only transition filter for hover effects, not the image itself
           const overlayClasses = [
-            'absolute inset-0 w-full h-full pointer-events-none z-10',
+            'absolute inset-0 w-full h-full pointer-events-none',
             'transition-[filter] duration-200 ease-out',
           ]
 
@@ -191,6 +245,7 @@ function BodyPanel({
             />
           )
         })}
+        </div>
       </div>
     </div>
   )
@@ -227,6 +282,7 @@ export function PngBodyMap({
   interactive = false,
   selectedSlug,
   onMuscleClick,
+  shine = false,
 }) {
   const [hoveredSlug, setHoveredSlug] = useState(null)
 
@@ -255,6 +311,7 @@ export function PngBodyMap({
         hoveredSlug={hoveredSlug}
         onMuscleClick={onMuscleClick}
         onMuscleHover={interactive ? setHoveredSlug : undefined}
+        shineEnabled={shine}
       />
       <BodyPanel
         view="back"
@@ -267,6 +324,7 @@ export function PngBodyMap({
         hoveredSlug={hoveredSlug}
         onMuscleClick={onMuscleClick}
         onMuscleHover={interactive ? setHoveredSlug : undefined}
+        shineEnabled={shine}
       />
     </div>
   )
