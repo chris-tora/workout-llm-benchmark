@@ -3,16 +3,19 @@
 /**
  * tint-muscles-textured.mjs
  *
- * Textured PNG tinting pipeline using HSL-based "Color" blend mode.
+ * Textured PNG tinting pipeline with COLOR_THRESHOLD pixel isolation.
  *
- * This script colorizes raw grayscale muscle illustrations while preserving
- * texture and shading detail. The source PNGs are grayscale RGBA (R=G=B)
- * with alpha channel for shape.
+ * SOURCE: MuscleWiki PNGs are full body images with the target muscle
+ * highlighted in orange/red. The rest of the body is grayscale.
+ *
+ * PIXEL ISOLATION: Uses COLOR_THRESHOLD (30) to detect colored pixels:
+ *   colorDiff = |R-G| + |G-B| + |R-B|
+ *   - If colorDiff > 30 and alpha > 10: it's a muscle pixel → apply tinting
+ *   - Otherwise: make transparent (isolates just the muscle region)
  *
  * DEFAULT: "color" blend mode (HSL-based)
  *   - Uses Hue + Saturation from target color
- *   - Preserves Luminance from grayscale source
- *   - Works equally well for dark grays AND bright saturated colors
+ *   - Preserves Luminance from source muscle pixel
  *   - Industry standard for professional colorization
  *
  * Formula: output = hslToRgb(targetH, targetS, sourceLuminance)
@@ -28,7 +31,7 @@
  *   node scripts/tint-muscles-textured.mjs --dry-run            # Preview what would be generated
  *   node scripts/tint-muscles-textured.mjs --colors red,purple  # Specific named colors
  *   node scripts/tint-muscles-textured.mjs --scheme fire-ember  # All 6 tiers from a scheme
- *   node scripts/tint-muscles-textured.mjs --scheme all         # All 9 schemes x 6 tiers
+ *   node scripts/tint-muscles-textured.mjs --scheme all         # All 11 schemes x 6 tiers
  *   node scripts/tint-muscles-textured.mjs --blend multiply     # Use multiply instead of color
  */
 
@@ -48,7 +51,12 @@ const PROJECT_ROOT = join(__dirname, '..');
 
 const TARGET_SIZE = 1024;
 
-// Raw textured source PNGs (grayscale with alpha)
+// Threshold for detecting colored (non-grayscale) pixels
+// colorDiff = |R-G| + |G-B| + |R-B| must exceed this value
+// MuscleWiki highlights muscles in orange/red; background is grayscale (colorDiff ~0)
+const COLOR_THRESHOLD = 30;
+
+// Raw textured source PNGs (full body with colored muscle highlights)
 const RAW_BASE = join(PROJECT_ROOT, 'musclewiki-assets/raw-pngs/Body parts (PNG)/Body parts MALE');
 const OUTPUT_BASE = join(PROJECT_ROOT, 'public/assets/muscles/male');
 
@@ -356,7 +364,7 @@ function hslToRgb(h, s, l) {
 async function tintTextured(rawPath, color, outputPath, blendMode, dryRun) {
   if (dryRun) return;
 
-  const { r, g, b } = hexToRgb(color.hex);
+  const { r: tr, g: tg, b: tb } = hexToRgb(color.hex);
 
   // Read raw textured PNG
   const rawBuf = await sharp(rawPath).raw().toBuffer();
@@ -372,20 +380,38 @@ async function tintTextured(rawPath, color, outputPath, blendMode, dryRun) {
 
   if (blendMode === 'color') {
     // HSL-based Color blend mode: use H,S from target, L from source
-    const { h: targetH, s: targetS } = rgbToHsl(r, g, b);
+    const { h: targetH, s: targetS } = rgbToHsl(tr, tg, tb);
 
     for (let i = 0; i < pixels; i++) {
       const si = i * ch;
       const di = i * 4;
-      const sourceLum = rawBuf[si] / 255; // R channel as luminance (R=G=B)
+
+      // Read source pixel RGB
+      const srcR = rawBuf[si];
+      const srcG = rawBuf[si + 1];
+      const srcB = rawBuf[si + 2];
       const alpha = ch === 4 ? rawBuf[si + 3] : 255;
 
-      // Apply Color blend: target H,S + source L
-      const rgb = hslToRgb(targetH, targetS, sourceLum);
-      out[di] = rgb.r;
-      out[di + 1] = rgb.g;
-      out[di + 2] = rgb.b;
-      out[di + 3] = alpha;
+      // Detect colored (non-grayscale) pixels - these are the muscle highlights
+      const colorDiff = Math.abs(srcR - srcG) + Math.abs(srcG - srcB) + Math.abs(srcR - srcB);
+
+      if (colorDiff > COLOR_THRESHOLD && alpha > 10) {
+        // This is a muscle pixel - calculate luminance and apply tinting
+        const lum = (srcR * 0.299 + srcG * 0.587 + srcB * 0.114) / 255;
+
+        // Apply Color blend: target H,S + source L
+        const rgb = hslToRgb(targetH, targetS, lum);
+        out[di] = rgb.r;
+        out[di + 1] = rgb.g;
+        out[di + 2] = rgb.b;
+        out[di + 3] = alpha;
+      } else {
+        // Not a muscle pixel - make transparent
+        out[di] = 0;
+        out[di + 1] = 0;
+        out[di + 2] = 0;
+        out[di + 3] = 0;
+      }
     }
   } else {
     // Standard per-channel blend modes
@@ -394,13 +420,30 @@ async function tintTextured(rawPath, color, outputPath, blendMode, dryRun) {
     for (let i = 0; i < pixels; i++) {
       const si = i * ch;
       const di = i * 4;
-      const lum = rawBuf[si]; // R channel (R=G=B for grayscale)
+
+      // Read source pixel RGB
+      const srcR = rawBuf[si];
+      const srcG = rawBuf[si + 1];
+      const srcB = rawBuf[si + 2];
       const alpha = ch === 4 ? rawBuf[si + 3] : 255;
 
-      out[di] = blendFn(lum, r);
-      out[di + 1] = blendFn(lum, g);
-      out[di + 2] = blendFn(lum, b);
-      out[di + 3] = alpha;
+      // Detect colored (non-grayscale) pixels
+      const colorDiff = Math.abs(srcR - srcG) + Math.abs(srcG - srcB) + Math.abs(srcR - srcB);
+
+      if (colorDiff > COLOR_THRESHOLD && alpha > 10) {
+        // This is a muscle pixel - apply blend
+        const lum = Math.round(srcR * 0.299 + srcG * 0.587 + srcB * 0.114);
+        out[di] = blendFn(lum, tr);
+        out[di + 1] = blendFn(lum, tg);
+        out[di + 2] = blendFn(lum, tb);
+        out[di + 3] = alpha;
+      } else {
+        // Not a muscle pixel - make transparent
+        out[di] = 0;
+        out[di + 1] = 0;
+        out[di + 2] = 0;
+        out[di + 3] = 0;
+      }
     }
   }
 
