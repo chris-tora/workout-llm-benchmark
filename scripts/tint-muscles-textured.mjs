@@ -101,6 +101,8 @@ const ALL_SCHEME_IDS = [
   'cosmic',
   'monochrome-gold',
   'crimson-purple',
+  'spectrum',     // NEW: Rainbow multi-hue (recommended)
+  'thermal',      // NEW: Cold-to-hot heatmap
   'sunset',
   'ocean-depth',
   'volcanic',

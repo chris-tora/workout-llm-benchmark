@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multi-Muscle Composite - Volcanic Tiers (From Assets)</title>
+  <style>
+    body { background: #1a1a1a; color: #fff; font-family: system-ui; padding: 20px; }
+    h1 { text-align: center; }
+    .subtitle { text-align: center; color: #888; margin-bottom: 30px; }
+    .container { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .view { text-align: center; }
+    .view h2 { margin-bottom: 10px; }
+    .view img { width: 400px; height: 400px; background: #333; border-radius: 12px; }
+    .legend { margin-top: 40px; text-align: center; }
+    .tiers { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+    .tier { display: flex; align-items: center; gap: 8px; }
+    .swatch { width: 20px; height: 20px; border-radius: 4px; border: 1px solid #444; }
+    .muscles { display: flex; gap: 40px; justify-content: center; }
+    .muscle-list { text-align: left; }
+    .muscle-list h3 { margin-bottom: 10px; color: #888; }
+    .muscle { font-size: 12px; color: #aaa; margin: 4px 0; }
+  </style>
+</head>
+<body>
+  <h1>Multi-Muscle Composite - Volcanic Scheme</h1>
+  <p class="subtitle">Using PRE-GENERATED tinted assets - each muscle at different expertise tier</p>
+
+  <div class="container">
+    <div class="view">
+      <h2>Front View</h2>
+      <img src="composite-front-assets.png">
+    </div>
+    <div class="view">
+      <h2>Back View</h2>
+      <img src="composite-back-assets.png">
+    </div>
+  </div>
+
+  <div class="legend">
+    <h3>Tier Legend (Novice → Elite)</h3>
+    <div class="tiers"><div class="tier"><span class="swatch" style="background:#1a1a1a"></span>Ash (novice)</div><div class="tier"><span class="swatch" style="background:#3d2817"></span>Charcoal (beginner)</div><div class="tier"><span class="swatch" style="background:#92400e"></span>Cinder (intermediate)</div><div class="tier"><span class="swatch" style="background:#dc2626"></span>Magma (pro)</div><div class="tier"><span class="swatch" style="background:#ef4444"></span>Lava (advanced)</div><div class="tier"><span class="swatch" style="background:#fca5a5"></span>Molten (elite)</div></div>
+
+    <div class="muscles">
+      <div class="muscle-list">
+        <h3>Front Muscles</h3>
+        <div class="muscle">chest-upper: <span style="color:#fca5a5">elite</span></div><div class="muscle">chest-lower: <span style="color:#ef4444">advanced</span></div><div class="muscle">deltoids-front: <span style="color:#dc2626">pro</span></div><div class="muscle">deltoids-side: <span style="color:#92400e">intermediate</span></div><div class="muscle">biceps-long: <span style="color:#3d2817">beginner</span></div><div class="muscle">rectus-abdominis-upper: <span style="color:#1a1a1a">novice</span></div><div class="muscle">rectus-abdominis-lower: <span style="color:#92400e">intermediate</span></div><div class="muscle">obliques: <span style="color:#dc2626">pro</span></div><div class="muscle">quadriceps: <span style="color:#ef4444">advanced</span></div>
+      </div>
+      <div class="muscle-list">
+        <h3>Back Muscles</h3>
+        <div class="muscle">trapezius: <span style="color:#fca5a5">elite</span></div><div class="muscle">latissimus-dorsi: <span style="color:#ef4444">advanced</span></div><div class="muscle">deltoids-back: <span style="color:#dc2626">pro</span></div><div class="muscle">triceps-upper: <span style="color:#92400e">intermediate</span></div><div class="muscle">triceps-lower: <span style="color:#3d2817">beginner</span></div><div class="muscle">lower-back-copy: <span style="color:#1a1a1a">novice</span></div><div class="muscle">gluteus: <span style="color:#dc2626">pro</span></div><div class="muscle">hamstrings: <span style="color:#ef4444">advanced</span></div><div class="muscle">calves: <span style="color:#92400e">intermediate</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

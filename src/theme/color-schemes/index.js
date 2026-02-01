@@ -12,6 +12,8 @@ import { SUNSET } from './sunset.js'
 import { OCEAN_DEPTH } from './ocean-depth.js'
 import { VOLCANIC } from './volcanic.js'
 import { AURORA } from './aurora.js'
+import { SPECTRUM } from './spectrum.js'
+import { THERMAL } from './thermal.js'
 
 // Registry of all available color schemes
 export const COLOR_SCHEMES = {
@@ -24,6 +26,8 @@ export const COLOR_SCHEMES = {
   'ocean-depth': OCEAN_DEPTH,
   'volcanic': VOLCANIC,
   'aurora': AURORA,
+  'spectrum': SPECTRUM,     // NEW: Rainbow multi-hue (recommended)
+  'thermal': THERMAL,       // NEW: Cold-to-hot heatmap
 }
 
 // Default scheme
@@ -62,4 +66,6 @@ export {
   OCEAN_DEPTH,
   VOLCANIC,
   AURORA,
+  SPECTRUM,
+  THERMAL,
 }

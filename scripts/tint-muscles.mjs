@@ -58,6 +58,8 @@ const ALL_SCHEME_IDS = [
   'ocean-depth',
   'volcanic',
   'aurora',
+  'spectrum',     // NEW: Rainbow multi-hue (recommended)
+  'thermal',      // NEW: Cold-to-hot heatmap
 ];
 
 // ---------------------------------------------------------------------------

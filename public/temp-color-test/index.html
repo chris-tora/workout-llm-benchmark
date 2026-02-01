@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blend Mode Comparison - Volcanic Scheme</title>
+  <style>
+    body { background: #1a1a1a; color: #fff; font-family: system-ui; padding: 20px; }
+    h1 { text-align: center; margin-bottom: 5px; }
+    .subtitle { text-align: center; color: #888; margin-bottom: 30px; }
+    .grid { display: grid; grid-template-columns: 100px repeat(6, 1fr); gap: 10px; margin-bottom: 40px; }
+    .header { font-weight: bold; color: #aaa; text-align: center; padding: 10px 0; }
+    .tier-header { display: flex; flex-direction: column; align-items: center; }
+    .tier-color { width: 30px; height: 30px; border-radius: 4px; margin-bottom: 5px; border: 1px solid #444; }
+    .technique-label { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 14px; color: #888; padding: 10px; }
+    .cell { text-align: center; }
+    .cell img { width: 100%; max-width: 150px; height: auto; border-radius: 8px; background: #333; }
+    .cell p { font-size: 10px; color: #666; margin: 4px 0 0; }
+    .recommended { border: 2px solid gold; }
+    .legend { text-align: center; margin-top: 20px; color: #888; font-size: 12px; }
+    .legend span { color: gold; }
+  </style>
+</head>
+<body>
+  <h1>Blend Mode Comparison - Volcanic Scheme</h1>
+  <p class="subtitle">Testing visibility of expertise tiers (novice → elite) across 4 blend techniques</p>
+
+  <div class="grid">
+    <div class="header"></div>
+    
+    <div class="header tier-header">
+      <div class="tier-color" style="background: #1a1a1a"></div>
+      <div>Ash</div>
+      <div style="font-size: 10px; color: #666">#1a1a1a</div>
+    </div>
+    <div class="header tier-header">
+      <div class="tier-color" style="background: #3d2817"></div>
+      <div>Charcoal</div>
+      <div style="font-size: 10px; color: #666">#3d2817</div>
+    </div>
+    <div class="header tier-header">
+      <div class="tier-color" style="background: #92400e"></div>
+      <div>Cinder</div>
+      <div style="font-size: 10px; color: #666">#92400e</div>
+    </div>
+    <div class="header tier-header">
+      <div class="tier-color" style="background: #dc2626"></div>
+      <div>Magma</div>
+      <div style="font-size: 10px; color: #666">#dc2626</div>
+    </div>
+    <div class="header tier-header">
+      <div class="tier-color" style="background: #ef4444"></div>
+      <div>Lava</div>
+      <div style="font-size: 10px; color: #666">#ef4444</div>
+    </div>
+    <div class="header tier-header">
+      <div class="tier-color" style="background: #fca5a5"></div>
+      <div>Molten</div>
+      <div style="font-size: 10px; color: #666">#fca5a5</div>
+    </div>
+
+    
+    <div class="technique-label">COLOR ⭐</div>
+    
+    <div class="cell">
+      <img src="chest-upper-color-novice.png" class="recommended">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-color-beginner.png" class="recommended">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-color-intermediate.png" class="recommended">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-color-pro.png" class="recommended">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-color-advanced.png" class="recommended">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-color-elite.png" class="recommended">
+    </div>
+    <div class="technique-label">MULTIPLY</div>
+    
+    <div class="cell">
+      <img src="chest-upper-multiply-novice.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-multiply-beginner.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-multiply-intermediate.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-multiply-pro.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-multiply-advanced.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-multiply-elite.png" class="">
+    </div>
+    <div class="technique-label">OVERLAY</div>
+    
+    <div class="cell">
+      <img src="chest-upper-overlay-novice.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-overlay-beginner.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-overlay-intermediate.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-overlay-pro.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-overlay-advanced.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-overlay-elite.png" class="">
+    </div>
+    <div class="technique-label">OVERLAY-MULTIPLY</div>
+    
+    <div class="cell">
+      <img src="chest-upper-overlay-multiply-novice.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-overlay-multiply-beginner.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-overlay-multiply-intermediate.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-overlay-multiply-pro.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-overlay-multiply-advanced.png" class="">
+    </div>
+    <div class="cell">
+      <img src="chest-upper-overlay-multiply-elite.png" class="">
+    </div>
+  </div>
+
+  <div class="legend">
+    <span>⭐ Gold border = COLOR blend mode (recommended)</span><br>
+    Look for: Clear tier progression • Visible texture/shading • No muddy colors
+  </div>
+</body>
+</html>
