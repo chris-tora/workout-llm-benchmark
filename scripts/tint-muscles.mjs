@@ -4,17 +4,15 @@
  * tint-muscles.mjs
  *
  * Generates colored PNG variants from the raw MuscleWiki PNG textures.
+ * THERMAL SCHEME ONLY - simplified for debugging.
  *
- * Each raw PNG includes muscle shading/texture. We preserve that luminance while applying
- * an HSL color blend, producing vibrant colored overlays ready for use in the muscle diagram UI.
+ * KEY: Isolates only the muscle region (colored pixels in the source) and makes
+ * the rest transparent. Uses COLOR_THRESHOLD to detect muscle vs background.
  *
  * Usage:
- *   node scripts/tint-muscles.mjs                          # Generate default red + purple
- *   node scripts/tint-muscles.mjs --dry-run                # Preview what would be generated
- *   node scripts/tint-muscles.mjs --colors red,purple      # Specific named colors
- *   node scripts/tint-muscles.mjs --colors "#FF5500,#00AA33"  # Custom hex colors
- *   node scripts/tint-muscles.mjs --scheme fire-ember      # All 6 tiers from a color scheme
- *   node scripts/tint-muscles.mjs --scheme all             # All 9 schemes x 6 tiers each
+ *   node scripts/tint-muscles.mjs                # Generate all 6 thermal tiers
+ *   node scripts/tint-muscles.mjs --dry-run      # Preview what would be generated
+ *   node scripts/tint-muscles.mjs --tier novice  # Generate only one tier
  */
 
 import sharp from 'sharp';
@@ -32,6 +30,10 @@ const PROJECT_ROOT = join(__dirname, '..');
 // ---------------------------------------------------------------------------
 
 const TARGET_SIZE = 1024;
+
+// Threshold for detecting colored (muscle) pixels vs grayscale (background)
+// Pixels with |R-G| + |G-B| + |R-B| > COLOR_THRESHOLD are considered muscle
+const COLOR_THRESHOLD = 30;
 
 const MASKS_BASE = join(PROJECT_ROOT, 'public/assets/muscles/male/masks');
 const OUTPUT_BASE = join(PROJECT_ROOT, 'public/assets/muscles/male');
@@ -81,28 +83,17 @@ const RAW_FILENAME_MAP = {
   },
 };
 
-// Default named colors (used when no flags are provided, or with --colors red,purple)
-const NAMED_COLORS = {
-  red: '#DC2626',
-  purple: '#7C3AED',
-};
+// ---------------------------------------------------------------------------
+// THERMAL COLOR SCHEME (hardcoded - only scheme supported)
+// ---------------------------------------------------------------------------
 
-const DEFAULT_COLOR_KEYS = ['red', 'purple'];
-
-// All available color scheme IDs (must match files in src/theme/color-schemes/)
-const ALL_SCHEME_IDS = [
-  'fire-ember',
-  'metallic',
-  'cosmic',
-  'monochrome-gold',
-  'crimson-purple',
-  'sunset',
-  'ocean-depth',
-  'volcanic',
-  'aurora',
-  'spectrum',
-  'thermal',
-  'vibrant-rainbow',  // Highly saturated distinct hues (matches reference)
+const THERMAL_TIERS = [
+  { id: 'novice', label: 'Frozen', color: '#3D5A80' },       // Hue 212° - Deep Navy
+  { id: 'beginner', label: 'Cold', color: '#4A90D9' },       // Hue 212° - Ocean Blue
+  { id: 'intermediate', label: 'Cool', color: '#48C9B0' },   // Hue 168° - Cool Cyan
+  { id: 'pro', label: 'Warm', color: '#58D68D' },            // Hue 145° - Fresh Green
+  { id: 'advanced', label: 'Hot', color: '#F4D03F' },        // Hue 50° - Warm Yellow
+  { id: 'elite', label: 'Blazing', color: '#E74C3C' },       // Hue 6° - Hot Red
 ];
 
 // ---------------------------------------------------------------------------
@@ -113,8 +104,7 @@ function parseArgs() {
   const args = process.argv.slice(2);
   const flags = {
     dryRun: false,
-    colors: null,   // array of { name, hex }
-    scheme: null,    // string scheme id or 'all'
+    tier: null,  // null = all tiers, or specific tier id
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -125,33 +115,15 @@ function parseArgs() {
       continue;
     }
 
-    if (arg === '--colors' && args[i + 1]) {
+    if (arg === '--tier' && args[i + 1]) {
       i++;
-      flags.colors = args[i].split(',').map(c => {
-        const trimmed = c.trim();
-        // If it starts with # it's a raw hex -- use it as both name and value
-        if (trimmed.startsWith('#')) {
-          // Derive a filename-safe name from the hex (strip #)
-          return { name: trimmed.slice(1).toLowerCase(), hex: trimmed };
-        }
-        // Otherwise look it up in NAMED_COLORS
-        const hex = NAMED_COLORS[trimmed.toLowerCase()];
-        if (!hex) {
-          console.error(`Unknown color name: "${trimmed}". Known names: ${Object.keys(NAMED_COLORS).join(', ')}`);
-          process.exit(1);
-        }
-        return { name: trimmed.toLowerCase(), hex };
-      });
-      continue;
-    }
-
-    if (arg === '--scheme' && args[i + 1]) {
-      i++;
-      flags.scheme = args[i].trim().toLowerCase();
-      if (flags.scheme !== 'all' && !ALL_SCHEME_IDS.includes(flags.scheme)) {
-        console.error(`Unknown scheme: "${flags.scheme}". Available: ${ALL_SCHEME_IDS.join(', ')}, all`);
+      const tierId = args[i].trim().toLowerCase();
+      const validTier = THERMAL_TIERS.find(t => t.id === tierId);
+      if (!validTier) {
+        console.error(`Unknown tier: "${tierId}". Valid tiers: ${THERMAL_TIERS.map(t => t.id).join(', ')}`);
         process.exit(1);
       }
+      flags.tier = tierId;
       continue;
     }
 
@@ -172,73 +144,24 @@ function printUsage() {
   console.log(`
 Usage: node scripts/tint-muscles.mjs [options]
 
+Generates tinted muscle PNGs using the THERMAL color scheme.
+Isolates muscle regions and makes background transparent.
+
 Options:
-  --dry-run              List what would be generated without writing files
-  --colors <list>        Comma-separated color names or hex values
-                         Names: ${Object.keys(NAMED_COLORS).join(', ')}
-                         Hex:   "#DC2626,#7C3AED"
-  --scheme <id|all>      Generate all tier colors for a scheme (or all schemes)
-                         Schemes: ${ALL_SCHEME_IDS.join(', ')}
-  --help, -h             Show this help
+  --dry-run           List what would be generated without writing files
+  --tier <id>         Generate only a specific tier (default: all 6 tiers)
+                      Tiers: ${THERMAL_TIERS.map(t => t.id).join(', ')}
+  --help, -h          Show this help
 
 Examples:
-  node scripts/tint-muscles.mjs                         # Default: red + purple
-  node scripts/tint-muscles.mjs --colors red             # Only red
-  node scripts/tint-muscles.mjs --colors "#FF5500"       # Custom hex
-  node scripts/tint-muscles.mjs --scheme fire-ember      # 6 tiers from fire-ember
-  node scripts/tint-muscles.mjs --scheme all             # All 9 schemes x 6 tiers
-  node scripts/tint-muscles.mjs --scheme all --dry-run   # Preview scheme generation
+  node scripts/tint-muscles.mjs                  # Generate all 6 thermal tiers
+  node scripts/tint-muscles.mjs --dry-run        # Preview generation
+  node scripts/tint-muscles.mjs --tier elite     # Only generate elite tier
 `);
 }
 
 // ---------------------------------------------------------------------------
-// Color scheme loading
-// ---------------------------------------------------------------------------
-
-async function loadSchemeColors(schemeId) {
-  // Dynamically import the scheme file to extract its levels
-  const schemePath = join(PROJECT_ROOT, 'src/theme/color-schemes', `${schemeId}.js`);
-  const mod = await import(schemePath);
-
-  // Each scheme file exports a default object with a `levels` array
-  const scheme = mod.default || Object.values(mod)[0];
-  if (!scheme?.levels?.length) {
-    throw new Error(`Scheme "${schemeId}" has no levels array`);
-  }
-
-  // Return color entries: name = "schemeId-levelId", hex = level.color
-  return scheme.levels.map(level => ({
-    name: `${schemeId}-${level.id}`,
-    hex: level.color,
-  }));
-}
-
-// ---------------------------------------------------------------------------
-// Color resolution: determine which colors to generate
-// ---------------------------------------------------------------------------
-
-async function resolveColors(flags) {
-  // --scheme takes precedence if provided alongside --colors
-  if (flags.scheme) {
-    const schemeIds = flags.scheme === 'all' ? ALL_SCHEME_IDS : [flags.scheme];
-    const allColors = [];
-    for (const id of schemeIds) {
-      const colors = await loadSchemeColors(id);
-      allColors.push(...colors);
-    }
-    return allColors;
-  }
-
-  if (flags.colors) {
-    return flags.colors;
-  }
-
-  // Default: red + purple
-  return DEFAULT_COLOR_KEYS.map(name => ({ name, hex: NAMED_COLORS[name] }));
-}
-
-// ---------------------------------------------------------------------------
-// Hex parsing
+// Color utilities
 // ---------------------------------------------------------------------------
 
 function hexToRgb(hex) {
@@ -311,45 +234,56 @@ async function getMaskFiles(view) {
 
 // ---------------------------------------------------------------------------
 // Core: tint a single raw muscle texture with a single color
+// ISOLATES muscle region - makes non-muscle pixels transparent
 // ---------------------------------------------------------------------------
 
-async function tintMuscle(rawPath, color, outputPath, dryRun) {
+async function tintMuscle(rawPath, tier, outputPath, dryRun) {
   if (dryRun) return;
 
-  const { r: tr, g: tg, b: tb } = hexToRgb(color.hex);
+  const { r: tr, g: tg, b: tb } = hexToRgb(tier.color);
   const { h: targetH, s: targetS } = rgbToHsl(tr, tg, tb);
 
-  // Read raw buffer directly (no ensureAlpha, no resize yet)
+  // Read raw buffer directly
   const rawBuf = await sharp(rawPath).raw().toBuffer();
   const meta = await sharp(rawPath).metadata();
   const pixels = meta.width * meta.height;
   const ch = meta.channels;
 
-  // Build RGBA buffer using HSL Color blend:
-  // Target H,S + Source L (preserves texture/shading)
+  // Build RGBA buffer
+  // ISOLATE: Only color pixels where color difference > threshold (muscle area)
+  // Make all other pixels transparent
   const rgbaBuffer = Buffer.alloc(pixels * 4);
 
   for (let i = 0; i < pixels; i++) {
     const si = i * ch;
     const di = i * 4;
 
-    // First channel is luminance (raw PNGs are grayscale-based)
-    const sourceLum = rawBuf[si] / 255;
-    const alpha = ch >= 4 ? rawBuf[si + 3] : (ch === 2 ? rawBuf[si + 1] : 255);
+    // Read source RGB
+    const srcR = rawBuf[si];
+    const srcG = ch >= 3 ? rawBuf[si + 1] : srcR;
+    const srcB = ch >= 3 ? rawBuf[si + 2] : srcR;
+    const srcAlpha = ch >= 4 ? rawBuf[si + 3] : (ch === 2 ? rawBuf[si + 1] : 255);
 
-    if (alpha === 0) {
+    // Detect colored (non-grayscale) pixels - these are the muscle highlights
+    const colorDiff = Math.abs(srcR - srcG) + Math.abs(srcG - srcB) + Math.abs(srcR - srcB);
+
+    if (colorDiff > COLOR_THRESHOLD && srcAlpha > 10) {
+      // This is a MUSCLE pixel - apply HSL color blend
+      // Use luminance from source, H+S from target color
+      const lum = (srcR * 0.299 + srcG * 0.587 + srcB * 0.114) / 255;
+      const rgb = hslToRgb(targetH, targetS, lum);
+
+      rgbaBuffer[di] = rgb.r;
+      rgbaBuffer[di + 1] = rgb.g;
+      rgbaBuffer[di + 2] = rgb.b;
+      rgbaBuffer[di + 3] = srcAlpha;
+    } else {
+      // NOT a muscle pixel - make transparent
       rgbaBuffer[di] = 0;
       rgbaBuffer[di + 1] = 0;
       rgbaBuffer[di + 2] = 0;
       rgbaBuffer[di + 3] = 0;
-      continue;
     }
-
-    const rgb = hslToRgb(targetH, targetS, sourceLum);
-    rgbaBuffer[di] = rgb.r;
-    rgbaBuffer[di + 1] = rgb.g;
-    rgbaBuffer[di + 2] = rgb.b;
-    rgbaBuffer[di + 3] = alpha;
   }
 
   // Create output image, resize AFTER processing if needed
@@ -370,11 +304,16 @@ async function tintMuscle(rawPath, color, outputPath, dryRun) {
 
 async function main() {
   const flags = parseArgs();
-  const colors = await resolveColors(flags);
 
-  console.log(`Tint Muscles Generator`);
-  console.log(`  Mode:   ${flags.dryRun ? 'DRY RUN' : 'GENERATE'}`);
-  console.log(`  Colors: ${colors.length} (${colors.map(c => `${c.name}=${c.hex}`).join(', ')})`);
+  // Determine which tiers to generate
+  const tiers = flags.tier
+    ? THERMAL_TIERS.filter(t => t.id === flags.tier)
+    : THERMAL_TIERS;
+
+  console.log(`Tint Muscles - THERMAL SCHEME (with muscle isolation)`);
+  console.log(`  Mode:      ${flags.dryRun ? 'DRY RUN' : 'GENERATE'}`);
+  console.log(`  Threshold: ${COLOR_THRESHOLD} (color diff for muscle detection)`);
+  console.log(`  Tiers:     ${tiers.map(t => `${t.id} (${t.color})`).join(', ')}`);
   console.log('');
 
   let totalGenerated = 0;
@@ -393,7 +332,7 @@ async function main() {
       }
     }
 
-    console.log(`[${view}] ${masks.length} masks`);
+    console.log(`[${view}] ${masks.length} muscles × ${tiers.length} tiers = ${masks.length * tiers.length} files`);
 
     for (const maskFile of masks) {
       const maskName = basename(maskFile, '.png');
@@ -407,18 +346,19 @@ async function main() {
 
       const rawPath = join(RAW_VIEW_DIRS[view], rawFile);
 
-      for (const color of colors) {
-        const outputFile = `${maskName}-${color.name}.png`;
+      for (const tier of tiers) {
+        // Output format: {muscle}-thermal-{tier}.png
+        const outputFile = `${maskName}-thermal-${tier.id}.png`;
         const outputPath = join(outputDir, outputFile);
 
         if (flags.dryRun) {
-          console.log(`  [dry-run] ${view}/${outputFile}  (${color.hex})`);
+          console.log(`  [dry-run] ${view}/${outputFile}  (${tier.color})`);
           totalGenerated++;
           continue;
         }
 
         try {
-          await tintMuscle(rawPath, color, outputPath, false);
+          await tintMuscle(rawPath, tier, outputPath, false);
           totalGenerated++;
         } catch (err) {
           console.error(`  [ERROR] ${view}/${outputFile}: ${err.message}`);
@@ -428,7 +368,7 @@ async function main() {
     }
 
     if (!flags.dryRun) {
-      console.log(`  Generated ${masks.length * colors.length} files in ${view}/`);
+      console.log(`  ✓ Generated ${masks.length * tiers.length} files`);
     }
   }
 

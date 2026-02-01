@@ -3,33 +3,36 @@
  * All muscle level tier color schemes for the fitness app
  */
 
-import { FIRE_EMBER } from './fire-ember.js'
-import { METALLIC } from './metallic.js'
-import { COSMIC } from './cosmic.js'
-import { MONOCHROME_GOLD } from './monochrome-gold.js'
-import { CRIMSON_PURPLE } from './crimson-purple.js'
-import { SUNSET } from './sunset.js'
-import { OCEAN_DEPTH } from './ocean-depth.js'
-import { VOLCANIC } from './volcanic.js'
-import { AURORA } from './aurora.js'
-import { SPECTRUM } from './spectrum.js'
 import { THERMAL } from './thermal.js'
-import { VIBRANT_RAINBOW } from './vibrant-rainbow.js'
+
+// Archived schemes (uncomment to restore)
+// import { FIRE_EMBER } from './fire-ember.js'
+// import { METALLIC } from './metallic.js'
+// import { COSMIC } from './cosmic.js'
+// import { MONOCHROME_GOLD } from './monochrome-gold.js'
+// import { CRIMSON_PURPLE } from './crimson-purple.js'
+// import { SUNSET } from './sunset.js'
+// import { OCEAN_DEPTH } from './ocean-depth.js'
+// import { VOLCANIC } from './volcanic.js'
+// import { AURORA } from './aurora.js'
+// import { SPECTRUM } from './spectrum.js'
+// import { VIBRANT_RAINBOW } from './vibrant-rainbow.js'
 
 // Registry of all available color schemes
 export const COLOR_SCHEMES = {
-  'fire-ember': FIRE_EMBER,
-  'metallic': METALLIC,
-  'cosmic': COSMIC,
-  'monochrome-gold': MONOCHROME_GOLD,
-  'crimson-purple': CRIMSON_PURPLE,
-  'sunset': SUNSET,
-  'ocean-depth': OCEAN_DEPTH,
-  'volcanic': VOLCANIC,
-  'aurora': AURORA,
-  'spectrum': SPECTRUM,        // NEW: Rainbow multi-hue (recommended)
-  'thermal': THERMAL,          // NEW: Cold-to-hot heatmap
-  'vibrant-rainbow': VIBRANT_RAINBOW,  // NEW: Highly saturated distinct hues
+  'thermal': THERMAL,
+  // Archived:
+  // 'fire-ember': FIRE_EMBER,
+  // 'metallic': METALLIC,
+  // 'cosmic': COSMIC,
+  // 'monochrome-gold': MONOCHROME_GOLD,
+  // 'crimson-purple': CRIMSON_PURPLE,
+  // 'sunset': SUNSET,
+  // 'ocean-depth': OCEAN_DEPTH,
+  // 'volcanic': VOLCANIC,
+  // 'aurora': AURORA,
+  // 'spectrum': SPECTRUM,
+  // 'vibrant-rainbow': VIBRANT_RAINBOW,
 }
 
 // Default scheme
@@ -59,16 +62,17 @@ export function schemeLevelsToColors(scheme, muscleLevels) {
 
 // Export individual schemes
 export {
-  FIRE_EMBER,
-  METALLIC,
-  COSMIC,
-  MONOCHROME_GOLD,
-  CRIMSON_PURPLE,
-  SUNSET,
-  OCEAN_DEPTH,
-  VOLCANIC,
-  AURORA,
-  SPECTRUM,
   THERMAL,
-  VIBRANT_RAINBOW,
+  // Archived:
+  // FIRE_EMBER,
+  // METALLIC,
+  // COSMIC,
+  // MONOCHROME_GOLD,
+  // CRIMSON_PURPLE,
+  // SUNSET,
+  // OCEAN_DEPTH,
+  // VOLCANIC,
+  // AURORA,
+  // SPECTRUM,
+  // VIBRANT_RAINBOW,
 }

@@ -30,7 +30,8 @@ const DEFAULT_MUSCLE_LEVELS = {
   'traps': 4,
   // Elite (5)
   'glutes': 5,
-  'abdominals': 5,
+  'abs-upper': 5,
+  'abs-lower': 4,  // Different tier for visual distinction
   'lowerback': 5,
 }
 
