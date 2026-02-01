@@ -219,18 +219,20 @@ function BodyPanel({
           const overlayClasses = [
             'absolute inset-0 w-full h-full pointer-events-none',
             'transition-[filter] duration-200 ease-out',
-            // Subtle dark outline to distinguish muscle regions
-            'drop-shadow-[0_0_1px_rgba(0,0,0,0.4)]',
           ]
 
           // Build dynamic styles for hover/selection effects
-          const overlayStyle = {}
+          // Base outline: multiple stacked drop-shadows for visible stroke effect
+          const baseOutline = 'drop-shadow(1px 0 0 rgba(0,0,0,0.6)) drop-shadow(-1px 0 0 rgba(0,0,0,0.6)) drop-shadow(0 1px 0 rgba(0,0,0,0.6)) drop-shadow(0 -1px 0 rgba(0,0,0,0.6))'
+          const overlayStyle = {
+            filter: baseOutline,
+          }
 
           if (interactive) {
             if (isSelected) {
-              overlayStyle.filter = 'brightness(1.2) drop-shadow(0 0 1px rgba(0,0,0,0.5)) drop-shadow(0 0 8px rgba(59, 130, 246, 0.8))'
+              overlayStyle.filter = `brightness(1.2) ${baseOutline} drop-shadow(0 0 8px rgba(59, 130, 246, 0.8))`
             } else if (isHovered) {
-              overlayStyle.filter = 'brightness(1.15) drop-shadow(0 0 1px rgba(0,0,0,0.5)) drop-shadow(0 0 4px rgba(59, 130, 246, 0.5))'
+              overlayStyle.filter = `brightness(1.15) ${baseOutline} drop-shadow(0 0 4px rgba(59, 130, 246, 0.5))`
             }
           }
 
