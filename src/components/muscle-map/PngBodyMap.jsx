@@ -15,6 +15,14 @@ const SHINE_ANIMATION_CSS = `
       transform: translateY(150%);
     }
   }
+  @keyframes musclePulse {
+    0%, 100% {
+      filter: brightness(1.0) drop-shadow(1px 0 0 rgba(0,0,0,0.6)) drop-shadow(-1px 0 0 rgba(0,0,0,0.6)) drop-shadow(0 1px 0 rgba(0,0,0,0.6)) drop-shadow(0 -1px 0 rgba(0,0,0,0.6));
+    }
+    50% {
+      filter: brightness(1.05) drop-shadow(1px 0 0 rgba(0,0,0,0.6)) drop-shadow(-1px 0 0 rgba(0,0,0,0.6)) drop-shadow(0 1px 0 rgba(0,0,0,0.6)) drop-shadow(0 -1px 0 rgba(0,0,0,0.6));
+    }
+  }
 `
 
 const SIZE_CLASSES = {
@@ -210,7 +218,7 @@ function BodyPanel({
         />
         {/* Muscle overlays container */}
         <div className="absolute inset-0 z-10">
-        {layers.map(({ slug, color, path }) => {
+        {layers.map(({ slug, color, path }, index) => {
           const isSelected = selectedSlug === slug
           const isHovered = hoveredSlug === slug
 
@@ -234,6 +242,11 @@ function BodyPanel({
             } else if (isHovered) {
               overlayStyle.filter = `brightness(1.15) ${baseOutline} drop-shadow(0 0 4px rgba(59, 130, 246, 0.5))`
             }
+          } else if (shineEnabled) {
+            // Subtle per-muscle pulse when shine is enabled (non-interactive mode)
+            // Stagger animation delays based on muscle index for visual interest
+            const delay = (index * 0.15) % 3
+            overlayStyle.animation = `musclePulse 3s ease-in-out ${delay}s infinite`
           }
 
           return (
