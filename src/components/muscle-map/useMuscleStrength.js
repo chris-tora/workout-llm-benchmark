@@ -14,6 +14,7 @@ const DEFAULT_MUSCLE_LEVELS = {
   // Beginner (1)
   'forearms': 1,
   'calves': 1,
+  'hip-adductors': 1,
   // Intermediate (2)
   'biceps': 2,
   'triceps': 2,

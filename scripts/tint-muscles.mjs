@@ -3,11 +3,10 @@
 /**
  * tint-muscles.mjs
  *
- * Generates colored PNG variants from grayscale alpha mask PNGs.
+ * Generates colored PNG variants from the raw MuscleWiki PNG textures.
  *
- * Each mask is a 1-bit grayscale PNG (1024x1024, except lower-back-copy at 732x732).
- * For each mask, we create a solid-color image and composite the mask as the alpha channel,
- * producing a colored overlay ready for use in the muscle diagram UI.
+ * Each raw PNG includes muscle shading/texture. We preserve that luminance while applying
+ * an HSL color blend, producing vibrant colored overlays ready for use in the muscle diagram UI.
  *
  * Usage:
  *   node scripts/tint-muscles.mjs                          # Generate default red + purple
@@ -36,8 +35,51 @@ const TARGET_SIZE = 1024;
 
 const MASKS_BASE = join(PROJECT_ROOT, 'public/assets/muscles/male/masks');
 const OUTPUT_BASE = join(PROJECT_ROOT, 'public/assets/muscles/male');
+const RAW_BASE = join(
+  PROJECT_ROOT,
+  'musclewiki-assets',
+  'raw-pngs',
+  'Body parts (PNG)',
+  'Body parts MALE'
+);
 
 const VIEWS = ['front', 'back'];
+
+const RAW_VIEW_DIRS = {
+  front: join(RAW_BASE, 'Front body MALE'),
+  back: join(RAW_BASE, 'Back body MALE'),
+};
+
+const RAW_FILENAME_MAP = {
+  front: {
+    'biceps-long': 'Biceps-LONG_.png',
+    'chest-lower': 'Chest-LOWER_.png',
+    'chest-upper': 'Chest-UPPER_.png',
+    'deltoids-front': 'Deltoids-FRONT_.png',
+    'deltoids-side': 'Deltoids-SIDE_.png',
+    'hip-adductors': 'Hip-Adductors_.png',
+    'obliques': 'Obliques_.png',
+    'quadriceps': 'Quadriceps_.png',
+    'rectus-abdominis-lower': 'Rectus-Abdominis-LOWER_.png',
+    'rectus-abdominis-upper': 'Rectus-Abdominis-UPPER_.png',
+    'wrist-extensors': 'Wrist-extensors_.png',
+  },
+  back: {
+    'biceps-lower': 'Biceps_LOWER.png',
+    'calves': 'Calves.png',
+    'deltoids-back': 'Deltoids-BACK.png',
+    'gluteus': 'Gluteus.png',
+    'hamstrings': 'Hamstrings.png',
+    'hip-adductors': 'Hip-Adductors.png',
+    'latissimus-dorsi': 'Latissimus-Dorsi.png',
+    'lower-back-copy': 'lower-back copy.png',
+    'trapezius': 'Trapezius.png',
+    'triceps-lower': 'Triceps-LOWER_.png',
+    'triceps-outer': 'Triceps-OUTER_.png',
+    'triceps-upper': 'Triceps-UPPER.png',
+    'wrist-flexors': 'Wrist-Flexors_.png',
+  },
+};
 
 // Default named colors (used when no flags are provided, or with --colors red,purple)
 const NAMED_COLORS = {
@@ -267,64 +309,68 @@ async function getMaskFiles(view) {
 }
 
 // ---------------------------------------------------------------------------
-// Core: tint a single mask with a single color
+// Core: tint a single raw muscle texture with a single color
 // ---------------------------------------------------------------------------
 
-async function tintMask(maskPath, color, outputPath, dryRun) {
+async function tintMuscle(rawPath, color, outputPath, dryRun) {
   if (dryRun) return;
 
   const { r: tr, g: tg, b: tb } = hexToRgb(color.hex);
   const { h: targetH, s: targetS } = rgbToHsl(tr, tg, tb);
 
-  // Read the mask as grayscale - the value represents luminance/shading
-  const metadata = await sharp(maskPath).metadata();
+  const metadata = await sharp(rawPath).metadata();
   const needsResize = metadata.width !== TARGET_SIZE || metadata.height !== TARGET_SIZE;
 
-  let maskBuffer;
+  let rawImage = sharp(rawPath);
   if (needsResize) {
-    maskBuffer = await sharp(maskPath)
-      .resize(TARGET_SIZE, TARGET_SIZE, { kernel: sharp.kernel.lanczos3 })
-      .greyscale()
-      .raw()
-      .toBuffer();
-  } else {
-    maskBuffer = await sharp(maskPath)
-      .greyscale()
-      .raw()
-      .toBuffer();
+    rawImage = rawImage.resize(TARGET_SIZE, TARGET_SIZE, { kernel: sharp.kernel.lanczos3 });
   }
+
+  const { data: rawBuffer, info } = await rawImage
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
 
   // Build RGBA buffer using HSL Color blend:
   // Target H,S + Source L (preserves texture/shading)
-  const pixelCount = TARGET_SIZE * TARGET_SIZE;
+  const pixelCount = info.width * info.height;
   const rgbaBuffer = Buffer.alloc(pixelCount * 4);
 
   for (let i = 0; i < pixelCount; i++) {
-    const gray = maskBuffer[i];
     const offset = i * 4;
+    const sourceOffset = i * info.channels;
 
-    if (gray > 0) {
-      // Boost luminance to 0.35-0.85 range for vivid colors
-      // Raw mask values are often low (dark grays), this makes colors visible
-      const normalizedGray = gray / 255;
-      const lum = 0.35 + normalizedGray * 0.50;
-      // Apply HSL color blend: target H,S + boosted L
-      const rgb = hslToRgb(targetH, targetS, lum);
-      rgbaBuffer[offset] = rgb.r;
-      rgbaBuffer[offset + 1] = rgb.g;
-      rgbaBuffer[offset + 2] = rgb.b;
-      rgbaBuffer[offset + 3] = gray; // Use grayscale as alpha too
+    let lum;
+    let alpha;
+
+    if (info.channels === 2) {
+      lum = rawBuffer[sourceOffset] / 255;
+      alpha = rawBuffer[sourceOffset + 1];
     } else {
-      // Fully transparent
+      const r = rawBuffer[sourceOffset];
+      const g = rawBuffer[sourceOffset + 1];
+      const b = rawBuffer[sourceOffset + 2];
+      lum = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+      alpha = info.channels === 4 ? rawBuffer[sourceOffset + 3] : 255;
+    }
+
+    if (alpha === 0) {
       rgbaBuffer[offset] = 0;
       rgbaBuffer[offset + 1] = 0;
       rgbaBuffer[offset + 2] = 0;
       rgbaBuffer[offset + 3] = 0;
+      continue;
     }
+
+    const rgb = hslToRgb(targetH, targetS, lum);
+    rgbaBuffer[offset] = rgb.r;
+    rgbaBuffer[offset + 1] = rgb.g;
+    rgbaBuffer[offset + 2] = rgb.b;
+    rgbaBuffer[offset + 3] = alpha;
   }
 
   await sharp(rgbaBuffer, {
-    raw: { width: TARGET_SIZE, height: TARGET_SIZE, channels: 4 },
+    raw: { width: info.width, height: info.height, channels: 4 },
   })
     .png()
     .toFile(outputPath);
@@ -363,7 +409,15 @@ async function main() {
 
     for (const maskFile of masks) {
       const maskName = basename(maskFile, '.png');
-      const maskPath = join(MASKS_BASE, view, maskFile);
+      const rawFile = RAW_FILENAME_MAP[view]?.[maskName];
+
+      if (!rawFile) {
+        console.error(`  [ERROR] No raw PNG mapping for ${view}/${maskFile}`);
+        totalSkipped++;
+        continue;
+      }
+
+      const rawPath = join(RAW_VIEW_DIRS[view], rawFile);
 
       for (const color of colors) {
         const outputFile = `${maskName}-${color.name}.png`;
@@ -376,7 +430,7 @@ async function main() {
         }
 
         try {
-          await tintMask(maskPath, color, outputPath, false);
+          await tintMuscle(rawPath, color, outputPath, false);
           totalGenerated++;
         } catch (err) {
           console.error(`  [ERROR] ${view}/${outputFile}: ${err.message}`);
