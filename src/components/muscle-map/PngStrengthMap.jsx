@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { PngBodyMap } from './PngBodyMap'
+import { LevelPickerModal } from './LevelPickerModal'
 import { useMuscleStrength } from './useMuscleStrength'
 import { Legend } from './Legend'
 import { getAllSchemes, getColorScheme, DEFAULT_SCHEME } from '../../theme/color-schemes/index.js'
@@ -29,6 +30,39 @@ const SVG_TO_PNG_MAP = {
   'rear-shoulders':  { front: [],                                                back: ['deltoids-back'] },
   'lowerback':       { front: [],                                                back: ['lower-back-copy'] },
   'hip-adductors':   { front: ['hip-adductors'],                                 back: ['hip-adductors'] },
+}
+
+/**
+ * Reverse mapping: PNG slug -> SVG muscle ID
+ * Used to map clicks on PNG overlays back to muscle IDs for the modal.
+ */
+const PNG_SLUG_TO_MUSCLE_ID = {}
+for (const [muscleId, { front, back }] of Object.entries(SVG_TO_PNG_MAP)) {
+  for (const slug of [...front, ...back]) {
+    PNG_SLUG_TO_MUSCLE_ID[slug] = muscleId
+  }
+}
+
+/**
+ * Human-readable muscle names for display in the modal.
+ */
+const MUSCLE_NAMES = {
+  'calves': 'Calves',
+  'quads': 'Quadriceps',
+  'abdominals': 'Abdominals',
+  'obliques': 'Obliques',
+  'forearms': 'Forearms',
+  'biceps': 'Biceps',
+  'front-shoulders': 'Front Delts',
+  'chest': 'Chest',
+  'traps': 'Traps',
+  'hamstrings': 'Hamstrings',
+  'glutes': 'Glutes',
+  'triceps': 'Triceps',
+  'lats': 'Lats',
+  'lowerback': 'Lower Back',
+  'rear-shoulders': 'Rear Delts',
+  'hip-adductors': 'Hip Adductors',
 }
 
 /**
@@ -67,6 +101,7 @@ function buildLayers(muscleLevels, scheme) {
  *
  * Renders a PngBodyMap with colored overlays driven by useMuscleStrength data.
  * Includes a scheme selector dropdown and tier legend.
+ * Supports interactive muscle selection via click.
  *
  * @param {object} props
  * @param {Record<string, number>} [props.muscleLevels] - External muscle levels (overrides hook)
@@ -80,9 +115,10 @@ export function PngStrengthMap({
   size = 'md',
   className = '',
 }) {
-  const { muscleLevels: hookLevels, loading } = useMuscleStrength()
+  const { muscleLevels: hookLevels, loading, setMuscleLevel } = useMuscleStrength()
   const [selectedSchemeId, setSelectedSchemeId] = useState(lockedSchemeId || DEFAULT_SCHEME)
   const [schemeDropdownOpen, setSchemeDropdownOpen] = useState(false)
+  const [selectedMuscleId, setSelectedMuscleId] = useState(null)
 
   const allSchemes = getAllSchemes()
   const currentScheme = getColorScheme(selectedSchemeId)
@@ -93,13 +129,33 @@ export function PngStrengthMap({
     [muscleLevels, currentScheme]
   )
 
+  /**
+   * Handle click on a PNG muscle overlay.
+   * Maps the PNG slug to its SVG muscle ID and opens the modal.
+   * @param {string} slug - The PNG overlay slug (e.g., 'chest-upper')
+   * @param {string} view - 'front' or 'back' (unused, but passed by PngBodyMap)
+   */
+  const handleMuscleClick = (slug, view) => {
+    const muscleId = PNG_SLUG_TO_MUSCLE_ID[slug]
+    if (muscleId) {
+      setSelectedMuscleId(muscleId)
+    }
+  }
+
+  /**
+   * Handle level selection from the modal.
+   */
+  const handleLevelSelect = (muscleId, levelIdx) => {
+    setMuscleLevel(muscleId, levelIdx)
+  }
+
   return (
     <div className={`space-y-6 ${className}`}>
       {/* Header */}
       <div className="text-center">
         <h2 className="text-2xl font-bold text-zinc-900">Strength Map (PNG)</h2>
         <p className="text-zinc-500 mt-1">
-          PNG-layered body map colored by muscle strength tier.
+          Click muscles to set strength level. PNG-layered body map.
         </p>
       </div>
 
@@ -165,11 +221,26 @@ export function PngStrengthMap({
         </div>
       )}
 
-      {/* Body map */}
-      <PngBodyMap layers={layers} size={size} />
+      {/* Body map - interactive */}
+      <PngBodyMap
+        layers={layers}
+        size={size}
+        interactive={true}
+        onMuscleClick={handleMuscleClick}
+      />
 
       {/* Legend */}
       <Legend levels={currentScheme.levels} />
+
+      {/* Level Picker Modal */}
+      <LevelPickerModal
+        muscleId={selectedMuscleId}
+        muscleName={MUSCLE_NAMES[selectedMuscleId] || selectedMuscleId}
+        currentLevel={muscleLevels[selectedMuscleId] ?? null}
+        onSelect={handleLevelSelect}
+        onClose={() => setSelectedMuscleId(null)}
+        levels={currentScheme.levels}
+      />
     </div>
   )
 }

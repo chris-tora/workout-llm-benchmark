@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import {
   getMuscleOverlays,
   slugToPath,
@@ -39,7 +39,18 @@ function splitLayersByView(layers, base) {
 /**
  * Single body panel (front or back) with base image and overlay layers.
  */
-function BodyPanel({ view, layers, base, showLabel, sizeClass }) {
+function BodyPanel({
+  view,
+  layers,
+  base,
+  showLabel,
+  sizeClass,
+  interactive = false,
+  selectedSlug,
+  hoveredSlug,
+  onMuscleClick,
+  onMuscleHover,
+}) {
   const baseSrc = getBasePath(view, base)
 
   return (
@@ -56,15 +67,61 @@ function BodyPanel({ view, layers, base, showLabel, sizeClass }) {
           className="w-full h-auto block"
           draggable={false}
         />
-        {layers.map(({ slug, color, path }) => (
-          <img
-            key={`${slug}-${color}`}
-            src={path}
-            alt=""
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            draggable={false}
-          />
-        ))}
+        {layers.map(({ slug, color, path }) => {
+          const isSelected = selectedSlug === slug
+          const isHovered = hoveredSlug === slug
+
+          // Build dynamic classes for interactivity
+          const overlayClasses = [
+            'absolute inset-0 w-full h-full',
+            'transition-all duration-200 ease-out',
+          ]
+
+          if (interactive) {
+            overlayClasses.push('cursor-pointer')
+          } else {
+            overlayClasses.push('pointer-events-none')
+          }
+
+          // Build dynamic styles for hover/selection effects
+          const overlayStyle = {}
+
+          if (interactive) {
+            if (isSelected) {
+              // Selected state: brighter with drop shadow glow
+              overlayStyle.filter = 'brightness(1.2) drop-shadow(0 0 8px rgba(59, 130, 246, 0.8))'
+            } else if (isHovered) {
+              // Hover state: slight brightness boost with subtle glow
+              overlayStyle.filter = 'brightness(1.15) drop-shadow(0 0 4px rgba(59, 130, 246, 0.5))'
+            }
+          }
+
+          return (
+            <img
+              key={`${slug}-${color}`}
+              src={path}
+              alt=""
+              className={overlayClasses.join(' ')}
+              style={overlayStyle}
+              draggable={false}
+              onClick={
+                interactive && onMuscleClick
+                  ? () => onMuscleClick(slug, view)
+                  : undefined
+              }
+              onMouseEnter={
+                interactive && onMuscleHover
+                  ? () => onMuscleHover(slug)
+                  : undefined
+              }
+              onMouseLeave={
+                interactive && onMuscleHover
+                  ? () => onMuscleHover(null)
+                  : undefined
+              }
+            />
+          )
+        })}
       </div>
     </div>
   )
@@ -82,6 +139,14 @@ function BodyPanel({ view, layers, base, showLabel, sizeClass }) {
  * 2. Exercise target shorthand (uses getMuscleOverlays from the canonical mapping):
  *    <PngBodyMap target="pectorals" secondaryMuscles={['delts', 'triceps']} />
  *
+ * Interactive mode (optional):
+ *    <PngBodyMap
+ *      layers={[...]}
+ *      interactive
+ *      selectedSlug="chest-upper"
+ *      onMuscleClick={(slug, view) => console.log(slug, view)}
+ *    />
+ *
  * @param {object} props
  * @param {Array<{slug: string, view: 'front'|'back', color: string}>} [props.layers]
  * @param {string} [props.target]
@@ -90,6 +155,9 @@ function BodyPanel({ view, layers, base, showLabel, sizeClass }) {
  * @param {'sm'|'md'|'lg'} [props.size='md']
  * @param {boolean} [props.showLabels=true]
  * @param {string} [props.basePath='/assets/muscles/male']
+ * @param {boolean} [props.interactive=false] - Enable click/hover interactions
+ * @param {string} [props.selectedSlug] - Slug of the currently selected muscle (highlighted)
+ * @param {(slug: string, view: 'front'|'back') => void} [props.onMuscleClick] - Callback when muscle is clicked
  */
 export function PngBodyMap({
   layers,
@@ -99,7 +167,12 @@ export function PngBodyMap({
   size = 'md',
   showLabels = true,
   basePath: base = DEFAULT_BASE_PATH,
+  interactive = false,
+  selectedSlug,
+  onMuscleClick,
 }) {
+  const [hoveredSlug, setHoveredSlug] = useState(null)
+
   const { front, back } = useMemo(() => {
     // Mode 1: explicit layers prop
     if (layers) {
@@ -125,6 +198,11 @@ export function PngBodyMap({
         base={base}
         showLabel={showLabels}
         sizeClass={sizeClass}
+        interactive={interactive}
+        selectedSlug={selectedSlug}
+        hoveredSlug={hoveredSlug}
+        onMuscleClick={onMuscleClick}
+        onMuscleHover={interactive ? setHoveredSlug : undefined}
       />
       <BodyPanel
         view="back"
@@ -132,6 +210,11 @@ export function PngBodyMap({
         base={base}
         showLabel={showLabels}
         sizeClass={sizeClass}
+        interactive={interactive}
+        selectedSlug={selectedSlug}
+        hoveredSlug={hoveredSlug}
+        onMuscleClick={onMuscleClick}
+        onMuscleHover={interactive ? setHoveredSlug : undefined}
       />
     </div>
   )
