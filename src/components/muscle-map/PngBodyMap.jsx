@@ -218,7 +218,7 @@ function BodyPanel({
         />
         {/* Muscle overlays container */}
         <div className="absolute inset-0 z-10">
-        {layers.map(({ slug, color, path }, index) => {
+        {layers.map(({ slug, color, path, isUnset }, index) => {
           const isSelected = selectedSlug === slug
           const isHovered = hoveredSlug === slug
 
@@ -226,21 +226,30 @@ function BodyPanel({
           // Only transition filter for hover effects, not the image itself
           const overlayClasses = [
             'absolute inset-0 w-full h-full pointer-events-none',
-            'transition-[filter] duration-200 ease-out',
+            'transition-[filter,opacity] duration-200 ease-out',
           ]
 
           // Build dynamic styles for hover/selection effects
           // Base outline: multiple stacked drop-shadows for visible stroke effect
           const baseOutline = 'drop-shadow(1px 0 0 rgba(0,0,0,0.6)) drop-shadow(-1px 0 0 rgba(0,0,0,0.6)) drop-shadow(0 1px 0 rgba(0,0,0,0.6)) drop-shadow(0 -1px 0 rgba(0,0,0,0.6))'
+          // Lighter outline for unset muscles
+          const unsetOutline = 'drop-shadow(1px 0 0 rgba(0,0,0,0.3)) drop-shadow(-1px 0 0 rgba(0,0,0,0.3)) drop-shadow(0 1px 0 rgba(0,0,0,0.3)) drop-shadow(0 -1px 0 rgba(0,0,0,0.3))'
+
           const overlayStyle = {
-            filter: baseOutline,
+            filter: isUnset ? `grayscale(1) brightness(1.3) ${unsetOutline}` : baseOutline,
+            opacity: isUnset ? 0.4 : 1,
           }
 
           if (interactive) {
             if (isSelected) {
               overlayStyle.filter = `brightness(1.2) ${baseOutline} drop-shadow(0 0 8px rgba(59, 130, 246, 0.8))`
+              overlayStyle.opacity = 1
             } else if (isHovered) {
-              overlayStyle.filter = `brightness(1.15) ${baseOutline} drop-shadow(0 0 4px rgba(59, 130, 246, 0.5))`
+              // Brighten unset muscles on hover to show they're clickable
+              overlayStyle.filter = isUnset
+                ? `grayscale(0.5) brightness(1.1) ${unsetOutline} drop-shadow(0 0 4px rgba(59, 130, 246, 0.5))`
+                : `brightness(1.15) ${baseOutline} drop-shadow(0 0 4px rgba(59, 130, 246, 0.5))`
+              overlayStyle.opacity = isUnset ? 0.7 : 1
             }
           } else if (shineEnabled) {
             // Subtle per-muscle pulse when shine is enabled (non-interactive mode)

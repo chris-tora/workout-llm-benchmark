@@ -70,35 +70,41 @@ const MUSCLE_NAMES = {
 /**
  * Build the flat layers array for PngBodyMap from muscleLevels + scheme.
  *
- * @param {Record<string, number|string>} muscleLevels - SVG muscle ID -> level index (0-5) or tier name
+ * @param {Record<string, number|string|null>} muscleLevels - SVG muscle ID -> level index (0-5), tier name, or null
  * @param {object} scheme - Color scheme object with .id and .levels[]
- * @returns {Array<{slug: string, view: 'front'|'back', color: string}>}
+ * @returns {Array<{slug: string, view: 'front'|'back', color: string, isUnset?: boolean}>}
  */
 function buildLayers(muscleLevels, scheme) {
   const layers = []
 
-  for (const [muscleId, levelValue] of Object.entries(muscleLevels)) {
-    const mapping = SVG_TO_PNG_MAP[muscleId]
-    if (!mapping) continue
+  // Include ALL muscles from SVG_TO_PNG_MAP so they're always clickable
+  for (const [muscleId, mapping] of Object.entries(SVG_TO_PNG_MAP)) {
+    const levelValue = muscleLevels[muscleId]
 
-    // Handle both numeric indices (0-5) and string tier names ("novice", "pro", etc.)
-    let levelData
+    // Determine if muscle has a level set
+    let levelData = null
+    let isUnset = false
+
     if (typeof levelValue === 'number') {
       levelData = scheme.levels[levelValue]
     } else if (typeof levelValue === 'string') {
-      // Find by tier ID (e.g., "novice", "beginner", "intermediate", "pro", "advanced", "elite")
       levelData = scheme.levels.find(l => l.id === levelValue.toLowerCase())
     }
-    if (!levelData) continue
 
-    // color = "{schemeId}-{tierId}" e.g. "fire-ember-pro"
+    // If no level set, use lowest tier but mark as unset
+    if (!levelData) {
+      levelData = scheme.levels[0] // Use novice/lowest tier
+      isUnset = true
+    }
+
+    // color = "{schemeId}-{tierId}" e.g. "thermal-novice"
     const color = `${scheme.id}-${levelData.id}`
 
     for (const slug of mapping.front) {
-      layers.push({ slug, view: 'front', color })
+      layers.push({ slug, view: 'front', color, isUnset })
     }
     for (const slug of mapping.back) {
-      layers.push({ slug, view: 'back', color })
+      layers.push({ slug, view: 'back', color, isUnset })
     }
   }
 
