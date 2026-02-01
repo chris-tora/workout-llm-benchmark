@@ -5,14 +5,14 @@ import {
   basePath as getBasePath,
 } from '../../constants/muscle-to-png-mapping'
 
-// Subtle pulse glow animation - signals muscles are interactive
+// Global shine animation styles - add to your global CSS or keep here
 const SHINE_ANIMATION_CSS = `
-  @keyframes musclePulse {
-    0%, 100% {
-      filter: var(--base-filter) brightness(1);
+  @keyframes muscleShineSweep {
+    0% {
+      transform: translateY(-150%);
     }
-    50% {
-      filter: var(--base-filter) brightness(1.1) drop-shadow(0 0 4px rgba(59, 130, 246, 0.4));
+    100% {
+      transform: translateY(150%);
     }
   }
 `
@@ -69,6 +69,44 @@ function getPixelAlpha(img, x, y) {
 
   const pixel = ctx.getImageData(imgX, imgY, 1, 1).data
   return pixel[3] // alpha channel
+}
+
+/**
+ * Shine overlay component - renders the sweeping shimmer effect
+ */
+function ShineOverlay({ enabled, className = '' }) {
+  if (!enabled) return null
+
+  return (
+    <>
+      <style>{SHINE_ANIMATION_CSS}</style>
+      <div
+        className={`pointer-events-none absolute inset-0 z-20 overflow-hidden ${className}`}
+        aria-hidden="true"
+      >
+        <div
+          className="absolute inset-0 w-full h-[200%]"
+          style={{
+            background: `
+              linear-gradient(
+                180deg,
+                transparent 0%,
+                transparent 40%,
+                rgba(255, 255, 255, 0.15) 47%,
+                rgba(255, 255, 255, 0.35) 50%,
+                rgba(255, 255, 255, 0.15) 53%,
+                transparent 60%,
+                transparent 100%
+              )
+            `,
+            animation: 'muscleShineSweep 6s ease-in-out infinite',
+            mixBlendMode: 'overlay',
+            willChange: 'transform',
+          }}
+        />
+      </div>
+    </>
+  )
 }
 
 /**
@@ -162,7 +200,8 @@ function BodyPanel({
         onMouseMove={handleContainerMouseMove}
         onMouseLeave={handleContainerMouseLeave}
       >
-        <style>{SHINE_ANIMATION_CSS}</style>
+        {/* Shine overlay - unified across all muscles */}
+        <ShineOverlay enabled={shineEnabled} />
         <img
           src={baseSrc}
           alt={`${view} body`}
@@ -171,41 +210,30 @@ function BodyPanel({
         />
         {/* Muscle overlays container */}
         <div className="absolute inset-0 z-10">
-        {layers.map(({ slug, color, path }, index) => {
+        {layers.map(({ slug, color, path }) => {
           const isSelected = selectedSlug === slug
           const isHovered = hoveredSlug === slug
 
           // All overlays are pointer-events-none; container handles clicks
+          // Only transition filter for hover effects, not the image itself
           const overlayClasses = [
             'absolute inset-0 w-full h-full pointer-events-none',
             'transition-[filter] duration-200 ease-out',
           ]
 
+          // Build dynamic styles for hover/selection effects
           // Base outline: multiple stacked drop-shadows for visible stroke effect
           const baseOutline = 'drop-shadow(1px 0 0 rgba(0,0,0,0.6)) drop-shadow(-1px 0 0 rgba(0,0,0,0.6)) drop-shadow(0 1px 0 rgba(0,0,0,0.6)) drop-shadow(0 -1px 0 rgba(0,0,0,0.6))'
-
-          // Build dynamic styles
-          const overlayStyle = {}
-
-          // Staggered animation delay for organic feel
-          const slugCharSum = slug.split('').reduce((a, b) => a + b.charCodeAt(0), 0)
-          const delay = ((index * 0.2) + (slugCharSum % 5) * 0.15) % 3
+          const overlayStyle = {
+            filter: baseOutline,
+          }
 
           if (interactive) {
             if (isSelected) {
-              overlayStyle.filter = `brightness(1.25) ${baseOutline} drop-shadow(0 0 10px rgba(59, 130, 246, 0.9))`
+              overlayStyle.filter = `brightness(1.2) ${baseOutline} drop-shadow(0 0 8px rgba(59, 130, 246, 0.8))`
             } else if (isHovered) {
-              overlayStyle.filter = `brightness(1.15) ${baseOutline} drop-shadow(0 0 6px rgba(59, 130, 246, 0.6))`
-            } else if (shineEnabled) {
-              // Pulsing glow when not hovered/selected
-              overlayStyle['--base-filter'] = baseOutline
-              overlayStyle.animation = `musclePulse 3s ease-in-out infinite`
-              overlayStyle.animationDelay = `${delay}s`
-            } else {
-              overlayStyle.filter = baseOutline
+              overlayStyle.filter = `brightness(1.15) ${baseOutline} drop-shadow(0 0 4px rgba(59, 130, 246, 0.5))`
             }
-          } else {
-            overlayStyle.filter = baseOutline
           }
 
           return (
@@ -230,6 +258,22 @@ function BodyPanel({
 /**
  * Reusable PNG-based body map that renders front and back views side by side
  * with colored muscle overlays stacked on a base silhouette.
+ *
+ * Supports two input modes:
+ *
+ * 1. Explicit layers:
+ *    <PngBodyMap layers={[{ slug: 'chest-upper', view: 'front', color: 'red' }]} />
+ *
+ * 2. Exercise target shorthand (uses getMuscleOverlays from the canonical mapping):
+ *    <PngBodyMap target="pectorals" secondaryMuscles={['delts', 'triceps']} />
+ *
+ * Interactive mode (optional):
+ *    <PngBodyMap
+ *      layers={[...]}
+ *      interactive
+ *      selectedSlug="chest-upper"
+ *      onMuscleClick={(slug, view) => console.log(slug, view)}
+ *    />
  */
 export function PngBodyMap({
   layers,
