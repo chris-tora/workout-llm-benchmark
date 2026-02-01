@@ -5,15 +5,76 @@ import {
   basePath as getBasePath,
 } from '../../constants/muscle-to-png-mapping'
 
-// Global shine animation styles - add to your global CSS or keep here
+// Per-muscle ripple pulse animation - signals "clickable/interactive"
 const SHINE_ANIMATION_CSS = `
-  @keyframes muscleShineSweep {
+  @keyframes muscleRipple {
     0% {
-      transform: translateY(-150%);
+      transform: scale(0.4);
+      opacity: 0;
+    }
+    15% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.3;
     }
     100% {
-      transform: translateY(150%);
+      transform: scale(1.8);
+      opacity: 0;
     }
+  }
+  
+  @keyframes muscleGlow {
+    0%, 100% {
+      filter: brightness(1) drop-shadow(0 0 0px rgba(59, 130, 246, 0));
+    }
+    50% {
+      filter: brightness(1.08) drop-shadow(0 0 6px rgba(59, 130, 246, 0.35));
+    }
+  }
+  
+  .muscle-shine {
+    position: relative;
+  }
+  
+  .muscle-shine::after {
+    content: '';
+    position: absolute;
+    inset: -10%;
+    background: radial-gradient(
+      circle at center,
+      rgba(59, 130, 246, 0.5) 0%,
+      rgba(59, 130, 246, 0.2) 30%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    animation: muscleRipple 2.2s ease-out infinite;
+    animation-delay: var(--shine-delay, 0s);
+    pointer-events: none;
+    will-change: transform, opacity;
+    z-index: 15;
+  }
+  
+  /* Pause animation on hover to let hover state take priority */
+  .muscle-shine:hover::after {
+    animation-play-state: paused;
+    opacity: 0;
+  }
+  
+  /* Subtle glow animation on the image itself */
+  .muscle-shine img {
+    animation: muscleGlow 2.2s ease-in-out infinite;
+    animation-delay: var(--shine-delay, 0s);
+  }
+  
+  .muscle-shine:hover img,
+  .muscle-shine.selected img {
+    animation-play-state: paused;
+  }
+  
+  /* No shine when selected - user has made their choice */
+  .muscle-shine.selected::after {
+    display: none;
   }
 `
 
@@ -69,44 +130,6 @@ function getPixelAlpha(img, x, y) {
 
   const pixel = ctx.getImageData(imgX, imgY, 1, 1).data
   return pixel[3] // alpha channel
-}
-
-/**
- * Shine overlay component - renders the sweeping shimmer effect
- */
-function ShineOverlay({ enabled, className = '' }) {
-  if (!enabled) return null
-
-  return (
-    <>
-      <style>{SHINE_ANIMATION_CSS}</style>
-      <div
-        className={`pointer-events-none absolute inset-0 z-20 overflow-hidden ${className}`}
-        aria-hidden="true"
-      >
-        <div
-          className="absolute inset-0 w-full h-[200%]"
-          style={{
-            background: `
-              linear-gradient(
-                180deg,
-                transparent 0%,
-                transparent 40%,
-                rgba(255, 255, 255, 0.15) 47%,
-                rgba(255, 255, 255, 0.35) 50%,
-                rgba(255, 255, 255, 0.15) 53%,
-                transparent 60%,
-                transparent 100%
-              )
-            `,
-            animation: 'muscleShineSweep 6s ease-in-out infinite',
-            mixBlendMode: 'overlay',
-            willChange: 'transform',
-          }}
-        />
-      </div>
-    </>
-  )
 }
 
 /**
@@ -200,8 +223,7 @@ function BodyPanel({
         onMouseMove={handleContainerMouseMove}
         onMouseLeave={handleContainerMouseLeave}
       >
-        {/* Shine overlay - unified across all muscles */}
-        <ShineOverlay enabled={shineEnabled} />
+        <style>{SHINE_ANIMATION_CSS}</style>
         <img
           src={baseSrc}
           alt={`${view} body`}
@@ -210,9 +232,10 @@ function BodyPanel({
         />
         {/* Muscle overlays container */}
         <div className="absolute inset-0 z-10">
-        {layers.map(({ slug, color, path }) => {
+        {layers.map(({ slug, color, path }, index) => {
           const isSelected = selectedSlug === slug
           const isHovered = hoveredSlug === slug
+          const showShine = shineEnabled && interactive && !isSelected
 
           // All overlays are pointer-events-none; container handles clicks
           // Only transition filter for hover effects, not the image itself
@@ -221,6 +244,14 @@ function BodyPanel({
             'transition-[filter] duration-200 ease-out',
           ]
 
+          // Add shine class when enabled
+          if (showShine) {
+            overlayClasses.push('muscle-shine')
+          }
+          if (isSelected) {
+            overlayClasses.push('selected')
+          }
+
           // Build dynamic styles for hover/selection effects
           // Base outline: multiple stacked drop-shadows for visible stroke effect
           const baseOutline = 'drop-shadow(1px 0 0 rgba(0,0,0,0.6)) drop-shadow(-1px 0 0 rgba(0,0,0,0.6)) drop-shadow(0 1px 0 rgba(0,0,0,0.6)) drop-shadow(0 -1px 0 rgba(0,0,0,0.6))'
@@ -228,25 +259,35 @@ function BodyPanel({
             filter: baseOutline,
           }
 
+          // Staggered animation delay based on index for organic feel
+          // Also adds some randomness based on slug to make it less predictable
+          const slugCharSum = slug.split('').reduce((a, b) => a + b.charCodeAt(0), 0)
+          const delay = ((index * 0.15) + (slugCharSum % 5) * 0.1) % 2.2
+          overlayStyle['--shine-delay'] = `${delay}s`
+
           if (interactive) {
             if (isSelected) {
-              overlayStyle.filter = `brightness(1.2) ${baseOutline} drop-shadow(0 0 8px rgba(59, 130, 246, 0.8))`
+              overlayStyle.filter = `brightness(1.25) ${baseOutline} drop-shadow(0 0 10px rgba(59, 130, 246, 0.9))`
             } else if (isHovered) {
-              overlayStyle.filter = `brightness(1.15) ${baseOutline} drop-shadow(0 0 4px rgba(59, 130, 246, 0.5))`
+              overlayStyle.filter = `brightness(1.15) ${baseOutline} drop-shadow(0 0 6px rgba(59, 130, 246, 0.6))`
             }
           }
 
           return (
-            <img
+            <div
               key={`${slug}-${color}`}
-              ref={(el) => { overlayRefs.current[slug] = el }}
-              src={path}
-              alt=""
               className={overlayClasses.join(' ')}
               style={overlayStyle}
-              draggable={false}
-              crossOrigin="anonymous"
-            />
+            >
+              <img
+                ref={(el) => { overlayRefs.current[slug] = el }}
+                src={path}
+                alt=""
+                className="w-full h-full"
+                draggable={false}
+                crossOrigin="anonymous"
+              />
+            </div>
           )
         })}
         </div>
