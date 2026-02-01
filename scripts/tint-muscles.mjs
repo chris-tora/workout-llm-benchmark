@@ -210,6 +210,50 @@ function hexToRgb(hex) {
   };
 }
 
+function rgbToHsl(r, g, b) {
+  r /= 255; g /= 255; b /= 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  let h, s, l = (max + min) / 2;
+  if (max === min) {
+    h = s = 0;
+  } else {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+      case g: h = ((b - r) / d + 2) / 6; break;
+      case b: h = ((r - g) / d + 4) / 6; break;
+    }
+  }
+  return { h, s, l };
+}
+
+function hslToRgb(h, s, l) {
+  let r, g, b;
+  if (s === 0) {
+    r = g = b = l;
+  } else {
+    const hue2rgb = (p, q, t) => {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1/6) return p + (q - p) * 6 * t;
+      if (t < 1/2) return q;
+      if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+      return p;
+    };
+    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    const p = 2 * l - q;
+    r = hue2rgb(p, q, h + 1/3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1/3);
+  }
+  return {
+    r: Math.round(r * 255),
+    g: Math.round(g * 255),
+    b: Math.round(b * 255),
+  };
+}
+
 // ---------------------------------------------------------------------------
 // Mask discovery
 // ---------------------------------------------------------------------------
@@ -229,16 +273,13 @@ async function getMaskFiles(view) {
 async function tintMask(maskPath, color, outputPath, dryRun) {
   if (dryRun) return;
 
-  const { r, g, b } = hexToRgb(color.hex);
+  const { r: tr, g: tg, b: tb } = hexToRgb(color.hex);
+  const { h: targetH, s: targetS } = rgbToHsl(tr, tg, tb);
 
-  // Read the mask. It's a 1-bit grayscale PNG -- we need its luminance as alpha.
-  let maskImage = sharp(maskPath);
-  const metadata = await maskImage.metadata();
-
-  // Handle undersized masks (e.g., lower-back-copy at 732x732)
+  // Read the mask as grayscale - the value represents luminance/shading
+  const metadata = await sharp(maskPath).metadata();
   const needsResize = metadata.width !== TARGET_SIZE || metadata.height !== TARGET_SIZE;
 
-  // Pipeline: ensure single-channel grayscale, resize if needed
   let maskBuffer;
   if (needsResize) {
     maskBuffer = await sharp(maskPath)
@@ -253,17 +294,33 @@ async function tintMask(maskPath, color, outputPath, dryRun) {
       .toBuffer();
   }
 
-  // Build an RGBA buffer: solid color + mask luminance as alpha
+  // Build RGBA buffer using HSL Color blend:
+  // Target H,S + Source L (preserves texture/shading)
   const pixelCount = TARGET_SIZE * TARGET_SIZE;
   const rgbaBuffer = Buffer.alloc(pixelCount * 4);
 
   for (let i = 0; i < pixelCount; i++) {
-    const alpha = maskBuffer[i]; // grayscale value becomes alpha
+    const gray = maskBuffer[i];
     const offset = i * 4;
-    rgbaBuffer[offset] = r;
-    rgbaBuffer[offset + 1] = g;
-    rgbaBuffer[offset + 2] = b;
-    rgbaBuffer[offset + 3] = alpha;
+
+    if (gray > 0) {
+      // Boost luminance to 0.35-0.85 range for vivid colors
+      // Raw mask values are often low (dark grays), this makes colors visible
+      const normalizedGray = gray / 255;
+      const lum = 0.35 + normalizedGray * 0.50;
+      // Apply HSL color blend: target H,S + boosted L
+      const rgb = hslToRgb(targetH, targetS, lum);
+      rgbaBuffer[offset] = rgb.r;
+      rgbaBuffer[offset + 1] = rgb.g;
+      rgbaBuffer[offset + 2] = rgb.b;
+      rgbaBuffer[offset + 3] = gray; // Use grayscale as alpha too
+    } else {
+      // Fully transparent
+      rgbaBuffer[offset] = 0;
+      rgbaBuffer[offset + 1] = 0;
+      rgbaBuffer[offset + 2] = 0;
+      rgbaBuffer[offset + 3] = 0;
+    }
   }
 
   await sharp(rgbaBuffer, {

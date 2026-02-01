@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useRef, useCallback, useEffect } from 'react'
 import {
   getMuscleOverlays,
   slugToPath,
@@ -15,10 +15,6 @@ const DEFAULT_BASE_PATH = '/assets/muscles/male'
 
 /**
  * Separate layers by view (front/back) from a flat layers array.
- *
- * @param {Array<{slug: string, view: 'front'|'back', color: string}>} layers
- * @param {string} base - base asset path
- * @returns {{ front: Array<{slug: string, color: string, path: string}>, back: Array<{slug: string, color: string, path: string}> }}
  */
 function splitLayersByView(layers, base) {
   const front = []
@@ -37,7 +33,35 @@ function splitLayersByView(layers, base) {
 }
 
 /**
+ * Check if a pixel at (x, y) in the image is non-transparent.
+ * Uses a canvas for pixel sampling.
+ */
+function getPixelAlpha(img, x, y) {
+  if (!img.complete || !img.naturalWidth) return 0
+
+  const canvas = document.createElement('canvas')
+  canvas.width = img.naturalWidth
+  canvas.height = img.naturalHeight
+  const ctx = canvas.getContext('2d')
+  ctx.drawImage(img, 0, 0)
+
+  // Scale click coordinates to image natural size
+  const scaleX = img.naturalWidth / img.clientWidth
+  const scaleY = img.naturalHeight / img.clientHeight
+  const imgX = Math.floor(x * scaleX)
+  const imgY = Math.floor(y * scaleY)
+
+  if (imgX < 0 || imgX >= img.naturalWidth || imgY < 0 || imgY >= img.naturalHeight) {
+    return 0
+  }
+
+  const pixel = ctx.getImageData(imgX, imgY, 1, 1).data
+  return pixel[3] // alpha channel
+}
+
+/**
  * Single body panel (front or back) with base image and overlay layers.
+ * Implements pixel-perfect click detection by checking alpha values.
  */
 function BodyPanel({
   view,
@@ -52,6 +76,64 @@ function BodyPanel({
   onMuscleHover,
 }) {
   const baseSrc = getBasePath(view, base)
+  const containerRef = useRef(null)
+  const overlayRefs = useRef({})
+
+  // Handle click with pixel-perfect hit detection
+  const handleContainerClick = useCallback((e) => {
+    if (!interactive || !onMuscleClick) return
+
+    const container = containerRef.current
+    if (!container) return
+
+    const rect = container.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+
+    // Check overlays in reverse order (top to bottom in z-order)
+    // to find the topmost visible pixel
+    for (let i = layers.length - 1; i >= 0; i--) {
+      const layer = layers[i]
+      const img = overlayRefs.current[layer.slug]
+      if (!img) continue
+
+      const alpha = getPixelAlpha(img, x, y)
+      if (alpha > 20) { // Threshold to avoid edge artifacts
+        onMuscleClick(layer.slug, view)
+        return
+      }
+    }
+  }, [interactive, onMuscleClick, layers, view])
+
+  // Handle mouse move for hover detection
+  const handleContainerMouseMove = useCallback((e) => {
+    if (!interactive || !onMuscleHover) return
+
+    const container = containerRef.current
+    if (!container) return
+
+    const rect = container.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+
+    // Check overlays in reverse order
+    for (let i = layers.length - 1; i >= 0; i--) {
+      const layer = layers[i]
+      const img = overlayRefs.current[layer.slug]
+      if (!img) continue
+
+      const alpha = getPixelAlpha(img, x, y)
+      if (alpha > 20) {
+        onMuscleHover(layer.slug)
+        return
+      }
+    }
+    onMuscleHover(null)
+  }, [interactive, onMuscleHover, layers])
+
+  const handleContainerMouseLeave = useCallback(() => {
+    if (onMuscleHover) onMuscleHover(null)
+  }, [onMuscleHover])
 
   return (
     <div className={`flex-1 ${sizeClass}`}>
@@ -60,7 +142,13 @@ function BodyPanel({
           {view === 'front' ? 'Front' : 'Back'}
         </p>
       )}
-      <div className="relative rounded-xl overflow-hidden bg-white">
+      <div
+        ref={containerRef}
+        className={`relative rounded-xl overflow-hidden bg-white ${interactive ? 'cursor-pointer' : ''}`}
+        onClick={handleContainerClick}
+        onMouseMove={handleContainerMouseMove}
+        onMouseLeave={handleContainerMouseLeave}
+      >
         <img
           src={baseSrc}
           alt={`${view} body`}
@@ -71,27 +159,19 @@ function BodyPanel({
           const isSelected = selectedSlug === slug
           const isHovered = hoveredSlug === slug
 
-          // Build dynamic classes for interactivity
+          // All overlays are pointer-events-none; container handles clicks
           const overlayClasses = [
-            'absolute inset-0 w-full h-full',
+            'absolute inset-0 w-full h-full pointer-events-none',
             'transition-all duration-200 ease-out',
           ]
-
-          if (interactive) {
-            overlayClasses.push('cursor-pointer')
-          } else {
-            overlayClasses.push('pointer-events-none')
-          }
 
           // Build dynamic styles for hover/selection effects
           const overlayStyle = {}
 
           if (interactive) {
             if (isSelected) {
-              // Selected state: brighter with drop shadow glow
               overlayStyle.filter = 'brightness(1.2) drop-shadow(0 0 8px rgba(59, 130, 246, 0.8))'
             } else if (isHovered) {
-              // Hover state: slight brightness boost with subtle glow
               overlayStyle.filter = 'brightness(1.15) drop-shadow(0 0 4px rgba(59, 130, 246, 0.5))'
             }
           }
@@ -99,26 +179,13 @@ function BodyPanel({
           return (
             <img
               key={`${slug}-${color}`}
+              ref={(el) => { overlayRefs.current[slug] = el }}
               src={path}
               alt=""
               className={overlayClasses.join(' ')}
               style={overlayStyle}
               draggable={false}
-              onClick={
-                interactive && onMuscleClick
-                  ? () => onMuscleClick(slug, view)
-                  : undefined
-              }
-              onMouseEnter={
-                interactive && onMuscleHover
-                  ? () => onMuscleHover(slug)
-                  : undefined
-              }
-              onMouseLeave={
-                interactive && onMuscleHover
-                  ? () => onMuscleHover(null)
-                  : undefined
-              }
+              crossOrigin="anonymous"
             />
           )
         })}
@@ -146,18 +213,6 @@ function BodyPanel({
  *      selectedSlug="chest-upper"
  *      onMuscleClick={(slug, view) => console.log(slug, view)}
  *    />
- *
- * @param {object} props
- * @param {Array<{slug: string, view: 'front'|'back', color: string}>} [props.layers]
- * @param {string} [props.target]
- * @param {string[]} [props.secondaryMuscles]
- * @param {string} [props.className]
- * @param {'sm'|'md'|'lg'} [props.size='md']
- * @param {boolean} [props.showLabels=true]
- * @param {string} [props.basePath='/assets/muscles/male']
- * @param {boolean} [props.interactive=false] - Enable click/hover interactions
- * @param {string} [props.selectedSlug] - Slug of the currently selected muscle (highlighted)
- * @param {(slug: string, view: 'front'|'back') => void} [props.onMuscleClick] - Callback when muscle is clicked
  */
 export function PngBodyMap({
   layers,
@@ -174,17 +229,12 @@ export function PngBodyMap({
   const [hoveredSlug, setHoveredSlug] = useState(null)
 
   const { front, back } = useMemo(() => {
-    // Mode 1: explicit layers prop
     if (layers) {
       return splitLayersByView(layers, base)
     }
-
-    // Mode 2: target + secondaryMuscles shorthand
     if (target) {
       return getMuscleOverlays(target, secondaryMuscles ?? [], base)
     }
-
-    // No input -- empty body
     return { front: [], back: [] }
   }, [layers, target, secondaryMuscles, base])
 

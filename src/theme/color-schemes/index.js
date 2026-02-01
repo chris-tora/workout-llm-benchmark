@@ -31,7 +31,7 @@ export const COLOR_SCHEMES = {
 }
 
 // Default scheme
-export const DEFAULT_SCHEME = 'fire-ember'
+export const DEFAULT_SCHEME = 'thermal'
 
 // Get a specific scheme by ID
 export function getColorScheme(id) {
