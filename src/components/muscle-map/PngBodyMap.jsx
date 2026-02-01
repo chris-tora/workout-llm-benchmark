@@ -152,7 +152,7 @@ function BodyPanel({
         <img
           src={baseSrc}
           alt={`${view} body`}
-          className="w-full h-auto block"
+          className="w-full h-auto block relative z-0"
           draggable={false}
         />
         {layers.map(({ slug, color, path }) => {
@@ -160,9 +160,11 @@ function BodyPanel({
           const isHovered = hoveredSlug === slug
 
           // All overlays are pointer-events-none; container handles clicks
+          // z-10 ensures overlays stack above base (z-0)
+          // Only transition filter for hover effects, not the image itself
           const overlayClasses = [
-            'absolute inset-0 w-full h-full pointer-events-none',
-            'transition-all duration-200 ease-out',
+            'absolute inset-0 w-full h-full pointer-events-none z-10',
+            'transition-[filter] duration-200 ease-out',
           ]
 
           // Build dynamic styles for hover/selection effects

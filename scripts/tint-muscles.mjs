@@ -100,8 +100,9 @@ const ALL_SCHEME_IDS = [
   'ocean-depth',
   'volcanic',
   'aurora',
-  'spectrum',     // NEW: Rainbow multi-hue (recommended)
-  'thermal',      // NEW: Cold-to-hot heatmap
+  'spectrum',
+  'thermal',
+  'vibrant-rainbow',  // Highly saturated distinct hues (matches reference)
 ];
 
 // ---------------------------------------------------------------------------
@@ -318,62 +319,49 @@ async function tintMuscle(rawPath, color, outputPath, dryRun) {
   const { r: tr, g: tg, b: tb } = hexToRgb(color.hex);
   const { h: targetH, s: targetS } = rgbToHsl(tr, tg, tb);
 
-  const metadata = await sharp(rawPath).metadata();
-  const needsResize = metadata.width !== TARGET_SIZE || metadata.height !== TARGET_SIZE;
-
-  let rawImage = sharp(rawPath);
-  if (needsResize) {
-    rawImage = rawImage.resize(TARGET_SIZE, TARGET_SIZE, { kernel: sharp.kernel.lanczos3 });
-  }
-
-  const { data: rawBuffer, info } = await rawImage
-    .ensureAlpha()
-    .raw()
-    .toBuffer({ resolveWithObject: true });
+  // Read raw buffer directly (no ensureAlpha, no resize yet)
+  const rawBuf = await sharp(rawPath).raw().toBuffer();
+  const meta = await sharp(rawPath).metadata();
+  const pixels = meta.width * meta.height;
+  const ch = meta.channels;
 
   // Build RGBA buffer using HSL Color blend:
   // Target H,S + Source L (preserves texture/shading)
-  const pixelCount = info.width * info.height;
-  const rgbaBuffer = Buffer.alloc(pixelCount * 4);
+  const rgbaBuffer = Buffer.alloc(pixels * 4);
 
-  for (let i = 0; i < pixelCount; i++) {
-    const offset = i * 4;
-    const sourceOffset = i * info.channels;
+  for (let i = 0; i < pixels; i++) {
+    const si = i * ch;
+    const di = i * 4;
 
-    let lum;
-    let alpha;
-
-    if (info.channels === 2) {
-      lum = rawBuffer[sourceOffset] / 255;
-      alpha = rawBuffer[sourceOffset + 1];
-    } else {
-      const r = rawBuffer[sourceOffset];
-      const g = rawBuffer[sourceOffset + 1];
-      const b = rawBuffer[sourceOffset + 2];
-      lum = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-      alpha = info.channels === 4 ? rawBuffer[sourceOffset + 3] : 255;
-    }
+    // First channel is luminance (raw PNGs are grayscale-based)
+    const sourceLum = rawBuf[si] / 255;
+    const alpha = ch >= 4 ? rawBuf[si + 3] : (ch === 2 ? rawBuf[si + 1] : 255);
 
     if (alpha === 0) {
-      rgbaBuffer[offset] = 0;
-      rgbaBuffer[offset + 1] = 0;
-      rgbaBuffer[offset + 2] = 0;
-      rgbaBuffer[offset + 3] = 0;
+      rgbaBuffer[di] = 0;
+      rgbaBuffer[di + 1] = 0;
+      rgbaBuffer[di + 2] = 0;
+      rgbaBuffer[di + 3] = 0;
       continue;
     }
 
-    const rgb = hslToRgb(targetH, targetS, lum);
-    rgbaBuffer[offset] = rgb.r;
-    rgbaBuffer[offset + 1] = rgb.g;
-    rgbaBuffer[offset + 2] = rgb.b;
-    rgbaBuffer[offset + 3] = alpha;
+    const rgb = hslToRgb(targetH, targetS, sourceLum);
+    rgbaBuffer[di] = rgb.r;
+    rgbaBuffer[di + 1] = rgb.g;
+    rgbaBuffer[di + 2] = rgb.b;
+    rgbaBuffer[di + 3] = alpha;
   }
 
-  await sharp(rgbaBuffer, {
-    raw: { width: info.width, height: info.height, channels: 4 },
-  })
-    .png()
-    .toFile(outputPath);
+  // Create output image, resize AFTER processing if needed
+  let img = sharp(rgbaBuffer, {
+    raw: { width: meta.width, height: meta.height, channels: 4 },
+  });
+
+  if (meta.width !== TARGET_SIZE || meta.height !== TARGET_SIZE) {
+    img = img.resize(TARGET_SIZE, TARGET_SIZE, { kernel: sharp.kernel.lanczos3 });
+  }
+
+  await img.png().toFile(outputPath);
 }
 
 // ---------------------------------------------------------------------------

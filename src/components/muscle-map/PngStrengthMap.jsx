@@ -68,18 +68,25 @@ const MUSCLE_NAMES = {
 /**
  * Build the flat layers array for PngBodyMap from muscleLevels + scheme.
  *
- * @param {Record<string, number>} muscleLevels - SVG muscle ID -> level index (0-5)
+ * @param {Record<string, number|string>} muscleLevels - SVG muscle ID -> level index (0-5) or tier name
  * @param {object} scheme - Color scheme object with .id and .levels[]
  * @returns {Array<{slug: string, view: 'front'|'back', color: string}>}
  */
 function buildLayers(muscleLevels, scheme) {
   const layers = []
 
-  for (const [muscleId, levelIdx] of Object.entries(muscleLevels)) {
+  for (const [muscleId, levelValue] of Object.entries(muscleLevels)) {
     const mapping = SVG_TO_PNG_MAP[muscleId]
     if (!mapping) continue
 
-    const levelData = scheme.levels[levelIdx]
+    // Handle both numeric indices (0-5) and string tier names ("novice", "pro", etc.)
+    let levelData
+    if (typeof levelValue === 'number') {
+      levelData = scheme.levels[levelValue]
+    } else if (typeof levelValue === 'string') {
+      // Find by tier ID (e.g., "novice", "beginner", "intermediate", "pro", "advanced", "elite")
+      levelData = scheme.levels.find(l => l.id === levelValue.toLowerCase())
+    }
     if (!levelData) continue
 
     // color = "{schemeId}-{tierId}" e.g. "fire-ember-pro"

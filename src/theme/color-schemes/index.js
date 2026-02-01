@@ -14,6 +14,7 @@ import { VOLCANIC } from './volcanic.js'
 import { AURORA } from './aurora.js'
 import { SPECTRUM } from './spectrum.js'
 import { THERMAL } from './thermal.js'
+import { VIBRANT_RAINBOW } from './vibrant-rainbow.js'
 
 // Registry of all available color schemes
 export const COLOR_SCHEMES = {
@@ -26,8 +27,9 @@ export const COLOR_SCHEMES = {
   'ocean-depth': OCEAN_DEPTH,
   'volcanic': VOLCANIC,
   'aurora': AURORA,
-  'spectrum': SPECTRUM,     // NEW: Rainbow multi-hue (recommended)
-  'thermal': THERMAL,       // NEW: Cold-to-hot heatmap
+  'spectrum': SPECTRUM,        // NEW: Rainbow multi-hue (recommended)
+  'thermal': THERMAL,          // NEW: Cold-to-hot heatmap
+  'vibrant-rainbow': VIBRANT_RAINBOW,  // NEW: Highly saturated distinct hues
 }
 
 // Default scheme
@@ -68,4 +70,5 @@ export {
   AURORA,
   SPECTRUM,
   THERMAL,
+  VIBRANT_RAINBOW,
 }
