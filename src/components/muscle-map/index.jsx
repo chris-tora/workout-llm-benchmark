@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
-import { User, RotateCcw, ChevronDown } from 'lucide-react'
+import { User, RotateCcw, ChevronDown, Crosshair, BarChart3, Layers } from 'lucide-react'
 import { Legend } from './Legend'
 import { LevelPickerModal } from './LevelPickerModal'
 import { useMuscleStrength } from './useMuscleStrength'
 import { getAllSchemes, getColorScheme, DEFAULT_SCHEME } from '../../theme/color-schemes/index.js'
+import { ExerciseTargetMap } from './ExerciseTargetMap'
+import { PngStrengthMap } from './PngStrengthMap'
 
 // Muscle names mapping - supports both basic and advanced muscle IDs
 const MUSCLE_NAMES = {
@@ -61,7 +63,35 @@ const MUSCLE_NAMES = {
   'lower-trapezius': 'Lower Traps'
 }
 
+const MODE_BUTTONS = [
+  { id: 'target', label: 'Exercise Target', Icon: Crosshair },
+  { id: 'strength', label: 'Strength (SVG)', Icon: BarChart3 },
+  { id: 'png-strength', label: 'Strength (PNG)', Icon: Layers },
+]
+
+function ModeToggle({ mode, setMode }) {
+  return (
+    <div className="flex justify-center gap-2">
+      {MODE_BUTTONS.map(({ id, label, Icon }) => (
+        <button
+          key={id}
+          onClick={() => setMode(id)}
+          className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium ${
+            mode === id
+              ? 'bg-zinc-900 text-white'
+              : 'bg-white text-zinc-700 border border-zinc-200 hover:bg-zinc-50'
+          }`}
+        >
+          <Icon className="w-4 h-4" />
+          {label}
+        </button>
+      ))}
+    </div>
+  )
+}
+
 export function MuscleMap() {
+  const [mode, setMode] = useState('target') // 'target' | 'strength' | 'png-strength'
   const [frontSvg, setFrontSvg] = useState('')
   const [backSvg, setBackSvg] = useState('')
   const { muscleLevels, loading, setMuscleLevel, clearAll } = useMuscleStrength()
@@ -80,6 +110,26 @@ export function MuscleMap() {
       .then(r => r.text())
       .then(setBackSvg)
   }, [])
+
+  // Mode toggle - show Exercise Target Map, Strength Levels, or PNG Strength Map
+  if (mode === 'target') {
+    return (
+      <div className="space-y-6">
+        {/* Mode toggle */}
+        <ModeToggle mode={mode} setMode={setMode} />
+        <ExerciseTargetMap />
+      </div>
+    )
+  }
+
+  if (mode === 'png-strength') {
+    return (
+      <div className="space-y-6">
+        <ModeToggle mode={mode} setMode={setMode} />
+        <PngStrengthMap />
+      </div>
+    )
+  }
 
   // Handle clicks on muscle groups using event delegation
   const handleBodyMapClick = (e) => {
@@ -141,6 +191,9 @@ export function MuscleMap() {
         }
         ${dynamicStyles}
       `}</style>
+
+      {/* Mode toggle */}
+      <ModeToggle mode={mode} setMode={setMode} />
 
       {/* Header */}
       <div className="text-center">

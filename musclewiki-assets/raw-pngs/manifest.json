@@ -1,0 +1,191 @@
+{
+  "version": "1.0",
+  "source": "/mnt/k/archive/Body parts (PNG)-20260111T142602Z-3-001.zip",
+  "extracted_to": "showcase/musclewiki-assets/raw-pngs/Body parts (PNG)/",
+  "audit_date": "2026-02-01",
+
+  "male": {
+    "front": {
+      "directory": "Body parts MALE/Front body MALE/",
+      "count": 11,
+      "standard_dimensions": "1024x1024",
+      "has_alpha": true,
+      "total_size_mb": 4.1,
+      "assets": [
+        { "filename": "Biceps-LONG_.png", "slug": "biceps-long", "muscle": "biceps (long head)", "dimensions": "1024x1024" },
+        { "filename": "Chest-LOWER_.png", "slug": "chest-lower", "muscle": "lower chest (pectorals)", "dimensions": "1024x1024" },
+        { "filename": "Chest-UPPER_.png", "slug": "chest-upper", "muscle": "upper chest (pectorals)", "dimensions": "1024x1024" },
+        { "filename": "Deltoids-FRONT_.png", "slug": "deltoids-front", "muscle": "front deltoids", "dimensions": "1024x1024" },
+        { "filename": "Deltoids-SIDE_.png", "slug": "deltoids-side", "muscle": "side deltoids", "dimensions": "1024x1024" },
+        { "filename": "Hip-Adductors_.png", "slug": "hip-adductors", "muscle": "hip adductors", "dimensions": "1024x1024" },
+        { "filename": "Obliques_.png", "slug": "obliques", "muscle": "obliques / serratus anterior", "dimensions": "1024x1024" },
+        { "filename": "Quadriceps_.png", "slug": "quadriceps", "muscle": "quadriceps", "dimensions": "1024x1024" },
+        { "filename": "Rectus-Abdominis-LOWER_.png", "slug": "rectus-abdominis-lower", "muscle": "lower abs", "dimensions": "1024x1024" },
+        { "filename": "Rectus-Abdominis-UPPER_.png", "slug": "rectus-abdominis-upper", "muscle": "upper abs", "dimensions": "1024x1024" },
+        { "filename": "Wrist-extensors_.png", "slug": "wrist-extensors", "muscle": "wrist extensors (forearms)", "dimensions": "1024x1024" }
+      ]
+    },
+    "back": {
+      "directory": "Body parts MALE/Back body MALE/",
+      "count": 13,
+      "standard_dimensions": "1024x1024",
+      "has_alpha": true,
+      "total_size_mb": 4.7,
+      "assets": [
+        { "filename": "Biceps_LOWER.png", "slug": "biceps-lower", "muscle": "biceps (short head)", "dimensions": "1024x1024" },
+        { "filename": "Calves.png", "slug": "calves", "muscle": "calves", "dimensions": "1024x1024" },
+        { "filename": "Deltoids-BACK.png", "slug": "deltoids-back", "muscle": "rear deltoids", "dimensions": "1024x1024" },
+        { "filename": "Gluteus.png", "slug": "gluteus", "muscle": "glutes", "dimensions": "1024x1024" },
+        { "filename": "Hamstrings.png", "slug": "hamstrings", "muscle": "hamstrings", "dimensions": "1024x1024" },
+        { "filename": "Hip-Adductors.png", "slug": "hip-adductors", "muscle": "hip adductors (rear)", "dimensions": "1024x1024" },
+        { "filename": "Latissimus-Dorsi.png", "slug": "latissimus-dorsi", "muscle": "lats / upper back", "dimensions": "1024x1024" },
+        { "filename": "Trapezius.png", "slug": "trapezius", "muscle": "traps / levator scapulae", "dimensions": "1024x1024" },
+        { "filename": "Triceps-LOWER_.png", "slug": "triceps-lower", "muscle": "triceps (lower)", "dimensions": "1024x1024" },
+        { "filename": "Triceps-OUTER_.png", "slug": "triceps-outer", "muscle": "triceps (outer/lateral)", "dimensions": "1024x1024" },
+        { "filename": "Triceps-UPPER.png", "slug": "triceps-upper", "muscle": "triceps (upper/long head)", "dimensions": "1024x1024" },
+        { "filename": "Wrist-Flexors_.png", "slug": "wrist-flexors", "muscle": "wrist flexors (forearms)", "dimensions": "1024x1024" },
+        { "filename": "lower-back copy.png", "slug": "lower-back-copy", "muscle": "lower back (spine)", "dimensions": "732x732", "issue": "UNDERSIZED: 732x732 instead of 1024x1024, needs upscaling" }
+      ]
+    },
+    "base_body": {
+      "png_exists": false,
+      "note": "No male base body PNG exists. Must rasterize base-body-front.svg and base-body-back.svg to 1024x1024. Existing tinted PNGs in showcase already have base-front.png and base-back.png at unknown dimensions."
+    }
+  },
+
+  "female": {
+    "front": {
+      "directory": "Body parts FEMALE/Front Body Female/",
+      "count": 12,
+      "standard_dimensions": "1920x1080",
+      "has_alpha": false,
+      "note": "Female front PNGs are screenshots (no alpha channel). Some files appear to be base body images, not muscle overlays.",
+      "assets": [
+        { "filename": "Abs.png", "slug": "abs", "muscle": "abs", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "Arms.png", "slug": "arms", "muscle": "arms (combined)", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "Biceps.png", "slug": "biceps", "muscle": "biceps", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "Calves_.png", "slug": "calves", "muscle": "calves", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "Front Shoulders.png", "slug": "front-shoulders", "muscle": "front deltoids", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "Quad.png", "slug": "quad", "muscle": "inner quads", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "Quadriceps.png", "slug": "quadriceps", "muscle": "quadriceps", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "Trapezious.png", "slug": "trapezius", "muscle": "traps", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "Upper Chest.png", "slug": "upper-chest", "muscle": "upper chest", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "Front.png", "slug": null, "muscle": null, "dimensions": "1920x1080", "type": "base_body_candidate" },
+        { "filename": "Front_.png", "slug": null, "muscle": null, "dimensions": "1920x1080", "type": "base_body_candidate" },
+        { "filename": "Front_1.png", "slug": null, "muscle": null, "dimensions": "1920x1080", "type": "base_body_candidate" }
+      ]
+    },
+    "back": {
+      "directory": "Body parts FEMALE/Back Body Female/",
+      "count": 9,
+      "standard_dimensions": "1920x1080",
+      "has_alpha": false,
+      "note": "Female back PNGs are screenshots (no alpha). Back_Body.png appears to be a base body image.",
+      "assets": [
+        { "filename": "Back_Body.png", "slug": null, "muscle": null, "dimensions": "1920x1080", "type": "base_body_candidate" },
+        { "filename": "Calves.png", "slug": "calves", "muscle": "calves", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "Hamstrings.png", "slug": "hamstrings", "muscle": "hamstrings", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "Latissimus Dorsi.png", "slug": "latissimus-dorsi", "muscle": "lats", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "Upper Trapezius.png", "slug": "upper-trapezius", "muscle": "upper traps", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "deltoid.png", "slug": "deltoid-back", "muscle": "rear deltoids", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "forearm extensor.png", "slug": "forearm-extensor", "muscle": "forearms", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "gluteal.png", "slug": "gluteal", "muscle": "glutes", "dimensions": "1920x1080", "type": "muscle" },
+        { "filename": "triceps brachii.png", "slug": "triceps-brachii", "muscle": "triceps", "dimensions": "1920x1080", "type": "muscle" }
+      ]
+    },
+    "base_body": {
+      "png_exists": true,
+      "note": "Female base body candidates exist (Front.png, Front_.png, Front_1.png, Back_Body.png) but are 1920x1080 screenshots without alpha transparency. NOT usable as clean overlays."
+    }
+  },
+
+  "existing_showcase_assets": {
+    "directory": "showcase/public/assets/muscles/male/",
+    "total_size_mb": 18,
+    "base_images": [
+      "base-front.png",
+      "base-back.png",
+      "dark-base-front.png",
+      "dark-base-back.png"
+    ],
+    "tinted_full_body": [
+      "tinted-front-red.png",
+      "tinted-front-purple.png",
+      "tinted-back-red.png",
+      "tinted-back-purple.png"
+    ],
+    "front_tinted": {
+      "count": 22,
+      "slugs": ["biceps-long", "chest-lower", "chest-upper", "deltoids-front", "deltoids-side", "hip-adductors", "obliques", "quadriceps", "rectus-abdominis-lower", "rectus-abdominis-upper", "wrist-extensors"],
+      "colors": ["red", "purple"]
+    },
+    "back_tinted": {
+      "count": 26,
+      "slugs": ["biceps-lower", "calves", "deltoids-back", "gluteus", "hamstrings", "hip-adductors", "latissimus-dorsi", "lower-back-copy", "trapezius", "triceps-lower", "triceps-outer", "triceps-upper", "wrist-flexors"],
+      "colors": ["red", "purple"]
+    },
+    "masks": {
+      "front_count": 11,
+      "back_count": 13,
+      "note": "Grayscale alpha masks in masks/front/ and masks/back/. lower-back-copy mask is 732x732 (inconsistent)."
+    }
+  },
+
+  "db_target_to_png_mapping": {
+    "pectorals": { "front": ["chest-upper", "chest-lower"], "back": [] },
+    "abs": { "front": ["rectus-abdominis-upper", "rectus-abdominis-lower"], "back": [] },
+    "biceps": { "front": ["biceps-long"], "back": ["biceps-lower"] },
+    "triceps": { "front": [], "back": ["triceps-upper", "triceps-lower", "triceps-outer"] },
+    "forearms": { "front": ["wrist-extensors"], "back": ["wrist-flexors"] },
+    "quads": { "front": ["quadriceps"], "back": [] },
+    "hamstrings": { "front": [], "back": ["hamstrings"] },
+    "glutes": { "front": [], "back": ["gluteus"] },
+    "calves": { "front": [], "back": ["calves"] },
+    "traps": { "front": [], "back": ["trapezius"] },
+    "lats": { "front": [], "back": ["latissimus-dorsi"] },
+    "delts": { "front": ["deltoids-front", "deltoids-side"], "back": ["deltoids-back"] },
+    "upper back": { "front": [], "back": ["latissimus-dorsi"] },
+    "spine": { "front": [], "back": ["lower-back-copy"] },
+    "serratus anterior": { "front": ["obliques"], "back": [] },
+    "levator scapulae": { "front": [], "back": ["trapezius"] },
+    "abductors": { "front": ["hip-adductors"], "back": ["hip-adductors"] },
+    "adductors": { "front": ["hip-adductors"], "back": ["hip-adductors"] },
+    "cardiovascular system": { "front": [], "back": [] }
+  },
+
+  "color_schemes": {
+    "count": 9,
+    "default": "fire-ember",
+    "tiers_per_scheme": 6,
+    "tier_ids": ["novice", "beginner", "intermediate", "pro", "advanced", "elite"],
+    "schemes": ["fire-ember", "metallic", "cosmic", "monochrome-gold", "crimson-purple", "sunset", "ocean-depth", "volcanic", "aurora"]
+  },
+
+  "issues": [
+    {
+      "severity": "high",
+      "issue": "lower-back copy.png is 732x732 (all others are 1024x1024)",
+      "fix": "Upscale to 1024x1024 or regenerate"
+    },
+    {
+      "severity": "medium",
+      "issue": "No male base body PNG exists in raw archive",
+      "fix": "Rasterize base-body-front.svg and base-body-back.svg to 1024x1024 PNG, or use existing base-front.png/base-back.png from showcase assets"
+    },
+    {
+      "severity": "medium",
+      "issue": "Female PNGs are screenshots (1920x1080, no alpha) — not usable as overlays",
+      "fix": "Need to recreate female muscle PNGs with transparent backgrounds, or source them differently"
+    },
+    {
+      "severity": "low",
+      "issue": "Inconsistent naming: trailing underscores, mixed separators, spaces",
+      "fix": "Task #4 will normalize all filenames to lowercase-kebab-case"
+    },
+    {
+      "severity": "info",
+      "issue": "abductors and adductors share same hip-adductors PNG (anatomically imprecise)",
+      "fix": "Acceptable for MVP — separate abductor PNG could be created later"
+    }
+  ]
+}

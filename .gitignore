@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 .vercel
 .env
+
+# Raw MuscleWiki source PNGs (from /mnt/k archive)
+musclewiki-assets/raw-pngs/Body parts (PNG)/
