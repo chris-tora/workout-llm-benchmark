@@ -1154,6 +1154,16 @@ async function main() {
   const mdPath = path.join(outputDir, `simulation-${ts}.md`);
   fs.writeFileSync(mdPath, mdReport);
 
+  // PDF report (requires md-to-pdf: npx md-to-pdf)
+  const pdfPath = path.join(outputDir, `simulation-${ts}.pdf`);
+  try {
+    const { execSync } = await import('child_process');
+    execSync(`npx md-to-pdf "${mdPath}" --pdf-options '{"margin":{"top":"20mm","bottom":"20mm","left":"15mm","right":"15mm"},"format":"A4"}' 2>&1`, { timeout: 60000 });
+    console.log(`  ${C.dim}PDF generated${C.reset}`);
+  } catch (e) {
+    console.log(`  ${C.yellow}PDF generation skipped (install md-to-pdf for auto PDF)${C.reset}`);
+  }
+
   // Print save locations
   console.log(`\n${C.bold}${C.cyan}${'='.repeat(70)}${C.reset}`);
   console.log(`${C.bold}${C.cyan}  SIMULATION COMPLETE${C.reset}`);
@@ -1165,6 +1175,7 @@ async function main() {
   console.log(`  ${C.dim}DB Logs:${C.reset}     ${usageLogs.length} entries`);
   console.log(`  ${C.dim}JSON:${C.reset}        ${jsonPath}`);
   console.log(`  ${C.dim}Markdown:${C.reset}    ${mdPath}`);
+  console.log(`  ${C.dim}PDF:${C.reset}         ${pdfPath}`);
   console.log('');
 }
 
