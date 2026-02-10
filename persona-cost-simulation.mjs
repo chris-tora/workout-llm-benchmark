@@ -918,6 +918,26 @@ function generateMarkdownReport(personaAnalysis, simulationMeta) {
   md += `**Total API Calls:** ${simulationMeta.totalApiCalls}\n`;
   md += `**Total Duration:** ${formatMs(simulationMeta.totalDurationMs)}\n\n`;
 
+  md += `## How This Report Works\n\n`;
+  md += `This simulation measures **how much it actually costs to run RepGen's AI features** versus **how much revenue each user generates** through their subscription.\n\n`;
+  md += `### Where the prices come from\n\n`;
+  md += `All subscription prices are pulled directly from our [RevenueCat](https://app.revenuecat.com) dashboard — the same prices users see on the App Store. RepGen has **6 pricing tiers** (offerings), from full price ($9.99/mo or $59.99/yr) down to 50% off winback ($29.99/yr).\n\n`;
+  md += `### How we calculate what you actually earn\n\n`;
+  md += `Apple takes a **15% commission** on every purchase (Small Business Program). So when a user pays $9.99/month, you receive $8.49. For a $59.99/year subscription, you get $50.99/year ($4.25/month effective).\n\n`;
+  md += `### The "blended revenue" number\n\n`;
+  md += `Not every user pays the same price. Some buy monthly (more expensive), most buy annual, and some get discounts through abandonment or winback flows. We weight each pricing tier by its expected share of subscribers to get a single **blended revenue per user per month** — what the average user earns you.\n\n`;
+  md += `### How personas map to subscriptions\n\n`;
+  md += `Each of the 7 simulated personas is assigned a realistic subscription path based on their behavior:\n\n`;
+  md += `- **Monthly subscribers** (Morgan, Riley, Casey) — engaged users who prefer flexibility → $8.49/mo net\n`;
+  md += `- **Annual subscribers** (Alex, Jordan) — committed users on the default plan → $4.25/mo net\n`;
+  md += `- **Discount subscriber** (Sam) — power user who skipped trial for 15% off → $3.61/mo net\n`;
+  md += `- **Trial explorer** (Taylor) — 70% churn during trial, only 30% convert → $1.27/mo effective\n\n`;
+  md += `### How we measure AI costs\n\n`;
+  md += `The simulation calls the **real production edge functions** (generate-workout, analyze-equipment, parse-equipment-text) with realistic parameters for each persona. After all calls complete, we query the \`llm_usage_logs\` database table to get the **actual cost** OpenRouter charged for each LLM call.\n\n`;
+  md += `### The bottom line: Margin\n\n`;
+  md += `**Margin = Revenue - LLM Cost.** If a user pays you $4.25/mo and their AI usage costs $0.15/mo, your margin is $4.10 (96.4%). Every persona in this simulation is profitable — the question is just *how* profitable.\n\n`;
+  md += `---\n\n`;
+
   // Per-persona table
   md += `## Per-Persona Results\n\n`;
   md += `| Persona | Mix | Calls | DB Logs | Projected $/mo | Actual $/mo | Variance | Avg Latency |\n`;
