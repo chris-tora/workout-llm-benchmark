@@ -46,7 +46,7 @@ const MODEL_INFO = {
     type: 'Text',
   },
   'analyze-equipment': {
-    models: ['qwen/qwen3-vl-32b-instruct'],
+    models: ['openai/gpt-4.1-mini'],
     calls: '1 (vision)',
     type: 'Vision',
   },
@@ -796,27 +796,19 @@ function printResultsTable(personaAnalysis) {
   console.log(`${C.bold}${C.cyan}${'='.repeat(70)}${C.reset}\n`);
 
   // Header
-  console.log(`  ${C.bold}${pad('Persona', 28)} ${padLeft('Calls', 6)} ${padLeft('DB Logs', 8)} ${padLeft('Proj $/mo', 10)} ${padLeft('Act $/mo', 10)} ${padLeft('Variance', 10)} ${padLeft('Avg Lat', 8)}${C.reset}`);
-  console.log(`  ${'─'.repeat(80)}`);
+  console.log(`  ${C.bold}${pad('Persona', 28)} ${padLeft('Calls', 6)} ${padLeft('DB Logs', 8)} ${padLeft('Cost/mo', 10)} ${padLeft('Avg Lat', 8)}${C.reset}`);
+  console.log(`  ${'─'.repeat(62)}`);
 
   for (const pa of personaAnalysis) {
-    const varianceStr = pa.variance > 0
-      ? `${C.red}+${pa.variance.toFixed(1)}%${C.reset}`
-      : `${C.green}${pa.variance.toFixed(1)}%${C.reset}`;
-
-    console.log(`  ${pad(pa.label, 28)} ${padLeft(pa.callsMade, 6)} ${padLeft(pa.logCount, 8)} ${padLeft(formatUsd(pa.projectedMonthlyCost), 10)} ${padLeft(formatUsd(pa.monthlyProjection), 10)} ${padLeft(varianceStr, 20)} ${padLeft(formatMs(pa.avgLatencyMs), 8)}`);
+    console.log(`  ${pad(pa.label, 28)} ${padLeft(pa.callsMade, 6)} ${padLeft(pa.logCount, 8)} ${padLeft(formatUsd(pa.monthlyProjection), 10)} ${padLeft(formatMs(pa.avgLatencyMs), 8)}`);
   }
 
-  console.log(`  ${'─'.repeat(80)}`);
+  console.log(`  ${'─'.repeat(62)}`);
 
   // Blended cost
   const blended = computeBlendedCost(personaAnalysis);
-  const projectedBlended = personaAnalysis.reduce((sum, pa) => sum + pa.projectedMonthlyCost * pa.userMix, 0);
 
-  console.log(`\n  ${C.bold}Blended Cost per User/Month:${C.reset}`);
-  console.log(`    ${C.dim}Projected:${C.reset}  ${C.yellow}${formatUsd(projectedBlended)}${C.reset}`);
-  console.log(`    ${C.dim}Actual:${C.reset}     ${C.green}${formatUsd(blended)}${C.reset}`);
-  console.log(`    ${C.dim}Variance:${C.reset}   ${blended > projectedBlended ? C.red : C.green}${((blended - projectedBlended) / projectedBlended * 100).toFixed(1)}%${C.reset}`);
+  console.log(`\n  ${C.bold}Blended Cost per User/Month:${C.reset}  ${C.green}${formatUsd(blended)}${C.reset}`);
 }
 
 function printFunctionBreakdown(personaAnalysis) {
@@ -870,11 +862,22 @@ function printMarginAnalysis(personaAnalysis) {
   console.log(`  ${C.dim}Cost:${C.reset}`);
   console.log(`    Blended LLM cost/user/mo:    ${C.green}${formatUsd(blended)}${C.reset}`);
   console.log('');
+  // Compute per-function averages from actual data
+  const fnAggregated = {};
+  for (const pa of personaAnalysis) {
+    for (const [fn, data] of Object.entries(pa.byFunction)) {
+      if (!fnAggregated[fn]) fnAggregated[fn] = { count: 0, cost: 0 };
+      fnAggregated[fn].count += data.count;
+      fnAggregated[fn].cost += data.cost;
+    }
+  }
+  const avgCostStr = (fn) => fnAggregated[fn] ? formatUsd(fnAggregated[fn].cost / fnAggregated[fn].count) : formatUsd(COST_ESTIMATES[fn]);
+
   console.log(`  ${C.dim}AI Models:${C.reset}`);
-  console.log(`    Workout generation:    ${C.cyan}anthropic/claude-sonnet-4${C.reset} (2 calls x $${(COST_ESTIMATES['generate-workout'] / 2).toFixed(4)})`);
-  console.log(`    Equipment scanning:    ${C.cyan}qwen/qwen3-vl-32b-instruct${C.reset} (${formatUsd(COST_ESTIMATES['analyze-equipment'])})`);
-  console.log(`    Text parsing:          ${C.cyan}openai/gpt-4o-mini${C.reset} (${formatUsd(COST_ESTIMATES['parse-equipment-text'])})`);
-  console.log(`    Equipment classify:    ${C.cyan}gemini-3-flash / gpt-4o-mini${C.reset} (${formatUsd(COST_ESTIMATES['classify-equipment'])})`);
+  console.log(`    Workout generation:    ${C.cyan}anthropic/claude-sonnet-4${C.reset} (${avgCostStr('generate-workout')}/call)`);
+  console.log(`    Equipment scanning:    ${C.cyan}openai/gpt-4.1-mini${C.reset} (${avgCostStr('analyze-equipment')}/call)`);
+  console.log(`    Text parsing:          ${C.cyan}openai/gpt-4o-mini${C.reset} (${avgCostStr('parse-equipment-text')}/call)`);
+  console.log(`    Equipment classify:    ${C.cyan}gemini-3-flash / gpt-4o-mini${C.reset} (${avgCostStr('classify-equipment')}/call)`);
   console.log('');
   console.log(`  ${C.bold}Margin:${C.reset}`);
   console.log(`    Per user/month:              ${C.green}${formatUsd(blendedRevenue - blended)}${C.reset}`);
@@ -909,7 +912,6 @@ function printMarginAnalysis(personaAnalysis) {
 
 function generateMarkdownReport(personaAnalysis, simulationMeta) {
   const blended = computeBlendedCost(personaAnalysis);
-  const projectedBlended = personaAnalysis.reduce((sum, pa) => sum + pa.projectedMonthlyCost * pa.userMix, 0);
 
   let md = `# Persona Cost Simulation Report\n\n`;
   md += `**Date:** ${simulationMeta.timestamp}\n`;
@@ -940,19 +942,14 @@ function generateMarkdownReport(personaAnalysis, simulationMeta) {
 
   // Per-persona table
   md += `## Per-Persona Results\n\n`;
-  md += `| Persona | Mix | Calls | DB Logs | Projected $/mo | Actual $/mo | Variance | Avg Latency |\n`;
-  md += `|---------|-----|-------|---------|----------------|-------------|----------|-------------|\n`;
+  md += `| Persona | Mix | Calls | DB Logs | Cost/mo | Avg Latency |\n`;
+  md += `|---------|-----|-------|---------|---------|-------------|\n`;
 
   for (const pa of personaAnalysis) {
-    const varianceStr = `${pa.variance > 0 ? '+' : ''}${pa.variance.toFixed(1)}%`;
-    md += `| ${pa.label} | ${(pa.userMix * 100).toFixed(0)}% | ${pa.callsMade} | ${pa.logCount} | ${formatUsd(pa.projectedMonthlyCost)} | ${formatUsd(pa.monthlyProjection)} | ${varianceStr} | ${formatMs(pa.avgLatencyMs)} |\n`;
+    md += `| ${pa.label} | ${(pa.userMix * 100).toFixed(0)}% | ${pa.callsMade} | ${pa.logCount} | ${formatUsd(pa.monthlyProjection)} | ${formatMs(pa.avgLatencyMs)} |\n`;
   }
 
-  // Function breakdown
-  md += `\n## Per-Function Breakdown\n\n`;
-  md += `| Function | Calls | Total Cost | Avg $/call | Total Tokens | Avg Latency |\n`;
-  md += `|----------|-------|------------|------------|-------------|-------------|\n`;
-
+  // Aggregate function data (used by multiple sections below)
   const aggregated = {};
   for (const pa of personaAnalysis) {
     for (const [fn, data] of Object.entries(pa.byFunction)) {
@@ -964,6 +961,11 @@ function generateMarkdownReport(personaAnalysis, simulationMeta) {
     }
   }
 
+  // Function breakdown
+  md += `\n## Per-Function Breakdown\n\n`;
+  md += `| Function | Calls | Total Cost | Avg $/call | Total Tokens | Avg Latency |\n`;
+  md += `|----------|-------|------------|------------|-------------|-------------|\n`;
+
   for (const [fn, data] of Object.entries(aggregated)) {
     const avgCost = data.count > 0 ? data.cost / data.count : 0;
     const avgLat = data.count > 0 ? data.latency / data.count : 0;
@@ -972,22 +974,20 @@ function generateMarkdownReport(personaAnalysis, simulationMeta) {
 
   // AI model usage
   md += `\n## AI Model Usage\n\n`;
-  md += `| Edge Function | Model(s) | Call Type | Calls/Invocation | Est. Cost/Call |\n`;
+  md += `| Edge Function | Model(s) | Call Type | Calls/Invocation | Avg Cost/Call |\n`;
   md += `|---------------|----------|-----------|-----------------|----------------|\n`;
 
   for (const [fn, info] of Object.entries(MODEL_INFO)) {
     const modelStr = info.models.map(m => `\`${m}\``).join(', ');
-    const costPerCall = COST_ESTIMATES[fn] ? formatUsd(COST_ESTIMATES[fn]) : '—';
+    const costPerCall = aggregated[fn] ? formatUsd(aggregated[fn].cost / aggregated[fn].count) : '—';
     md += `| ${fn} | ${modelStr} | ${info.type} | ${info.calls} | ${costPerCall} |\n`;
   }
 
   // Blended cost
-  md += `\n## Blended Cost Comparison\n\n`;
+  md += `\n## Blended Cost Summary\n\n`;
   md += `| Metric | Value |\n`;
   md += `|--------|-------|\n`;
-  md += `| Projected blended $/user/mo | ${formatUsd(projectedBlended)} |\n`;
-  md += `| Actual blended $/user/mo | ${formatUsd(blended)} |\n`;
-  md += `| Variance | ${((blended - projectedBlended) / projectedBlended * 100).toFixed(1)}% |\n`;
+  md += `| Blended LLM cost/user/mo | ${formatUsd(blended)} |\n`;
 
   // Margin analysis
   const blendedRevenue = computeBlendedRevenue();
