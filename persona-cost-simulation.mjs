@@ -38,6 +38,96 @@ const COST_ESTIMATES = {
   'classify-equipment': 0.0001,
 };
 
+// ─── MODEL INFO (from edge function code audit) ──────────────────────────
+const MODEL_INFO = {
+  'generate-workout': {
+    models: ['anthropic/claude-sonnet-4'],
+    calls: '2 sequential (exercise-selector + param-assigner)',
+    type: 'Text',
+  },
+  'analyze-equipment': {
+    models: ['qwen/qwen3-vl-32b-instruct'],
+    calls: '1 (vision)',
+    type: 'Vision',
+  },
+  'parse-equipment-text': {
+    models: ['openai/gpt-4o-mini'],
+    calls: '1 (text)',
+    type: 'Text',
+  },
+  'classify-equipment': {
+    models: ['google/gemini-3-flash-preview', 'openai/gpt-4o-mini'],
+    calls: '1 per exercise (text or vision mode)',
+    type: 'Text/Vision',
+  },
+};
+
+// ─── REVENUE MODEL (sourced from RevenueCat + App Store Connect) ──────────
+// RevenueCat Project: proja1ccb05f | Entitlement: "Repgen Pro" (entlf6d0367a51)
+// Apple commission: 15% (Small Business Program, <$1M revenue)
+// RevenueCat fee: 0% (under $2,500 MTR) — not included below, add 1.2% when MTR > $2,500
+const APPLE_COMMISSION = 0.15;
+
+const REVENUE_MODEL = {
+  offerings: {
+    default: {
+      monthly: { gross: 9.99, storeId: 'com.repgen.app.monthly' },
+      annual:  { gross: 59.99, storeId: 'com.repgen.app.annual' },
+    },
+    skip_trial_15: {
+      monthly: { gross: 8.49, storeId: 'com.repgen.app.monthly.15off' },
+      annual:  { gross: 50.99, storeId: 'com.repgen.app.annual.15off' },
+    },
+    abandonment_25: {
+      monthly: { gross: 9.99, storeId: 'com.repgen.app.monthly' },  // anchor, no discount
+      annual:  { gross: 44.99, storeId: 'com.repgen.app.annual.25off' },
+    },
+    abandonment_30: {
+      monthly: { gross: 9.99, storeId: 'com.repgen.app.monthly' },  // anchor, no discount
+      annual:  { gross: 41.99, storeId: 'com.repgen.app.annual.30off' },
+    },
+    winback_40: {
+      monthly: null,  // no monthly in this offering
+      annual:  { gross: 35.99, storeId: 'com.repgen.app.annual.40off' },
+    },
+    winback_50: {
+      annual:  { gross: 29.99, storeId: 'com.repgen.app.annual.50off' },
+    },
+  },
+
+  // Expected plan mix (moderate estimate from revenue-pricing.md)
+  planMix: {
+    'default:annual':       0.55,  // Trial → Annual (default selection, "BEST VALUE" badge)
+    'skip_trial_15:annual': 0.10,  // Skip trial toggle → Annual 15% off
+    'default:monthly':      0.15,  // Trial → Monthly
+    'skip_trial_15:monthly': 0.05, // Skip trial → Monthly 15% off
+    'abandonment_25:annual': 0.10, // Close paywall 1st time → 25% off annual
+    'abandonment_30:annual': 0.03, // Close paywall no trial → 30% off annual
+    'winback_40:annual':    0.01,  // Trial cancelled winback → 40% off
+    'winback_50:annual':    0.01,  // Sub cancelled winback → 50% off
+  },
+};
+
+// Compute net revenue for a given offering+plan
+function netRevenue(offeringKey, planType) {
+  const offering = REVENUE_MODEL.offerings[offeringKey];
+  if (!offering) return 0;
+  const plan = offering[planType];
+  if (!plan) return 0;
+  const net = plan.gross * (1 - APPLE_COMMISSION);
+  return planType === 'annual' ? net / 12 : net;  // normalize to monthly
+}
+
+// Compute blended monthly net revenue from plan mix
+function computeBlendedRevenue() {
+  let blended = 0;
+  for (const [key, weight] of Object.entries(REVENUE_MODEL.planMix)) {
+    const [offering, plan] = key.split(':');
+    blended += netRevenue(offering, plan) * weight;
+  }
+  return blended;
+}
+
 // Minimal 1x1 JPEG for equipment scan testing (LLM still processes it)
 const TEST_IMAGE_BASE64 = '/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCAABAAEDASIAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AKwA//9k=';
 
@@ -92,6 +182,8 @@ const PERSONAS = [
     label: 'Alex — Casual Beginner',
     userMix: 0.25,
     projectedMonthlyCost: 0.170,
+    subscriptionPlan: { offering: 'default', plan: 'annual' },
+    get netRevenuePerMonth() { return netRevenue(this.subscriptionPlan.offering, this.subscriptionPlan.plan); },
     workoutGenerations: 6,
     workoutRegenerations: 0,
     equipmentScans: 1,
@@ -114,6 +206,8 @@ const PERSONAS = [
     label: 'Jordan — Steady Regular',
     userMix: 0.25,
     projectedMonthlyCost: 0.337,
+    subscriptionPlan: { offering: 'default', plan: 'annual' },
+    get netRevenuePerMonth() { return netRevenue(this.subscriptionPlan.offering, this.subscriptionPlan.plan); },
     workoutGenerations: 8,
     workoutRegenerations: 4,
     equipmentScans: 1,
@@ -135,6 +229,8 @@ const PERSONAS = [
     label: 'Sam — Power User',
     userMix: 0.08,
     projectedMonthlyCost: 0.675,
+    subscriptionPlan: { offering: 'skip_trial_15', plan: 'annual' },
+    get netRevenuePerMonth() { return netRevenue(this.subscriptionPlan.offering, this.subscriptionPlan.plan); },
     workoutGenerations: 16,
     workoutRegenerations: 8,
     equipmentScans: 2,
@@ -156,6 +252,8 @@ const PERSONAS = [
     label: 'Riley — Gym Hopper',
     userMix: 0.07,
     projectedMonthlyCost: 0.370,
+    subscriptionPlan: { offering: 'default', plan: 'monthly' },
+    get netRevenuePerMonth() { return netRevenue(this.subscriptionPlan.offering, this.subscriptionPlan.plan); },
     workoutGenerations: 10,
     workoutRegenerations: 3,
     equipmentScans: 6,
@@ -179,6 +277,8 @@ const PERSONAS = [
     label: 'Taylor — Trial Explorer',
     userMix: 0.20,
     projectedMonthlyCost: 0.650,
+    subscriptionPlan: { offering: 'default', plan: 'annual', conversionRate: 0.30 },
+    get netRevenuePerMonth() { return netRevenue('default', 'annual') * this.subscriptionPlan.conversionRate; },
     workoutGenerations: 15,
     workoutRegenerations: 8,
     equipmentScans: 4,
@@ -202,6 +302,8 @@ const PERSONAS = [
     label: 'Morgan — Weekend Warrior',
     userMix: 0.10,
     projectedMonthlyCost: 0.112,
+    subscriptionPlan: { offering: 'default', plan: 'monthly' },
+    get netRevenuePerMonth() { return netRevenue(this.subscriptionPlan.offering, this.subscriptionPlan.plan); },
     workoutGenerations: 3,
     workoutRegenerations: 1,
     equipmentScans: 0,
@@ -223,6 +325,8 @@ const PERSONAS = [
     label: 'Casey — Returning Seasonal',
     userMix: 0.05,
     projectedMonthlyCost: 0.394,
+    subscriptionPlan: { offering: 'default', plan: 'monthly' },
+    get netRevenuePerMonth() { return netRevenue(this.subscriptionPlan.offering, this.subscriptionPlan.plan); },
     workoutGenerations: 10,
     workoutRegenerations: 4,
     equipmentScans: 2,
@@ -729,32 +833,48 @@ function printFunctionBreakdown(personaAnalysis) {
     }
   }
 
-  console.log(`  ${C.bold}${pad('Function', 24)} ${padLeft('Calls', 6)} ${padLeft('Total $', 10)} ${padLeft('Avg $/call', 11)} ${padLeft('Tokens', 10)} ${padLeft('Avg Lat', 8)}${C.reset}`);
-  console.log(`  ${'─'.repeat(70)}`);
+  console.log(`  ${C.bold}${pad('Function', 24)} ${padLeft('Calls', 6)} ${padLeft('Total $', 10)} ${padLeft('Avg $/call', 11)} ${padLeft('Tokens', 10)} ${padLeft('Avg Lat', 8)}  ${pad('Model(s)', 40)}${C.reset}`);
+  console.log(`  ${'─'.repeat(110)}`);
 
   for (const [fn, data] of Object.entries(aggregated)) {
     const avgCost = data.count > 0 ? data.cost / data.count : 0;
     const avgLat = data.count > 0 ? data.latency / data.count : 0;
-    console.log(`  ${pad(fn, 24)} ${padLeft(data.count, 6)} ${padLeft(formatUsd(data.cost), 10)} ${padLeft(formatUsd(avgCost), 11)} ${padLeft(data.tokens.toLocaleString(), 10)} ${padLeft(formatMs(avgLat), 8)}`);
+    const modelInfo = MODEL_INFO[fn];
+    const modelStr = modelInfo ? `${modelInfo.models.join(', ')} [${modelInfo.type}]` : '—';
+    console.log(`  ${pad(fn, 24)} ${padLeft(data.count, 6)} ${padLeft(formatUsd(data.cost), 10)} ${padLeft(formatUsd(avgCost), 11)} ${padLeft(data.tokens.toLocaleString(), 10)} ${padLeft(formatMs(avgLat), 8)}  ${C.dim}${modelStr}${C.reset}`);
   }
 }
 
 function printMarginAnalysis(personaAnalysis) {
   const blended = computeBlendedCost(personaAnalysis);
+  const blendedRevenue = computeBlendedRevenue();
 
   console.log(`\n${C.bold}${C.cyan}  MARGIN ANALYSIS${C.reset}\n`);
 
-  const monthlyNet = 8.49;   // After 15% Apple commission on $9.99
-  const annualNet = 4.25;    // $50.99/yr after commission / 12
-  const blendedRevenue = 4.85; // Weighted average
+  console.log(`  ${C.dim}Revenue model (RevenueCat — ${Object.keys(REVENUE_MODEL.offerings).length} offerings, ${APPLE_COMMISSION * 100}% Apple commission):${C.reset}`);
+  console.log(`  ${C.bold}${pad('Offering', 24)} ${padLeft('Monthly', 12)} ${padLeft('Annual/mo', 12)} ${padLeft('Mix Weight', 12)}${C.reset}`);
+  console.log(`  ${'─'.repeat(62)}`);
 
-  console.log(`  ${C.dim}Revenue assumptions:${C.reset}`);
-  console.log(`    Monthly subscriber net:      $${monthlyNet.toFixed(2)}/mo (after 15% Apple)`);
-  console.log(`    Annual subscriber eff. net:   $${annualNet.toFixed(2)}/mo`);
-  console.log(`    Blended net revenue:          $${blendedRevenue.toFixed(2)}/mo`);
+  for (const [offeringKey, offering] of Object.entries(REVENUE_MODEL.offerings)) {
+    const monthlyNet = offering.monthly ? netRevenue(offeringKey, 'monthly') : null;
+    const annualNet = offering.annual ? netRevenue(offeringKey, 'annual') : null;
+    const monthlyMix = REVENUE_MODEL.planMix[`${offeringKey}:monthly`] || 0;
+    const annualMix = REVENUE_MODEL.planMix[`${offeringKey}:annual`] || 0;
+    const totalMix = monthlyMix + annualMix;
+    console.log(`  ${pad(offeringKey, 24)} ${padLeft(monthlyNet !== null ? `$${monthlyNet.toFixed(2)}` : '—', 12)} ${padLeft(annualNet !== null ? `$${annualNet.toFixed(2)}` : '—', 12)} ${padLeft(totalMix > 0 ? `${(totalMix * 100).toFixed(0)}%` : '—', 12)}`);
+  }
+
+  console.log(`  ${'─'.repeat(62)}`);
+  console.log(`  ${C.bold}${pad('Blended net revenue/mo', 24)} ${padLeft(`$${blendedRevenue.toFixed(2)}`, 12)}${C.reset}`);
   console.log('');
   console.log(`  ${C.dim}Cost:${C.reset}`);
   console.log(`    Blended LLM cost/user/mo:    ${C.green}${formatUsd(blended)}${C.reset}`);
+  console.log('');
+  console.log(`  ${C.dim}AI Models:${C.reset}`);
+  console.log(`    Workout generation:    ${C.cyan}anthropic/claude-sonnet-4${C.reset} (2 calls x $${(COST_ESTIMATES['generate-workout'] / 2).toFixed(4)})`);
+  console.log(`    Equipment scanning:    ${C.cyan}qwen/qwen3-vl-32b-instruct${C.reset} (${formatUsd(COST_ESTIMATES['analyze-equipment'])})`);
+  console.log(`    Text parsing:          ${C.cyan}openai/gpt-4o-mini${C.reset} (${formatUsd(COST_ESTIMATES['parse-equipment-text'])})`);
+  console.log(`    Equipment classify:    ${C.cyan}gemini-3-flash / gpt-4o-mini${C.reset} (${formatUsd(COST_ESTIMATES['classify-equipment'])})`);
   console.log('');
   console.log(`  ${C.bold}Margin:${C.reset}`);
   console.log(`    Per user/month:              ${C.green}${formatUsd(blendedRevenue - blended)}${C.reset}`);
@@ -768,6 +888,23 @@ function printMarginAnalysis(personaAnalysis) {
   console.log(`    $1 LLM spend covers:         ${breakEvenUsers} users/month`);
   console.log(`    1000 users costs:            ${formatUsd(blended * 1000)}/month in LLM`);
   console.log(`    10,000 users costs:          ${formatUsd(blended * 10000)}/month in LLM`);
+
+  // Per-persona margins
+  console.log(`\n  ${C.bold}Per-Persona Margins (Actual LLM Cost vs Revenue):${C.reset}\n`);
+  console.log(`  ${C.bold}${pad('Persona', 28)} ${padLeft('Subscription', 24)} ${padLeft('Revenue', 10)} ${padLeft('LLM Cost', 10)} ${padLeft('Margin', 10)} ${padLeft('Margin %', 10)}${C.reset}`);
+  console.log(`  ${'─'.repeat(94)}`);
+
+  for (const pa of personaAnalysis) {
+    const persona = PERSONAS.find(p => p.name === pa.name);
+    const revenue = persona?.netRevenuePerMonth || 0;
+    const margin = revenue - pa.monthlyProjection;
+    const marginPct = revenue > 0 ? ((margin / revenue) * 100) : 0;
+    const subLabel = persona?.subscriptionPlan
+      ? `${persona.subscriptionPlan.offering}:${persona.subscriptionPlan.plan}${persona.subscriptionPlan.conversionRate ? ` (${(persona.subscriptionPlan.conversionRate * 100).toFixed(0)}% conv)` : ''}`
+      : '—';
+    const marginColor = marginPct >= 90 ? C.green : marginPct >= 50 ? C.yellow : C.red;
+    console.log(`  ${pad(pa.label, 28)} ${padLeft(subLabel, 24)} ${padLeft(`$${revenue.toFixed(2)}`, 10)} ${padLeft(formatUsd(pa.monthlyProjection), 10)} ${padLeft(`$${margin.toFixed(2)}`, 10)} ${marginColor}${padLeft(marginPct.toFixed(1) + '%', 10)}${C.reset}`);
+  }
 }
 
 function generateMarkdownReport(personaAnalysis, simulationMeta) {
@@ -813,6 +950,17 @@ function generateMarkdownReport(personaAnalysis, simulationMeta) {
     md += `| ${fn} | ${data.count} | ${formatUsd(data.cost)} | ${formatUsd(avgCost)} | ${data.tokens.toLocaleString()} | ${formatMs(avgLat)} |\n`;
   }
 
+  // AI model usage
+  md += `\n## AI Model Usage\n\n`;
+  md += `| Edge Function | Model(s) | Call Type | Calls/Invocation | Est. Cost/Call |\n`;
+  md += `|---------------|----------|-----------|-----------------|----------------|\n`;
+
+  for (const [fn, info] of Object.entries(MODEL_INFO)) {
+    const modelStr = info.models.map(m => `\`${m}\``).join(', ');
+    const costPerCall = COST_ESTIMATES[fn] ? formatUsd(COST_ESTIMATES[fn]) : '—';
+    md += `| ${fn} | ${modelStr} | ${info.type} | ${info.calls} | ${costPerCall} |\n`;
+  }
+
   // Blended cost
   md += `\n## Blended Cost Comparison\n\n`;
   md += `| Metric | Value |\n`;
@@ -822,12 +970,26 @@ function generateMarkdownReport(personaAnalysis, simulationMeta) {
   md += `| Variance | ${((blended - projectedBlended) / projectedBlended * 100).toFixed(1)}% |\n`;
 
   // Margin analysis
-  const blendedRevenue = 4.85;
+  const blendedRevenue = computeBlendedRevenue();
+  md += `\n## Revenue Model\n\n`;
+  md += `Apple commission: ${APPLE_COMMISSION * 100}% (Small Business Program)\n\n`;
+  md += `| Offering | Monthly Net | Annual Net/mo | Mix Weight |\n`;
+  md += `|----------|------------|--------------|------------|\n`;
+
+  for (const [offeringKey, offering] of Object.entries(REVENUE_MODEL.offerings)) {
+    const monthlyNet = offering.monthly ? netRevenue(offeringKey, 'monthly') : null;
+    const annualNet = offering.annual ? netRevenue(offeringKey, 'annual') : null;
+    const monthlyMix = REVENUE_MODEL.planMix[`${offeringKey}:monthly`] || 0;
+    const annualMix = REVENUE_MODEL.planMix[`${offeringKey}:annual`] || 0;
+    const totalMix = monthlyMix + annualMix;
+    md += `| ${offeringKey} | ${monthlyNet !== null ? `$${monthlyNet.toFixed(2)}` : '—'} | ${annualNet !== null ? `$${annualNet.toFixed(2)}` : '—'} | ${totalMix > 0 ? `${(totalMix * 100).toFixed(0)}%` : '—'} |\n`;
+  }
+
+  md += `\n**Blended net revenue/mo:** $${blendedRevenue.toFixed(2)}\n`;
+
   md += `\n## Margin Analysis\n\n`;
   md += `| Metric | Value |\n`;
   md += `|--------|-------|\n`;
-  md += `| Monthly subscriber net revenue | $8.49 |\n`;
-  md += `| Annual subscriber eff. monthly net | $4.25 |\n`;
   md += `| Blended net revenue | $${blendedRevenue.toFixed(2)}/mo |\n`;
   md += `| Blended LLM cost/user/mo | ${formatUsd(blended)} |\n`;
   md += `| Margin per user/mo | ${formatUsd(blendedRevenue - blended)} |\n`;
@@ -835,6 +997,22 @@ function generateMarkdownReport(personaAnalysis, simulationMeta) {
   md += `| Cost as % of revenue | ${(blended / blendedRevenue * 100).toFixed(2)}% |\n`;
   md += `| 1,000 users LLM cost/mo | ${formatUsd(blended * 1000)} |\n`;
   md += `| 10,000 users LLM cost/mo | ${formatUsd(blended * 10000)} |\n`;
+
+  // Per-persona margin table
+  md += `\n## Per-Persona Margin Analysis\n\n`;
+  md += `| Persona | Subscription | Revenue/mo | LLM Cost/mo | Margin/mo | Margin % |\n`;
+  md += `|---------|-------------|-----------|-------------|----------|----------|\n`;
+
+  for (const pa of personaAnalysis) {
+    const persona = PERSONAS.find(p => p.name === pa.name);
+    const revenue = persona?.netRevenuePerMonth || 0;
+    const margin = revenue - pa.monthlyProjection;
+    const marginPct = revenue > 0 ? ((margin / revenue) * 100) : 0;
+    const subLabel = persona?.subscriptionPlan
+      ? `${persona.subscriptionPlan.offering}:${persona.subscriptionPlan.plan}${persona.subscriptionPlan.conversionRate ? ` (${(persona.subscriptionPlan.conversionRate * 100).toFixed(0)}% conv)` : ''}`
+      : '—';
+    md += `| ${pa.label} | ${subLabel} | $${revenue.toFixed(2)} | ${formatUsd(pa.monthlyProjection)} | $${margin.toFixed(2)} | ${marginPct.toFixed(1)}% |\n`;
+  }
 
   return md;
 }
