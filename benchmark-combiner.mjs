@@ -252,7 +252,10 @@ async function combineResults(modelFiles, exerciseNames) {
   const parsedFiles = [];
   const allModels = [];
   const modelSummaries = {};
-  const scenarioMap = new Map(); // scenario name -> { scenario info, modelResults[] }
+  // scenario name -> model id -> { result, fileTimestamp }
+  const scenarioDedup = new Map();
+  // scenario name -> scenario metadata (without results)
+  const scenarioMeta = new Map();
 
   console.log('\nParsing model files...');
 
@@ -269,57 +272,53 @@ async function combineResults(modelFiles, exerciseNames) {
     process.exit(1);
   }
 
-  console.log(`\nSuccessfully parsed ${parsedFiles.length} model files.`);
+  // Sort by file timestamp (oldest first) so latest results overwrite earlier ones
+  parsedFiles.sort((a, b) => {
+    const tsA = a.data.timestamp || '';
+    const tsB = b.data.timestamp || '';
+    return tsA.localeCompare(tsB);
+  });
 
-  // Extract models and build summaries
+  console.log(`\nSuccessfully parsed ${parsedFiles.length} model files (sorted by timestamp).`);
+
+  // Deduplicate models: keep only unique model IDs
+  const seenModelIds = new Set();
+
+  // Extract models and process scenarios
   for (const { data } of parsedFiles) {
     const model = data.model;
-    allModels.push(model);
+    const fileTimestamp = data.timestamp || '';
 
-    // Build or use existing summary
-    if (data.summary) {
-      // Ensure summary has model name and tier
-      modelSummaries[model.id] = {
-        ...data.summary,
-        name: data.summary.name || model.name,
-        tier: data.summary.tier || model.tier,
-      };
-    } else {
-      // Calculate summary from scenarios if not provided
-      modelSummaries[model.id] = calculateModelSummary(model, data.scenarios);
+    // Track unique models
+    if (!seenModelIds.has(model.id)) {
+      seenModelIds.add(model.id);
+      allModels.push(model);
     }
 
     // Process each scenario
     for (const scenarioResult of data.scenarios) {
       const scenarioName = scenarioResult.name;
 
-      if (!scenarioMap.has(scenarioName)) {
-        // Extract scenario metadata from the request object if available
+      // Store scenario metadata (first occurrence sets it, later ones may update)
+      if (!scenarioMeta.has(scenarioName)) {
         const req = scenarioResult.request || {};
         const meta = SCENARIO_METADATA[scenarioName] || {};
-        scenarioMap.set(scenarioName, {
+        scenarioMeta.set(scenarioName, {
           name: scenarioResult.name,
           category: scenarioResult.category,
-          // Include fields expected by LLMBenchmark.jsx
           split: scenarioResult.split || req.split || meta.split || 'other',
           duration: scenarioResult.duration || req.duration || meta.duration || 60,
           equipment: scenarioResult.equipment || req.equipment || [],
           dayFocus: scenarioResult.dayFocus || req.dayFocus || meta.dayFocus || '',
           trainingStyles: scenarioResult.trainingStyles || req.trainingStyles || [scenarioResult.category || 'bodybuilding'],
-          // Keep original fields for reference
           request: scenarioResult.request,
           expectations: scenarioResult.expectations,
           exercisesAvailable: scenarioResult.exercisesAvailable,
-          results: [], // LLMBenchmark.jsx expects 'results', not 'modelResults'
         });
       }
 
-      const scenario = scenarioMap.get(scenarioName);
-
-      // Add this model's result to the scenario
-      // Support both old format (workout, metrics at top level) and new format (parsedWorkout, metrics nested)
+      // Build the result object for this model+scenario
       const metrics = scenarioResult.metrics || {
-        // Old format has metrics at top level
         exerciseCount: scenarioResult.exerciseCount,
         equipmentMatchRate: scenarioResult.equipmentMatchRate,
         avgSets: scenarioResult.avgSets,
@@ -327,11 +326,13 @@ async function combineResults(modelFiles, exerciseNames) {
         avgRest: scenarioResult.avgRest,
       };
 
-      // Flatten the result object for LLMBenchmark.jsx consumption
-      // The component expects flat fields, not nested structures
+      // Convert avgReps from string to number (e.g. "12" -> 12, "-" -> 0)
+      const rawAvgReps = metrics.avgReps;
+      const numericAvgReps = (typeof rawAvgReps === 'string')
+        ? (rawAvgReps === '-' ? 0 : parseFloat(rawAvgReps) || 0)
+        : (rawAvgReps || 0);
+
       const workout = scenarioResult.parsedWorkout || scenarioResult.workout;
-      // Flatten exercises from ALL sections, not just the first one
-      // Enrich with exercise names and video URLs from database
       const videoUrls = await fetchExerciseVideoUrls();
       const exercises = (workout?.sections?.flatMap(s => s?.exercises || []) || []).map(e => ({
         id: e.id,
@@ -343,34 +344,85 @@ async function combineResults(modelFiles, exerciseNames) {
         videoUrl: videoUrls[e.id] || null,
       }));
 
-      scenario.results.push({
-        // Flat model identifier
+      const resultObj = {
         modelId: model.id,
         model: model.name,
-        // Convert boolean success to status string
         status: scenarioResult.success ? 'success' : 'error',
         latency: scenarioResult.latency,
-        // Flat metrics fields
         exerciseCount: metrics.exerciseCount,
         equipmentMatch: metrics.equipmentMatchRate || 0,
         avgSets: metrics.avgSets,
-        avgReps: metrics.avgReps,
+        avgReps: numericAvgReps,
         avgRest: metrics.avgRest,
-        // Flat exercises array (extracted from sections)
         exercises,
         error: scenarioResult.error || scenarioResult.parseError,
-        // Keep original nested data for backwards compatibility / markdown report
         _model: model,
         parsedWorkout: scenarioResult.parsedWorkout,
         workout: scenarioResult.workout,
         metrics,
         rawResponse: scenarioResult.rawResponse,
-      });
+      };
+
+      // Dedup: for each (scenario, model) pair, keep only the latest result
+      if (!scenarioDedup.has(scenarioName)) {
+        scenarioDedup.set(scenarioName, new Map());
+      }
+      const modelMap = scenarioDedup.get(scenarioName);
+      const existing = modelMap.get(model.id);
+
+      // Overwrite if no existing entry or if this file is newer
+      if (!existing || fileTimestamp >= existing.fileTimestamp) {
+        modelMap.set(model.id, { result: resultObj, fileTimestamp });
+      }
     }
   }
 
-  // Convert scenario map to array
-  const scenarios = Array.from(scenarioMap.values());
+  // Build deduplicated scenarios array
+  const scenarios = [];
+  for (const [scenarioName, meta] of scenarioMeta.entries()) {
+    const modelMap = scenarioDedup.get(scenarioName) || new Map();
+    const results = Array.from(modelMap.values()).map(entry => entry.result);
+    scenarios.push({
+      ...meta,
+      results,
+    });
+  }
+
+  // Build model summaries from deduplicated results
+  // Collect all results per model from the deduplicated scenarios
+  const modelScenarioResults = {};
+  for (const scenario of scenarios) {
+    for (const result of scenario.results) {
+      if (!modelScenarioResults[result.modelId]) {
+        modelScenarioResults[result.modelId] = [];
+      }
+      modelScenarioResults[result.modelId].push(result);
+    }
+  }
+
+  for (const model of allModels) {
+    const results = modelScenarioResults[model.id] || [];
+    // Build a synthetic scenarios array matching what calculateModelSummary expects
+    const syntheticScenarios = results.map(r => ({
+      success: r.status === 'success',
+      latency: r.latency,
+      parsedWorkout: r.parsedWorkout,
+      workout: r.workout,
+      parseError: r.status === 'success' && !r.parsedWorkout && !r.workout ? true : undefined,
+      metrics: {
+        exerciseCount: r.exerciseCount,
+        equipmentMatchRate: r.equipmentMatch,
+        avgSets: r.avgSets,
+        avgReps: r.avgReps,
+        avgRest: r.avgRest,
+      },
+    }));
+    modelSummaries[model.id] = calculateModelSummary(model, syntheticScenarios);
+  }
+
+  let totalResults = 0;
+  for (const s of scenarios) totalResults += s.results.length;
+  console.log(`\nDeduplication complete: ${scenarios.length} scenarios, ${totalResults} total results (${allModels.length} unique models).`);
 
   // Get timestamps from files for metadata
   const timestamps = parsedFiles
@@ -425,7 +477,7 @@ function calculateModelSummary(model, scenarios) {
     totalEquipmentMatchRate: 0,
     totalSets: 0,
     totalRest: 0,
-    repsCounts: {},
+    totalReps: 0,
   };
 
   for (const scenario of scenarios) {
@@ -449,8 +501,12 @@ function calculateModelSummary(model, scenarios) {
       summary.totalSets += metrics.avgSets || 0;
       summary.totalRest += metrics.avgRest || 0;
 
-      const reps = String(metrics.avgReps || '-');
-      summary.repsCounts[reps] = (summary.repsCounts[reps] || 0) + 1;
+      // Convert avgReps to number for averaging (handle string "12", "-", etc.)
+      const rawReps = metrics.avgReps;
+      const numReps = (typeof rawReps === 'string')
+        ? (rawReps === '-' ? 0 : parseFloat(rawReps) || 0)
+        : (rawReps || 0);
+      summary.totalReps += numReps;
     } else if (scenario.success && scenario.parseError) {
       summary.parseErrorCount++;
     } else {
@@ -465,17 +521,7 @@ function calculateModelSummary(model, scenarios) {
     summary.avgEquipmentMatchRate = Math.round(summary.totalEquipmentMatchRate / summary.successCount);
     summary.avgSets = Math.round((summary.totalSets / summary.successCount) * 10) / 10;
     summary.avgRest = Math.round(summary.totalRest / summary.successCount);
-
-    // Find most common reps
-    let mostCommonReps = '-';
-    let maxCount = 0;
-    for (const [reps, count] of Object.entries(summary.repsCounts)) {
-      if (count > maxCount) {
-        maxCount = count;
-        mostCommonReps = reps;
-      }
-    }
-    summary.avgReps = mostCommonReps;
+    summary.avgReps = Math.round((summary.totalReps / summary.successCount) * 10) / 10;
   }
 
   summary.successRate = Math.round((summary.successCount / summary.totalTests) * 100);
