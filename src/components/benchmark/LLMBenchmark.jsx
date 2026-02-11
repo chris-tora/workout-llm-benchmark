@@ -243,25 +243,25 @@ export function LLMBenchmark() {
                     </td>
                     <td className="py-3 px-4 text-center">
                       <span className={`font-semibold ${stat.successRate >= 80 ? 'text-green-600' : stat.successRate >= 50 ? 'text-yellow-600' : 'text-red-600'}`}>
-                        {stat.successRate.toFixed(1)}%
+                        {typeof stat.successRate === 'number' ? stat.successRate.toFixed(1) : '—'}%
                       </span>
                     </td>
                     <td className="py-3 px-4 text-center">
                       <span className="flex items-center justify-center gap-1 text-gray-600">
                         <Clock className="w-4 h-4" />
-                        {(stat.avgLatency / 1000).toFixed(2)}s
+                        {typeof stat.avgLatency === 'number' ? (stat.avgLatency / 1000).toFixed(2) : '—'}s
                       </span>
                     </td>
                     <td className="py-3 px-4 text-center">
                       <span className="flex items-center justify-center gap-1 text-gray-600">
                         <Dumbbell className="w-4 h-4" />
-                        {stat.avgExerciseCount.toFixed(1)}
+                        {typeof stat.avgExerciseCount === 'number' ? stat.avgExerciseCount.toFixed(1) : '—'}
                       </span>
                     </td>
                     <td className="py-3 px-4 text-center">
                       <span className="flex items-center justify-center gap-1 text-gray-600">
                         <Target className="w-4 h-4" />
-                        {stat.avgEquipmentMatchRate.toFixed(0)}%
+                        {typeof stat.avgEquipmentMatchRate === 'number' ? stat.avgEquipmentMatchRate.toFixed(0) : '—'}%
                       </span>
                     </td>
                     <td className="py-3 px-4 text-center">
@@ -492,7 +492,7 @@ export function LLMBenchmark() {
                         <>
                           <div className="flex justify-between">
                             <span className="text-gray-500">Latency:</span>
-                            <span className="font-medium">{(result.latency / 1000).toFixed(2)}s</span>
+                            <span className="font-medium">{typeof result.latency === 'number' ? (result.latency / 1000).toFixed(2) : '—'}s</span>
                           </div>
                           <div className="flex justify-between">
                             <span className="text-gray-500">Exercises:</span>
@@ -500,7 +500,7 @@ export function LLMBenchmark() {
                           </div>
                           <div className="flex justify-between">
                             <span className="text-gray-500">Equipment Match:</span>
-                            <span className="font-medium">{result.equipmentMatch.toFixed(0)}%</span>
+                            <span className="font-medium">{typeof result.equipmentMatch === 'number' ? result.equipmentMatch.toFixed(0) : '—'}%</span>
                           </div>
                           <div className="flex justify-between">
                             <span className="text-gray-500">Avg Sets/Reps/Rest:</span>
